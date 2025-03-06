@@ -67,7 +67,7 @@ export default function AdminTestimonials() {
         {previewImage && (
           <div className="mb-4">
             <p>Current Image:</p>
-            <img src={`${BASEURL}${previewImage}`} alt="Preview" className="w-32 h-32 object-cover rounded" />
+            <img src={`${previewImage}`} alt="Preview" className="w-32 h-32 object-cover rounded" />
           </div>
         )}
 
@@ -82,7 +82,7 @@ export default function AdminTestimonials() {
               <h3 className="font-bold">{testimonial.title}</h3>
               <p>{testimonial.text}</p>
               <p className="text-sm text-gray-600">By {testimonial.name} - {testimonial.rating} Stars</p>
-              {testimonial.image && <img src={`${BASEURL}${testimonial.image}`} alt="Testimonial" className="w-20 h-20 object-cover mt-2 rounded" />}
+              {testimonial.image && <img src={`${testimonial.image}`} alt="Testimonial" className="w-20 h-20 object-cover mt-2 rounded" />}
             </div>
             <div className="flex gap-2">
               <button onClick={() => handleEdit(testimonial)} className="bg-yellow-500 text-white px-2 py-1 rounded">Edit</button>

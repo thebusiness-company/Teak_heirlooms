@@ -12,6 +12,7 @@ export default function AdminBlog() {
     queryKey: ["blogs"],
     queryFn: getBlogs,
   });
+  console.log(blogs,"blogsaaaaaaaaaaaaaaaaaaaaaa");
 
   const addMutation = useMutation({
     mutationFn: (newBlog) => addBlog(newBlog),

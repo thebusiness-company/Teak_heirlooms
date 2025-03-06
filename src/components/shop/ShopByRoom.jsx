@@ -7,6 +7,7 @@ import NextArrow from "../../assets/images/Right.png"; // Custom right arrow
 
 // Custom Arrow Components
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
 const CustomPrevArrow = (props) => {
     const { onClick } = props;
@@ -73,19 +74,21 @@ const ShopByRoom = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto text-center py-10 px-4 relative">
-      <h2 className="text-3xl md:text-4xl font-semibold text-gray-700 mb-6">Shop by Room</h2>
+    <div className="max-w-7xl mx-auto text-center py-10 px-4 relative">
+      <h2 className="text-3xl md:text-4xl font-semibold text-[#3b493f] mb-6">Shop by Room</h2>
 
       <div className="relative">
         <Slider {...settings}>
           {products.map((product) => (
             <div key={product.id} className="px-2">
               <div className="bg-white p-4 relative">
+                <Link to='/shop'>
                 <img src={product.image} alt={product.title} className="w-full" />
                 <h3 className="absolute inset-0 flex items-center justify-center text-white text-2xl md:text-3xl font-bold drop-shadow-lg mt-50">
                   {product.title}
                 </h3>
                 <p className="text-red-600 font-semibold mt-2">{product.price}</p>
+                </Link>
               </div>
             </div>
           ))}

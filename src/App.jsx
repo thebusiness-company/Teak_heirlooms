@@ -4,6 +4,7 @@ import MainLayout from "./Layout/MainLayout"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import Adminpage from "./admin/Adminpage";
+import RTShipPage from "./components/RTShip/RTShipPage";
 
 function App() {
   const [bannerData, setBannerData] = useState({
@@ -23,7 +24,7 @@ function App() {
           <Route path="/" element={<MainLayout/>} >
             <Route index element={<Homepage/>}/>
             <Route path="shop" element={<ShopPage onUpload={setBannerData} data={bannerData}/>}/>
-            <Route path="RDship" element={<h1>Ready to ship</h1>}/>
+            <Route path="RDship" element={<RTShipPage/>}/>
             <Route path="design_solution" element={<h1>design Solution</h1>}/>
             <Route path="Bfurniture" element={<h1>bespoke furniture</h1>}/>
             <Route path="collection" element={<h1>collection</h1>}/>
