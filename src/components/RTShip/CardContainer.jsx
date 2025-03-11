@@ -36,7 +36,7 @@ const ProductGrid = () => {
       {/* Most Sold Products Section */}
       <div>
         <h3 className="text-lg font-semibold mb-4">Most Sold Products</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-3 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4">
           {mostSoldProducts.map((item) => (
             <ProductCard
               key={item.id}
@@ -50,22 +50,22 @@ const ProductGrid = () => {
       </div>
 
       {/* New Arrival Section */}
-        <div className="mt-10">
-          <h3 className="text-lg font-semibold mb-4">New Arrival</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {newArrivals.map((item) => (
-          <ProductCard
-            key={item.id}
-            image={item.product?.image || item.image}
-            title={item.product?.name || item.name}
-            price={item.product?.price || item.price}
-            soldOut={!item.product?.in_stock}
-          />
-            ))}
-          </div>
+      <div className="mt-10">
+        <h3 className="text-lg font-semibold mb-4">New Arrival</h3>
+        <div className="grid grid-cols-3 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4">
+          {newArrivals.map((item) => (
+            <ProductCard
+              key={item.id}
+              image={item.product?.image || item.image}
+              title={item.product?.name || item.name}
+              price={item.product?.price || item.price}
+              soldOut={!item.product?.in_stock}
+            />
+          ))}
         </div>
+      </div>
 
-        {/* Pagination Controls */}
+      {/* Pagination Controls */}
       <div className="mt-6 text-center">
         <button
           className={`px-3 py-1 mx-1 border rounded ${
@@ -77,7 +77,7 @@ const ProductGrid = () => {
           ← Prev
         </button>
         <span className="px-3 py-1 mx-1 border rounded bg-gray-300">
-         {page}
+          {page}
         </span>
         <button
           className={`px-3 py-1 mx-1 border rounded ${

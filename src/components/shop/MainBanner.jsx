@@ -1,37 +1,47 @@
-import M1 from '../../assets/images/shop/M1.png';
-import M2 from '../../assets/images/shop/M2.png';
+import { useQuery } from "@tanstack/react-query";
+import { fetchLatestBanner } from "../../services/shopBannerService";
+import M1 from "../../assets/images/shop/M1.png";
+import M2 from "../../assets/images/shop/M2.png";
 
 const MainBanner = () => {
+  const { data: banner, isLoading, error } = useQuery({
+    queryKey: ["banner"],
+    queryFn: fetchLatestBanner,
+  });
+
+  if (isLoading) return <p className="text-center text-gray-600">Loading banner...</p>;
+  if (error || !banner) return <p className="text-center text-gray-600">No banner available</p>;
+
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center bg-white py-10 px-5">
+    <div className="flex flex-row flex-nowrap items-center justify-center w-full bg-white mt-8 overflow-hidden">
       {/* Left Image */}
-      <div className="w-full md:w-1/3 flex justify-center md:justify-end p-3">
+      <div className="w-1/3 flex justify-center p-2">
         <img
-          src={M1}
+          src={banner.image_left || M1}
           alt="Wall Panel 1"
-          className="w-64 lg:w-full md:w-72 h-auto "
+          className="w-full max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:w-auto h-auto"
         />
       </div>
 
       {/* Center Text */}
-      <div className="w-full md:w-1/3 text-center py-5">
-        <h2 className="text-2xl lg:text-6xl md:text-3xl font-semibold text-gray-800">
-          Make Space for New Wall
+      <div className="w-1/3 text-center py-4">
+        <h2 className="text-lg sm:text-xl md:text-3xl lg:text-5xl font-semibold text-[#3B493F]">
+          {banner.title}
         </h2>
-        <p className="text-red-600 text-sm md:text-base mt-2">
-          Wall panel Starting @RS.3600
+        <p className="text-[#9C0300] text-xs sm:text-sm md:text-base mt-2">
+          {banner.description} @RS.{banner.price_text}
         </p>
-        <button className="mt-4 bg-red-700 text-white px-6 py-2 rounded-md hover:bg-red-800 transition duration-300">
+        <button className="mt-3 bg-[#9C0300] text-white px-4 py-2 sm:px-6 sm:py-2 rounded-md hover:bg-red-800 transition duration-300">
           Shop Now
         </button>
       </div>
 
       {/* Right Image */}
-      <div className="w-full  md:w-1/3 flex justify-center md:justify-start p-3">
+      <div className="w-1/3 flex justify-center p-2">
         <img
-          src={M2}
+          src={banner.image_right || M2}
           alt="Wall Panel 2"
-          className="w-64 lg:w-full md:w-72 h-auto "
+          className="w-full max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:w-auto h-auto"
         />
       </div>
     </div>
@@ -39,31 +49,3 @@ const MainBanner = () => {
 };
 
 export default MainBanner;
-
-
-// const MainBanner = ({data}) => {
-//   return (
-//     <div className="flex flex-col md:flex-row items-center justify-center bg-white py-10 px-5 border rounded-lg shadow-lg mt-5">
-//         {/* Left Image */}
-//         <div className="w-full md:w-1/3 flex justify-center md:justify-end p-3">
-//           {data.leftImage && <img src={data.leftImage} alt="Left Wall Panel" className="w-full max-w-xs md:max-w-sm h-auto" />}
-//         </div>
-  
-//         {/* Center Text */}
-//         <div className="w-full md:w-1/3 text-center py-5">
-//           <h2 className="text-xl md:text-3xl lg:text-4xl font-semibold text-gray-800">{data.title}</h2>
-//           <p className="text-red-600 text-sm md:text-base mt-2">{data.subtitle}</p>
-//           <button className="mt-4 bg-red-700 text-white px-6 py-2 rounded-md hover:bg-red-800 transition duration-300">
-//             {data.buttonText}
-//           </button>
-//         </div>
-  
-//         {/* Right Image */}
-//         <div className="w-full md:w-1/3 flex justify-center md:justify-start p-3">
-//           {data.rightImage && <img src={data.rightImage} alt="Right Wall Panel" className="w-full max-w-xs md:max-w-sm h-auto" />}
-//         </div>
-//       </div>
-//   )
-// }
-
-// export default MainBanner

@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import Adminpage from "./admin/Adminpage";
 import RTShipPage from "./components/RTShip/RTShipPage";
+import DesignSolution from "./components/DesignSolution/DesignSolution";
+import BeSpokePage from "./components/Bespoke/BeSpokePage";
 
 function App() {
   const [bannerData, setBannerData] = useState({
@@ -25,8 +27,8 @@ function App() {
             <Route index element={<Homepage/>}/>
             <Route path="shop" element={<ShopPage onUpload={setBannerData} data={bannerData}/>}/>
             <Route path="RDship" element={<RTShipPage/>}/>
-            <Route path="design_solution" element={<h1>design Solution</h1>}/>
-            <Route path="Bfurniture" element={<h1>bespoke furniture</h1>}/>
+            <Route path="design_solution" element={<DesignSolution/>}/>
+            <Route path="Bfurniture" element={<BeSpokePage/>}/>
             <Route path="collection" element={<h1>collection</h1>}/>
           </Route>
         </Routes>

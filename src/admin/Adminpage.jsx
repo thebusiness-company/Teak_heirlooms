@@ -4,6 +4,7 @@ import UploadBanner from './UploadBanner'
 import AdminBlog from './AdminBlog'
 import LatestVideo from './LatestVideo'
 import ProductAdmin from './ProductAdmin'
+import ShopBannerAdmin from './ShopBannerAdmin'
 
 
 const Adminpage = () => {
@@ -15,6 +16,7 @@ const Adminpage = () => {
     <AdminTestHook/>
     <LatestVideo/>
     <ProductAdmin/>
+    <ShopBannerAdmin/>
     </>
   )
 }

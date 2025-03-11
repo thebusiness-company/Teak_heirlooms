@@ -51,12 +51,12 @@ const NewIn = () => {
     slidesToShow: 4,
     TouchMove: true,
     swipe: true,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 1, arrows: false } },
+      { breakpoint: 768, settings: { slidesToShow: 2, arrows: false } },
     ],
   };
 

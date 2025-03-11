@@ -4,10 +4,13 @@ import "slick-carousel/slick/slick-theme.css";
 import M1 from "../../assets/images/shop/M1.png";
 import PrevArrow from "../../assets/images/Left.png"; // Custom left arrow
 import NextArrow from "../../assets/images/Right.png"; // Custom right arrow
+import { useProductCat } from "../../Hooks/useProductCat";
 
 // Custom Arrow Components
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import api from "../../api";
 
 const CustomPrevArrow = (props) => {
     const { onClick } = props;
@@ -44,6 +47,16 @@ CustomNextArrow.propTypes = {
 };
 
 const ShopByFurniture = () => {
+
+  useEffect(() => {
+    api.get("collection/")
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }, []);
   const products = [
     { id: 1, image: M1, title: "Lorem ipsum", price: "₹ 0000.00" },
     { id: 2, image: M1, title: "Lorem ipsum", price: "₹ 0000.00" },
@@ -65,7 +78,7 @@ const ShopByFurniture = () => {
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 2 } },
       { breakpoint: 768, settings: { slidesToShow: 2, arrows: false } },
-      { breakpoint: 640, settings: { slidesToShow: 1, arrows: false } },
+      { breakpoint: 640, settings: { slidesToShow: 2, arrows: false } },
     ],
   };
   
