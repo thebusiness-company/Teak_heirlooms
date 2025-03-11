@@ -43,10 +43,10 @@ CustomNextArrow.propTypes = {
 
 const ShopByRoom = () => {
   const products = [
-    { id: 1, image: M1, title: "bedRoom", price: "₹ 0000.00" },
-    { id: 2, image: M1, title: "kic", price: "₹ 0000.00" },
-    { id: 3, image: M1, title: "Lorem ipsum", price: "₹ 0000.00" },
-    { id: 4, image: M1, title: "Lorem ipsum", price: "₹ 0000.00" },
+    { id: 1, image: M1, title: "bedRoom" },
+    { id: 2, image: M1, title: "kic"},
+    { id: 3, image: M1, title: "Lorem ipsum" },
+    { id: 4, image: M1, title: "Lorem ipsum"},
   ];
 
   const settings = {
@@ -68,7 +68,7 @@ const ShopByRoom = () => {
       },
       {
         breakpoint: 640, // Mobile
-        settings: { slidesToShow: 1, arrows: false },
+        settings: { slidesToShow: 2, arrows: false },
       },
     ],
   };

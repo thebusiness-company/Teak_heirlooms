@@ -8,6 +8,8 @@ export const useBlogs = () => {
   const { data: blogs, isLoading, error } = useQuery({
     queryKey: ["blogs"],
     queryFn: getBlogs,
+    staleTime: 0, // Forces fresh data
+    cacheTime: 0, // Prevents storing cached responses
   });
 
   // Create blog
