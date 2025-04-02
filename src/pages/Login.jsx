@@ -1,0 +1,100 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Hooks/useAuth";
+import img from "../assets/images/signup.png";
+import google from "../assets/images/google.svg";
+import facebook from "../assets/images/facebook.svg";
+
+const Login = () => {
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const { login, isLoading } = useAuth();
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    login(formData, {
+      onSuccess: () => {
+        navigate("/");
+      },
+      onError: () => {
+        setError("Invalid email or password");
+      },
+    });
+  };
+
+  const handleSocialLogin = (provider) => {
+    window.location.href = `http://127.0.0.1:8000/api/auth/${provider}/`;
+  };
+
+  return (
+    <div className="h-screen w-full bg-[#FFF1DF] flex items-center justify-center">
+      <section className="relative flex flex-col bg-white md:flex-row items-center justify-between w-full max-w-7xl mx-auto rounded-lg my-1 px-4 md:px-8">
+        <div className="relative p-8 w-full md:w-1/2 z-10">
+          <h2 className="text-2xl font-semibold text-center mb-4">Sign in to your account</h2>
+
+          <div className="flex justify-center space-x-4 mb-4">
+            <button onClick={() => handleSocialLogin("google")}>
+              <img src={google} alt="Google" className="w-5 h-5" />
+            </button>
+            <button onClick={() => handleSocialLogin("facebook")}>
+              <img src={facebook} alt="Facebook" className="w-5 h-5" />
+            </button>
+          </div>
+
+          <div className="flex items-center my-4">
+            <hr className="w-full border-gray-300" />
+            <span className="px-2 text-gray-500">or</span>
+            <hr className="w-full border-gray-300" />
+          </div>
+
+          {error && <p className="text-red-600 text-center">{error}</p>}
+
+          <form onSubmit={handleSubmit}>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              placeholder="Your Email"
+              className="border p-2 rounded-md w-full my-2"
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              placeholder="Password"
+              className="border p-2 rounded-md w-full my-2"
+              onChange={handleChange}
+              required
+            />
+            <button
+              type="submit"
+              className="w-full bg-[#3B493F] text-white py-2 rounded-md mt-4 hover:bg-green-900"
+              disabled={isLoading}
+            >
+              {isLoading ? "Signing in..." : "Sign in"}
+            </button>
+          </form>
+
+          <p className="text-center text-sm mt-4">
+            Don&apos;t have an account? <a href="/signup" className="text-red-600 underline">Sign up</a>
+          </p>
+        </div>
+
+        <div className="absolute right-10 top-1/2 transform -translate-y-1/2 w-3/5 md:w-2/5 z-0">
+          <img src={img} alt="Design" className="w-full h-auto object-cover" />
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Login;

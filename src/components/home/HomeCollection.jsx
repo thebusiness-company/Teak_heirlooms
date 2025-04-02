@@ -48,18 +48,22 @@ CustomNextArrow.propTypes = {
 };
 
 const HomeCollection = () => {
-  const collections = [
-    { id: 1, image: Sofa, title: "Sofas" },
-    { id: 2, image: Sleeper, title: "Recliners" },
-    { id: 3, image: Bedroom, title: "Bedrooms" },
-    { id: 4, image: DiningSet, title: "Dinning Sets" },
-    { id: 5, image: Office, title: "Office & Study Furniture" },
-    { id: 6, image: Living, title: "Living" },
-    { id: 7, image: Sleeper, title: "Recliners" },
-    { id: 8, image: Bedroom, title: "Bedrooms" },
-    { id: 9, image: DiningSet, title: "Dinning Sets" },
-  ];
-
+  
+    const categorys = [
+      { id: 1, image: Bedroom, title: "Sofas", categoryChoice: "sofas" },
+      { id: 2, image: Bedroom, title: "Beds", categoryChoice: "Beds" },
+      { id: 3, image: Bedroom, title: "Tables", categoryChoice: "Tables" },
+      { id: 4, image: Bedroom, title: "Book Shelf", categoryChoice: "BookShelf" },
+      { id: 5, image: Bedroom, title: "Cabinet", categoryChoice: "Cabinet" },
+      { id: 6, image: Bedroom, title: "Dining", categoryChoice: "Dining" },
+      { id: 7, image: Bedroom, title: "Bar", categoryChoice: "Bar" },
+      { id: 8, image: Bedroom, title: "Pooja", categoryChoice: "Pooja" },
+      { id: 9, image: Bedroom, title: "TV Units", categoryChoice: "TV Units" },
+      { id: 10, image: Bedroom, title: "Wardrobe", categoryChoice: "Wardrobe" },
+      { id: 11, image: Bedroom, title: "Wall Panels", categoryChoice: "WallPanels" },
+      { id: 12, image: Bedroom, title: "Paintings", categoryChoice: "Paintings" },
+    ];
+  
   const settings = {
     dots: false,
     infinite: true,
@@ -90,9 +94,9 @@ const HomeCollection = () => {
 
       <div className="relative">
         <Slider {...settings}>
-          {collections.map((item) => (
+          {categorys.map((item) => (
             <div key={item.id} className="px-2 mb-10">
-              <Link to="collection" className="flex flex-col items-center">
+              <Link to={`/Category/${item.categoryChoice}`} className="flex flex-col items-center">
                 <img src={item.image} alt={item.title} className="w-14 h-14 md:w-20 md:h-20" />
                 <p className="text-sm md:text-base text-[#9c0300] font-medium mt-2">{item.title}</p>
               </Link>

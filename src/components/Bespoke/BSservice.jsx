@@ -76,8 +76,8 @@ const BSservice = () => {
           {products.map((product) => (
             <div key={product.id} className="px-2">
               <div className="relative">
-                <img src={product.image} alt={product.title} className="w-full h-48 object-cover " />
-                <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 text-white text-center font-semibold">{product.title}</div>
+                <img src={product.image} alt={product.title} className="w-full h-55  object-cover " />
+                <div className="absolute bottom-0 w-full bg-gradient-to-t from-[#3B493F] to-transparent p-4 text-white text-center font-semibold">{product.title}</div>
               </div>
             </div>
           ))}

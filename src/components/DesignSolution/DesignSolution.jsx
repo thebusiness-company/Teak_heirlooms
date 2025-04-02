@@ -2,7 +2,7 @@ import DBASection from './DBASection'
 import DesignBanner from './DesignBanner'
 import DHSection from './DHSecion'
 import MainBanner from './MainBanner'
-// import SESection from './SESection'
+import SESection from './SESection'
 import SWOSection from './SWOSection'
 
 const DesignSolution = () => {
@@ -13,7 +13,7 @@ const DesignSolution = () => {
     <DBASection/>
     <DHSection/>
     <SWOSection/>
-    {/* <SESection/> */}
+    <SESection/>
     </>
   )
 }

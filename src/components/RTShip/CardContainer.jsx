@@ -12,6 +12,8 @@ const ProductGrid = () => {
   const products = data?.results || []; // Ensure products exist
   const { next, previous } = data || {};
 
+  console.log(products, "Fetched Products");
+
   const handleNextPage = () => {
     if (next) {
       setPage((prev) => prev + 1);
@@ -24,8 +26,12 @@ const ProductGrid = () => {
     }
   };
 
-  const mostSoldProducts = products.filter((item) => item.MostSold === true);
-  const newArrivals = products.filter((item) => item.NewArrival === true);
+  // ✅ Corrected filtering logic with proper field names
+  const mostSoldProducts = products.filter((item) => item?.MostSold === true);
+  const newArrivals = products.filter((item) => item?.NewArrival === true);
+
+  console.log("Most Sold:", mostSoldProducts);
+  console.log("New Arrivals:", newArrivals);
 
   return (
     <div className="max-w-6xl mx-auto p-4">
@@ -36,32 +42,42 @@ const ProductGrid = () => {
       {/* Most Sold Products Section */}
       <div>
         <h3 className="text-lg font-semibold mb-4">Most Sold Products</h3>
-        <div className="grid grid-cols-3 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4">
-          {mostSoldProducts.map((item) => (
-            <ProductCard
-              key={item.id}
-              image={item.product?.image || item.image} // Fallback if no nested product field
-              title={item.product?.name || item.name}
-              price={item.product?.price || item.price}
-              soldOut={item.MostSold}
-            />
-          ))}
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4">
+          {mostSoldProducts.length > 0 ? (
+            mostSoldProducts.map((item) => (
+              <ProductCard
+                key={item.product?.slug}
+                image={item.product?.images?.[0]?.image || "/fallback-image.jpg"}
+                title={item.product?.name || "No Title"}
+                price={item.product?.price || "N/A"}
+                slug={item.product?.slug}
+                soldOut={!item.product?.in_stock}
+              />
+            ))
+          ) : (
+            <p className="col-span-full text-center text-gray-500">No Most Sold Products Found</p>
+          )}
         </div>
       </div>
 
       {/* New Arrival Section */}
       <div className="mt-10">
-        <h3 className="text-lg font-semibold mb-4">New Arrival</h3>
-        <div className="grid grid-cols-3 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4">
-          {newArrivals.map((item) => (
-            <ProductCard
-              key={item.id}
-              image={item.product?.image || item.image}
-              title={item.product?.name || item.name}
-              price={item.product?.price || item.price}
-              soldOut={!item.product?.in_stock}
-            />
-          ))}
+        <h3 className="text-lg font-semibold mb-4">New Arrivals</h3>
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4">
+          {newArrivals.length > 0 ? (
+            newArrivals.map((item) => (
+              <ProductCard
+                key={item.product?.slug}
+                image={item.product?.images?.[0]?.image || "/fallback-image.jpg"}
+                title={item.product?.name || "No Title"}
+                price={item.product?.price || "N/A"}
+                slug={item.product?.slug}
+                soldOut={!item.product?.in_stock}
+              />
+            ))
+          ) : (
+            <p className="col-span-full text-center text-gray-500">No New Arrivals Found</p>
+          )}
         </div>
       </div>
 
@@ -88,9 +104,7 @@ const ProductGrid = () => {
         >
           Next →
         </button>
-        <p className="mt-4 text-center">
-          Total Products: {data?.count || 0}
-        </p>
+        <p className="mt-4 text-center">Total Products: {data?.count || 0}</p>
       </div>
     </div>
   );

@@ -84,9 +84,9 @@ const ShopByRoom = () => {
               <div className="bg-white p-4 relative">
                 <Link to='/shop'>
                 <img src={product.image} alt={product.title} className="w-full" />
-                <h3 className="absolute inset-0 flex items-center justify-center text-white text-2xl md:text-3xl font-bold drop-shadow-lg mt-50">
-                  {product.title}
-                </h3>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#38493f] to-transparent p-4">
+                  <p className="text-white text-xl text-center font-semibold">{product.title}</p>
+                </div>
                 <p className="text-red-600 font-semibold mt-2">{product.price}</p>
                 </Link>
               </div>

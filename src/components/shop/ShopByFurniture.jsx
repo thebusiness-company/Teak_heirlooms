@@ -4,13 +4,11 @@ import "slick-carousel/slick/slick-theme.css";
 import M1 from "../../assets/images/shop/M1.png";
 import PrevArrow from "../../assets/images/Left.png"; // Custom left arrow
 import NextArrow from "../../assets/images/Right.png"; // Custom right arrow
-import { useProductCat } from "../../Hooks/useProductCat";
 
 // Custom Arrow Components
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import api from "../../api";
+import { useState } from "react";
 
 const CustomPrevArrow = (props) => {
     const { onClick } = props;
@@ -48,20 +46,19 @@ CustomNextArrow.propTypes = {
 
 const ShopByFurniture = () => {
 
-  useEffect(() => {
-    api.get("collection/")
-    .then((response) => {
-      console.log(response.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  }, []);
-  const products = [
-    { id: 1, image: M1, title: "Lorem ipsum", price: "₹ 0000.00" },
-    { id: 2, image: M1, title: "Lorem ipsum", price: "₹ 0000.00" },
-    { id: 3, image: M1, title: "Lorem ipsum", price: "₹ 0000.00" },
-    { id: 4, image: M1, title: "Lorem ipsum", price: "₹ 0000.00" },
+  const categorys = [
+    { id: 1, image: M1, title: "Sofas", categoryChoice: "sofas" },
+    { id: 2, image: M1, title: "Beds", categoryChoice: "Beds" },
+    { id: 3, image: M1, title: "Tables", categoryChoice: "Tables" },
+    { id: 4, image: M1, title: "Book Shelf", categoryChoice: "BookShelf" },
+    { id: 5, image: M1, title: "Cabinet", categoryChoice: "Cabinet" },
+    { id: 6, image: M1, title: "Dining", categoryChoice: "Dining" },
+    { id: 7, image: M1, title: "Bar", categoryChoice: "Bar" },
+    { id: 8, image: M1, title: "Pooja", categoryChoice: "Pooja" },
+    { id: 9, image: M1, title: "TV Units", categoryChoice: "TV Units" },
+    { id: 10, image: M1, title: "Wardrobe", categoryChoice: "Wardrobe" },
+    { id: 11, image: M1, title: "Wall Panels", categoryChoice: "WallPanels" },
+    { id: 12, image: M1, title: "Paintings", categoryChoice: "Paintings" },
   ];
 
   const settings = {
@@ -88,13 +85,13 @@ const ShopByFurniture = () => {
 
       <div className="relative">
         <Slider {...settings}>
-          {products.map((product) => (
-            <div key={product.id} className="px-2">
+          {categorys.map((category) => (
+            <div key={category.id} className="px-2">
               <div className="bg-white p-4 ">
-                <Link to='/shop'>
-                <img src={product.image} alt={product.title} className="w-full" />
-                <h3 className="text-lg font-medium mt-4">{product.title}</h3>
-                <p className="text-red-600 font-semibold">{product.price}</p>
+                <Link to={`/Category/${category.categoryChoice}`}>
+                <img src={category.image} alt={category.title} className="w-full" />
+                <h3 className="text-lg font-medium mt-4">{category.title}</h3>
+                <p className="text-red-600 font-semibold">{category.price}</p>
                 </Link>
               </div>
             </div>

@@ -1,64 +1,75 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import Logo from '../../assets/images/logo.png';
-import Style from './Navbar.module.css';
+import { useState, useEffect } from "react";
+import { NavLink, useNavigate, Link } from "react-router-dom";
+import Logo from "../../assets/images/logo.png";
+import Style from "./Navbar.module.css";
+import { HeartIcon } from "@heroicons/react/24/solid";
+
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  useEffect(() => {
+    const loadUser = () => {
+      const token = localStorage.getItem("access_token");
+      const storedUser = localStorage.getItem("user");
+
+      if (token && storedUser) {
+        setUser(JSON.parse(storedUser));
+      } else {
+        setUser(null);
+      }
+    };
+
+    // Load user on mount
+    loadUser();
+
+    // Listen for login/logout updates
+    window.addEventListener("userLoggedIn", loadUser);
+
+    return () => {
+      window.removeEventListener("userLoggedIn", loadUser);
+    };
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("refresh_token");
+    localStorage.removeItem("user");
+    setUser(null);
+    navigate("/login");
+
+    // Dispatch event to update Navbar
+    window.dispatchEvent(new Event("userLoggedIn"));
   };
 
   return (
     <nav className={Style.navbar}>
-      {/* Logo */}
       <div className={Style.logo_container}>
         <NavLink to="/" className="flex items-center space-x-2">
           <img src={Logo} alt="Teak Heirlooms Logo" className={Style.logo} />
         </NavLink>
       </div>
 
-      {/* Hamburger Menu for Mobile */}
-      <div className={Style.hamburger_menu}>
-        <button onClick={toggleMenu} className="text-white focus:outline-none">
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            ></path>
-          </svg>
-        </button>
-      </div>
+      <div className={Style.nav_links}>
+        <NavLink to="/" className={({ isActive }) => (isActive ? Style.active : "")}>Home</NavLink>
+        <NavLink to="/shop" className={({ isActive }) => (isActive ? Style.active : "")}>Shop</NavLink>
+        <NavLink to="/RDship" className={({ isActive }) => (isActive ? Style.active : "")}>Ready to Ship</NavLink>
+        <NavLink to="/design_solution" className={({ isActive }) => (isActive ? Style.active : "")}>Design Solution</NavLink>
+        <NavLink to="/Bfurniture" className={({ isActive }) => (isActive ? Style.active : "")}>Bespoke Furniture</NavLink>
 
-      {/* Navigation Links */}
-      <div className={`${Style.nav_links} ${isMenuOpen ? Style.slide_in : Style.slide_out}`}>
-        <NavLink to="/" onClick={toggleMenu} className={({ isActive }) => (isActive ? Style.active : '')}>
-          Home
-        </NavLink>
-        <NavLink to="/shop" onClick={toggleMenu} className={({ isActive }) => (isActive ? Style.active : '')}>
-          Shop
-        </NavLink>
-        <NavLink to="/RDship" onClick={toggleMenu} className={({ isActive }) => (isActive ? Style.active : '')}>
-          Ready to Ship
-        </NavLink>
-        <NavLink to="/design_solution" onClick={toggleMenu} className={({ isActive }) => (isActive ? Style.active : '')}>
-          Design Solution
-        </NavLink>
-        <NavLink to="/Bfurniture" onClick={toggleMenu} className={({ isActive }) => (isActive ? Style.active : '')}>
-          Bespoke Furniture
-        </NavLink>
-        
       </div>
-        <button className={Style.login_button}>Login</button>
+      <Link to="/wishlist"><HeartIcon className="w-12 h-12 text-[#9C0300]"/></Link>
+      
+      {/* Show Username & Logout if Logged In, Otherwise Show Login */}
+      {!user ? (
+        <button className={Style.login_button} onClick={() => navigate("/login")}>Login</button>
+      ) : (
+        <div className={Style.user_menu}>
+          <span className={Style.username}>Hello, {user.username}</span>
+          <button className={Style.logout_button} onClick={handleLogout}>Logout</button>
+        </div>
+      )}
     </nav>
   );
 };

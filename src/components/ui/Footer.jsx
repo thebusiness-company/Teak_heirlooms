@@ -9,9 +9,12 @@ const Footer = () => {
             <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row md:justify-between">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-sm text-black py-6 w-full">
                     <div className="mb-4">
-                        <h3 className="font-bold">FIND A STORE</h3>
+                        <a href="/page#store-locator"><h3 className="font-bold">FIND A STORE</h3></a>
+                        
                         <h3 className="font-bold">BECOME A MEMBER</h3>
-                        <h3 className="font-bold">SEND US FEEDBACK</h3>
+                        <a href="/page#feedback"><h3 className="font-bold">SEND US FEEDBACK</h3></a>
+
+                        
             <p className="mt-12 text-xs">&copy; TBC All Rights Reserved 2024</p>
 
           </div>
@@ -25,8 +28,8 @@ const Footer = () => {
           <div className="mb-4">
             <h3 className="font-bold">COMPANY</h3>
             <p>About TH</p>
-            <p>News</p>
-            <p>Sustainability</p>
+            <a href="/page#news"><p>News</p></a>
+            <a href="/page#sustainability"><p>Sustainability</p></a>
           </div>
           <div className="mb-4">
             <h3 className="font-bold">CONTACT US</h3>
@@ -42,7 +45,7 @@ const Footer = () => {
           <Link to='/' className="flex items-center gap-6 mb-4">
             <img src={Logo} alt="Teak Heirlooms" className="h-6" />
           </Link>
-          <Link to="/terms" className="text-xs">Terms & Conditions</Link>
+          <Link to="/page#terms" className="text-xs">Terms & Conditions</Link>
         </div>
       </div>
     </footer>
