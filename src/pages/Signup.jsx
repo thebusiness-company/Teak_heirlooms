@@ -41,6 +41,7 @@ const SignupSection = () => {
         username: formData.username,
         email: formData.email,
         password: formData.password1, // Send password1 as password
+        password2: formData.password1, // Send password1 as password
       });
 
       setFormData({ username: "", email: "", password1: "", password2: "" }); // Clear form on success
@@ -55,10 +56,6 @@ const SignupSection = () => {
     }
   };
 
-  // Handle social login
-  const handleSocialLogin = (provider) => {
-    window.location.href = `http://127.0.0.1:8000/api/auth/${provider}/`;
-  };
 
   return (
     <div className="h-screen w-full bg-[#FFF1DF] flex items-center justify-center">
@@ -71,10 +68,10 @@ const SignupSection = () => {
           <div className="flex justify-center space-x-4 mb-4">
             <span className="border px-4 py-2 rounded-full flex items-center space-x-6">
               <span>Login with Google/Facebook</span>
-              <button onClick={() => handleSocialLogin("google")}>
+              <button >
                 <img src={google} alt="Google" className="w-5 h-5" />
               </button>
-              <button onClick={() => handleSocialLogin("facebook")}>
+              <button >
                 <img src={facebook} alt="Facebook" className="w-5 h-5" />
               </button>
             </span>

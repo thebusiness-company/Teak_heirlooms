@@ -1,5 +1,6 @@
 import ProductCard from "../RTShip/ProductCard";
 import { useProducts } from "../../Hooks/useProducts";
+import PropTypes from "prop-types";
 
 const RelatedProduct = ({ category, slug }) => {
   const { products, isLoading, error } = useProducts();
@@ -42,6 +43,10 @@ const RelatedProduct = ({ category, slug }) => {
       </div>
     </div>
   );
+};
+RelatedProduct.propTypes = {
+  category: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
 };
 
 export default RelatedProduct;

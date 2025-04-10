@@ -5,12 +5,18 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import LeftArrow from "../../assets/images/collections/Prev.png"; // Custom left arrow
 import RightArrow from "../../assets/images/collections/Next.png"; // Custom right arrow
-import Bedroom from "../../assets/images/collections/Bedroom.png";
-import DiningSet from "../../assets/images/collections/Dinning.png";
-import Living from "../../assets/images/collections/Seat.png";
-import Office from "../../assets/images/collections/office.png";
-import Sleeper from "../../assets/images/collections/Sleeper.png";
-import Sofa from "../../assets/images/collections/sofa.png";    
+import Wardrobe from "../../assets/images/collections/Wardrobe.svg";
+import Sofa from "../../assets/images/collections/sofa.svg";    
+import bar from "../../assets/images/collections/bar.svg";    
+import Paintings from "../../assets/images/collections/Paintings.svg";    
+import tvunit from "../../assets/images/collections/tvunit.svg";    
+import beds from "../../assets/images/collections/beds.svg";    
+import cabinet from "../../assets/images/collections/cabinet.svg";    
+import bookshelf from "../../assets/images/collections/bookshelf.svg";    
+import poojaunit from "../../assets/images/collections/poojaunit.svg";    
+import tables from "../../assets/images/collections/tables.svg";    
+import wallpanels from "../../assets/images/collections/wallpanels.svg";    
+import Dining from "../../assets/images/collections/Dining.svg";    
 
 // Custom Arrow Components
 import PropTypes from 'prop-types';
@@ -50,18 +56,18 @@ CustomNextArrow.propTypes = {
 const HomeCollection = () => {
   
     const categorys = [
-      { id: 1, image: Bedroom, title: "Sofas", categoryChoice: "sofas" },
-      { id: 2, image: Bedroom, title: "Beds", categoryChoice: "Beds" },
-      { id: 3, image: Bedroom, title: "Tables", categoryChoice: "Tables" },
-      { id: 4, image: Bedroom, title: "Book Shelf", categoryChoice: "BookShelf" },
-      { id: 5, image: Bedroom, title: "Cabinet", categoryChoice: "Cabinet" },
-      { id: 6, image: Bedroom, title: "Dining", categoryChoice: "Dining" },
-      { id: 7, image: Bedroom, title: "Bar", categoryChoice: "Bar" },
-      { id: 8, image: Bedroom, title: "Pooja", categoryChoice: "Pooja" },
-      { id: 9, image: Bedroom, title: "TV Units", categoryChoice: "TV Units" },
-      { id: 10, image: Bedroom, title: "Wardrobe", categoryChoice: "Wardrobe" },
-      { id: 11, image: Bedroom, title: "Wall Panels", categoryChoice: "WallPanels" },
-      { id: 12, image: Bedroom, title: "Paintings", categoryChoice: "Paintings" },
+      { id: 1, image: Sofa, title: "Sofas", categoryChoice: "sofas" },
+      { id: 2, image: beds, title: "Beds", categoryChoice: "Beds" },
+      { id: 3, image: tables, title: "Tables", categoryChoice: "Tables" },
+      { id: 4, image: bookshelf, title: "Book Shelf", categoryChoice: "BookShelf" },
+      { id: 5, image: cabinet, title: "Cabinet", categoryChoice: "Cabinet" },
+      { id: 6, image: Dining, title: "Dining", categoryChoice: "Dining" },
+      { id: 7, image: bar, title: "Bar", categoryChoice: "Bar" },
+      { id: 8, image: poojaunit, title: "Pooja", categoryChoice: "Pooja" },
+      { id: 9, image: tvunit, title: "TV Units", categoryChoice: "TV Units" },
+      { id: 10, image: Wardrobe, title: "Wardrobe", categoryChoice: "Wardrobe" },
+      { id: 11, image: wallpanels, title: "Wall Panels", categoryChoice: "WallPanels" },
+      { id: 12, image: Paintings, title: "Paintings", categoryChoice: "Paintings" },
     ];
   
   const settings = {

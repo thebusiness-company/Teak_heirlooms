@@ -8,7 +8,6 @@ import NextArrow from "../../assets/images/Right.png"; // Custom right arrow
 // Custom Arrow Components
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 const CustomPrevArrow = (props) => {
     const { onClick } = props;

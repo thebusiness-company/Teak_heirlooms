@@ -36,7 +36,7 @@ const BestSeller = () => {
 
   // Filter only top-selling products
   const NewInProducts = products?.filter((product) => product.newin) || [];
-
+  console.log(NewInProducts, "New In Products");
   // Hide arrows if there are fewer than 4 products
   const showArrows = NewInProducts.length >= 4;
 
@@ -78,7 +78,7 @@ const BestSeller = () => {
                   <Link to={`/product/${product.slug}`}>
                     <div className="w-full h-[200px] flex items-center justify-center overflow-hidden">
                       <img
-                        src={product.image}
+                        src={product.images[0]?.image || "/path/to/fallback-image.jpg"}
                         alt={product.name}
                         className="w-full h-full object-cover"
                       />

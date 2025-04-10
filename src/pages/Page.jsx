@@ -7,6 +7,7 @@ import SustainabilitySection from "./Sustainability";
 import TermsAndConditions from "./TermsAndConditions";
 import AboutUs from "./AboutUs";
 import Contect from "./ContectForm";
+import Profile from "./Profile";
 
 const Page = () => {
   useEffect(() => {
@@ -46,6 +47,7 @@ const Page = () => {
       <div id="contect">
         <Contect />
       </div>
+      <Profile/>
     </>
   );
 };

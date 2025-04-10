@@ -78,7 +78,7 @@ const BestSeller = () => {
                   <Link to={`/product/${product.slug}`}>
                     <div className="w-full h-[200px] flex items-center justify-center overflow-hidden">
                       <img
-                        src={product.image}
+                        src={product.images[0]?.image}
                         alt={product.name}
                         className="w-full h-full object-cover"
                       />

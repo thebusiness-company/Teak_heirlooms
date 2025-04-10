@@ -1,32 +1,42 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../Hooks/useAuth";
+import { useContext, useState } from "react";
+import { useNavigate,useLocation } from "react-router-dom";
 import img from "../assets/images/signup.png";
 import google from "../assets/images/google.svg";
 import facebook from "../assets/images/facebook.svg";
+import api from "../api";
+import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
+  const {setIsAuthenticated,getuser} = useContext(AuthContext);
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const { login, isLoading } = useAuth();
-
+  const location = useLocation();
+  const [isLoading, setIsLoading] = useState(false);
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
-
-    login(formData, {
-      onSuccess: () => {
-        navigate("/");
-      },
-      onError: () => {
+    setIsLoading(true);
+    api.post('token/', formData)
+      .then(res =>{
+        console.log(res.data)
+        setIsLoading(false);
+        setIsAuthenticated(true);
+        getuser();
+        localStorage.setItem("access", res.data.access);
+        localStorage.setItem("refresh", res.data.refresh);
+        setFormData({ email: "", password: "" });
+        setError("");
+        const from = location.state?.from?.pathname || "/";
+        navigate(from, { replace: true });
+      })
+      .catch(err =>{
+        console.log(err)
         setError("Invalid email or password");
-      },
-    });
+      })
   };
 
   const handleSocialLogin = (provider) => {

@@ -491,9 +491,9 @@ const ProductAdmin = () => {
             <p className="text-gray-600 text-sm mt-1">{product.description}</p>
             
             <div className="mt-2 text-sm">
-              <p><span className="font-medium">Category:</span> {product.category?.name}</p>
+              <p><span className="font-medium">Category:</span> {product?.category}</p>
               {product.subcategory && (
-                <p><span className="font-medium">Subcategory:</span> {product.subcategory.name}</p>
+                <p><span className="font-medium">Subcategory:</span> {product.subcategory}</p>
               )}
               <p><span className="font-medium">Stock:</span> {product.stock_quantity}</p>
               <p><span className="font-medium">Rating:</span> {product.ratings}/5</p>
