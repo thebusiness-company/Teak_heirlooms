@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useCategories, useSubCategories } from "../Hooks/useCategories";
+import { useCategories, useSubCategories } from '../Hooks/useCategories';
 import { useProducts } from "../Hooks/useProducts";
 
 const AdminPanel = () => {

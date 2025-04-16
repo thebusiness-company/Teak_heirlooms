@@ -1,7 +1,7 @@
 import BestSeller from './BestSeller'
 import MainBanner from './MainBanner'
 import NewIn from './NewIn'
-import SearchBar from './SearchBar'
+import SearchProduct from './SearchProduct'
 import ShopByFurniture from './ShopByFurniture'
 import ShopByRoom from './ShopByRoom'
 import ShopCollection from './ShopCollection'
@@ -9,7 +9,7 @@ import SmallContent from './SmallContent'
 const ShopPage = () => {
   return (
     <>
-    <SearchBar />
+    <SearchProduct />
     <MainBanner />
     <ShopByFurniture/>
     <ShopByRoom/>

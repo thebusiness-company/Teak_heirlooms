@@ -8,8 +8,8 @@ import holder from "../assets/images/profileholder.png";
 import "react-toastify/dist/ReactToastify.css";
 
 const Spinner = () => (
-  <div className="flex justify-center items-center mt-10">
-    <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-b-4 border-[#9C0300]"></div>
+  <div className="flex justify-center items-center mt-2">
+    <div className="animate-spin rounded-full h-6 w-6 border-t-4 border-b-4 border-[#9C0300]"></div>
   </div>
 );
 
@@ -21,6 +21,7 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const [updating, setUpdating] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [errors, setErrors] = useState({});
 
   function initialFormData() {
     return {
@@ -44,7 +45,7 @@ const Profile = () => {
     email: data.email || "",
     address: data.address || "",
     phone: data.phone_number || "",
-    dob: data.dob || "",
+    dob: data.dob || "",  // 'dob' instead of 'date_of_birth'
     location: data.city || "",
     postalCode: data.zip_code || "",
   });
@@ -72,10 +73,40 @@ const Profile = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   const handleProfileUpdate = async () => {
+    const newErrors = {};
+    const requiredFields = [
+      "firstName",
+      "lastName",
+      "email",
+      "phone",
+      "dob",
+      "location",
+      "postalCode",
+    ];
+
+    for (const field of requiredFields) {
+      if (!formData[field]) {
+        newErrors[field] = "This field is required.";
+      }
+    }
+
+    const phoneRegex = /^\+?[0-9]{10,15}$/;
+    if (formData.phone && !phoneRegex.test(formData.phone)) {
+      newErrors.phone = "Enter a valid phone number (10–15 digits).";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
     setUpdating(true);
+
     try {
       await api.patch("profile/", {
         gender: formData.gender,
@@ -84,7 +115,7 @@ const Profile = () => {
         email: formData.email,
         address: formData.address,
         phone_number: formData.phone,
-        dob: formData.dob,
+        dob: formData.dob,  // Send 'dob' instead of 'date_of_birth'
         city: formData.location,
         zip_code: formData.postalCode,
       });
@@ -227,14 +258,27 @@ const Profile = () => {
           {inputFields.map(([name, label]) => (
             <div key={name} className={["email", "address"].includes(name) ? "col-span-2" : ""}>
               <label className="block font-medium">{label}</label>
-              <input
-                type="text"
-                name={name}
-                value={formData[name]}
-                onChange={handleChange}
-                placeholder={label}
-                className="w-full border rounded-lg p-2"
-              />
+              {name === "dob" ? (
+                <input
+                  type="date"
+                  name={name}
+                  value={formData[name]}
+                  onChange={handleChange}
+                  className={`w-full border rounded-lg p-2 ${errors[name] ? "border-red-500" : "border-gray-300"}`}
+                />
+              ) : (
+                <input
+                  type="text"
+                  name={name}
+                  value={formData[name]}
+                  onChange={handleChange}
+                  placeholder={label}
+                  className={`w-full border rounded-lg p-2 ${errors[name] ? "border-red-500" : "border-gray-300"}`}
+                />
+              )}
+              {errors[name] && (
+                <p className="text-red-500 text-sm mt-1">{errors[name]}</p>
+              )}
             </div>
           ))}
         </div>
@@ -243,7 +287,10 @@ const Profile = () => {
         <div className="flex mt-6 space-x-4 items-center">
           <button
             className="bg-gray-300 text-black px-6 py-2 rounded-lg"
-            onClick={() => setFormData(defaultData)}
+            onClick={() => {
+              setFormData(defaultData);
+              setErrors({});
+            }}
             disabled={updating}
           >
             {updating ? "Discarding..." : "Discard Changes"}

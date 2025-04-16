@@ -57,17 +57,17 @@ const HomeCollection = () => {
   
     const categorys = [
       { id: 1, image: Sofa, title: "Sofas", categoryChoice: "sofas" },
-      { id: 2, image: beds, title: "Beds", categoryChoice: "Beds" },
-      { id: 3, image: tables, title: "Tables", categoryChoice: "Tables" },
-      { id: 4, image: bookshelf, title: "Book Shelf", categoryChoice: "BookShelf" },
-      { id: 5, image: cabinet, title: "Cabinet", categoryChoice: "Cabinet" },
-      { id: 6, image: Dining, title: "Dining", categoryChoice: "Dining" },
-      { id: 7, image: bar, title: "Bar", categoryChoice: "Bar" },
-      { id: 8, image: poojaunit, title: "Pooja", categoryChoice: "Pooja" },
-      { id: 9, image: tvunit, title: "TV Units", categoryChoice: "TV Units" },
-      { id: 10, image: Wardrobe, title: "Wardrobe", categoryChoice: "Wardrobe" },
-      { id: 11, image: wallpanels, title: "Wall Panels", categoryChoice: "WallPanels" },
-      { id: 12, image: Paintings, title: "Paintings", categoryChoice: "Paintings" },
+      { id: 2, image: beds, title: "Beds", categoryChoice: "beds" },
+      { id: 3, image: tables, title: "Tables", categoryChoice: "tables" },
+      { id: 4, image: bookshelf, title: "Book Shelf", categoryChoice: "book-shelf" },
+      { id: 5, image: cabinet, title: "Cabinet", categoryChoice: "cabinet" },
+      { id: 6, image: Dining, title: "Dining", categoryChoice: "dining" },
+      { id: 7, image: bar, title: "Bar", categoryChoice: "bar" },
+      { id: 8, image: poojaunit, title: "Pooja", categoryChoice: "pooja" },
+      { id: 9, image: tvunit, title: "TV Units", categoryChoice: "tv-units" },
+      { id: 10, image: Wardrobe, title: "Wardrobe", categoryChoice: "wardrobe" },
+      { id: 11, image: wallpanels, title: "Wall Panels", categoryChoice: "wall-panels" },
+      { id: 12, image: Paintings, title: "Paintings", categoryChoice: "paintings" },
     ];
   
   const settings = {

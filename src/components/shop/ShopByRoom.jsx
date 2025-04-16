@@ -14,7 +14,7 @@ const CustomPrevArrow = (props) => {
     return (
       <button
         onClick={onClick}
-        className="absolute left-1 md:left-1 top-1/2 transform -translate-y-1/2 z-1 cursor-pointer bg-[#FFFFFF]"
+        className="absolute left-[-15px] top-1/2 transform -translate-y-1/2 z-1 cursor-pointer bg-[#FFFFFF]"
       >
         <img src={PrevArrow} alt="Previous" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
       </button>
@@ -30,7 +30,7 @@ const CustomNextArrow = (props) => {
     return (
       <button
         onClick={onClick}
-        className="absolute right-2 md:right-1 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
+        className="absolute right-[-15px]  top-1/2 transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
       >
         <img src={NextArrow} alt="Next" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
       </button>
@@ -64,25 +64,25 @@ const ShopByRoom = () => {
       },
       {
         breakpoint: 768, // Smaller Tablets
-        settings: { slidesToShow: 2, arrows: false },
+        settings: { slidesToShow: 2 },
       },
       {
         breakpoint: 640, // Mobile
-        settings: { slidesToShow: 2, arrows: false },
+        settings: { slidesToShow: 2 },
       },
     ],
   };
 
   return (
-    <div className="max-w-7xl mx-auto text-center py-10 px-4 relative">
+    <div className="max-w-7xl mx-auto text-center py-8 px-3 relative">
       <h2 className="text-3xl md:text-4xl font-semibold text-[#3b493f] mb-6">Shop by Room</h2>
 
       <div className="relative">
         <Slider {...settings}>
           {products.map((product) => (
-            <div key={product.id} className="px-2">
-              <div className="bg-white p-4 relative">
-                <Link to='/shop'>
+            <div key={product.id} className="px-4">
+              <div className="bg-white  relative">
+                <Link to='/room'>
                 <img src={product.image} alt={product.title} className="w-full" />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#38493f] to-transparent p-4">
                   <p className="text-white text-xl text-center font-semibold">{product.title}</p>

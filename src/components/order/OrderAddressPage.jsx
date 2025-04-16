@@ -11,8 +11,8 @@ const OrderAddressPage = () => {
   const [userAddresses, setUserAddresses] = useState([]);
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [isNewAddress, setIsNewAddress] = useState(false);
-  const [isProcessingPayment, setIsProcessingPayment] = useState(false);
   const [total, setTotal] = useState(0);
+  const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
   const navigate = useNavigate();
 

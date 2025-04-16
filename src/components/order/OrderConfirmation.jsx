@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import api from "../../api";
-import { API_URL } from "../../api";
-import { useParams,Link } from "react-router-dom";
+import api, { API_URL } from "../../api";
+import { useParams, Link } from "react-router-dom";
 
 const OrderConfirmation = () => {
   const { orderId } = useParams();
@@ -25,75 +24,69 @@ const OrderConfirmation = () => {
     }
   }, [orderId]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!order) {
-    return <div>Order not found</div>;
-  }
+  if (loading) return <div className="text-center py-8">Loading...</div>;
+  if (!order) return <div className="text-center py-8">Order not found</div>;
 
   return (
-    <div className="max-w-4xl mx-auto py-8 px-4">
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-green-600 mb-2">
-            Order Confirmed!
-          </h1>
-          <p className="text-gray-600">
-            Thank you for your purchase. Your order has been received and is being
-            processed.
-          </p>
+    <div className="max-w-5xl mx-auto px-4 py-8">
+      <h1 className="text-3xl md:text-4xl font-bold text-center text-[#9C0300] mb-2">
+        Order confirmed!
+      </h1>
+      <p className="text-center text-gray-700 mb-8">
+        Thank you for your purchase. Your has been received and it`&apos;`s been processed.
+      </p>
+
+      <div className="grid md:grid-cols-2 gap-6 pb-6">
+        {/* Order Details */}
+        <div className="border-r  border-gray-600">
+          <h2 className="text-lg font-semibold mb-4">Order Details</h2>
+          <ul className="space-y-1 text-gray-700">
+            <li>
+              <span className="font-medium">Order ID:</span> {order.razorpay_order_id}
+            </li>
+            <li>
+              <span className="font-medium">Date:</span>{" "}
+              {new Date(order.created_at).toLocaleDateString()}
+            </li>
+            <li>
+              <span className="font-medium">Order value:</span> Rs.{order.total_amount}
+            </li>
+            <li>
+              <span className="font-medium">Payment status:</span>{" "}
+              {order.payment_status}
+            </li>
+          </ul>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-8">
-          <div>
-            <h2 className="text-xl font-semibold mb-4">Order Details</h2>
-            <div className="space-y-2">
-              <p>
-                <span className="font-medium">Order ID:</span> {order.razorpay_order_id}
-              </p>
-              <p>
-                <span className="font-medium">Date:</span>{" "}
-                {new Date(order.created_at).toLocaleDateString()}
-              </p>
-              <p>
-                <span className="font-medium">Total:</span> Rs.{order.total_amount}
-              </p>
-              <p>
-                <span className="font-medium">Payment Status:</span>{" "}
-                <span className="capitalize">{order.payment_status}</span>
-              </p>
-            </div>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-semibold mb-4">Delivery Address</h2>
-            <div className="space-y-2">
-              <p>
-                {order.address.first_name} {order.address.last_name}
-              </p>
-              <p>{order.address.address_line1}</p>
-              {order.address.address_line2 && <p>{order.address.address_line2}</p>}
-              <p>
-                {order.address.city}, {order.address.state} -{" "}
-                {order.address.postal_code}
-              </p>
-              <p>{order.address.country}</p>
-              <p>Phone: {order.address.phone}</p>
-              <p>Email: {order.address.email}</p>
-            </div>
-          </div>
-        </div>
-
+        {/* Address */}
         <div>
-          <h2 className="text-xl font-semibold mb-4">Order Items</h2>
-          <div className="border rounded-lg overflow-hidden">
-            {order.cart.items.map((item) => (
-              <div
-                key={item.id}
-                className="p-4 border-b last:border-b-0 flex items-center"
-              >
+          <h2 className="text-lg font-semibold mb-4">Delivery Address</h2>
+          <ul className="space-y-1 text-gray-700">
+            <li>
+              {order.address.first_name} {order.address.last_name}
+            </li>
+            <li>{order.address.address_line1}</li>
+            {order.address.address_line2 && <li>{order.address.address_line2}</li>}
+            <li>
+              {order.address.city}, {order.address.state} - {order.address.postal_code}
+            </li>
+            <li>{order.address.country}</li>
+            <li>Phone: {order.address.phone}</li>
+            <li>Email: {order.address.email}</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Ordered Items */}
+      <div className="mt-6">
+        <h2 className="text-lg font-semibold mb-4">Ordered Items</h2>
+        <div className="border-dashed border rounded-md overflow-hidden">
+          {order.cart.items.map((item) => (
+            <div
+              key={item.id}
+              className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 border-b last:border-b-0"
+            >
+              <div className="flex items-center gap-4 w-full sm:w-auto">
                 <img
                   src={
                     item.product.images[0]?.image
@@ -101,51 +94,50 @@ const OrderConfirmation = () => {
                       : "/placeholder.jpg"
                   }
                   alt={item.product.name}
-                  className="w-16 h-16 object-cover mr-4"
+                  className="w-20 h-20 object-cover rounded"
                 />
-                <div className="flex-1">
-                  <p className="font-medium">{item.product.name}</p>
-                  <p className="text-gray-600">Rs.{item.product.price}</p>
-                </div>
                 <div>
-                  <p className="text-gray-600">
-                    Qty: {item.quantity} × Rs.{item.product.price} = Rs.
-                    {item.quantity * item.product.price}
-                  </p>
+                  <p className="font-medium">{item.product.name}</p>
+                  <p className="text-red-500 text-sm">Rs.{item.product.price}</p>
                 </div>
               </div>
-            ))}
-          </div>
+              <div className="text-sm text-gray-700">
+                Qty: {item.quantity} × Rs.{item.product.price} = Rs.
+                {item.quantity * item.product.price}
+              </div>
+            </div>
+          ))}
         </div>
+      </div>
 
-        <div className="mt-8 pt-4 border-t text-right">
-          <p className="text-lg">
-            <span className="font-medium">Subtotal:</span> Rs.
-            {order.total_amount - 500}
-          </p>
-          <p className="text-lg">
-            <span className="font-medium">Shipping:</span> Rs.500
-          </p>
-          <p className="text-xl font-bold">
-            <span className="font-medium">Total:</span> Rs.{order.total_amount}
-          </p>
-        </div>
+      {/* Summary */}
+      <div className="mt-6 border-t pt-4 text-right text-gray-700">
+        <p className="text-base">
+          <span className="font-medium">Sub total:</span> Rs.
+          {order.total_amount - 500}
+        </p>
+        <p className="text-base">
+          <span className="font-medium">Shipping:</span> Rs.500.00
+        </p>
+        <p className="text-lg font-bold">
+          <span className="font-medium">Total:</span> Rs.{order.total_amount}
+        </p>
+      </div>
 
-        <div className="flex mt-8 text-center justify-between">
-          <Link
-            to="/"
-            className="inline-block mt-4 px-6 py-3 bg-green-600 text-white rounded hover:bg-green-700"
-          >
-            Continue Shopping
-          </Link>
-          <Link
+      {/* Buttons */}
+      <div className="mt-6 flex flex-col sm:flex-row justify-between gap-4">
+        <Link
           to="/"
-            className="inline-block mt-4 px-6 py-3 bg-blue-600 text-white rounded hover:bg-blue-700"
+          className="text-center text-[#9C0300] px-6 py-3 bg-[#FFF1DF] hover:bg-gray-300 rounded-md"
         >
-          Track Order
+          Continue Shopping
         </Link>
-        </div>
-        
+        <Link
+          to="/"
+          className="text-center px-6 py-3 bg-[#9C0300] hover:bg-red-700 text-white rounded-md"
+        >
+          Track order
+        </Link>
       </div>
     </div>
   );

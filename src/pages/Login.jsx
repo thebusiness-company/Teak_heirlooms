@@ -1,18 +1,19 @@
 import { useContext, useState } from "react";
-import { useNavigate,useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
 import img from "../assets/images/signup.png";
-import google from "../assets/images/google.svg";
-import facebook from "../assets/images/facebook.svg";
 import api from "../api";
 import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
-  const {setIsAuthenticated,getuser} = useContext(AuthContext);
+  const { setIsAuthenticated, getuser } = useContext(AuthContext);
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -21,8 +22,8 @@ const Login = () => {
     e.preventDefault();
     setIsLoading(true);
     api.post('token/', formData)
-      .then(res =>{
-        console.log(res.data)
+      .then(res => {
+        console.log(res.data);
         setIsLoading(false);
         setIsAuthenticated(true);
         getuser();
@@ -33,14 +34,44 @@ const Login = () => {
         const from = location.state?.from?.pathname || "/";
         navigate(from, { replace: true });
       })
-      .catch(err =>{
-        console.log(err)
+      .catch(err => {
+        console.log(err);
+        setIsLoading(false);
         setError("Invalid email or password");
-      })
+      });
   };
 
-  const handleSocialLogin = (provider) => {
-    window.location.href = `http://127.0.0.1:8000/api/auth/${provider}/`;
+  const handleGoogleSuccess = async (credentialResponse) => {
+    try {
+      setIsLoading(true);
+      const decoded = jwtDecode(credentialResponse.credential);
+      console.log("Google user info:", decoded);
+      
+      const response = await api.post('auth/convert-token', {
+        grant_type: 'convert_token',
+        client_id: 'iqTXKlUrhVpSsNZ2zWYheVeb6BD3Hb58Fi1bGsNu', // Must match Django admin
+        client_secret: 'TNFqmUvT8uOMit6dBhNuZaUNOin3nvBeNUs0v6x4qwb9g0QNodWz1qMgQyf6p56jUbox5K9ATa4jhHS8at8j6fGGt1PsXgTZHFNPt25wHg0Gn5W8dNloyEd7aXoSo0cF', // Must match Django admin
+        backend: 'google-oauth2',
+        token: credentialResponse.credential
+      });
+      
+      localStorage.setItem("access", response.data.access_token);
+      localStorage.setItem("refresh", response.data.refresh_token);
+      setIsAuthenticated(true);
+      await getuser();
+      
+      navigate(location.state?.from?.pathname || "/", { replace: true });
+    } catch (error) {
+      console.error('Google login error:', error.response?.data || error);
+      setError(error.response?.data?.error_description || "Google login failed");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleGoogleFailure = () => {
+    console.log('Google login failed');
+    setError("Couldn't connect to Google. Please try another method.");
   };
 
   return (
@@ -49,13 +80,18 @@ const Login = () => {
         <div className="relative p-8 w-full md:w-1/2 z-10">
           <h2 className="text-2xl font-semibold text-center mb-4">Sign in to your account</h2>
 
-          <div className="flex justify-center space-x-4 mb-4">
-            <button onClick={() => handleSocialLogin("google")}>
-              <img src={google} alt="Google" className="w-5 h-5" />
-            </button>
-            <button onClick={() => handleSocialLogin("facebook")}>
-              <img src={facebook} alt="Facebook" className="w-5 h-5" />
-            </button>
+          <div className="flex justify-center mb-4">
+            <GoogleOAuthProvider clientId="789880228117-pb73ieo7dqf95k6fsph5vuofq4rk88p8.apps.googleusercontent.com">
+              <GoogleLogin
+                onSuccess={handleGoogleSuccess}
+                onError={handleGoogleFailure}
+                useOneTap
+                size="large"
+                shape="rectangular"
+                theme="filled_blue"
+                text="continue_with"
+              />
+            </GoogleOAuthProvider>
           </div>
 
           <div className="flex items-center my-4">

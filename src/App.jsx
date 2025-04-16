@@ -20,8 +20,10 @@ import { AuthProvider } from "./context/AuthContext";
 import Profile from "./pages/Profile";
 import NotFoundPage from "./pages/NotFoundPage";
 import OrderConfirmation from "./components/order/OrderConfirmation";
-import AddressForm from "./components/order/AddressForm";
 import OrderAddressPage from "./components/order/OrderAddressPage";
+import RoomPage from "./components/room/RoomPage";
+import CollectionPage from "./components/shop/CollectionPage";
+import ShopCollection from "./components/shop/ShopCollection";
 
 function App() {
   const[numCartItems, setNumCartItems] = useState(0);
@@ -66,6 +68,10 @@ function App() {
             <Route path="/profile" element={<ProdectedRoute><Profile/></ProdectedRoute>} />
             <Route path="/order-confirmation/:orderId?" element={<OrderConfirmation />} />
             <Route path="/orderaddress" element={<OrderAddressPage />} />
+            <Route path="/room" element={<RoomPage />} />
+            <Route path="/collect" element={<CollectionPage />} />
+            <Route path="/collections" element={<ShopCollection />} />
+            
             
           </Route>
         </Routes>
