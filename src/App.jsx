@@ -9,7 +9,7 @@ import DesignSolution from "./components/DesignSolution/DesignSolution";
 import BeSpokePage from "./components/Bespoke/BeSpokePage";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import Page from "./pages/page";
+import Page from "./pages/Page"; // ✅ Matches file name exactly
 import ProductDetail from "./components/product/ProductDetail";
 import Category from "./components/category/Category";
 import SubCategoryProducts from "./components/category/SubCategoryProducts";
