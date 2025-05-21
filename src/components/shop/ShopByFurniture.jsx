@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 import PrevArrowImg from "../../assets/images/Left.png";
 import NextArrowImg from "../../assets/images/Right.png";
-import { useCategories } from "../../hooks/useCategories"; // Adjust path as needed
+import { useCategories } from "../../Hooks/useCategories"; // Adjust path as needed
 
 // Custom Arrows
 const CustomPrevArrow = ({ onClick }) => (
