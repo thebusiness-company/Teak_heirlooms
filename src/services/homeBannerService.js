@@ -1,6 +1,7 @@
 import axios from "axios";
+import { BASEURL } from "../api";
 // import { BASEURL } from "./api";
-const API_URL = `http://127.0.0.1:8000/api/homebanner/`;  // Update with your backend URL
+const API_URL = `${BASEURL}/api/homebanner/`;  // Update with your backend URL
 
 export const fetchHomeBanner = async () => {
     try {

@@ -1,11 +1,14 @@
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
-export const BASEURL = "http://127.0.0.1:8000/";
-export const API_URL = "http://127.0.0.1:8000/";
+// export const BASEURL = "http://127.0.0.1:8000/";
+// export const API_URL = "http://127.0.0.1:8000/";
+
+export const BASEURL = import.meta.env.VITE_BASE_URL || "http://127.0.0.1:8000";
+export const API_URL = import.meta.env.VITE_BASE_URL || "http://127.0.0.1:8000";
 
 const api = axios.create({
-  baseURL: "http://127.0.0.1:8000/api/",
+  baseURL: `${BASEURL}/api/`,
 });
 
 api.interceptors.request.use(

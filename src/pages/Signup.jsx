@@ -4,6 +4,7 @@ import img from "../assets/images/signup.png";
 import google from "../assets/images/google.svg";
 import facebook from "../assets/images/facebook.svg";
 import axios from "axios";
+import { BASEURL } from "../api";
 
 const validatePassword = (password) => {
   const errors = [];
@@ -74,7 +75,7 @@ const SignupSection = () => {
     }
 
     try {
-      await axios.post("http://127.0.0.1:8000/api/user/register/", {
+      await axios.post(`${BASEURL}/api/user/register/`, {
         username: formData.username,
         email: formData.email,
         password: formData.password1,

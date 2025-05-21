@@ -1,6 +1,7 @@
 import axios from "axios";
+import { BASEURL } from "../api";
 
-const API_URL = "http://127.0.0.1:8000/api/collection/";
+const API_URL = `${BASEURL}/api/collection/`;
 
 // Fetch latest banner
 export const fetchCollection = async () => {

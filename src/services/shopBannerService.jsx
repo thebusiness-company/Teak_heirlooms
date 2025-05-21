@@ -1,11 +1,12 @@
 import axios from "axios";
+import { BASEURL } from "../api";
 
-const API_URL = "http://127.0.0.1:8000/api/banners/";
+const API_URL = `${BASEURL}/api/banners/`;
 
 // Fetch latest banner
 export const fetchLatestBanner = async () => {
     try {
-        const response = await axios.get("http://127.0.0.1:8000/api/latest/");
+        const response = await axios.get(`${BASEURL}/api/latest/`);
         return response.data;
     } catch (error) {
         console.error("Error fetching latest banner:", error);

@@ -13,6 +13,10 @@ export default defineConfig({
         "@": path.resolve(path.dirname(fileURLToPath(import.meta.url)), "src"),
       },
     },
+    server: {
+      host: true,         // Allow access via local IP
+      port: 5173,         // Optional: specify a custom port
+    },
     build: {
       rollupOptions: {
         external: ["lodash"],

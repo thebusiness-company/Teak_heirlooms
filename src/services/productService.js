@@ -1,7 +1,8 @@
 // src/services/productService.js
 import axios from "axios";
+import { BASEURL } from "../api";
 
-const API_URL = "http://127.0.0.1:8000/api/products/";
+const API_URL = `${BASEURL}/api/products/`;
 
 export const fetchProducts = async () => {
   try {
@@ -14,7 +15,7 @@ export const fetchProducts = async () => {
 };
 export const fetchSubCategory = async () => {
   try {
-    const response = await axios.get("http://127.0.0.1:8000/api/subcategories/");
+    const response = await axios.get(`${BASEURL}/api/subcategories/`);
     return response.data;
   } catch (error) {
     console.error("Error fetching products:", error);

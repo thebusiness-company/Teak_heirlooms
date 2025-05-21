@@ -1,8 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { BASEURL } from "../api";
+
 
 const fetchRTShip = async (page) => {
-  const { data } = await axios.get(`http://127.0.0.1:8000/api/RTShip/?page=${page}`);
+  const { data } = await axios.get(`${BASEURL}/api/RTShip/?page=${page}`);
   return data;
 };
 
