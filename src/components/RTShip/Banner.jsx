@@ -1,4 +1,4 @@
-import image from "../../assets/images/RTShip/Banner.jpg";
+import image from "../../assets/images/RTShip/banner.jpg";
 export default function Banner() {
     return (
       <div
