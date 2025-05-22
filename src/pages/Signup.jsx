@@ -79,7 +79,7 @@ const SignupSection = () => {
         username: formData.username,
         email: formData.email,
         password: formData.password1,
-        password2: formData.password1,
+        password2: formData.password2,
       });
 
       setFormData({ username: "", email: "", password1: "", password2: "" });
