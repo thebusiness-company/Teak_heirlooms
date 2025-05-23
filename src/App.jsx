@@ -60,8 +60,8 @@ function App() {
             <Route path="Bfurniture" element={<BeSpokePage/>}/>
             <Route path="/Category/:category" element={<Category/>}/>
             <Route path="/Subcategory" element={<SubCategoryProducts />} />
-            <Route path="/signup" element={<Signup/>}/>
-            <Route path="/login" element={<Login/>}/>
+            <Route path="/signup" element={<Login/>}/>
+            <Route path="/login" element={<Signup/>}/>
             <Route path="/page" element={<Page/>}/>
             <Route path="/product/:slug" element={<ProductDetail setNumCartItems={setNumCartItems}/>} />
             <Route path="/cart" element={<ProdectedRoute><Cart setNumCartItems={setNumCartItems}/></ProdectedRoute>} />
