@@ -37,7 +37,7 @@ const validatePassword = (password) => {
   return errors;
 };
 
-const SignupSection = () => {
+const Signup = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -193,4 +193,4 @@ const SignupSection = () => {
   );
 };
 
-export default SignupSection;
+export default Signup;
