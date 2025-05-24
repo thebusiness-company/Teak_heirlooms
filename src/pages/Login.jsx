@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
 import img from "../assets/images/signup.png";
@@ -131,7 +131,7 @@ const Login = () => {
           </form>
 
           <p className="text-center text-sm mt-4">
-            Don&apos;t have an account? <a href="/signup" className="text-red-600 underline">Sign up</a>
+            Don&apos;t have an account? <Link to="/signup" className="text-red-600 underline">Sign up</Link>
           </p>
         </div>
 

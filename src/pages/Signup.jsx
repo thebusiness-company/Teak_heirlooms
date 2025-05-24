@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import img from "../assets/images/signup.png";
 import google from "../assets/images/google.svg";
 import facebook from "../assets/images/facebook.svg";
@@ -180,7 +180,7 @@ const Signup = () => {
           </form>
 
           <p className="text-center text-sm mt-4">
-            Already have an account? <a href="/login" className="text-red-600 underline">Login</a>
+            Already have an account? <Link to="/login" className="text-red-600 underline">Login</Link>
           </p>
         </div>
 
