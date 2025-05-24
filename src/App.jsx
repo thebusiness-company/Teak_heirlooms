@@ -15,7 +15,7 @@ import Category from "./components/category/Category";
 import SubCategoryProducts from "./components/category/SubCategoryProducts";
 import api from "./api";
 import Cart from "./pages/Cart";
-import ProdectedRoute from "./components/ui/ProtectedRoute";
+import ProtectedRoute from "./components/ui/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
 import Profile from "./pages/Profile";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -50,7 +50,8 @@ function App() {
       <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/admin" element={<ProdectedRoute><Adminpage /></ProdectedRoute>}/>
+        <Route path="/admin" element={<ProtectedRoute requireSuperuser={true}><Adminpage /></ProtectedRoute>
+}/>
           <Route path="/" element={<MainLayout numCartItems={numCartItems}/>} >
             <Route index element={<Homepage/>}/>
             <Route path="*" element={<NotFoundPage/>} />
@@ -64,8 +65,8 @@ function App() {
             <Route path="/login" element={<Login/>}/>
             <Route path="/page" element={<Page/>}/>
             <Route path="/product/:slug" element={<ProductDetail setNumCartItems={setNumCartItems}/>} />
-            <Route path="/cart" element={<ProdectedRoute><Cart setNumCartItems={setNumCartItems}/></ProdectedRoute>} />
-            <Route path="/profile" element={<ProdectedRoute><Profile/></ProdectedRoute>} />
+            <Route path="/cart" element={<ProtectedRoute><Cart setNumCartItems={setNumCartItems}/></ProtectedRoute>} />
+            <Route path="/profile" element={<ProtectedRoute><Profile/></ProtectedRoute>} />
             <Route path="/order-confirmation/:orderId?" element={<OrderConfirmation />} />
             <Route path="/orderaddress" element={<OrderAddressPage />} />
             <Route path="/room" element={<RoomPage />} />
