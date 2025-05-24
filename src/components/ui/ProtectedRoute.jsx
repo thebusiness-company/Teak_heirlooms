@@ -1,4 +1,3 @@
-// components/ui/ProtectedRoute.jsx
 import { useEffect, useState, useContext } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import api from '../../api';
@@ -6,7 +5,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { AuthContext } from '../../context/AuthContext';
 
-const ProtectedRoute = ({ children, requireSuperuser = false }) => {
+const ProtectedRoute = ({ children, requireSuperuser = false, allowOnlySuperuser = false }) => {
     const [isAuthorized, setIsAuthorized] = useState(false);
     const [loading, setLoading] = useState(true);
     const location = useLocation();
@@ -58,12 +57,19 @@ const ProtectedRoute = ({ children, requireSuperuser = false }) => {
 
     if (loading) return <div>Loading...</div>;
 
+    // 🔒 If not authenticated
     if (!isAuthorized) {
         return <Navigate to="/login" state={{ from: location }} replace />;
     }
 
+    // 🔒 If only superusers are allowed but the user isn't one
     if (requireSuperuser && !user?.is_superuser) {
         return <Navigate to="/" replace />;
+    }
+
+    // 🔒 If superusers should only access /admin
+    if (allowOnlySuperuser && user?.is_superuser && location.pathname !== '/admin') {
+        return <Navigate to="/admin" replace />;
     }
 
     return children;
@@ -72,6 +78,7 @@ const ProtectedRoute = ({ children, requireSuperuser = false }) => {
 ProtectedRoute.propTypes = {
     children: PropTypes.node.isRequired,
     requireSuperuser: PropTypes.bool,
+    allowOnlySuperuser: PropTypes.bool,
 };
 
 export default ProtectedRoute;
