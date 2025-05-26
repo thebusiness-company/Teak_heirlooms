@@ -1,3 +1,4 @@
+// src/pages/Login.jsx
 import { useContext, useState } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
@@ -18,27 +19,35 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const redirectBasedOnRole = (user) => {
+    const from = location.state?.from?.pathname;
+    if (from) {
+      navigate(from, { replace: true });
+    } else if (user?.is_superuser) {
+      navigate("/admin", { replace: true });
+    } else {
+      navigate("/", { replace: true });
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    api.post('token/', formData)
-      .then(res => {
-        console.log(res.data);
-        setIsLoading(false);
-        setIsAuthenticated(true);
-        getuser();
-        localStorage.setItem("access", res.data.access);
-        localStorage.setItem("refresh", res.data.refresh);
-        setFormData({ email: "", password: "" });
-        setError("");
-        const from = location.state?.from?.pathname || "/";
-        navigate(from, { replace: true });
-      })
-      .catch(err => {
-        console.log(err);
-        setIsLoading(false);
-        setError("Invalid email or password");
-      });
+    try {
+      const res = await api.post('token/', formData);
+      localStorage.setItem("access", res.data.access);
+      localStorage.setItem("refresh", res.data.refresh);
+      setIsAuthenticated(true);
+      const userData = await getuser();
+      setFormData({ email: "", password: "" });
+      setError("");
+      redirectBasedOnRole(userData);
+    } catch (err) {
+      console.log(err);
+      setError("Invalid email or password");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleGoogleSuccess = async (credentialResponse) => {
@@ -49,18 +58,17 @@ const Login = () => {
       
       const response = await api.post('auth/convert-token', {
         grant_type: 'convert_token',
-        client_id: 'iqTXKlUrhVpSsNZ2zWYheVeb6BD3Hb58Fi1bGsNu', // Must match Django admin
-        client_secret: 'TNFqmUvT8uOMit6dBhNuZaUNOin3nvBeNUs0v6x4qwb9g0QNodWz1qMgQyf6p56jUbox5K9ATa4jhHS8at8j6fGGt1PsXgTZHFNPt25wHg0Gn5W8dNloyEd7aXoSo0cF', // Must match Django admin
+        client_id: 'iqTXKlUrhVpSsNZ2zWYheVeb6BD3Hb58Fi1bGsNu',
+        client_secret: 'TNFqmUvT8uOMit6dBhNuZaUNOin3nvBeNUs0v6x4qwb9g0QNodWz1qMgQyf6p56jUbox5K9ATa4jhHS8at8j6fGGt1PsXgTZHFNPt25wHg0Gn5W8dNloyEd7aXoSo0cF',
         backend: 'google-oauth2',
         token: credentialResponse.credential
       });
-      
+
       localStorage.setItem("access", response.data.access_token);
       localStorage.setItem("refresh", response.data.refresh_token);
       setIsAuthenticated(true);
-      await getuser();
-      
-      navigate(location.state?.from?.pathname || "/", { replace: true });
+      const userData = await getuser();
+      redirectBasedOnRole(userData);
     } catch (error) {
       console.error('Google login error:', error.response?.data || error);
       setError(error.response?.data?.error_description || "Google login failed");
@@ -100,9 +108,13 @@ const Login = () => {
             <hr className="w-full border-gray-300" />
           </div>
 
-          {error && <p className="text-red-600 text-center">{error}</p>}
+          {error && (
+            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-4 text-center">
+              {error}
+            </div>
+          )}
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className={isLoading ? "opacity-50 pointer-events-none" : ""}>
             <input
               type="email"
               name="email"
@@ -131,7 +143,8 @@ const Login = () => {
           </form>
 
           <p className="text-center text-sm mt-4">
-            Don&apos;t have an account? <Link to="/signup" className="text-red-600 underline">Sign up</Link>
+            Don&apos;t have an account?{" "}
+            <Link to="/signup" className="text-red-600 underline">Sign up</Link>
           </p>
         </div>
 
