@@ -3,6 +3,7 @@ import Footer from '../components/ui/Footer'
 import { Outlet } from 'react-router-dom'
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PropTypes from 'prop-types';
 
 
 const MainLayout = ({numCartItems}) => {
@@ -32,5 +33,8 @@ const MainLayout = ({numCartItems}) => {
   )
 }
 
+MainLayout.propTypes = {
+  numCartItems: PropTypes.number.isRequired,
+};
 
 export default MainLayout
