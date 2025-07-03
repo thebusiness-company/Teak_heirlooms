@@ -1,6 +1,7 @@
 import axios from "axios";
+import { BASEURL } from "../api";
 
-const API_URL = "http://192.168.0.105:8000/api/blogs/";
+const API_URL = `${BASEURL}/api/blogs/`;
 
 export const getBlogs = async () => {
   try {
