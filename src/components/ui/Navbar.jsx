@@ -13,7 +13,6 @@ const Navbar = ({ numCartItems }) => {
   const { isAuthenticated, user } = useContext(AuthContext);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
-
   const closeMenu = () => setMenuOpen(false);
 
   const navLinks = [
@@ -25,7 +24,7 @@ const Navbar = ({ numCartItems }) => {
   ];
 
   return (
-    <nav className="bg-white px-4 py-2 flex justify-between items-center w-full h-20 shadow-md z-50 relative ">
+    <nav className="bg-white px-4 py-2 flex justify-between items-center w-full h-20 shadow-md z-50 relative">
       {/* Logo */}
       <div className="flex items-center gap-2 ml-4">
         <NavLink to="/">
@@ -40,8 +39,8 @@ const Navbar = ({ numCartItems }) => {
             key={to}
             to={to}
             className={({ isActive }) =>
-              `px-4  pt-6  transition ${
-                isActive ? "bg-[#9C0300] text-white " : "hover:bg-[#9C0300] hover:text-white"
+              `px-4 pt-6 transition ${
+                isActive ? "bg-[#9C0300] text-white" : "hover:bg-[#9C0300] hover:text-white"
               }`
             }
           >
@@ -51,10 +50,21 @@ const Navbar = ({ numCartItems }) => {
       </div>
 
       {/* Right Icons */}
-      <div className="flex items-center gap-6 md:gap-12  mr-6">
-      {isAuthenticated ? (
+      <div className="flex items-center gap-6 md:gap-12 mr-6">
+        {isAuthenticated ? (
           <span className="text-[#9C0300] font-medium hidden md:block">
             Hi {user.username}
+            {user?.is_superuser && (
+                <button
+                  onClick={() => {
+                    closeMenu();
+                    navigate("/admin");
+                  }}
+                  className="bg-[#9C0300] text-white px-3 py-2 rounded-3xl ml-3"
+                >
+                  Admin Panel
+                </button>
+              )}
           </span>
         ) : (
           <button
@@ -64,7 +74,7 @@ const Navbar = ({ numCartItems }) => {
             Login
           </button>
         )}
-        
+
         <Link to="/profile">
           <img src={profile} alt="profile" className="w-8 h-8" />
         </Link>
@@ -76,13 +86,13 @@ const Navbar = ({ numCartItems }) => {
             </span>
           )}
         </Link>
-        
 
         {/* Hamburger Button - Mobile */}
         <button
           className="md:hidden text-[#9C0300]"
           onClick={toggleMenu}
           aria-label="Toggle Menu"
+          aria-expanded={menuOpen}
         >
           {menuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
@@ -109,8 +119,22 @@ const Navbar = ({ numCartItems }) => {
               {label}
             </NavLink>
           ))}
+
           {isAuthenticated ? (
-            <span className="text-lg">Hi {user.username}</span>
+            <>
+              <span className="text-lg">Hi {user.username}</span>
+              {user?.is_superuser && (
+                <button
+                  onClick={() => {
+                    closeMenu();
+                    navigate("/admin");
+                  }}
+                  className="bg-[#9C0300] text-white px-6 py-2 rounded-full"
+                >
+                  Admin Panel
+                </button>
+              )}
+            </>
           ) : (
             <button
               onClick={() => {

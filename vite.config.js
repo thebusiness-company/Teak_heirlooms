@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 import compression from 'vite-plugin-compression';
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/',
   plugins: [react(),compression(), tailwindcss(),
   ],
   resolve: {
