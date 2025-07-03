@@ -68,7 +68,7 @@ const SWOSection = () => {
     <div className="max-w-7xl mx-auto text-center py-10">
       <h2 className="text-3xl font-semibold text-[#3b493f]">Services We Offer</h2>
       <p className="text-gray-600 mt-2">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        From custom-built beds to statement shelving, every project begins with your vision. We take it from there—adding design intelligence, craftsmanship, and precision at every step until it arrives at your door, ready to live in.
       </p>
 
       <div className="relative mt-8">

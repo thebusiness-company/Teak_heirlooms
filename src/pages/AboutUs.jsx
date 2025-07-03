@@ -18,11 +18,13 @@ const AboutUs = () => {
       <div className="py-10 px-6 md:px-20 text-center">
         <h2 className="text-2xl font-semibold mb-4">ABOUT US</h2>
         <p className="text-gray-600 text-sm md:text-base max-w-3xl mx-auto">
-          In 2010, Teak Heirlooms pioneered omnichannel retail to launch Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Quisque pellentesque pretium neque, et accumsan enim gravida in.
+          At Teak Heirlooms, every creation begins with a story. Ours began generations ago with a single teak chair, gifted and passed down through our family. That one piece inspired a philosophy: furniture should outlive trends—and sometimes, even lifetimes.
         </p>
         <p className="text-gray-600 text-sm md:text-base max-w-3xl mx-auto mt-2">
-          Praesent risus ante, malesuada nec tincidunt ut, blandit at libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          We build with teak because it honors both form and function. We design with heart because we know your home deserves nothing less. And we obsess over detail because premium isn't a label—it’s how we work.
+        </p>
+        <p className="text-gray-600 text-sm md:text-base max-w-3xl mx-auto mt-2">
+          With roots in tradition and eyes on the future, we don’t just make furniture. We craft heirlooms.
         </p>
       </div>
 

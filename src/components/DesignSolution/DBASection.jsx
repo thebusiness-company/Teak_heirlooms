@@ -45,9 +45,9 @@ CustomNextArrow.propTypes = { onClick: PropTypes.func };
 
 const DBASection = () => {
   const items = [
-    { id: 1, image: img1, title: "Inhouse Interior Design Expert", desc: "Lorem ipsum dolor sit amet..." },
-    { id: 2, image: img2, title: "Customized Interior Solutions", desc: "Lorem ipsum dolor sit amet..." },
-    { id: 3, image: img3, title: "End to End Project Management", desc: "Lorem ipsum dolor sit amet..." },
+    { id: 1, image: img1, title: "Personal Design Expert", desc: "From your very first call to final delivery, a dedicated design consultant helps bring your dream to life—making the process seamless, exciting, and deeply personal." },
+    { id: 2, image: img2, title: "Complete Customisation", desc: "Every single element—from the texture of the fabric to the silhouette of the piece—is yours to choose. Nothing is pre-fixed. Everything is tailored." },
+    { id: 3, image: img3, title: "Seamless Execution", desc: "Once your design is locked in, we take care of the rest. Our team handles the build, transport, and installation—so all you have to do is enjoy the results." },
   ];
 
   const settings = {
@@ -68,8 +68,7 @@ const DBASection = () => {
     <div className="max-w-7xl mx-auto text-center py-10">
       <h2 className="text-3xl font-semibold text-[#3b493f]">The Design & Build Advantage</h2>
       <p className="text-gray-600 mt-2">
-        All aspects of your home are catered to by us, including furniture, modular solutions, 
-        room planning, interior design, project management, and home décor.
+       Where your vision meets masterful craftsmanship to create timeless, bespoke pieces that define luxury living
       </p>
 
       <div className="relative mt-8">

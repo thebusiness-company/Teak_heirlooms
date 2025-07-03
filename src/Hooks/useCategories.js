@@ -1,7 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
-const API_URL = "http://localhost:8000/api";
+const API_URL = "http://192.168.0.105:8000/api";
 
 export const useCategories = () => {
   const queryClient = useQueryClient();

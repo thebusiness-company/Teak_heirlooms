@@ -73,6 +73,7 @@ function App() {
             <Route path="/collections" element={<ShopCollection />} />
             
             
+            
           </Route>
         </Routes>
       </Router>

@@ -10,7 +10,7 @@ export default function DHSection() {
         </h2>
 
         <ul className="space-y-6">
-          {["Book an appointment", "Meet our Designer", "Lorem ipsum", "Lorem ipsum", "Lorem ipsum"].map((text, index) => (
+          {["Book an appointment", "Meet Your Design Expert", "Customise Every Detail", "Track Your Piece in Progress", "Delivery & White-Glove Installation"].map((text, index) => (
             <li key={index} className="flex items-center justify-between border-b border-gray-300 pb-2">
               <span className="text-lg font-medium text-[#3B493F]">{text}</span>
               <span className="text-red-500 text-xl font-bold mr-20">→</span>

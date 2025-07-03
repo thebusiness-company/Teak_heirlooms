@@ -38,8 +38,13 @@ const MainBanner = () => {
           Why Choose us?
         </h2>
         <p className="text-gray-600 mt-2 text-sm sm:text-base md:text-lg max-w-3xl mx-auto">
-          We are the largest design set-up in India with over 15 years of
-          experience in home interiors and modular solutions.
+          At Teak Heirlooms, we believe that furniture should be personal, soulful, and built to last. Each piece we create begins with a conversation and ends in a masterpiece tailored just for you.
+        </p>
+        <p className="text-gray-600 mt-2 text-sm sm:text-base md:text-lg max-w-3xl mx-auto">
+          We're not here to mass produce. We're here to preserve the art of making. From selecting the finest teak to working with seasoned artisans, we obsess over every grain and groove—because details make the difference
+        </p>
+        <p className="text-gray-600 mt-2 text-sm sm:text-base md:text-lg max-w-3xl mx-auto">
+          While trends come and go, your story doesn't. We design furniture that fits your life now—and becomes part of your legacy later. When you choose us, you're choosing meaning over mass, depth over decor.
         </p>
       </div>
 
