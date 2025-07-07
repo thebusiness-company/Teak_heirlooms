@@ -96,7 +96,7 @@ const HomeCollection = () => {
 
   return (
     <div className="max-w-6xl mx-auto text-center py-10 px-4 relative">
-      <h2 className="text-3xl lg:text-5xl md:text-4xl font-semibold text-[#3b493f] mb-12 mt-6">Our Products</h2>
+      <h2 className="text-3xl lg:text-5xl text-[#3b493f] mb-12 mt-6 font-upright">Our Products</h2>
 
       <div className="relative">
         <Slider {...settings}>

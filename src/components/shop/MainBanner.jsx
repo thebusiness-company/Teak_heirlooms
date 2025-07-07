@@ -18,6 +18,7 @@ const MainBanner = () => {
       <div className="w-1/3 flex justify-center p-2">
         <img
           src={banner.image_left || M1}
+          // src={M2}
           alt="Wall Panel 1"
           className="w-full max-w-[90%] sm:max-w-[90%] md:max-w-[75%] lg:w-auto h-auto"
         />
@@ -25,7 +26,7 @@ const MainBanner = () => {
 
       {/* Center Text */}
       <div className="w-1/3 text-center py-4">
-        <h2 className="text-lg sm:text-xl md:text-3xl lg:text-6xl  text-[#3B493F]">
+        <h2 className="text-lg sm:text-xl md:text-3xl lg:text-6xl text-[#3B493F] font-infant">
           {banner.title}
         </h2>
         <p className="text-[#9C0300] text-xs sm:text-sm md:text-base mt-2">
@@ -40,6 +41,7 @@ const MainBanner = () => {
       <div className="w-1/3 flex justify-center p-2">
         <img
           src={banner.image_right || M2}
+          // src={M1}
           alt="Wall Panel 2"
           className="w-full max-w-[90%] sm:max-w-[90%] md:max-w-[75%] lg:w-auto h-auto"
         />

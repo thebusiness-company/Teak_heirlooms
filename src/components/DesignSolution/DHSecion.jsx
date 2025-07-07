@@ -5,7 +5,7 @@ export default function DHSection() {
     <div className="flex flex-col lg:flex-row items-center justify-between px-6 py-12 max-w-6xl mx-auto">
       {/* Left Section */}
       <div className="lg:w-1/2 text-left">
-        <h2 className="text-3xl md:text-4xl font-serif font-semibold text-[#3B493F] ml-12 mb-15 leading-tight">
+        <h2 className="text-3xl lg:text-5xl font-infant text-[#3B493F] md:ml-12 mb-15 text-center leading-tight">
           5 Steps to Your <br className="hidden md:block" /> Dream Home
         </h2>
 

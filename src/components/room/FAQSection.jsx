@@ -54,8 +54,8 @@ const FAQSection = () => {
       <div className="space-y-6">
         {faqs.map((faq, idx) => (
           <div key={idx}>
-            <h3 className="font-medium text-base mb-1">{faq.question}</h3>
-            <p className="text-sm text-gray-700">{faq.answer}</p>
+            <h3 className="text-base md:text-xl mb-1 font-semibold">{faq.question}</h3>
+            <p className="text-sm md:text-lg">{faq.answer}</p>
           </div>
         ))}
       </div>

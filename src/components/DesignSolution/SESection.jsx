@@ -6,7 +6,7 @@ const SESection = () => {
     navigate("/contact");
   }
   return (
-    <section className=" relative flex flex-col md:flex-row items-center justify-center w-full max-w-7xl my-24 md:my-48"> 
+    <section className=" relative flex flex-col md:flex-row items-center justify-center w-full  my-24 md:my-48"> 
       {/* Image Section */}
       <div className=" w-1/2 md:w-1/2 absolute inset-x-0 z-6 ">
         <img
@@ -20,7 +20,7 @@ const SESection = () => {
       
       <div className="absolute inset-x-0 bg-[#2D3A2D] p-16 md:p-32 text-white flex flex-col justify-end items-end ">
         
-        <h2 className="absolute right-2 md:right-10 sm:right-1 text-sm sm:text-xs md:text-xl px-2  font-serif text-left font-semibold my-2 sm:mx-2">
+        <h2 className="absolute right-2 md:right-10 sm:right-1 text-sm sm:text-xs md:text-2xl lg:text-3xl px-2  font-serif text-left font-semibold my-2 sm:mx-2">
           Begin The Journey To <br /> Your Dream <br /> Home Interiors
         </h2>
         <div className="flex justify-center md:justify-center mt-4">

@@ -12,7 +12,7 @@ const Banner = () => {
       {/* Overlay */}
       <div className="absolute inset-0 flex items-center justify-end pr-12">
         <div className="bg-[#38493f]/60 text-white p-6 md:p-10 ">
-          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-center">
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-center font-infant">
             CREATED WITH ELEGANCE <br /> IN MY MIND
           </h2>
         </div>

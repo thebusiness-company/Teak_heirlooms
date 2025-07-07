@@ -57,8 +57,8 @@ const RoomHotspotGallery = () => {
 
   return (
     <div className="px-8 py-8 max-w-8xl mx-auto">
-      <h2 className="text-3xl font-bold mb-3 px-2">Make space for dreams</h2>
-      <p className="text-gray-600 mb-8 max-w-5xl px-2">
+      <h2 className="text-3xl font-bold mb-3 px-2 font-infant">Make space for dreams</h2>
+      <p className="mb-8 max-w-5xl px-2">
         Your bedroom is more than just a place to sleep—it`&apos;`s your personal retreat, a space for relaxation, and a canvas for your dreams. Discover endless inspiration to create a bedroom that reflects your style and meets your needs. It`&apos;`s time to turn your bedroom into the sanctuary you’ve always imagined.
       </p>
 

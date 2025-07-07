@@ -8,15 +8,15 @@ const AboutUs = () => {
       {/* Hero Section */}
       <div className="relative w-full h-[400px] md:h-[500px] flex items-center px-20 justify-end bg-cover bg-center" 
         style={{ backgroundImage: `url(${a1})` }}>
-        <div className="absolute inset-0 bg-opacity-30 text-white text-4xl px-10 py-10">Teak Heirlooms</div>
+        <div className="absolute inset-0 bg-opacity-30 text-white text-4xl px-10 py-10 font-alata">TEAK HEIRLOOMS</div>
         <div className="relative text-center text-white px-4">
-          <h1 className="text-lg md:text-4xl font-light">Unbox<br /> your Happiness</h1>
+          <h1 className="text-2xl md:text-3xl lg:text-5xl font-light font-infant lg:mt-36">Unbox<br /> your Happiness</h1>
         </div>
       </div>
 
       {/* About Us Section */}
       <div className="py-10 px-6 md:px-20 text-center">
-        <h2 className="text-2xl font-semibold mb-4">ABOUT US</h2>
+        <h2 className="text-3xl lg:text-5xl mb-4 text-[#3B493F]">ABOUT US</h2>
         <p className="text-gray-600 text-sm md:text-base max-w-3xl mx-auto">
           At Teak Heirlooms, every creation begins with a story. Ours began generations ago with a single teak chair, gifted and passed down through our family. That one piece inspired a philosophy: furniture should outlive trends—and sometimes, even lifetimes.
         </p>
@@ -30,7 +30,7 @@ const AboutUs = () => {
 
       {/* Our Story Section */}
       <div className="bg-[#F5E8D9] py-10 px-6 md:px-20">
-        <h2 className="text-2xl font-semibold text-center mb-6">OUR STORY</h2>
+        <h2 className="text-3xl lg:text-5xl text-center text-[#3B493F] mb-6">OUR STORY</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
           <img src={a2} alt="Story 1" className="w-full h-56 object-cover " />
           <img src={a3} alt="Story 2" className="w-full h-56 object-cover " />

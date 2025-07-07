@@ -37,7 +37,7 @@ const ShopCollection = () => {
     <>
       <div className="max-w-5xl mx-auto px-4 py-8">
         {/* Title */}
-        <h2 className="text-center text-3xl md:text-4xl font-semibold font-serif text-[#3b493f] mb-6">
+        <h2 className="text-center text-2xl md:text-3xl lg:text-5xl font-semibold font-infant text-[#3b493f] mb-6">
           Shop by Collection
         </h2>
 
@@ -57,17 +57,17 @@ const ShopCollection = () => {
               {/* Text Section */}
               <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:pl-15 bg-white">
                 {collection.trending && (
-                  <p className="text-[#9C0300] text-3xl font-medium text-center md:mt-4 mb-5">
+                  <p className="text-[#9C0300] text-xl md:text-3xl font-medium text-center mt-2 md:mt-4 mb-5  ">
                     Now Trending
                   </p>
                 )}
-                <h3 className="text-xl md:text-4xl font-serif font-bold text-[#000000] text-center mb-5">
+                <h3 className="text-3xl md:text-4xl font-serif font-bold text-[#000000] text-center mb-5 font-infant">
                   {collection.title}
                 </h3>
-                <p className="text-[#3B493F] text-3xl font-semibold text-center mb-5">
+                <p className="text-[#3B493F] text-xl md:text-3xl font-semibold text-center mb-5">
                   {collection.subtitle}
                 </p>
-                <p className="text-[#9C0300] font-medium mt-2 text-2xl text-center mb-5">
+                <p className="text-[#9C0300] font-medium mt-2 text-xl md:text-2xl text-center mb-5">
                   Starts at ₹ {collection.price}.
                 </p>
                 <div className="flex justify-center items-center md:justify-start">

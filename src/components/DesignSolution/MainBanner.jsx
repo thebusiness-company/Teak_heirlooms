@@ -34,7 +34,7 @@ const MainBanner = () => {
     <div className="relative w-full">
       {/* Text Section */}
       <div className="bg-white text-center py-10 px-4">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#3B493F]">
+        <h2 className="text-3xl lg:text-5xl font-infant text-[#3B493F]">
           Why Choose us?
         </h2>
         <p className="text-[#3B493F] mt-2 text-sm sm:text-base md:text-lg max-w-3xl mx-auto">
@@ -63,39 +63,39 @@ const MainBanner = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-left md:text-center">
             <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4">
               <Counter value={12} />
-              <p className="text-xs md:text-sm  text-gray-600 text-left md:text-center">Cities</p>
+              <p className="text-xs md:text-sm  text-[#3B493F] text-left md:text-center">Cities</p>
             </div>
             <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4">
               <Counter value={8} />
-              <p className="text-xs md:text-sm text-gray-600 text-left md:text-center">Design Studios</p>
+              <p className="text-xs md:text-sm text-[#3B493F] text-left md:text-center">Design Studios</p>
             </div>
             <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4">
               <Counter value={50} />
-              <p className="text-xs md:text-sm  text-gray-600 text-left md:text-center">Homes Designed</p>
+              <p className="text-xs md:text-sm  text-[#3B493F] text-left md:text-center">Homes Designed</p>
             </div>
             <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4">
               <Counter value={2673} />
-              <p className="text-xs md:text-sm  text-gray-600 text-left md:text-center">Happy Customers</p>
+              <p className="text-xs md:text-sm  text-[#3B493F] text-left md:text-center">Happy Customers</p>
             </div>
             <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4">
-              <p className="text-xs md:text-sm  text-gray-600 text-left md:text-center">
+              <p className="text-xs md:text-sm  text-[#3B493F] text-left md:text-center">
                 100% Transparent Pricing
               </p>
             </div>
             <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4">
-              <p className="text-xs md:text-sm  text-gray-600 text-left md:text-center">
+              <p className="text-xs md:text-sm  text-[#3B493F] text-left md:text-center">
                 End-to-End Project Management
               </p>
             </div>
             <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4">
-              <p className="text-xs md:text-sm  text-gray-600 text-left md:text-center">100% Satisfaction</p>
+              <p className="text-xs md:text-sm  text-[#3B493F] text-left md:text-center">100% Satisfaction</p>
             </div>
             <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4">
-              <p className="text-xs md:text-sm  text-gray-600 text-center md:text-center">Quality Assurance</p>
+              <p className="text-xs md:text-sm  text-[#3B493F] text-center md:text-center">Quality Assurance</p>
             </div>
             <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4">
               <Counter value={30} />
-              <p className="text-xs md:text-sm  text-gray-600 text-left md:text-center">In-house Designers</p>
+              <p className="text-xs md:text-sm  text-[#3B493F] text-left md:text-center">In-house Designers</p>
             </div>
           </div>
         </motion.div>

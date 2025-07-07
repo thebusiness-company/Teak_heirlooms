@@ -18,7 +18,7 @@ const DesignBanner = () => {
         <img src={logo} alt="Teak Heirlooms"  />
 
         {/* Heading */}
-        <h3 className="text-[#3B493F] font-semibold text-xl md:text-3xl mt-4 md:mt-6 text-center">
+        <h3 className="text-[#3B493F] font-semibold text-xl md:text-3xl mt-4 md:mt-6 text-center font-infant">
           DESIGN AND BUILD WITH US
         </h3>
 

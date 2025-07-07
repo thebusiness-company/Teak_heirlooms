@@ -36,7 +36,7 @@ const Blog = () => {
 
     return (
         <section className="py-12 px-4 text-center relative">
-            <h2 className="text-3xl font-semibold text-[#3B493F] mb-8">Latest Blog</h2>
+            <h2 className="text-3xl lg:text-5xl text-[#3B493F] mb-8 font-upright">Latest Blog</h2>
             <div className="swiper-container">
                 <Swiper
                     modules={[Autoplay, Navigation, Pagination]}

@@ -14,7 +14,7 @@ const ProductCard = ({ image, title, price, soldOut,slug }) => {
       </span>
       )}
       <div className="p-2 text-center">
-      <h3 className="text-sm font-semibold">{title}</h3>
+      <h3 className="text-sm font-semibold text-[#9C0300]">{title}</h3>
       <p className="text-[#9C0300] text-sm">₹ {price}</p>
       </div>
       </Link>

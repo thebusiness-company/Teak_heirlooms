@@ -5,6 +5,7 @@ import "./index.css";
 import { ToastProvider } from "./context/ToastContext";
 const queryClient = new QueryClient();
 import { GoogleOAuthProvider } from '@react-oauth/google';
+// import './styles/fonts.css';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <QueryClientProvider client={queryClient}>
