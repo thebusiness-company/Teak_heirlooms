@@ -55,25 +55,25 @@ const ShopCollection = () => {
               </div>
 
               {/* Text Section */}
-              <div className="w-full md:w-1/2 flex flex-col justify-center pl-15 bg-white">
+              <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:pl-15 bg-white">
                 {collection.trending && (
-                  <p className="text-[#9C0300] text-3xl font-medium text-center md:text-left ml-25 mb-5">
+                  <p className="text-[#9C0300] text-3xl font-medium text-center md:mt-4 mb-5">
                     Now Trending
                   </p>
                 )}
-                <h3 className="text-xl md:text-4xl font-serif font-bold text-[#000000] text-center mb-5 md:text-left">
+                <h3 className="text-xl md:text-4xl font-serif font-bold text-[#000000] text-center mb-5">
                   {collection.title}
                 </h3>
-                <p className="text-[#3B493F] text-3xl font-semibold text-center md:text-left ml-25 mb-5">
+                <p className="text-[#3B493F] text-3xl font-semibold text-center mb-5">
                   {collection.subtitle}
                 </p>
-                <p className="text-[#9C0300] font-medium mt-2 text-2xl text-center md:text-left ml-25 mb-5">
+                <p className="text-[#9C0300] font-medium mt-2 text-2xl text-center mb-5">
                   Starts at ₹ {collection.price}.
                 </p>
-                <div className="flex justify-center md:justify-start">
+                <div className="flex justify-center items-center md:justify-start">
                   <Link 
                     to={`/collect?collection=${collection.id}`}
-                    className="mt-2 px-5 py-2 bg-[#9C0300] text-white rounded-full ml-30 hover:bg-red-700 transition"
+                    className="mt-2 mb-4 px-5 py-2 bg-[#9C0300] text-white rounded-full hover:bg-red-700 transition"
                   >
                     Shop Now
                   </Link>

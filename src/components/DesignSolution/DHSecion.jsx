@@ -13,19 +13,19 @@ export default function DHSection() {
           {["Book an appointment", "Meet Your Design Expert", "Customise Every Detail", "Track Your Piece in Progress", "Delivery & White-Glove Installation"].map((text, index) => (
             <li key={index} className="flex items-center justify-between border-b border-gray-300 pb-2">
               <span className="text-lg font-medium text-[#3B493F]">{text}</span>
-              <span className="text-red-500 text-xl font-bold mr-20">→</span>
+              <span className="text-red-500 text-xl font-bold mr-16">→</span>
             </li>
           ))}
         </ul>
 
-        <button className="mt-10 ml-15 px-6 py-3 bg-[#9C0300] text-white font-semibold rounded-full hover:bg-red-800 transition shadow-md ">
+        <button className="mt-10 md:ml-15 sm:mx-10 md:mx-0 px-6 py-3 bg-[#9C0300] text-white font-semibold rounded-full hover:bg-red-700 transition shadow-md ">
           BOOK A CONSULTATION
         </button>
       </div>
 
       {/* Right Section */}
-      <div className="lg:w-1/2 mt-8 lg:mt-0">
-        <img src={DH} alt="Dream Home" className="w-full  shadow-lg object-cover" />
+      <div className="lg:w-1/2 mt-8 lg:ml-12 lg:mt-0">
+        <img src={DH} alt="Dream Home" className="w-full shadow-lg object-cover" />
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ const DesignBanner = () => {
       </button>
 
       {/* Text Box */}
-      <div className="absolute top-1/3 right-10 md:right-20 lg:right-28 border border-black bg-[#FFF1DF] bg-opacity-90 p-4 md:p-8 shadow-lg w-[150px] md:w-[200px] lg:w-[290px]">
+      <div className="absolute top-1/3 right-10 md:right-20 lg:right-28 border border-black bg-[rgba(255,241,223,0.8)] bg-opacity-90 p-4 md:p-8 shadow-lg w-[150px] md:w-[200px] lg:w-[290px]">
         {/* Logo */}
         <img src={logo} alt="Teak Heirlooms"  />
 

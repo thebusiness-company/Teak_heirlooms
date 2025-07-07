@@ -67,7 +67,7 @@ const DBASection = () => {
   return (
     <div className="max-w-7xl mx-auto text-center py-10">
       <h2 className="text-3xl font-semibold text-[#3b493f]">The Design & Build Advantage</h2>
-      <p className="text-gray-600 mt-2">
+      <p className="text-gray-600 mt-2 mx-4">
        Where your vision meets masterful craftsmanship to create timeless, bespoke pieces that define luxury living
       </p>
 
@@ -77,8 +77,8 @@ const DBASection = () => {
             <div key={item.id} className="px-4">
               <div className="bg-white p-4 text-left">
                 <img src={item.image} alt={item.title} className="w-full h-auto mb-4" />
-                <h3 className="text-lg font-semibold">{item.title}</h3>
-                <p className="text-gray-500">{item.desc}</p>
+                <h3 className="text-lg font-semibold text-[#3B493F]">{item.title}</h3>
+                <p className=" text-[#3B493F]">{item.desc}</p>
               </div>
             </div>
           ))}
