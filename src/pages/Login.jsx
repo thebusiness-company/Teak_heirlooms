@@ -1,11 +1,11 @@
 // src/pages/Login.jsx
 import { useContext, useState } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
-import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
-import { jwtDecode } from "jwt-decode";
 import img from "../assets/images/signup.png";
-import api from "../api";
+import api, { API_URL } from "../api";
 import { AuthContext } from "../context/AuthContext";
+import { useGoogleLogin } from "@react-oauth/google";
+import axios from 'axios';
 
 const Login = () => {
   const { setIsAuthenticated, getuser } = useContext(AuthContext);
@@ -50,37 +50,31 @@ const Login = () => {
     }
   };
 
-  const handleGoogleSuccess = async (credentialResponse) => {
+  const googleLogin = useGoogleLogin({
+  onSuccess: async (tokenResponse) => {
+        console.log("googleAccessToken",tokenResponse.access_token);
+
     try {
-      setIsLoading(true);
-      const decoded = jwtDecode(credentialResponse.credential);
-      console.log("Google user info:", decoded);
-      
-      const response = await api.post('auth/convert-token', {
-        grant_type: 'convert_token',
-        client_id: 'iqTXKlUrhVpSsNZ2zWYheVeb6BD3Hb58Fi1bGsNu',
-        client_secret: 'TNFqmUvT8uOMit6dBhNuZaUNOin3nvBeNUs0v6x4qwb9g0QNodWz1qMgQyf6p56jUbox5K9ATa4jhHS8at8j6fGGt1PsXgTZHFNPt25wHg0Gn5W8dNloyEd7aXoSo0cF',
-        backend: 'google-oauth2',
-        token: credentialResponse.credential
+      const res = await axios.post(`${API_URL}/rest-auth/google/`, {
+        access_token: tokenResponse.access_token,
       });
+      console.log("google Login response:",res.data);
+      localStorage.setItem("access", res.data.access);
+      localStorage.setItem("refresh",res.data.refresh);
 
-      localStorage.setItem("access", response.data.access_token);
-      localStorage.setItem("refresh", response.data.refresh_token);
       setIsAuthenticated(true);
-      const userData = await getuser();
-      redirectBasedOnRole(userData);
-    } catch (error) {
-      console.error('Google login error:', error.response?.data || error);
-      setError(error.response?.data?.error_description || "Google login failed");
-    } finally {
-      setIsLoading(false);
-    }
-  };
+      getuser();
+      setError("");
 
-  const handleGoogleFailure = () => {
-    console.log('Google login failed');
-    setError("Couldn't connect to Google. Please try another method.");
-  };
+      const from = location.state?.from?.pathname || "/";
+      navigate(from, { replace: true });
+    } catch (err) {
+      console.error("Google login error:", err);
+      setError("Google login failed");
+    }
+  },
+  onError: () => setError("Google login was cancelled or failed"),
+});
 
   return (
     <div className="h-screen w-full bg-[#FFF1DF] flex items-center justify-center">
