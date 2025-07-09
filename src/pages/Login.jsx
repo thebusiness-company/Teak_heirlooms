@@ -82,9 +82,6 @@ const Login = () => {
       <section className="relative flex flex-col bg-white md:flex-row items-center justify-between w-full max-w-7xl mx-auto rounded-lg my-1 px-4 md:px-8">
         <div className="relative p-8 w-full md:w-1/2 z-10">
           <h2 className="text-2xl font-semibold text-left mb-4">Sign in to your account</h2>
-          
-
-          
 
           {error && (
             <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-4 text-center">
