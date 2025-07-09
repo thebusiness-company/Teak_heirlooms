@@ -18,7 +18,7 @@ export default function DHSection() {
           ))}
         </ul>
 
-        <button className="mt-10 md:ml-15 sm:mx-10 md:mx-0 px-6 py-3 bg-[#9C0300] text-white font-semibold rounded-full hover:bg-red-700 transition shadow-md ">
+        <button className="mt-10 md:ml-15 sm:mx-10 md:mx-0 px-6 py-2 bg-[#9C0300] text-white font-semibold rounded-full hover:bg-red-700 transition shadow-md">
           BOOK A CONSULTATION
         </button>
       </div>

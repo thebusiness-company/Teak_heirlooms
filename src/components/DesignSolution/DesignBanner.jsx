@@ -8,7 +8,7 @@ const DesignBanner = () => {
       <img src={Img} alt="Banner" className="w-full h-full object-cover" />
 
       {/* Consultation Button */}
-      <button className="absolute bottom-10 left-5 md:left-10 bg-[#9C0300] text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-semibold shadow-md hover:bg-red-700 text-sm md:text-base">
+      <button className="absolute bottom-10 left-5 md:left-10 bg-[#9C0300] text-white px-4 py-2 md:px-6 rounded-full font-semibold shadow-md hover:bg-red-700 text-sm md:text-base">
         BOOK A CONSULTATION
       </button>
 

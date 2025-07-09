@@ -19,17 +19,18 @@ const SESection = () => {
       {/* Text Section */}
       
       <div className="absolute inset-x-0 bg-[#2D3A2D] p-16 md:p-32 text-white flex flex-col justify-end items-end ">
-        
-        <h2 className="absolute right-2 md:right-10 sm:right-1 text-sm sm:text-xs md:text-2xl lg:text-3xl px-2  font-serif text-left font-semibold my-2 sm:mx-2">
+        {/* <div className="w-1/2 flex flex-row justify-start items-center"> */}
+        <h2 className="absolute top-2 md:top-6 right-4 md:right-10 sm:right-1 lg:right-52 text-base sm:text-xs md:text-3xl lg:text-4xl px-2 font-infant text-left font-semibold my-2 sm:mx-2 ">
           Begin The Journey To <br /> Your Dream <br /> Home Interiors
         </h2>
-        <div className="flex justify-center md:justify-center mt-4">
+        <div className="flex justify-center mt-4">
           <button onClick={handleContactClick}
-          className="absolute right-2 sm:right-1 md:right-24 lg:right-16 bg-[#9C0300] text-white hover:bg-red-700 transition p-2 md:p-2 lg:px-6 lg:py-3 rounded-full text-sm sm:text-xs md:text-base my-2">
+          className="absolute lg:top-28 right-6 sm:right-4 md:right-24 lg:right-72 mt-4 lg:mt-16 bg-[#9C0300] text-white hover:bg-red-700 transition p-1 md:px-4 md:py-1 lg:px-6 lg:py-1 rounded-full text-xs sm:text-xs md:text-base my-2">
             SPEAK TO OUR EXPERT
           </button>
+          </div>
         </div>
-      </div>
+      {/* </div> */}
     </section>
   );
 };

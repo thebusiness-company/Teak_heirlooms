@@ -32,7 +32,7 @@ const MainBanner = () => {
         <p className="text-[#9C0300] text-xs sm:text-sm md:text-base mt-2">
           {banner.description} @RS.{banner.price_text}
         </p>
-        <button className="mt-3 bg-[#9C0300] text-white px-4 py-2 sm:px-6 sm:py-1 md:mt-20 rounded-md hover:bg-red-800 transition duration-300">
+        <button className="mt-3 bg-[#9C0300] text-white px-4 py-2 sm:px-6 sm:py-1 md:mt-20 rounded-2xl hover:bg-red-800 transition duration-300">
           Shop Now
         </button>
       </div>

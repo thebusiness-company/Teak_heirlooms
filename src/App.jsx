@@ -17,7 +17,7 @@ import api from "./api";
 import Cart from "./pages/Cart";
 import ProtectedRoute from "./components/ui/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
-// import Profile from "./pages/Profile";
+import Profile from "./pages/Profile";
 import NotFoundPage from "./pages/NotFoundPage";
 import OrderConfirmation from "./components/order/OrderConfirmation";
 import OrderAddressPage from "./components/order/OrderAddressPage";
@@ -67,7 +67,7 @@ function App() {
             <Route path="/page" element={<Page/>}/>
             <Route path="/product/:slug" element={<ProductDetail setNumCartItems={setNumCartItems}/>} />
             <Route path="/cart" element={<ProtectedRoute><Cart setNumCartItems={setNumCartItems}/></ProtectedRoute>} />
-            {/* <Route path="/profile" element={<ProtectedRoute><Profile/></ProtectedRoute>} /> */}
+            <Route path="/profile" element={<ProtectedRoute><Profile/></ProtectedRoute>} />
             <Route path="/order-confirmation/:orderId?" element={<OrderConfirmation />} />
             <Route path="/orderaddress" element={<OrderAddressPage />} />
             <Route path="/room" element={<RoomPage />} />

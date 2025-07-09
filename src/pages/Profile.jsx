@@ -162,7 +162,7 @@ const Profile = () => {
     ["lastName", "Last Name"],
     ["email", "Email"],
     ["address", "Address"],
-    ["phone", "Phone Number"],
+    ["phone", "Phone No"],
     ["dob", "Date of Birth"],
     ["location", "Location"],
     ["postalCode", "Postal Code"],
@@ -212,19 +212,19 @@ const Profile = () => {
         <h2 className="text-lg font-semibold">
           {user?.first_name || "Your Name"}
         </h2>
-        <button className="text-sm font-semibold bg-gray-200 rounded-lg px-4 py-2">
+        <button className="text-sm font-semibold bg-gray-200 rounded-full px-4 py-2">
           Personal Information
         </button>
-        <Link to="/login" className="hover:text-[#9C0300] px-4 rounded-lg w-full text-center">
+        <Link to="/login" className="hover:text-[#9C0300] px-4 rounded-full w-full text-center">
           Login & Password
         </Link>
-        <Link to="/cart" className="hover:text-[#9C0300] px-4 rounded-lg w-full text-center">
+        <Link to="/cart" className="hover:text-[#9C0300] px-4 rounded-full w-full text-center">
           My Cart
         </Link>
-        <Link to="/orders" className="hover:text-[#9C0300] px-4 rounded-lg w-full text-center">
+        <Link to="/orders" className="hover:text-[#9C0300] px-4 rounded-full w-full text-center">
           My Orders
         </Link>
-        <button onClick={logout} className="bg-[#9C0300] text-white px-4 py-2 rounded-lg w-full text-center">
+        <button onClick={logout} className="bg-[#9C0300] text-white px-4 py-2 rounded-full w-full text-center">
           Logout
         </button>
       </div>
@@ -245,7 +245,7 @@ const Profile = () => {
                   value={gender}
                   checked={formData.gender === gender}
                   onChange={handleChange}
-                  className="mr-2"
+                  className="mr-2 accent-[#3B493F]"
                 />
                 {gender}
               </label>
@@ -257,14 +257,14 @@ const Profile = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
           {inputFields.map(([name, label]) => (
             <div key={name} className={["email", "address"].includes(name) ? "col-span-2" : ""}>
-              <label className="block font-medium">{label}</label>
+              <label className="block font-medium leading-tight mb-1">{label}</label>
               {name === "dob" ? (
                 <input
                   type="date"
                   name={name}
                   value={formData[name]}
                   onChange={handleChange}
-                  className={`w-full border rounded-lg p-2 ${errors[name] ? "border-red-500" : "border-gray-300"}`}
+                  className={`w-full border rounded-full p-2 ${errors[name] ? "border-red-500" : "border-[#3B493F]"}`}
                 />
               ) : (
                 <input
@@ -273,7 +273,7 @@ const Profile = () => {
                   value={formData[name]}
                   onChange={handleChange}
                   placeholder={label}
-                  className={`w-full border rounded-lg p-2 ${errors[name] ? "border-red-500" : "border-gray-300"}`}
+                  className={`w-full border rounded-full p-2 ${errors[name] ? "border-red-500" : "border-[#3B493F]"}`}
                 />
               )}
               {errors[name] && (
@@ -286,7 +286,7 @@ const Profile = () => {
         {/* Save & Discard Buttons */}
         <div className="flex mt-6 space-x-4 items-center">
           <button
-            className="bg-gray-300 text-black px-6 py-2 rounded-lg"
+            className="border border-[#3B493F] text-black px-6 py-2 rounded-full"
             onClick={() => {
               setFormData(defaultData);
               setErrors({});
@@ -297,7 +297,7 @@ const Profile = () => {
           </button>
           <button
             onClick={handleProfileUpdate}
-            className="bg-green-700 text-white px-6 py-2 rounded-lg flex items-center gap-2"
+            className="bg-[#3B493F] border border-[#3B493F] text-white px-6 py-2 rounded-full flex items-center gap-2 hover:bg-green-800"
             disabled={updating}
           >
             {updating && <Spinner />} {updating ? "Saving..." : "Save Changes"}

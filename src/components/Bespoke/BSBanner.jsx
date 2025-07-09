@@ -6,8 +6,8 @@ return (
         style={{ backgroundImage: `url(${img})` }}
     >
         <div className="absolute inset-0 bg-opacity-20"></div>
-        <div className="absolute z-10 max-w-4xl mx-auto px-6 text-center text-white right-10  top-10 mt-30 ">
-            <h1 className="text-4xl md:text-8xl font-bold text-[#3B493F] font-infant mb-">BESPOKE</h1>
+        <div className="absolute z-10 max-w-4xl mx-auto px-6 text-center text-white right-4 lg:right-10 top-4 lg:top-10 mt-30 ">
+            <h1 className="text-5xl md:text-8xl font-bold text-[#3B493F] font-infant mb-">BESPOKE</h1>
             <p className="mt-10 text-sm md:text-lg text-gray-600">
                 GIVE YOUR IDEAL HOUSE A PERSONAL TOUCH.
             </p>

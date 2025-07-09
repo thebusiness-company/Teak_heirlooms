@@ -9,7 +9,7 @@ const SustainabilitySection = () => {
         
         {/* Text Container */}
         <div className="relative p-4 w-full md:w-1/2 z-10 text-center md:text-left">
-          <h2 className="text-2xl md:text-3xl lg:text-5xl text-[#9C0300]">Sustainability</h2>
+          <h2 className="text-3xl lg:text-5xl text-[#9C0300]">Sustainability</h2>
           <p className="text-lg md:text-2xl lg:text-3xl font-semibold mt-2">This is a two-line quote <br /> for a website landing page.</p>
           <p className="text-gray-700 mt-4 text-sm md:text-base leading-relaxed">
             In 2010, Teak Heirlooms pioneered omnichannel retail to launch Lorem ipsum dolor sit amet, consectetur adipiscing elit.

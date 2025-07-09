@@ -6,9 +6,9 @@ const AboutUs = () => {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <div className="relative w-full h-[400px] md:h-[500px] flex items-center px-20 justify-end bg-cover bg-center" 
+      <div className="relative w-full h-[400px] md:h-[500px] flex items-center px-20 justify-end bg-cover bg-center overflow-x-hidden" 
         style={{ backgroundImage: `url(${a1})` }}>
-        <div className="absolute inset-0 bg-opacity-30 text-white text-4xl px-10 py-10 font-alata">TEAK HEIRLOOMS</div>
+        <div className="absolute inset-0 bg-opacity-30 text-white text-2xl md:text-4xl px-10 py-10 font-alata">TEAK HEIRLOOMS</div>
         <div className="relative text-center text-white px-4">
           <h1 className="text-2xl md:text-3xl lg:text-5xl font-light font-infant lg:mt-36">Unbox<br /> your Happiness</h1>
         </div>
