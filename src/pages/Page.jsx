@@ -7,7 +7,7 @@ import SustainabilitySection from "./Sustainability";
 import TermsAndConditions from "./TermsAndConditions";
 import AboutUs from "./AboutUs";
 import Contact from "./ContactForm";
-import Profile from "./Profile";
+// import Profile from "./Profile";
 
 const Page = () => {
   useEffect(() => {
@@ -47,7 +47,7 @@ const Page = () => {
       <div id="contact">
         <Contact />
       </div>
-      <Profile/>
+      {/* <Profile/> */}
     </>
   );
 };

@@ -6,6 +6,7 @@ import api, { API_URL } from "../api";
 import { AuthContext } from "../context/AuthContext";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from 'axios';
+import google from "../assets/images/google.svg";
 
 const Login = () => {
   const { setIsAuthenticated, getuser } = useContext(AuthContext);
@@ -80,24 +81,10 @@ const Login = () => {
     <div className="h-screen w-full bg-[#FFF1DF] flex items-center justify-center">
       <section className="relative flex flex-col bg-white md:flex-row items-center justify-between w-full max-w-7xl mx-auto rounded-lg my-1 px-4 md:px-8">
         <div className="relative p-8 w-full md:w-1/2 z-10">
-          <h2 className="text-2xl font-semibold text-center mb-4">Sign in to your account</h2>
+          <h2 className="text-2xl font-semibold text-left mb-4">Sign in to your account</h2>
           
 
-          <div className="flex justify-center mb-4">
-            <button
-              type="button"
-              className="border border-gray-400 px-12 py-2 text-sm flex cursor-pointer items-center gap-2"
-              onClick={() => googleLogin()}
-            >
-              <span className="text-xs text-[#4285F4]">GOOGLE</span>
-            </button>
-          </div>
-
-          <div className="flex items-center my-4">
-            <hr className="w-full border-gray-300" />
-            <span className="px-2 text-gray-500">or</span>
-            <hr className="w-full border-gray-300" />
-          </div>
+          
 
           {error && (
             <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-4 text-center">
@@ -106,41 +93,61 @@ const Login = () => {
           )}
 
           <form onSubmit={handleSubmit} className={isLoading ? "opacity-50 pointer-events-none" : ""}>
+            <p className="text-[#9C0300]">Email</p>
             <input
               type="email"
               name="email"
               value={formData.email}
               placeholder="Your Email"
-              className="border p-2 rounded-md w-full my-2"
+              className="border border-[#3B493F] p-2 rounded-full w-full my-2"
               onChange={handleChange}
               required
             />
+            <p className="text-[#9C0300]">Password</p>
             <input
               type="password"
               name="password"
               value={formData.password}
               placeholder="Password"
-              className="border p-2 rounded-md w-full my-2"
+              className="border border-[#3B493F] p-2 rounded-full w-full my-2"
               onChange={handleChange}
               required
             />
             <button
               type="submit"
-              className="w-full bg-[#3B493F] text-white py-2 rounded-md mt-4 hover:bg-green-900"
+              className="w-full bg-[#3B493F] text-white py-2 rounded-full mt-4 hover:bg-green-800 cursor-pointer"
               disabled={isLoading}
             >
-              {isLoading ? "Signing in..." : "Sign in"}
+              {isLoading ? "Logging in..." : "Login"}
             </button>
           </form>
 
+          <div className="flex items-center my-4">
+            <hr className="w-full border-[#9C0300]" />
+            <span className="px-2 text-[#3B493F]">or</span>
+            <hr className="w-full border-[#9C0300]" />
+          </div>
+
+          <div className="flex justify-center mb-4">
+            <button
+              type="button"
+              className="border border-[#3B493F] rounded-full px-8 py-2 text-sm flex cursor-pointer items-center gap-2"
+              onClick={() => googleLogin()}
+            >
+              <span className="text-sm">Login with Google</span>
+              <img src={google} alt="Google" className="w-5 h-5"/>
+            </button>
+          </div>
+
+
           <p className="text-center text-sm mt-4">
             Don&apos;t have an account?{" "}
-            <Link to="/signup" className="text-red-600 underline">Sign up</Link>
+            <Link to="/signup" className="text-[#9C0300] underline">Sign up</Link>
           </p>
         </div>
 
-        <div className="absolute right-10 top-1/2 transform -translate-y-1/2 w-3/5 md:w-2/5 z-0">
-          <img src={img} alt="Design" className="w-full h-auto object-cover" />
+        <div className="absolute right-2 top-1/2 transform -translate-y-1/2 w-3/5 md:w-2/5 z-0 hidden lg:block">
+          <img src={img} alt="Design" className="w-72 h-auto object-cover" />
         </div>
       </section>
     </div>

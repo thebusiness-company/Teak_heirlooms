@@ -27,7 +27,14 @@ const Footer = () => {
           </div>
           <div className="mb-4">
             <h3 className="font-bold">COMPANY</h3>
-            <p>About TH</p>
+
+            {/* using Link */}
+            {/* <Link to="/page#aboutus"><p>About TH</p></Link>
+            <Link to="/page#news"><p>News</p></Link>
+            <Link to="/page#sustainability"><p>Sustainability</p></Link> */}
+
+            {/* using href */}
+            <a href="/page#aboutus"><p>About TH</p></a>
             <a href="/page#news"><p>News</p></a>
             <a href="/page#sustainability"><p>Sustainability</p></a>
           </div>
@@ -42,10 +49,11 @@ const Footer = () => {
             <a href="http://instagram.com/" className="text-2xl"><FaInstagramSquare/></a>
             <a href="http://facebook.com/" className="text-2xl"><FaSquareFacebook /></a>
           </div>
-          <Link to='/' className="flex items-center gap-6 mb-4">
-            <img src={Logo} alt="Teak Heirlooms" className="h-6" />
+          <Link to='/' className="flex items-center gap-6 mb-4 lg:mt-8">
+            <img src={Logo} alt="Teak Heirlooms" className="h-6 md:h-10" />
           </Link>
-          <Link to="/page#terms" className="text-xs">Terms & Conditions</Link>
+          {/* <Link to="/page#terms" className="text-xs">Terms & Conditions</Link> */}
+          <a href="/page#terms" className='text-xs'>Terms & Conditions</a>
         </div>
       </div>
     </footer>
