@@ -24,33 +24,33 @@ const Navbar = ({ numCartItems }) => {
   ];
 
   return (
-    <nav className="bg-white px-4 py-2 flex justify-between items-center w-full h-20 md:h-28 shadow-md z-50 relative">
+    <nav className="bg-white gap-12 md:gap-2 lg:gap-14 px-4 py-2 flex flex-row md:justify-center lg:justify-start items-center min-w-0 h-20 md:h-32 shadow-md z-50 relative">
       {/* Logo */}
-      <div className="flex items-center gap-2 md:ml-4">
+      <div className="flex items-start space-x-1 lg:ml-4">
         <NavLink to="/">
-          <img src={Logo} alt="Teak Heirlooms Logo" className="h-8 w-32 lg:h-10 lg:w-40" />
+          <img src={Logo} alt="Teak Heirlooms Logo" className="px-2 h-8 md:w-28 w-36 lg:h-10 lg:w-40" />
         </NavLink>
       </div>
 
       {/* Desktop Links */}
-      <div className="hidden md:flex gap-12 font-bold text-lg text-[#9C0300]">
+      <div className="hidden md:flex md:gap-2 lg:gap-6 font-bold md:text-base text-[#9C0300] text-center">
         {navLinks.map(({ to, label }) => (
           <NavLink
             key={to}
             to={to}
             className={({ isActive }) =>
-              `px-4 pt-6 lg:pt-12 transition ${
+              `px-2 pt-4 lg:pt-10 transition ${
                 isActive ? "bg-[#9C0300] text-white" : "hover:bg-[#9C0300] hover:text-white"
               }`
             }
           >
-            {label}
+           <p className="p-3 leading-snug ">{label}</p> 
           </NavLink>
         ))}
       </div>
 
       {/* Right Icons */}
-      <div className="flex items-center gap-6 md:gap-12 mr-6">
+      <div className="flex items-center space-x-6 md:space-x-4 lg:space-x-10  ">
         {isAuthenticated ? (
           <span className="text-[#9C0300] font-medium hidden md:block">
             Hi {user.username}
@@ -69,23 +69,24 @@ const Navbar = ({ numCartItems }) => {
         ) : (
           <button
             onClick={() => navigate("/login")}
-            className="bg-[#9C0300] text-white px-4 py-2 rounded-full hidden md:block"
+            className="md:ml-1 lg:ml-10 bg-[#9C0300] text-white px-4 py-2 rounded-full hidden md:block"
           >
             Login
           </button>
         )}
-
+        <div className="flex flex-row space-x-6 md:space-x-4 lg:space-x-10">
         <Link to="/profile">
-          <img src={profile} alt="profile" className="w-8 h-8" />
+          <img src={profile} alt="profile" className="w-6 h-6 md:w-12 md:h-10 lg:w-8 lg:h-8" />
         </Link>
         <Link to="/cart" className="relative">
-          <img src={cart} alt="cart" className="w-8 h-8" />
+          <img src={cart} alt="cart" className="w-6 h-6 md:w-12 md:h-10 lg:w-8 lg:h-8" />
           {numCartItems > 0 && (
             <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2 py-0.5">
               {numCartItems}
             </span>
           )}
         </Link>
+        </div>
 
         {/* Hamburger Button - Mobile */}
         <button
@@ -129,7 +130,7 @@ const Navbar = ({ numCartItems }) => {
                     closeMenu();
                     navigate("/admin");
                   }}
-                  className="bg-[#9C0300] text-white px-6 py-2 rounded-full"
+                  className="bg-[#9C0300] text-white px-6  py-2 rounded-full"
                 >
                   Admin Panel
                 </button>

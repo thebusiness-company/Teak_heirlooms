@@ -25,8 +25,13 @@ const CustomPrevArrow = (props) => {
   const { onClick } = props;
   return (
     <button
-      onClick={onClick}
-      className="absolute left-[-30px] md:left-[-40px] top-1/2 transform -translate-y-1/2 hidden md:block"
+      onClick={(e) =>{
+        e.stopPropagation();
+        console.log("Left arrow clicked");
+        
+        onClick?.();
+      }}
+      className="absolute left-[-30px] md:left-[-40px] top-1/2 transform -translate-y-1/2"
     >
       <img src={LeftArrow} alt="Previous" className="w-6 h-6 md:w-8 md:h-8" />
     </button>
@@ -41,8 +46,11 @@ const CustomNextArrow = (props) => {
   const { onClick } = props;
   return (
     <button
-      onClick={onClick}
-      className="absolute right-[-30px] md:right-[-40px] top-1/2 transform -translate-y-1/2 hidden md:block"
+      onClick={(e) =>{
+        e.stopPropagation();
+        onClick();
+      }}
+      className="absolute right-[-30px] md:right-[-40px] top-1/2 transform -translate-y-1/2"
     >
       <img src={RightArrow} alt="Next" className="w-6 h-6 md:w-8 md:h-8" />
     </button>
@@ -85,23 +93,23 @@ const HomeCollection = () => {
       },
       {
         breakpoint: 768, // Smaller Tablets
-        settings: { slidesToShow: 3, arrows: false },
+        settings: { slidesToShow: 3  },
       },
       {
         breakpoint: 640, // Mobile
-        settings: { slidesToShow: 2, arrows: false },
+        settings: { slidesToShow: 2  },
       },
     ],
   };
 
   return (
-    <div className="max-w-6xl mx-auto text-center py-10 px-4 relative">
+    <div className="max-w-6xl mx-auto text-center py-10 px-10 relative">
       <h2 className="text-3xl lg:text-5xl text-[#3b493f] mb-12 mt-6 font-upright">Our Products</h2>
 
       <div className="relative">
         <Slider {...settings}>
           {categorys.map((item) => (
-            <div key={item.id} className="px-2 mb-10">
+            <div key={item.id} className=" mb-10">
               <Link to={`/Category/${item.categoryChoice}`} className="flex flex-col items-center">
                 <img src={item.image} alt={item.title} className="w-14 h-14 md:w-20 md:h-20" />
                 <p className="text-sm md:text-base text-[#9c0300] font-medium mt-2">{item.title}</p>

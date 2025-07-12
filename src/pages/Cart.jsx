@@ -218,8 +218,8 @@ const Cart = () => {
       {/* Left: Cart Items */}
       <div className="flex-1 bg-[#EDEAE5] p-4">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-semibold">Shopping Cart</h2>
-          <span>ITEMS: {cartItems.length}</span>
+          <h2 className="text-xl md:text-3xl text-[#3B493F]">Shopping Cart</h2>
+          <span>{cartItems.length} Items</span>
         </div>
         <hr />
         {cartItems.map((item) => (
@@ -231,28 +231,28 @@ const Cart = () => {
                   : "/placeholder.jpg"
               }
               alt={item.product.name}
-              className="w-24 h-24 object-cover"
+              className="w-14 h-16  md:w-24 md:h-24 object-cover"
             />
-            <div className="flex items-center ml-8">
+            <div className="flex items-center ml-2 md:ml-8">
               <button
                 onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                className="px-2 py-1 border"
+                className="px-2 py-1 text-[#9C0300] text-2xl"
               >
                 -
               </button>
-              <span className="px-4">{item.quantity}</span>
+              <span className="px-2 md:px-4 border">{item.quantity}</span>
               <button
                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                className="px-2 py-1 border"
+                className="px-2 py-1 text-[#9C0300] text-2xl"
               >
                 +
               </button>
             </div>
-            <div className="flex-1 ml-8">
-              <p className="font-medium">{item.product.name}</p>
+            <div className="flex-1 ml-2 md:ml-8">
+              <p className="font-medium text-sm md:text-base">{item.product.name}</p>
               <p className="text-gray-500">Rs.{item.product.price}</p>
             </div>
-            <button onClick={() => deleteItem(item.id)} className="text-red-500">
+            <button onClick={() => deleteItem(item.id)} className="text-[#9C0300]">
               ✖
             </button>
           </div>
@@ -268,9 +268,9 @@ const Cart = () => {
           <span>Rs.{subtotal}</span>
         </div>
         <div className="mt-6">
-          <span className="text-[#3B493F]">SHIPPING</span>
+          <span>SHIPPING</span>
           <select
-            className="w-full p-2 border rounded mt-2 mb-16"
+            className="w-full p-2 border rounded mt-2 mb-16 bg-[#3B493F] text-white"
             value={shippingCost}
             onChange={(e) => setShippingCost(Number(e.target.value))}
           >
@@ -279,8 +279,11 @@ const Cart = () => {
           </select>
         </div>
         <hr />
-        <div className="flex justify-between mt-10 font-semibold">
-          <span>TOTAL PRICE</span>
+        <div className="flex justify-between mt-10">
+          <div>
+            <span>TOTAL PRICE</span><br />
+            <span className="text-xs text-[#9C0300]">Incl of gst</span>
+          </div>
           <span>Rs.{total}</span>
         </div>
 
@@ -298,7 +301,7 @@ const Cart = () => {
         ) : (
           <button
             onClick={handleProceedToCheckout}
-            className="w-full mt-16 p-2 text-white rounded bg-green-700 cursor-pointer"
+            className="w-full mt-16 p-2 text-white rounded bg-[#3B493F] cursor-pointer"
           >
             Proceed to Checkout
           </button>
