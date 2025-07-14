@@ -20,34 +20,34 @@ const StoreLocator = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4  p-4">
         {/* Store Info */}
         <div className="p-6 border shadow-sm">
-          <h3 className="text-lg md:text-xl font-bold text-[#9C0300] mb-2">
-            Teak Heirlooms Chennai, ECR
+          <h3 className="text-lg md:text-xl font-bold bg-[#FFF1DF] px-2 py-1 inline text-[#9C0300] mb-2">
+            Teak Heirlooms Chennai, ECR 
           </h3>
-          <p className="text-sm md:text-base text-gray-600 mb-2">
+          <p className="text-sm md:text-lg text-gray-600 mb-2">
             Are you looking for the best Furniture Store near Neelankarai in Chennai?
-            Shop at THL for customized furniture.
+            Shop at <span className="text-[#9C0300]">THL</span> for customized furniture.
           </p>
 
           <div className="mb-2">
-            <span className="font-bold bg-orange-200 px-2 py-1 ">Address</span>
-            <p className="text-sm text-gray-700 mt-1">
+            <span className="text-lg md:text-xl font-bold bg-[#FFF1DF] px-2 py-1 text-[#9C0300]">Address</span>
+            <p className="text-sm md:text-lg text-gray-700 mt-1">
               Sri Kapaleeswarxx Naxx, Neelanxxx, Chennai, Tamil Nadu
             </p>
           </div>
 
           <div className="mb-2">
-            <span className="font-bold bg-orange-200 px-2 py-1 ">Call</span>
-            <p className="text-sm text-gray-700 mt-1">90xxx 25xxx</p>
+            <span className="text-lg md:text-xl font-bold bg-[#FFF1DF] px-2 py-1 text-[#9C0300]">Call</span>
+            <p className="text-sm md:text-lg text-gray-700 mt-1">90xxx 25xxx</p>
           </div>
 
           <div className="mb-2">
-            <span className="font-bold bg-orange-200 px-2 py-1 ">E-mail</span>
-            <p className="text-sm text-blue-500 mt-1">
+            <span className="text-lg md:text-xl font-bold bg-[#FFF1DF] px-2 py-1 text-[#9C0300]">E-mail</span>
+            <p className="text-sm md:text-lg text-blue-500 mt-1">
               <a href="mailto:Teakheirlooms@gmail.com">Teakheirlooms@gmail.com</a>
             </p>
           </div>
 
-          <p className="text-gray-600 text-sm mt-2">Opens Everyday @ 9:30 to 21:00</p>
+          <p className="text-sm md:text-lg text-gray-600 mt-2">Opens Everyday @ 9:30 to 21:00</p>
         </div>
 
         {/* Map Section */}

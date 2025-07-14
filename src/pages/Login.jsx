@@ -105,30 +105,32 @@ const Login = () => {
           )}
 
           <form onSubmit={handleSubmit} className={isLoading ? "opacity-50 pointer-events-none" : ""}>
+            <p className="text-[#9C0300]">Email</p>
             <input
               type="email"
               name="email"
               value={formData.email}
               placeholder="Your Email"
-              className="border p-2 rounded-md w-full my-2"
+              className="border border-[#3B493F] p-2 rounded-2xl w-full my-2"
               onChange={handleChange}
               required
             />
+            <p className="text-[#9C0300]">Password</p>
             <input
               type="password"
               name="password"
               value={formData.password}
-              placeholder="Password"
-              className="border p-2 rounded-md w-full my-2"
+              placeholder="Your Password"
+              className="border border-[#3B493F] p-2 rounded-2xl w-full my-2"
               onChange={handleChange}
               required
             />
             <button
               type="submit"
-              className="w-full bg-[#3B493F] text-white py-2 rounded-md mt-4 hover:bg-green-900"
+              className="w-full bg-[#3B493F] text-white py-2 rounded-2xl mt-4 hover:bg-green-900"
               disabled={isLoading}
             >
-              {isLoading ? "Signing in..." : "Sign in"}
+              {isLoading ? "Logging in..." : "Login"}
             </button>
           </form>
 
@@ -138,8 +140,8 @@ const Login = () => {
           </p>
         </div>
 
-        <div className="absolute right-10 top-1/2 transform -translate-y-1/2 w-3/5 md:w-2/5 z-0">
-          <img src={img} alt="Design" className="w-full h-auto object-cover" />
+        <div className="absolute right-2 top-1/2 transform -translate-y-1/2 w-3/5 md:w-2/5 z-0 hidden lg:block">
+          <img src={img} alt="Design" className=" lg:w-72 lg:h-auto object-cover" />
         </div>
       </section>
     </div>

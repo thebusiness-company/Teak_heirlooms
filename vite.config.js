@@ -1,13 +1,14 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+// import tailwindcss from '@tailwindcss/vite'
 import path from "path";
 import { fileURLToPath } from 'url';
 import compression from 'vite-plugin-compression';
 // https://vite.dev/config/
 export default defineConfig({
   base: '/',
-  plugins: [react(),compression(), tailwindcss(),
+  plugins: [react(),compression(), 
+    // tailwindcss(),
   ],
   resolve: {
       alias: {

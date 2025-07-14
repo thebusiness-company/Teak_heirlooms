@@ -24,11 +24,11 @@ const Navbar = ({ numCartItems }) => {
   ];
 
   return (
-    <nav className="bg-white px-4 py-2 flex justify-between items-center w-full h-20 shadow-md z-50 relative">
+    <nav className="bg-white px-4 py-2 flex justify-between items-center w-full h-20 md:h-28 shadow-md z-50 relative">
       {/* Logo */}
-      <div className="flex items-center gap-2 ml-4">
+      <div className="flex items-center gap-2 md:ml-4">
         <NavLink to="/">
-          <img src={Logo} alt="Teak Heirlooms Logo" className="h-10 w-40" />
+          <img src={Logo} alt="Teak Heirlooms Logo" className="h-8 w-32 lg:h-10 lg:w-40" />
         </NavLink>
       </div>
 
@@ -39,7 +39,7 @@ const Navbar = ({ numCartItems }) => {
             key={to}
             to={to}
             className={({ isActive }) =>
-              `px-4 pt-6 transition ${
+              `px-4 pt-6 lg:pt-12 transition ${
                 isActive ? "bg-[#9C0300] text-white" : "hover:bg-[#9C0300] hover:text-white"
               }`
             }

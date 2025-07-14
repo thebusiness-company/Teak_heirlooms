@@ -2,44 +2,49 @@
 const FAQSection = () => {
   const faqs = [
     {
-      question: "What are the essential pieces of furniture I need in a bedroom?",
+      question: "What does “bespoke furniture” really mean?",
       answer:
-        "Essential bedroom furniture includes a bed, wardrobe, bedside table, nightstands, dressers or chests for storage, and seating like a chair or bench for comfort and functionality.",
+        "It means your furniture is made just for you. From the dimensions and design to the materials and finish, every element is tailored to fit your space, lifestyle, and taste. Nothing off the shelf. Nothing ordinary.",
     },
     {
-      question: "How do I choose the right bed for my bedroom?",
+      question: "Can I see and touch material samples before I place an order?",
       answer:
-        "Choose a bed based on size (twin, full, queen, king), comfort level (firmness), and style (platform, sleigh, canopy) that complements your bedroom’s size and décor.",
+        "Yes, and we encourage it. During your consultation, you’ll explore a curated range of finishes, fabrics, and textures—so you’re confident in every decision.",
     },
     {
-      question: "How can I optimize storage in a small bedroom?",
+      question: "Do you work with architects or interior designers?",
       answer:
-        "Optimize storage in a small bedroom by using multifunctional furniture such as beds with drawers. Utilizing vertical space with shelves or tall dressers also helps.",
+        "Absolutely. Whether you bring us blueprints or just a Pinterest board, we work hand-in-hand with design professionals to bring your vision to life.",
     },
     {
-      question: "What should I consider when choosing bedroom furniture materials?",
+      question: "Why choose teak over other types of wood?",
       answer:
-        "Consider bedroom furniture materials based on durability, ease of maintenance, and aesthetic appeal that fit your lifestyle and design preferences.",
+        "Teak is nature’s gift to furniture makers—resilient, beautiful, and timeless. It resists wear, weather, and time, making it a smart choice for lasting luxury.",
     },
     {
-      question: "How do I create a cohesive bedroom design with different furniture styles?",
+      question: "Do you deliver across India?",
       answer:
-        "Create a cohesive bedroom design by choosing furniture with complementary colors, textures, and styles while maintaining a consistent color palette and balancing visual weights.",
+        "Yes. Our white-glove delivery service ensures your furniture arrives safe, assembled, and ready to impress—anywhere in India.",
     },
     {
-      question: "Can I customize the color or finish of bedroom furniture to match my decor?",
+      question: "How long will it take to receive my custom furniture?",
       answer:
-        "Yes, you can customize bedroom furniture colors or finishes by exploring options like custom orders, painting or staining existing pieces, or choosing retailers that offer a variety of finishes to match your décor scheme.",
+        "Most pieces take 6 to 10 weeks from final approval to delivery. Good things—and great furniture—take time.",
     },
     {
-      question: "What are some tips for arranging furniture in a bedroom?",
+      question: "Can I modify a design I see on your website or catalogue?",
       answer:
-        "Arrange furniture in a bedroom by first considering the bed placement, maximizing natural light and traffic flow, balancing symmetry with functionality, and leaving enough space for easy movement.",
+        "Of course. Think of our catalogue as inspiration, not limitation. We welcome tweaks and changes to make each piece truly yours.",
     },
     {
-      question: "How should I care for and maintain my bedroom furniture?",
+      question: "Is there a charge for the first consultation?",
       answer:
-        "Care for bedroom furniture by dusting regularly with a soft cloth, using coasters and mats to prevent damage, tightening hardware periodically, and addressing spills or stains promptly with appropriate cleaners to maintain its beauty and longevity.",
+        "No, the first one's on us. We want you to dream freely before deciding anything.",
+    },
+    {
+      question: "What kind of maintenance does teak furniture require?",
+      answer:
+        "Teak is famously low maintenance. A little dusting and occasional polish keeps it glowing. We also offer a care guide with each piece.",
     },
   ];
 
@@ -49,8 +54,8 @@ const FAQSection = () => {
       <div className="space-y-6">
         {faqs.map((faq, idx) => (
           <div key={idx}>
-            <h3 className="font-medium text-base mb-1">{faq.question}</h3>
-            <p className="text-sm text-gray-700">{faq.answer}</p>
+            <h3 className="text-base md:text-lg mb-1 font-semibold">{faq.question}</h3>
+            <p className="text-sm md:text-base">{faq.answer}</p>
           </div>
         ))}
       </div>

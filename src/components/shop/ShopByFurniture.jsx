@@ -57,7 +57,7 @@ const ShopByFurniture = () => {
 
   return (
     <div className="max-w-7xl mx-auto text-center py-10 relative">
-      <h2 className="text-3xl md:text-4xl font-semibold text-[#3b493f] mb-6">Shop by Furniture</h2>
+      <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-[#3b493f] mb-6 font-infant">Shop by Furniture</h2>
 
       <div className="relative">
         <Slider {...settings}>
@@ -70,7 +70,7 @@ const ShopByFurniture = () => {
                     alt={category.name}
                     className="w-full h-48 object-cover"
                   />
-                  <h3 className="text-lg font-medium mt-4">{category.name}</h3>
+                  <h3 className="text-lg font-semibold mt-4 text-[#9C0300]">{category.name}</h3>
                 </Link>
               </div>
             </div>

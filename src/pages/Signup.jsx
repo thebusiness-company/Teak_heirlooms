@@ -97,7 +97,7 @@ const Signup = () => {
         <div className="relative p-8 w-full md:w-1/2 z-10">
           <h2 className="text-2xl font-semibold text-center mb-4">Create your account</h2>
 
-          {/* Social Buttons */}
+           {/* Social Buttons */}
           <div className="flex justify-center space-x-4 mb-4">
             <span className="border px-4 py-2 rounded-full flex items-center space-x-6">
               <span>Login with Google/Facebook</span>
@@ -106,11 +106,11 @@ const Signup = () => {
             </span>
           </div>
 
-          {/* Divider */}
+            {/* Divider */}
           <div className="flex items-center my-4">
-            <hr className="w-full border-gray-300" />
-            <span className="px-2 text-gray-500">or</span>
-            <hr className="w-full border-gray-300" />
+            <hr className="w-full border-[#9C0300]" />
+            <span className="px-2 text-[#3B493F]">or</span>
+            <hr className="w-full border-[#9C0300]" />
           </div>
 
           {/* Error Display */}
@@ -124,55 +124,64 @@ const Signup = () => {
           )}
 
           <form onSubmit={handleSubmit}>
+            <p>User Name</p>
             <input
               type="text"
               name="username"
               value={formData.username}
               placeholder="User Name"
-              className="border p-2 rounded-md w-full my-2"
+              className="border border-[#3B493F] p-2 rounded-full w-full my-2"
               onChange={handleChange}
               required
             />
+            <p>Email</p>
             <input
               type="email"
               name="email"
               value={formData.email}
               placeholder="Your Email"
-              className="border p-2 rounded-md w-full my-2"
+              className="border border-[#3B493F] p-2 rounded-full w-full my-2"
               onChange={handleChange}
               required
             />
+            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+              <p className="my-2">Password</p>
               <input
                 type="password"
                 name="password1"
                 value={formData.password1}
                 placeholder="Password"
-                className="border p-2 rounded-md"
+                className="border border-[#3B493F] p-2 rounded-full"
                 onChange={handleChange}
                 required
               />
+              </div>
+              <div>
+              <p className="my-2">Re-enter Password</p>
               <input
                 type="password"
                 name="password2"
                 value={formData.password2}
                 placeholder="Re-enter Password"
-                className="border p-2 rounded-md"
+                className="border border-[#3B493F] p-2 rounded-full"
                 onChange={handleChange}
                 required
               />
+              </div>
             </div>
 
             <div className="mt-4 flex items-center">
-              <input type="checkbox" className="mr-2" required />
+              <input type="checkbox" className="mr-2 accent-[#9C0300]" required />
               <span className="text-sm">
-                I agree to the <a href="#" className="text-red-600 underline">Teak Heirlooms Policy</a>.
+               <span className="text-[#3B493F]">I agree to the </span> <a href="#" className="text-[#9C0300] underline">Teak Heirlooms Policy</a>.
               </span>
             </div>
 
             <button
               type="submit"
-              className="w-full bg-[#3B493F] text-white py-2 rounded-md mt-4 hover:bg-green-900"
+              className="w-full bg-[#3B493F] text-white py-2 rounded-2xl mt-4 hover:bg-green-900"
               disabled={loading}
             >
               {loading ? "Signing up..." : "Signup"}
@@ -180,13 +189,13 @@ const Signup = () => {
           </form>
 
           <p className="text-center text-sm mt-4">
-            Already have an account? <Link to="/login" className="text-red-600 underline">Login</Link>
+            <span className="text-[#3B493F]">Already have an account? </span><Link to="/login" className="text-[#9C0300] underline">Login</Link>
           </p>
         </div>
 
         {/* Image */}
-        <div className="absolute right-10 top-1/2 transform -translate-y-1/2 w-3/5 md:w-2/5 z-0">
-          <img src={img} alt="Design" className="w-full h-auto object-cover" />
+        <div className="absolute right-2 top-1/2 transform -translate-y-1/2 w-3/5 md:w-2/5 z-0 hidden lg:block">
+          <img src={img} alt="Design" className="lg:w-80 h-auto object-cover" />
         </div>
       </section>
     </div>

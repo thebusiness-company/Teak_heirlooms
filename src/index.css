@@ -1,14 +1,50 @@
 @import "tailwindcss";
+@import './styles/fonts.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300..700;1,300..700&family=Cormorant+Upright:wght@300;400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.font-aileron {
+  font-family: 'Aileron',sans-serif ;
+  
+}
+.font-upright {
+  font-family: 'Cormorant Upright',serif ;
+}
+.font-infant {
+  font-family: 'Cormorant Infant',serif ;
+  font-weight: 500;
+}
+
+.font-alata{
+  font-family: 'Alata',sans-serif;
+}
+
+.custom-text-shadow {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+.white-text-shadow {
+  text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.3);
+}
+
 html, body {
     height: 100%;
     margin: 0;
-    font-family: Aileron;
+    font-family: 'Aileron';
   }
   
   #root {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family: 'Aileron',sans-serif;
   }
   
   .main-content {

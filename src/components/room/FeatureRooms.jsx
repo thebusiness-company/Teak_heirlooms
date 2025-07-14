@@ -62,7 +62,7 @@ const FeaturedBedrooms = () => {
 
   return (
     <div className="px-4 md:px-16 py-8 relative max-w-8xl mx-auto">
-      <h2 className="text-xl md:text-2xl font-semibold text-[#3b493f] mb-6">Featured Bedrooms</h2>
+      <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-6 font-infant">Featured Bedrooms</h2>
       <div className="relative">
         <Slider ref={sliderRef} {...settings}>
         {bedroomData.map((item) => (

@@ -75,7 +75,7 @@ const ShopByRoom = () => {
 
   return (
     <div className="max-w-7xl mx-auto text-center py-8 px-3 relative">
-      <h2 className="text-3xl md:text-4xl font-semibold text-[#3b493f] mb-6">Shop by Room</h2>
+      <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-[#3b493f] mb-6 font-infant">Shop by Room</h2>
 
       <div className="relative">
         <Slider {...settings}>
@@ -85,7 +85,7 @@ const ShopByRoom = () => {
                 <Link to='/room'>
                 <img src={product.image} alt={product.title} className="w-full" />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#38493f] to-transparent p-4">
-                  <p className="text-white text-xl text-center font-semibold">{product.title}</p>
+                  <p className="text-white text-xl lg:text-3xl text-center font-semibold font-infant custom-text-shadow tracking-wide">{product.title}</p>
                 </div>
                 <p className="text-red-600 font-semibold mt-2">{product.price}</p>
                 </Link>

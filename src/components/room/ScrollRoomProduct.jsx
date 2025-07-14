@@ -33,8 +33,8 @@ const ScrollRoomProduct = () => {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="text-lg font-medium mt-4 truncate">{product.name}</h3>
-                  <p className="text-red-600 font-semibold">{product.price}</p>
+                  <h3 className="text-lg font-medium mt-4 truncate text-[#9C0300]">{product.name}</h3>
+                  <p className=" font-semibold">{product.price}</p>
                 </Link>
               </div>
             ))}

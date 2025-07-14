@@ -35,13 +35,13 @@ const ProductGrid = () => {
 
   return (
     <div className="max-w-6xl mx-auto p-4">
-      <h2 className="text-center text-2xl font-serif font-bold mb-6">
+      <h2 className="text-center text-3xl lg:text-5xl lg:mt-4 font-infant font-bold mb-6 text-[#3B493F]">
         Ready to Ship
       </h2>
 
       {/* Most Sold Products Section */}
       <div>
-        <h3 className="text-lg font-semibold mb-4">Most Sold Products</h3>
+        <h3 className="text-2xl lg:text-3xl font-semibold mb-4 text-[#3B493F] font-infant">Most Sold Products</h3>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4">
           {mostSoldProducts.length > 0 ? (
             mostSoldProducts.map((item) => (
@@ -62,7 +62,7 @@ const ProductGrid = () => {
 
       {/* New Arrival Section */}
       <div className="mt-10">
-        <h3 className="text-lg font-semibold mb-4">New Arrivals</h3>
+        <h3 className="text-2xl lg:text-3xl font-semibold mb-4 text-[#3B493F] font-infant">New Arrivals</h3>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4">
           {newArrivals.length > 0 ? (
             newArrivals.map((item) => (
@@ -84,7 +84,7 @@ const ProductGrid = () => {
       {/* Pagination Controls */}
       <div className="mt-6 text-center">
         <button
-          className={`px-3 py-1 mx-1 border rounded ${
+          className={`px-3 py-1 mx-1 rounded ${
             !previous ? "opacity-50 cursor-not-allowed" : ""
           }`}
           onClick={handlePrevPage}
@@ -96,7 +96,7 @@ const ProductGrid = () => {
           {page}
         </span>
         <button
-          className={`px-3 py-1 mx-1 border rounded ${
+          className={`px-3 py-1 mx-1 rounded ${
             !next ? "opacity-50 cursor-not-allowed" : ""
           }`}
           onClick={handleNextPage}
