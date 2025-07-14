@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, replace, useNavigate } from "react-router-dom";
 import img from "../assets/images/signup.png";
 import google from "../assets/images/google.svg";
 import facebook from "../assets/images/facebook.svg";
 import axios from "axios";
-import { BASEURL } from "../api";
+import { BASEURL, API_URL} from "../api";
+import { useGoogleLogin } from "@react-oauth/google";
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
 
 const validatePassword = (password) => {
   const errors = [];
@@ -39,6 +42,7 @@ const validatePassword = (password) => {
 
 const Signup = () => {
   const navigate = useNavigate();
+  const { setIsAuthenticated, getuser } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
     username: "",
@@ -54,6 +58,28 @@ const Signup = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+   const googleSignup = useGoogleLogin({
+      onSuccess: async (tokenResponse) =>{
+        console.log("googleAccessToken", tokenResponse.access_token);
+        try{
+          const res = await axios.post(`${API_URL}/rest-auth/google/`,{
+            access_token: tokenResponse.access_token,
+          });
+          console.log("Google signup response",res.data);
+          localStorage.setItem("access",res.data.access);
+          localStorage.setItem("refresh",res.data.refresh);
+          setIsAuthenticated(true);
+          await getuser();
+          const from = "/";
+          navigate(from,{replace: true})
+        } catch (err){
+          console.error("Google Signup Error:", err);
+          setError("Google signup failed");
+        }
+      },
+      onError: () => setError("Google signup was cancelled or failed"),
+    });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -94,16 +120,17 @@ const Signup = () => {
   return (
     <div className="h-screen w-full bg-[#FFF1DF] flex items-center justify-center">
       <section className="relative flex flex-col bg-white md:flex-row items-center justify-between w-full max-w-7xl mx-auto rounded-4xl my-1 px-4 md:px-8">
-        <div className="relative p-8 w-full md:w-1/2 z-10">
+        <div className="relative p-8 w-full lg:w-1/2 z-10">
           <h2 className="text-2xl font-semibold text-center mb-4">Create your account</h2>
 
-           {/* Social Buttons */}
-          <div className="flex justify-center space-x-4 mb-4">
-            <span className="border px-4 py-2 rounded-full flex items-center space-x-6">
-              <span>Login with Google/Facebook</span>
-              <button><img src={google} alt="Google" className="w-5 h-5" /></button>
-              <button><img src={facebook} alt="Facebook" className="w-5 h-5" /></button>
-            </span>
+          <div className="flex justify-center items-center">
+            <button
+            onClick={googleSignup}
+            className="flex items-center space-x-4 border px-4 lg:px-8 py-2 rounded-full cursor-pointer"
+            >
+            <span>Sign up with Google</span>
+            <img src={google} alt="Google" className="w-5 h-5" />
+            </button>
           </div>
 
             {/* Divider */}
@@ -181,7 +208,7 @@ const Signup = () => {
 
             <button
               type="submit"
-              className="w-full bg-[#3B493F] text-white py-2 rounded-2xl mt-4 hover:bg-green-900"
+              className="w-full bg-[#3B493F] text-white py-2 rounded-2xl mt-4 hover:bg-green-900 cursor-pointer"
               disabled={loading}
             >
               {loading ? "Signing up..." : "Signup"}

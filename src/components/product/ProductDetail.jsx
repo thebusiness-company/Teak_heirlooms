@@ -118,7 +118,7 @@ useEffect(() => {
 
   return (
     <>
-      <div className="p-4 md:p-8 max-w-7xl mx-auto font-sans grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="p-4 md:p-8 max-w-7xl mx-auto font-sans grid grid-cols-1 md:grid-cols-3 gap-6 overflow-x-hidden">
         {/* Column 1 */}
         <div className="space-y-6 mr-6">
           <h1 className="text-3xl font-bold">{product.name}</h1>
@@ -156,7 +156,7 @@ useEffect(() => {
           )}
 
           {/* Quantity & Price */}
-          <div className="flex items-center gap-40">
+          <div className="flex items-center gap-32 md:gap-12 lg:gap-32 mx-4">
             <p>Qty:</p>
             <input
               type="number"
@@ -166,7 +166,7 @@ useEffect(() => {
               className="border p-2 w-12 text-center"
             />
           </div>
-          <div className="flex gap-40">
+          <div className="flex gap-32 md:gap-12 lg:gap-32 mx-4">
             <p>Price</p>
             <p className="text-2xl font-semibold">₹ {product.price?.toFixed(2) || "N/A"}</p>
           </div>
@@ -181,17 +181,17 @@ useEffect(() => {
 
         {/* Column 2: Main Image */}
         {images.length > 0 && (
-          <div className="relative flex items-center justify-center">
+          <div className="relative flex items-center justify-center mx-6 md:mx-2">
             <button
               onClick={() => setCurrentImage((currentImage - 1 + images.length) % images.length)}
-              className="absolute left-[-30px] top-1/2 transform -translate-y-1/2 p-2 rounded-full"
+              className="absolute left-[-40px] top-1/2 transform -translate-y-1/2 p-2 rounded-full"
             >
               <ChevronLeftIcon className="w-5 h-5" />
             </button>
-            <img src={images[currentImage]} alt="Product" className="w-full h-120 mx-20" />
+            <img src={images[currentImage]} alt="Product" className="max-w-full h-120 mx-20" />
             <button
               onClick={() => setCurrentImage((currentImage + 1) % images.length)}
-              className="absolute right-[-30px] top-1/2 transform -translate-y-1/2 p-2 rounded-full"
+              className="absolute right-[-40px] top-1/2 transform -translate-y-1/2 p-2 rounded-full"
             >
               <ChevronRightIcon className="w-5 h-5" />
             </button>
@@ -221,18 +221,20 @@ useEffect(() => {
               </div>
             )}
           </div>
-          <p className="text-red-600 font-semibold mt-5 ml-6">Dimensions</p>
-          <div className="p-4 bg-[#fff1df] w-40">
-            <p className="mt-4">
-              Length: <br /> <strong>{product.dimensions?.length || "N/A"} cm</strong>
-            </p>
-            <p className="mt-5">
-              Breadth: <br /> <strong>{product.dimensions?.breadth || "N/A"} cm</strong>
-            </p>
-            <p className="mt-5">
-              Height: <br />
-              <strong>{product.dimensions?.height || "N/A"} cm</strong>
-            </p>
+          <div className="flex flex-col items-center">
+            <p className="text-[#9C0300] font-semibold mt-5 text-center mb-4">Dimensions</p>
+            <div className="text-start flex flex-row md:flex-col items-start md:items-center justify-center lg:flex-col gap-8 md:gap-2 bg-[#fff1df] max-w-full md:max-w-14 p-6 md:px-16 md:py-2">
+              <p className="mt-4">
+              <span className="text-[#9C0300]">Length:</span> <br /> <strong>{product.dimensions?.length || "N/A"} cm</strong>
+              </p>
+              <p className="mt-4 md:mt-5">
+                <span className="text-[#9C0300]">Breadth:</span> <br /> <strong>{product.dimensions?.breadth || "N/A"} cm</strong>
+              </p>
+              <p className="mt-4 md:mt-5">
+              <span className="text-[#9C0300]">Height:</span>  <br />
+                <strong>{product.dimensions?.height || "N/A"} cm</strong>
+              </p>
+            </div>
           </div>
         </div>
 

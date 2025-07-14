@@ -5,16 +5,19 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { getTestimonials } from "../../services/testimonialService";
+import LeftArrow from "../../assets/images/collections/Prev.png"; // Custom left arrow
+import RightArrow from "../../assets/images/collections/Next.png"; // Custom right arrow
 
 
 const CustomPrevArrow = (props) => {
   const { onClick } = props;
   return (
     <button
-      className="absolute left-0 z-1 top-1/2 transform -translate-y-1/2 p-2 bg-[#9C0300] hover:bg-amber-50 text-white rounded-full transition-colors duration-200"
+      className="absolute left-0 z-1 top-1/2 transform -translate-y-1/2 p-2 text-white rounded-full transition-colors duration-200"
       onClick={onClick}
     >
-      <ChevronLeft size={24} />
+      {/* <ChevronLeft size={24} />  */}
+      <img src={LeftArrow} alt="prevArrow" className="w-6 h-6 md:w-8 md:h-8" />
     </button>
   );
 };
@@ -26,10 +29,11 @@ const CustomNextArrow = (props) => {
   const { onClick } = props;
   return (
     <button
-      className="absolute right-0 z-1 top-1/2 transform -translate-y-1/2 p-2 bg-[#9C0300] hover:bg-amber-50 text-white rounded-full transition-colors duration-200"
+      className="absolute right-0 z-1 top-1/2 transform -translate-y-1/2 p-2 text-white rounded-full transition-colors duration-200"
       onClick={onClick}
     >
-      <ChevronRight size={24} />
+      {/* <ChevronRight size={24} /> */}
+      <img src={RightArrow} alt="nextArrow" className="w-6 h-6 md:w-8 md:h-8" />
     </button>
   );
 };
@@ -71,7 +75,7 @@ export default function TestimonialCarousel() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          arrows: false,
+          // arrows: false,
         },
       },
     ],

@@ -73,7 +73,7 @@ const ShopCollection = () => {
                 <div className="flex justify-center items-center md:justify-start">
                   <Link 
                     to={`/collect?collection=${collection.id}`}
-                    className="mt-2 mb-4 px-5 py-2 bg-[#9C0300] text-white rounded-full hover:bg-red-700 transition"
+                    className="mt-2 mb-4 px-4 py-0 md:px-6 md:py-2 bg-[#9C0300] text-white rounded-full hover:bg-red-700 transition"
                   >
                     Shop Now
                   </Link>

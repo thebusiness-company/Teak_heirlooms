@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useScroll } from "../context/ScrollContext";
 
 import Feedback from "./Feedback";
 import NewsSection from "./News";
@@ -7,49 +8,71 @@ import SustainabilitySection from "./Sustainability";
 import TermsAndConditions from "./TermsAndConditions";
 import AboutUs from "./AboutUs";
 import Contact from "./ContactForm";
-import Profile from "./Profile";
+import { useLocation } from "react-router-dom";
 
 const Page = () => {
+  const location = useLocation();
+ const {
+    storeRef,
+    feedbackRef,
+    termsRef,
+    sustainabilityRef,
+    aboutusRef,
+    newsRef,
+    contactRef,
+  } = useScroll();
+
+
   useEffect(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      const section = document.querySelector(hash);
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  }, []);
+
+    const sectionMap = {
+    storeRef,
+    feedbackRef,
+    termsRef,
+    sustainabilityRef,
+    aboutusRef,
+    newsRef,
+    contactRef,
+  };
+
+  const scrollTarget = location.state?.scrollTo;
+  const targetRef = sectionMap[scrollTarget];
+
+  
+  if(targetRef?.current){
+    targetRef?.current.scrollIntoView({behavior:"smooth"});
+  }
+  }, [location.state]);
 
   return (
-    <>
-      {/* Navigation Links */}
-      
+      <>
+       {/* Navigation Links */}
 
-      {/* Sections with IDs */}
-      <div id="store-locator">
-        <StoreLocator />
-      </div>
-      <div id="feedback">
-        <Feedback />
-      </div>
-      <div id="terms">
-        <TermsAndConditions />
-      </div>
-      <div id="sustainability">
+       {/* Sections with IDs and refs*/}
+       <div ref={storeRef} id="store-locator">
+         <StoreLocator />
+       </div>
+       <div ref={feedbackRef} id="feedback">
+         <Feedback />
+       </div>
+       <div ref={termsRef} id="terms">
+         <TermsAndConditions />
+       </div>
+       <div ref={sustainabilityRef} id="sustainability">
         <SustainabilitySection />
-      </div>
-      <div id="news">
-        <NewsSection />
-      </div>
-      <div id="aboutus">
-        <AboutUs />
-      </div>
-      <div id="contact">
-        <Contact />
-      </div>
-      <Profile/>
-    </>
+       </div>
+       <div ref={aboutusRef} id="aboutus">
+         <AboutUs />
+       </div>
+       <div ref={newsRef} id="news">
+         <NewsSection />
+       </div>
+       <div ref={contactRef} id="contact">
+         <Contact />
+       </div>
+     </>
   );
 };
 
 export default Page;
+

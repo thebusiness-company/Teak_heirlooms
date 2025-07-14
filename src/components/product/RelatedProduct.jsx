@@ -24,7 +24,7 @@ const RelatedProduct = ({ category, slug }) => {
 
   return (
     <div className="p-4">
-      <h2 className="text-xl font-semibold mb-4">Related Products</h2>
+      <h2 className="text-3xl font-semibold mb-4 font-infant text-[#3B493F]">Related Products</h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {relatedProducts.length > 0 ? (
           relatedProducts.map((item) => (

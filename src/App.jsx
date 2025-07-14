@@ -25,6 +25,7 @@ import RoomPage from "./components/room/RoomPage";
 import CollectionPage from "./components/shop/CollectionPage";
 import ShopCollection from "./components/shop/ShopCollection";
 import ContactForm from "./pages/ContactForm";
+import ScrollProvider from "./context/ScrollContext";
 
 function App() {
   const[numCartItems, setNumCartItems] = useState(0);
@@ -49,6 +50,7 @@ function App() {
   return (
     <>
       <AuthProvider>
+      <ScrollProvider>
       <Router>
         <Routes>
         <Route path="/admin" element={<ProtectedRoute requireSuperuser={true}><Adminpage /></ProtectedRoute>
@@ -79,6 +81,7 @@ function App() {
           </Route>
         </Routes>
       </Router>
+      </ScrollProvider>
       </AuthProvider>
       
     </>
