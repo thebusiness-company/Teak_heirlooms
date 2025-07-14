@@ -7,7 +7,7 @@ import StoreLocator from "./StoreLocator";
 import SustainabilitySection from "./Sustainability";
 import TermsAndConditions from "./TermsAndConditions";
 import AboutUs from "./AboutUs";
-import Contact from "./ContactForm";
+// import Contact from "./ContactForm";
 import { useLocation } from "react-router-dom";
 
 const Page = () => {
@@ -67,9 +67,9 @@ const Page = () => {
        <div ref={newsRef} id="news">
          <NewsSection />
        </div>
-       <div ref={contactRef} id="contact">
+       {/* <div ref={contactRef} id="contact">
          <Contact />
-       </div>
+       </div> */}
      </>
   );
 };

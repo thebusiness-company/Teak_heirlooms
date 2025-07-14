@@ -39,6 +39,10 @@ const ProductDetail = ({setNumCartItems}) => {
   const [inCart, setInCart] = useState(false);
   const cart_code = localStorage.getItem('cart_code');
   console.log(cart_code);
+
+  // useEffect(() => {
+  //   window.scrollTo({top:0, behavior:"smooth"});
+  // },[]);
   
   // Fetch product data
   useEffect(() => {
@@ -126,9 +130,9 @@ useEffect(() => {
             <span className="text-yellow-400 text-lg">⭐⭐⭐⭐☆</span>
             <span className="text-sm ml-2">{product.ratings || "No Ratings"}</span>
           </div>
-          <p className="text-gray-600">{product.category}</p>
-          {product.customizable && <p className="text-red-600 font-semibold">CUSTOMIZE</p>}
-          <p className="text-gray-500">Available in {colors.length} Wood Finishes</p>
+          <p>{product.category}</p>
+          {product.customizable && <p className="text-[#9C0300] font-semibold">CUSTOMIZE</p>}
+          <p>Available in {colors.length} Wood Finishes</p>
 
           {/* Color Slider */}
           {colors.length > 0 && (
@@ -175,7 +179,7 @@ useEffect(() => {
           onClick={add_item}
           disabled={inCart}
           className="bg-[#9C0300] w-full text-white px-6 py-3 cursor-pointer rounded-md mt-4">
-            {inCart ? 'Added to Cart' : 'Add to Cart'}
+            {inCart ? 'Added to Cart' : 'ADD TO CART'}
           </button>
         </div>
 
@@ -241,7 +245,7 @@ useEffect(() => {
         {/* Product Description */}
         <div className="md:col-span-3 mt-6">
           <h3 className="font-semibold text-lg">Product Description</h3>
-          <p className="text-gray-600 mt-2">
+          <p className="mt-2">
             {product.description || "No description available."}
           </p>
         </div>

@@ -70,7 +70,7 @@ const BSservice = () => {
     <div className="relative max-w-7xl mx-auto px-4 py-10">
       <h2 className="text-3xl md:text-4xl font-semibold text-[#9C0300] text-center">TEAK HEIRLOOMS <span className="text-[#3B493F]">BESPOKE SERVICES</span></h2>
       <h3 className="text-lg text-[#9C0300] mt-15">INTRODUCING BESPOKE FABRIC SERVICE</h3>
-      <p className="text-gray-600 mt-2">With these specific products, you can now personalize a Teak Heirlooms design and truly make your home unique by selecting your own fabric.</p>
+      <p className="mt-2">With these specific products, you can now personalize a Teak Heirlooms design and truly make your home unique by selecting your own fabric.</p>
       
       <div className=" mt-6 max-w-7xl">
         <Slider {...settings}>

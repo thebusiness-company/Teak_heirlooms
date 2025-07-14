@@ -18,24 +18,24 @@ const Footer = () => {
             <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row md:justify-between">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-sm text-black py-6 w-full">
                     <div className="mb-4">
-                        <button onClick={()=>handleScroll("storeRef")}><h3 className="font-bold cursor-pointer">FIND A STORE</h3></button>
+                        <button onClick={()=>handleScroll("storeRef")} className='block w-full text-left'><h3 className="font-bold cursor-pointer mb-2 tracking-wide">FIND A STORE</h3></button>
                         
-                        <h3 className="font-bold">BECOME A MEMBER</h3>
-                        <button onClick={()=>handleScroll("feedbackRef")}><h3 className="font-bold cursor-pointer">SEND YOUR FEEDBACK</h3></button>
+                        <h3 className="font-bold mb-2 tracking-wide">BECOME A MEMBER</h3>
+                        <button onClick={()=>handleScroll("feedbackRef")} className='block w-full text-left'><h3 className="font-bold cursor-pointer mb-2 tracking-wide">SEND YOUR FEEDBACK</h3></button>
 
                         
             <p className="mt-12 text-xs">&copy; TBC All Rights Reserved 2024</p>
 
           </div>
-          <div className="mb-4">
-            <h3 className="font-bold">HELP</h3>
-            <p>Get Help</p>
-            <p>Order Status</p>
-            <p>Delivery</p>
-            <p>Returns</p>
+          <div className="mb-4 tracking-wide">
+            <h3 className="font-bold mb-2">HELP</h3>
+            <p className='mb-2'>Get Help</p>
+            <p  className='mb-2'>Order Status</p>
+            <p  className='mb-2'>Delivery</p>
+            <p  className='mb-2'>Returns</p>
           </div>
-          <div className="mb-4">
-            <h3 className="font-bold">COMPANY</h3>
+          <div className="mb-4 tracking-wide">
+            <h3 className="font-bold mb-2">COMPANY</h3>
 
             {/* using Link */}
             {/* <Link to="/page#aboutus"><p>About TH</p></Link>
@@ -43,13 +43,13 @@ const Footer = () => {
             <Link to="/page#sustainability"><p>Sustainability</p></Link> */}
 
             {/* using href */}
-            <button onClick={()=>handleScroll("aboutusRef")}><p className='cursor-pointer'>About TH</p></button><br />
-           <button onClick={()=>handleScroll("newsRef")}><p className='cursor-pointer'>News</p></button><br />
-            <button onClick={()=>handleScroll("sustainabilityRef")}><p className='cursor-pointer'>Sustainability</p></button>
+            <button onClick={()=>handleScroll("aboutusRef")}><p className='cursor-pointer mb-2'>About TH</p></button><br />
+           <button onClick={()=>handleScroll("newsRef")}><p className='cursor-pointer mb-2'>News</p></button><br />
+            <button onClick={()=>handleScroll("sustainabilityRef")}><p className='cursor-pointer mb-2'>Sustainability</p></button>
           </div>
-          <div className="mb-4">
-            <h3 className="font-bold">CONTACT US</h3>
-            <p>Teakheirlooms@gmail.com</p>
+          <div className="mb-4 tracking-wide">
+            <h3 className="font-bold mb-2">CONTACT US</h3>
+            <p className='mb-2 break-words'>Teakheirlooms@gmail.com</p>
             <p>900xx25 xxx</p>
           </div>
         </div>
@@ -58,7 +58,7 @@ const Footer = () => {
             <a href="http://instagram.com/" className="text-2xl"><FaInstagramSquare/></a>
             <a href="http://facebook.com/" className="text-2xl"><FaSquareFacebook /></a>
           </div>
-          <Link to='/' className="flex items-center gap-6 mb-4 lg:mt-8">
+          <Link to='/' className="flex items-center gap-6 mb-4  px-2  lg:mt-8">
             <img src={Logo} alt="Teak Heirlooms" className="h-6 lg:h-10" />
           </Link>
           {/* <Link to="/page#terms" className="text-xs">Terms & Conditions</Link> */}

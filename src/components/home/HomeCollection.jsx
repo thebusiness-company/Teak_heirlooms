@@ -31,7 +31,7 @@ const CustomPrevArrow = (props) => {
         
         onClick?.();
       }}
-      className="absolute left-[-30px] md:left-[-40px] top-1/2 transform -translate-y-1/2"
+      className="absolute left-[-30px] md:left-[-40px] top-1/2 transform -translate-y-1/2 cursor-pointer"
     >
       <img src={LeftArrow} alt="Previous" className="w-6 h-6 md:w-8 md:h-8" />
     </button>
@@ -50,7 +50,7 @@ const CustomNextArrow = (props) => {
         e.stopPropagation();
         onClick();
       }}
-      className="absolute right-[-30px] md:right-[-40px] top-1/2 transform -translate-y-1/2"
+      className="absolute right-[-30px] md:right-[-40px] top-1/2 transform -translate-y-1/2 cursor-pointer"
     >
       <img src={RightArrow} alt="Next" className="w-6 h-6 md:w-8 md:h-8" />
     </button>

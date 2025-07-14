@@ -14,6 +14,48 @@ const OrderConfirmation = () => {
         setOrder(response.data);
       } catch (error) {
         console.error("Error fetching order:", error);
+      
+        // ✅ Inject mock data only for testing
+        setOrder({
+          razorpay_order_id: orderId,
+          created_at: new Date().toISOString(),
+          total_amount: 2499,
+          payment_status: "paid",
+          address: {
+            first_name: "John",
+            last_name: "Doe",
+            address_line1: "123 Main Street",
+            address_line2: "",
+            city: "Testville",
+            state: "Test State",
+            postal_code: "123456",
+            country: "India",
+            phone: "9876543210",
+            email: "john@example.com",
+          },
+          cart: {
+            items: [
+              {
+                id: 1,
+                quantity: 2,
+                product: {
+                  name: "Sample Product 1",
+                  price: 999,
+                  images: [{ image: "/placeholder.jpg" }],
+                },
+              },
+              {
+                id: 2,
+                quantity: 1,
+                product: {
+                  name: "Sample Product 2",
+                  price: 501,
+                  images: [{ image: "/placeholder.jpg" }],
+                },
+              },
+            ],
+          },
+        });
       } finally {
         setLoading(false);
       }
@@ -29,18 +71,18 @@ const OrderConfirmation = () => {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
-      <h1 className="text-3xl md:text-4xl font-bold text-center text-[#9C0300] mb-2">
+      <h1 className="text-3xl lg:text-5xl text-center font-semibold text-[#9C0300] mb-2 font-infant">
         Order confirmed!
       </h1>
-      <p className="text-center text-gray-700 mb-8">
-        Thank you for your purchase. Your has been received and it`&apos;`s been processed.
+      <p className="text-center mb-8 md:mb-12">
+        Thank you for your purchase. Your order has been received and it's been processed.
       </p>
 
-      <div className="grid md:grid-cols-2 gap-6 pb-6">
+      <div className="grid md:grid-cols-2 gap-6 pb-6 ">
         {/* Order Details */}
-        <div className="border-r  border-gray-600">
-          <h2 className="text-lg font-semibold mb-4">Order Details</h2>
-          <ul className="space-y-1 text-gray-700">
+        <div className="border-b md:border-b-0 md:border-r border-[#9C0300] mx-4 md:mx-0  md:place-items-center text-left">
+          <h2 className="text-lg font-semibold mb-4 ">Order Details</h2>
+          <ul className="space-y-1 text-[#3B493F] mb-4">
             <li>
               <span className="font-medium">Order ID:</span> {order.razorpay_order_id}
             </li>
@@ -59,9 +101,9 @@ const OrderConfirmation = () => {
         </div>
 
         {/* Address */}
-        <div>
-          <h2 className="text-lg font-semibold mb-4">Delivery Address</h2>
-          <ul className="space-y-1 text-gray-700">
+        <div className=" mx-4 md:mx-0  md:place-items-center text-left">
+          <h2 className="text-lg font-semibold mb-4 ">Delivery Address</h2>
+          <ul className="space-y-1 text-[#3B493F]">
             <li>
               {order.address.first_name} {order.address.last_name}
             </li>
@@ -79,8 +121,8 @@ const OrderConfirmation = () => {
 
       {/* Ordered Items */}
       <div className="mt-6">
-        <h2 className="text-lg font-semibold mb-4">Ordered Items</h2>
-        <div className="border-dashed border rounded-md overflow-hidden">
+        <h2 className="text-lg font-semibold mb-4 ml-4">Ordered Items</h2>
+        <div className="border-dashed border rounded-xl overflow-hidden">
           {order.cart.items.map((item) => (
             <div
               key={item.id}
@@ -98,10 +140,10 @@ const OrderConfirmation = () => {
                 />
                 <div>
                   <p className="font-medium">{item.product.name}</p>
-                  <p className="text-red-500 text-sm">Rs.{item.product.price}</p>
+                  <p className="text-[#9C0300] text-sm">Rs.{item.product.price}</p>
                 </div>
               </div>
-              <div className="text-sm text-gray-700">
+              <div className="text-sm font-bold md:mr-6 text-left">
                 Qty: {item.quantity} × Rs.{item.product.price} = Rs.
                 {item.quantity * item.product.price}
               </div>
@@ -111,34 +153,36 @@ const OrderConfirmation = () => {
       </div>
 
       {/* Summary */}
-      <div className="mt-6 border-t pt-4 text-right text-gray-700">
-        <p className="text-base">
+      <div className="mt-6 border-t border-[#9C0300] pt-4 text-center md:text-right ">
+        <p className="text-base text-[#3B493F] md:mr-6">
           <span className="font-medium">Sub total:</span> Rs.
           {order.total_amount - 500}
         </p>
-        <p className="text-base">
+        <p className="text-base text-[#3B493F] md:mr-6">
           <span className="font-medium">Shipping:</span> Rs.500.00
         </p>
-        <p className="text-lg font-bold">
+        <p className="text-lg font-bold md:mr-6">
           <span className="font-medium">Total:</span> Rs.{order.total_amount}
         </p>
       </div>
 
       {/* Buttons */}
-      <div className="mt-6 flex flex-col sm:flex-row justify-between gap-4">
+      <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4">
         <Link
           to="/"
-          className="text-center text-[#9C0300] px-6 py-3 bg-[#FFF1DF] hover:bg-gray-300 rounded-md"
+          className="text-center px-6 py-3 bg-[#FFF1DF] hover:bg-gray-300 rounded-md"
         >
           Continue Shopping
         </Link>
+        </div>
+        <div className="mt-6 md:mt-0 flex flex-col sm:flex-row justify-end gap-4 md:mr-6">
         <Link
           to="/"
           className="text-center px-6 py-3 bg-[#9C0300] hover:bg-red-700 text-white rounded-md"
         >
           Track order
         </Link>
-      </div>
+        </div>
     </div>
   );
 };

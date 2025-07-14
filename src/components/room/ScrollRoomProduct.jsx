@@ -34,7 +34,7 @@ const ScrollRoomProduct = () => {
                     />
                   </div>
                   <h3 className="text-lg font-medium mt-4 truncate text-[#9C0300]">{product.name}</h3>
-                  <p className=" font-semibold">{product.price}</p>
+                  <p className=" font-semibold">₹ {product.price}</p>
                 </Link>
               </div>
             ))}
