@@ -25,7 +25,7 @@ const SESection = () => {
         </h2>
         <div className="flex justify-center mt-4">
           <button onClick={handleContactClick}
-          className="absolute lg:top-28 right-6 sm:right-4 md:right-24 lg:right-72 mt-4 lg:mt-16 bg-[#9C0300] text-white hover:bg-red-700 transition p-1 md:px-4 md:py-1 lg:px-6 lg:py-1 rounded-full text-xs sm:text-xs md:text-base my-2">
+          className="absolute lg:top-28 right-6 sm:right-4 md:right-24 lg:right-72 mt-4 lg:mt-16 bg-[#9C0300] text-white hover:bg-red-700 transition p-1 md:px-4 md:py-1 lg:px-6 lg:py-1 rounded-full text-xs sm:text-xs md:text-base my-2 cursor-pointer">
             SPEAK TO OUR EXPERT
           </button>
           </div>

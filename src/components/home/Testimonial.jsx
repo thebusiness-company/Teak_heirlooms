@@ -13,7 +13,7 @@ const CustomPrevArrow = (props) => {
   const { onClick } = props;
   return (
     <button
-      className="absolute left-0 z-1 top-1/2 transform -translate-y-1/2 p-2 text-white rounded-full transition-colors duration-200"
+      className="absolute left-0 z-1 top-1/2 transform -translate-y-1/2 p-2 text-white rounded-full transition-colors duration-200 cursor-pointer"
       onClick={onClick}
     >
       {/* <ChevronLeft size={24} />  */}
@@ -29,7 +29,7 @@ const CustomNextArrow = (props) => {
   const { onClick } = props;
   return (
     <button
-      className="absolute right-0 z-1 top-1/2 transform -translate-y-1/2 p-2 text-white rounded-full transition-colors duration-200"
+      className="absolute right-0 z-1 top-1/2 transform -translate-y-1/2 p-2 text-white rounded-full transition-colors duration-200 cursor-pointer"
       onClick={onClick}
     >
       {/* <ChevronRight size={24} /> */}

@@ -214,16 +214,16 @@ const Cart = () => {
   }
 
   return (
-    <div className="max-w-5xl mx-auto rounded-xl shadow-2xl border-[black]/25 border-b-12 border-r-12 md:flex my-16">
+    <div className="max-w-5xl mx-auto md:mx-4 lg:mx-auto rounded-3xl shadow-[0px_4px_4px_0px_#00000040] border-[black]/25 border-b-12 border-r-12 md:flex my-16">
       {/* Left: Cart Items */}
-      <div className="flex-1 bg-[#EDEAE5] p-4">
+      <div className="flex-1 bg-[#EDEAE5] p-4 rounded-2xl md:rounded-r-none md:rounded-l-2xl lg:pb-12">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl md:text-3xl text-[#3B493F]">Shopping Cart</h2>
-          <span>{cartItems.length} Items</span>
+          <h2 className="text-xl md:text-3xl text-[#3B493F] lg:pt-6 lg:pl-8">Shopping Cart</h2>
+          <span className="lg:pt-8">{cartItems.length} Items</span>
         </div>
         <hr />
         {cartItems.map((item) => (
-          <div key={item.id} className="flex items-center border-b py-4 px-4">
+          <div key={item.id} className="flex items-center border-b py-4 px-2 md:px-4 lg:pl-8">
             <img
               src={
                 item.product.images[0]?.image
@@ -249,10 +249,10 @@ const Cart = () => {
               </button>
             </div>
             <div className="flex-1 ml-2 md:ml-8">
-              <p className="font-medium text-sm md:text-base">{item.product.name}</p>
+              <p className="font-medium text-sm md:text-base ">{item.product.name}</p>
               <p className="text-gray-500">Rs.{item.product.price}</p>
             </div>
-            <button onClick={() => deleteItem(item.id)} className="text-[#9C0300]">
+            <button onClick={() => deleteItem(item.id)} className="text-[#9C0300] px-2 md:px-4 lg:px-6">
               ✖
             </button>
           </div>
@@ -260,8 +260,8 @@ const Cart = () => {
       </div>
 
       {/* Right: Summary */}
-      <div className="w-full md:w-1/3 bg-[#F5F5F5] p-4 mt-6 md:mt-0">
-        <h3 className="text-lg text-[#3B493F] font-semibold mb-4">Summary</h3>
+      <div className="w-full md:w-1/3 bg-[#F5F5F5] p-4 mt-6 md:mt-0 rounded-2xl md:rounded-l-none md:rounded-r-2xl lg:pb-12">
+        <h3 className="text-lg text-[#3B493F] font-semibold mb-4 lg:mt-8">Summary</h3>
         <hr />
         <div className="flex justify-between mt-2">
           <span>ITEMS: {cartItems.length}</span>
@@ -301,9 +301,9 @@ const Cart = () => {
         ) : (
           <button
             onClick={handleProceedToCheckout}
-            className="w-full mt-16 p-2 text-white rounded bg-[#3B493F] cursor-pointer"
+            className="w-full mt-16 p-2 text-white rounded bg-[#3B493F] cursor-pointer "
           >
-            Proceed to Checkout
+            Check Out
           </button>
         )}
       </div>

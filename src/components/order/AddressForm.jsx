@@ -82,131 +82,140 @@ const AddressForm = ({
 
       {(isNewAddress || userAddresses.length === 0) && (
         <form onSubmit={handleSubmit} className="space-y-4">
+          <h1 className="text-[#9C0300] text-2xl font-semibold">Delivery Address</h1>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium">First Name</label>
+              <label className="block text-sm font-medium mb-2">First Name</label>
               <input
                 type="text"
                 name="first_name"
+                placeholder="Enter your first name"
                 value={address.first_name}
                 onChange={handleChange}
                 required
-                className="w-full p-2 border rounded"
+                className="w-full p-2 border rounded-full placeholder:text-xs md:placeholder:text-sm"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium">Last Name</label>
+              <label className="block text-sm font-medium mb-2">Last Name</label>
               <input
                 type="text"
                 name="last_name"
+                placeholder="Enter your last name"
                 value={address.last_name}
                 onChange={handleChange}
                 required
-                className="w-full p-2 border rounded"
+                className="w-full p-2 border rounded-full placeholder:text-xs md:placeholder:text-sm"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium">Email</label>
+            <label className="block text-sm font-medium mb-2">Email</label>
             <input
               type="email"
               name="email"
+              placeholder="Your mail ID"
               value={address.email}
               onChange={handleChange}
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded-full placeholder:text-xs md:placeholder:text-sm"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium">Phone</label>
+            <label className="block text-sm font-medium mb-2">Phone</label>
             <input
               type="tel"
               name="phone"
+              placeholder="+91"
               value={address.phone}
               onChange={handleChange}
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded-full placeholder:text-xs md:placeholder:text-sm"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium">Address Line 1</label>
+            <label className="block text-sm font-medium mb-2">Address Line 1</label>
             <input
               type="text"
               name="address_line1"
+              placeholder="Flat, House no., Building, Company, Apartment"
               value={address.address_line1}
               onChange={handleChange}
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded-full placeholder:text-xs md:placeholder:text-sm"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium">Address Line 2</label>
+            <label className="block text-sm font-medium mb-2">Address Line 2</label>
             <input
               type="text"
               name="address_line2"
+              placeholder="Area, Street, Sector, Village"
               value={address.address_line2 || ""}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded-full placeholder:text-xs md:placeholder:text-sm"
             />
           </div>
 
           <div className="grid grid-cols-3 gap-4">
             <div>
-              <label className="block text-sm font-medium">City</label>
+              <label className="block text-sm font-medium mb-2">City</label>
               <input
                 type="text"
                 name="city"
+                placeholder="Enter city"
                 value={address.city}
                 onChange={handleChange}
                 required
-                className="w-full p-2 border rounded"
+                className="w-full p-2 border rounded-full placeholder:text-xs md:placeholder:text-sm"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium">State</label>
+              <label className="block text-sm font-medium mb-2">State</label>
               <input
                 type="text"
                 name="state"
                 value={address.state}
                 onChange={handleChange}
                 required
-                className="w-full p-2 border rounded"
+                className="w-full p-2 border rounded-full placeholder:text-xs md:placeholder:text-sm"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium">Postal Code</label>
+              <label className="block text-sm font-medium mb-2">Postal Code</label>
               <input
                 type="text"
                 name="postal_code"
+                placeholder="600***"
                 value={address.postal_code}
                 onChange={handleChange}
                 required
-                className="w-full p-2 border rounded"
+                className="w-full p-2 border rounded-full placeholder:text-xs md:placeholder:text-sm"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium">Country</label>
+            <label className="block text-sm font-medium mb-2">Country</label>
             <input
               type="text"
               name="country"
               value={address.country}
               onChange={handleChange}
               required
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded-full placeholder:text-xs md:placeholder:text-sm"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full mt-4 p-2 bg-green-700 cursor-pointer text-white rounded"
+            className="w-full mt-4 p-2 bg-[#9C0300] cursor-pointer text-white rounded-full"
           >
             Continue to Payment
           </button>

@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import Banner from "./Banner";
 import SubCategory from "./SubCategory";
 import { useSubCategories } from "../../Hooks/useCategories";
+import { useEffect } from 'react';
 
 
 const formatCategoryName = (category) => {
@@ -13,6 +14,10 @@ const formatCategoryName = (category) => {
 };
 const Category = () => {
     const { category } = useParams(); // Gets "Sofas" from the URL
+
+    // useEffect(() => {
+    //     window.scrollTo({top:document.body.scrollHeight, behavior:"smooth"});
+    // },[]);
     
     // Fetch subcategories based on the category name from your API
     const { subcategories, isLoading, error } = useSubCategories(category);

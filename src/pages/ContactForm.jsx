@@ -3,10 +3,15 @@ import { useContact } from "../Hooks/useContact";
 import WhatsApp from "../assets/images/WhatsApp.png";
 import { FaSquareFacebook } from "react-icons/fa6";
 import { FaInstagramSquare } from "react-icons/fa";
+import { useEffect } from "react";
 
 const ContactForm = () => {
     const { register, handleSubmit, reset } = useForm();
     const mutation = useContact();
+
+    useEffect(() => {
+        window.scrollTo({top:0, behavior: "smooth"});
+    }, []);
 
     const onSubmit = (data) => {
         mutation.mutate(data, {
@@ -71,7 +76,7 @@ const ContactForm = () => {
                         />
                     </div>
                     <div className="flex flex-row justify-end items-center">
-                    <button type="submit" className="bg-[#9C0300] text-white px-6 py-2 rounded w-1/3 hover:bg-red-700">
+                    <button type="submit" className="bg-[#9C0300] text-white px-6 py-2 rounded w-1/3 hover:bg-red-700 cursor-pointer">
                         SUBMIT
                     </button>
                     </div>

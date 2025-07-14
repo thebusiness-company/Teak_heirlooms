@@ -11,7 +11,7 @@ return (
             <p className="mt-10 text-sm md:text-lg text-gray-600">
                 GIVE YOUR IDEAL HOUSE A PERSONAL TOUCH.
             </p>
-            <button className="mt-5 px-8 py-1 bg-[#9C0300] text-white font-semibold rounded-full shadow-lg hover:bg-red-700 transition">
+            <button className="mt-5 px-8 py-1 bg-[#9C0300] text-white font-semibold rounded-full shadow-lg hover:bg-red-700 transition cursor-pointer">
                 Shop Now
             </button>
         </div>

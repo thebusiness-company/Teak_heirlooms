@@ -69,7 +69,7 @@ const Navbar = ({ numCartItems }) => {
         ) : (
           <button
             onClick={() => navigate("/login")}
-            className="md:ml-1 lg:ml-10 bg-[#9C0300] text-white px-4 py-2 rounded-full hidden md:block"
+            className="md:ml-1 lg:ml-10 bg-[#9C0300] text-white px-4 py-2 rounded-full hidden md:block cursor-pointer"
           >
             Login
           </button>
