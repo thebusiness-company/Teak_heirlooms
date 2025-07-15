@@ -2,8 +2,8 @@ import { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import { NavLink, useNavigate, Link } from "react-router-dom";
 import Logo from "../../assets/images/logo.png";
-import cart from "../../assets/images/cart.svg";
-import profile from "../../assets/images/profile.svg";
+import cart from "../../assets/images/cart1.svg";
+import profile from "../../assets/images/profile1.svg";
 import { AuthContext } from "../../context/AuthContext";
 import { Menu, X } from "lucide-react";
 
@@ -24,76 +24,94 @@ const Navbar = ({ numCartItems }) => {
   ];
 
   return (
-    <nav className="bg-white gap-12 md:gap-2 lg:gap-12 px-2 py-2 flex flex-row md:justify-center lg:justify-center items-center min-w-0 h-20 md:h-32 shadow-md z-50 relative">
+    <nav className="bg-white px-2 sm:px-4 md:px-6 lg:px-10 py-2 flex items-center justify-between h-16 sm:h-20 md:h-26 shadow-md z-50 relative">
+      
       {/* Logo */}
-      <div className="flex items-start space-x-1 lg:ml-4">
+      <div className="flex-shrink-0">
         <NavLink to="/">
-          <img src={Logo} alt="Teak Heirlooms Logo" className="px-2 h-8 md:w-28 w-36 lg:h-15 lg:w-50" />
+          <img
+            src={Logo}
+            alt="Teak Heirlooms Logo"
+            className="h-8 sm:h-10 md:h-12 lg:h-16 w-auto"
+          />
         </NavLink>
       </div>
 
       {/* Desktop Links */}
-      <div className="hidden md:flex md:gap-2 lg:gap-10 font-bold md:text-base lg:text-lg text-[#9C0300] text-center">
+      <div className="hidden md:flex gap-4 lg:gap-10 font-bold text-sm sm:text-base md:text-lg lg:text-xl text-[#9C0300]">
         {navLinks.map(({ to, label }) => (
           <NavLink
             key={to}
             to={to}
             className={({ isActive }) =>
-              `h-25 mb-8 pt-12 p-2  transition ${
-                isActive ? "bg-[#9C0300] text-white" : "hover:bg-[#9C0300] hover:text-white"
-              }`
+              `transition text-center ${
+                isActive
+                  ? "bg-[#9C0300] text-white"
+                  : "hover:bg-[#9C0300] hover:text-white"
+              } lg:h-20 lg:mb-6 lg:pt-10`
             }
           >
-           <p className="p-3 leading-snug ">{label}</p> 
+            <p className="px-3 py-2 rounded leading-snug text-sm lg:text-base">{label}</p>
           </NavLink>
         ))}
       </div>
 
-      {/* Right Icons */}
-      <div className="flex items-center justify-between flex-1 gap-4 md:flex-none md:ml-auto lg:ml-10 space-x-2 md:space-x-4 lg:space-x-6">
+
+      {/* Right Section */}
+      <div className="flex items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8">
+        {/* Auth Info */}
         {isAuthenticated ? (
-          <span className="text-[#9C0300] font-medium hidden md:block">
-            Hi {user.username}
+          <div className="hidden md:flex items-center gap-3 text-[#9C0300] font-medium">
+            <span className="text-sm sm:text-base">Hi {user.username}</span>
             {user?.is_superuser && (
-                <button
-                  onClick={() => {
-                    closeMenu();
-                    navigate("/admin");
-                  }}
-                  className="bg-[#9C0300] text-white px-3 py-2 rounded-3xl ml-3"
-                >
-                  Admin Panel
-                </button>
-              )}
-          </span>
+              <button
+                onClick={() => {
+                  closeMenu();
+                  navigate("/admin");
+                }}
+                className="bg-[#9C0300] text-white px-4 py-1.5 sm:px-6 sm:py-2 rounded-full text-sm sm:text-base"
+              >
+                Admin Panel
+              </button>
+            )}
+          </div>
         ) : (
           <button
             onClick={() => navigate("/login")}
-            className="md:ml-1 lg:ml-10 bg-[#9C0300] text-white px-4 py-2 rounded-full hidden md:block cursor-pointer"
+            className="hidden md:inline-block bg-[#9C0300] text-white px-6 py-1.5  text-sm sm:text-base"
           >
             Login
           </button>
         )}
-        <div className="flex flex-row space-x-6 md:space-x-4 lg:space-x-10">
-        <Link to="/profile">
-          <img src={profile} alt="profile" className="w-6 h-6 md:w-12 md:h-10 lg:w-8 lg:h-8" />
-        </Link>
-        <Link to="/cart" className="relative">
-          <img src={cart} alt="cart" className="w-6 h-6 md:w-12 md:h-10 lg:w-8 lg:h-8" />
-          {numCartItems > 0 && (
-            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2 py-0.5">
-              {numCartItems}
-            </span>
-          )}
-        </Link>
+
+        {/* Icons */}
+        <div className="flex items-center gap-6 xl:mr-2">
+          <Link to="/profile">
+            <img
+              src={profile}
+              alt="profile"
+              className="w-5 h-5 sm:w-6 sm:h-6 md:w-6 md:h-6 lg:w-10 lg:h-10"
+            />
+          </Link>
+          <Link to="/cart" className="relative">
+            <img
+              src={cart}
+              alt="cart"
+              className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
+            />
+            {numCartItems > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] sm:text-xs rounded-full px-1.5 py-0.5">
+                {numCartItems}
+              </span>
+            )}
+          </Link>
         </div>
 
-        {/* Hamburger Button - Mobile */}
+        {/* Hamburger - Mobile */}
         <button
-          className="md:hidden text-[#9C0300]"
+          className="md:hidden text-[#9C0300] z-50"
           onClick={toggleMenu}
           aria-label="Toggle Menu"
-          aria-expanded={menuOpen}
         >
           {menuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
@@ -101,18 +119,18 @@ const Navbar = ({ numCartItems }) => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 w-64 h-full bg-[#C68585] text-white z-40 transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 w-[70vw] max-w-sm h-full bg-[#C68585] text-white z-40 transition-transform duration-300 ease-in-out ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-6 text-lg">
+        <div className="flex flex-col items-center justify-center h-full gap-4 sm:gap-6 text-base sm:text-lg">
           {navLinks.map(({ to, label }) => (
             <NavLink
               key={to}
               to={to}
               onClick={closeMenu}
               className={({ isActive }) =>
-                `px-4 py-2 rounded w-full text-center transition ${
+                `w-full text-center px-4 py-2 rounded transition ${
                   isActive ? "bg-[#9C0300] text-white" : "hover:bg-[#9C0300]"
                 }`
               }
@@ -130,7 +148,7 @@ const Navbar = ({ numCartItems }) => {
                     closeMenu();
                     navigate("/admin");
                   }}
-                  className="bg-[#9C0300] text-white px-6  py-2 rounded-full"
+                  className="bg-[#9C0300] text-white px-6 py-2 rounded-full"
                 >
                   Admin Panel
                 </button>
@@ -150,7 +168,7 @@ const Navbar = ({ numCartItems }) => {
         </div>
       </div>
 
-      {/* Overlay to close menu */}
+      {/* Overlay to close mobile menu */}
       {menuOpen && (
         <div
           onClick={closeMenu}
