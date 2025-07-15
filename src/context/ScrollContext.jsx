@@ -1,6 +1,5 @@
-import React from 'react'
 import { createContext,useContext,useRef } from "react";
-
+import PropTypes from "prop-types";
 
 const ScrollContext = createContext();
  
@@ -31,8 +30,11 @@ const ScrollProvider = ({ children }) => {
   );
 };
 
- const useScroll = () => useContext(ScrollContext);
+ export const useScroll = () => useContext(ScrollContext);
  
+ScrollProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
  export default ScrollProvider;
- export {useScroll};
  

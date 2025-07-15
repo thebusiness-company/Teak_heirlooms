@@ -42,7 +42,16 @@ const Page = () => {
   if(targetRef?.current){
     targetRef?.current.scrollIntoView({behavior:"smooth"});
   }
-  }, [location.state]);
+  }, [
+    location.state,
+    storeRef,
+    feedbackRef,
+    termsRef,
+    sustainabilityRef,
+    aboutusRef,
+    newsRef,
+    contactRef,
+  ]);
 
   return (
       <>
