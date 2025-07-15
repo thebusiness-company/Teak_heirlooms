@@ -14,48 +14,6 @@ const OrderConfirmation = () => {
         setOrder(response.data);
       } catch (error) {
         console.error("Error fetching order:", error);
-      
-        // ✅ Inject mock data only for testing
-        setOrder({
-          razorpay_order_id: orderId,
-          created_at: new Date().toISOString(),
-          total_amount: 2499,
-          payment_status: "paid",
-          address: {
-            first_name: "John",
-            last_name: "Doe",
-            address_line1: "123 Main Street",
-            address_line2: "",
-            city: "Testville",
-            state: "Test State",
-            postal_code: "123456",
-            country: "India",
-            phone: "9876543210",
-            email: "john@example.com",
-          },
-          cart: {
-            items: [
-              {
-                id: 1,
-                quantity: 2,
-                product: {
-                  name: "Sample Product 1",
-                  price: 999,
-                  images: [{ image: "/placeholder.jpg" }],
-                },
-              },
-              {
-                id: 2,
-                quantity: 1,
-                product: {
-                  name: "Sample Product 2",
-                  price: 501,
-                  images: [{ image: "/placeholder.jpg" }],
-                },
-              },
-            ],
-          },
-        });
       } finally {
         setLoading(false);
       }
@@ -78,11 +36,11 @@ const OrderConfirmation = () => {
         Thank you for your purchase. Your order has been received and it's been processed.
       </p>
 
-      <div className="grid md:grid-cols-2 gap-6 pb-6 ">
+      <div className="grid grid-cols-2 gap-2 md:gap-6 pb-6 w-full px-2">
         {/* Order Details */}
-        <div className="border-b md:border-b-0 md:border-r border-[#9C0300] mx-4 md:mx-0  md:place-items-center text-left">
-          <h2 className="text-lg font-semibold mb-4 ">Order Details</h2>
-          <ul className="space-y-1 text-[#3B493F] mb-4">
+        <div className="w-full border-r border-[#9C0300] md:place-items-center text-left ">
+          <h2 className="text-lg font-semibold mb-4 break-words ">Order Details</h2>
+          <ul className="text-sm md:text-base space-y-1 text-[#3B493F] mb-4">
             <li>
               <span className="font-medium">Order ID:</span> {order.razorpay_order_id}
             </li>
@@ -101,9 +59,9 @@ const OrderConfirmation = () => {
         </div>
 
         {/* Address */}
-        <div className=" mx-4 md:mx-0  md:place-items-center text-left">
+        <div className="w-full md:place-items-center text-left px-2">
           <h2 className="text-lg font-semibold mb-4 ">Delivery Address</h2>
-          <ul className="space-y-1 text-[#3B493F]">
+          <ul className="text-sm md:text-base space-y-1 text-[#3B493F]">
             <li>
               {order.address.first_name} {order.address.last_name}
             </li>
@@ -114,7 +72,7 @@ const OrderConfirmation = () => {
             </li>
             <li>{order.address.country}</li>
             <li>Phone: {order.address.phone}</li>
-            <li>Email: {order.address.email}</li>
+            <li className="break-words">Email: {order.address.email}</li>
           </ul>
         </div>
       </div>

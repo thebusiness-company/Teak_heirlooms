@@ -67,7 +67,7 @@ const BestSeller = () => {
 
   return (
     <div className="max-w-7xl mx-auto text-center py-10 relative">
-      <h2 className="text-3xl md:text-4xl font-semibold text-[#3b493f] mb-6 font-infant">Best Seller</h2>
+      <h2 className="text-3xl md:text-4xl font-semibold text-[#3b493f] mb-6 font-infant">Best Sellers</h2>
 
       <div className="relative">
         {topSellingProducts.length > 0 ? (
@@ -84,7 +84,7 @@ const BestSeller = () => {
                       />
                     </div>
                     <h3 className="text-lg font-medium mt-4 text-[#9C0300]">{product.name}</h3>
-                    <p className="text-[#9C0300] font-semibold">{product.price}</p>
+                    <p className="text-[#9C0300] font-semibold">₹ {product.price}</p>
                   </Link>
                 </div>
               </div>

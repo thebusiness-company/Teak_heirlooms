@@ -8,7 +8,7 @@ export default function Banner() {
         <div className="absolute inset-0 bg-opacity-30"></div> {/* Optional dark overlay for readability */}
         <h1 className="absolute text-center text-lg sm:text-xl md:text-3xl lg:text-4xl font-serif text-[#3B493F] px-4"
             style={{ top: '20%', left: '25%' }}>
-          CREATED WITH ELEGANCE <br className="hidden sm:block" /> IN MY MIND
+          CREATED WITH ELEGANCE <br className="hidden sm:block" /> IN MIND
         </h1>
       </div>
     );
