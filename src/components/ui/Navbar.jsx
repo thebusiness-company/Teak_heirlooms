@@ -24,22 +24,22 @@ const Navbar = ({ numCartItems }) => {
   ];
 
   return (
-    <nav className="bg-white gap-12 md:gap-2 lg:gap-14 px-4 py-2 flex flex-row md:justify-center lg:justify-start items-center min-w-0 h-20 md:h-32 shadow-md z-50 relative">
+    <nav className="bg-white gap-12 md:gap-2 lg:gap-12 px-2 py-2 flex flex-row md:justify-center lg:justify-center items-center min-w-0 h-20 md:h-32 shadow-md z-50 relative">
       {/* Logo */}
       <div className="flex items-start space-x-1 lg:ml-4">
         <NavLink to="/">
-          <img src={Logo} alt="Teak Heirlooms Logo" className="px-2 h-8 md:w-28 w-36 lg:h-10 lg:w-40" />
+          <img src={Logo} alt="Teak Heirlooms Logo" className="px-2 h-8 md:w-28 w-36 lg:h-15 lg:w-50" />
         </NavLink>
       </div>
 
       {/* Desktop Links */}
-      <div className="hidden md:flex md:gap-2 lg:gap-6 font-bold md:text-base text-[#9C0300] text-center">
+      <div className="hidden md:flex md:gap-2 lg:gap-10 font-bold md:text-base lg:text-lg text-[#9C0300] text-center">
         {navLinks.map(({ to, label }) => (
           <NavLink
             key={to}
             to={to}
             className={({ isActive }) =>
-              `px-2 pt-4 lg:pt-10 transition ${
+              `h-25 mb-8 pt-12 p-2  transition ${
                 isActive ? "bg-[#9C0300] text-white" : "hover:bg-[#9C0300] hover:text-white"
               }`
             }
@@ -50,7 +50,7 @@ const Navbar = ({ numCartItems }) => {
       </div>
 
       {/* Right Icons */}
-      <div className="flex items-center space-x-6 md:space-x-4 lg:space-x-10  ">
+      <div className="flex items-center justify-between flex-1 gap-4 md:flex-none md:ml-auto lg:ml-10 space-x-2 md:space-x-4 lg:space-x-6">
         {isAuthenticated ? (
           <span className="text-[#9C0300] font-medium hidden md:block">
             Hi {user.username}
