@@ -86,17 +86,18 @@ const Login = () => {
           <div className="flex justify-center mb-4">
             <button
               type="button"
-              className="border border-gray-400 px-12 py-2 text-sm flex cursor-pointer items-center gap-2"
+              className="border border-[#3B493F] rounded-full px-8 py-2 text-sm flex cursor-pointer items-center gap-2"
               onClick={() => googleLogin()}
             >
-              <span className="text-xs text-[#4285F4]">GOOGLE</span>
+              <span className="text-sm">Login with Google</span>
+              <img src={google} alt="Google" className="w-5 h-5"/>
             </button>
           </div>
 
           <div className="flex items-center my-4">
-            <hr className="w-full border-gray-300" />
-            <span className="px-2 text-gray-500">or</span>
-            <hr className="w-full border-gray-300" />
+            <hr className="w-full border-[#9C0300]" />
+            <span className="px-2 text-[#3B493F]">or</span>
+            <hr className="w-full border-[#9C0300]" />
           </div>
 
           {error && (
@@ -135,22 +136,6 @@ const Login = () => {
             </button>
           </form>
 
-          <div className="flex items-center my-4">
-            <hr className="w-full border-[#9C0300]" />
-            <span className="px-2 text-[#3B493F]">or</span>
-            <hr className="w-full border-[#9C0300]" />
-          </div>
-
-          <div className="flex justify-center mb-4">
-            <button
-              type="button"
-              className="border border-[#3B493F] rounded-full px-8 py-2 text-sm flex cursor-pointer items-center gap-2"
-              onClick={() => googleLogin()}
-            >
-              <span className="text-sm">Login with Google</span>
-              <img src={google} alt="Google" className="w-5 h-5"/>
-            </button>
-          </div>
 
 
           <p className="text-center text-sm mt-4">

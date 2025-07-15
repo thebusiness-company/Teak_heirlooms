@@ -84,7 +84,7 @@ const BestSeller = () => {
                       />
                     </div>
                     <h3 className="text-lg font-medium mt-4 text-[#9C0300]">{product.name}</h3>
-                    <p className="text-[#9C0300] font-semibold">{product.price}</p>
+                    <p className="text-[#9C0300] font-semibold">₹ {product.price}</p>
                   </Link>
                 </div>
               </div>
