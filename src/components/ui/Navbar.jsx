@@ -24,7 +24,7 @@ const Navbar = ({ numCartItems }) => {
   ];
 
   return (
-    <nav className="bg-white px-2 sm:px-4 md:px-6 lg:px-10 py-2 flex items-center justify-between h-16 sm:h-20 md:h-26 shadow-md z-50 relative">
+    <nav className="bg-white px-2 sm:px-4 md:px-6 lg:px-10 py-2 flex items-center justify-between md:gap-2 lg:gap-0 h-16 sm:h-20 md:h-26 shadow-md z-50 relative">
       
       {/* Logo */}
       <div className="flex-shrink-0">
@@ -32,13 +32,13 @@ const Navbar = ({ numCartItems }) => {
           <img
             src={Logo}
             alt="Teak Heirlooms Logo"
-            className="h-8 sm:h-10 md:h-12 lg:h-16 w-auto"
+            className="h-8 sm:h-10 md:h-8 lg:h-16 w-auto"
           />
         </NavLink>
       </div>
 
       {/* Desktop Links */}
-      <div className="hidden md:flex gap-4 lg:gap-10 font-bold text-sm sm:text-base md:text-lg lg:text-xl text-[#9C0300]">
+      <div className="hidden md:flex md:items-center gap-4 lg:gap-10 font-bold text-sm sm:text-base md:text-lg lg:text-xl text-[#9C0300]">
         {navLinks.map(({ to, label }) => (
           <NavLink
             key={to}
@@ -48,7 +48,7 @@ const Navbar = ({ numCartItems }) => {
                 isActive
                   ? "bg-[#9C0300] text-white"
                   : "hover:bg-[#9C0300] hover:text-white"
-              } lg:h-20 lg:mb-6 lg:pt-10`
+              } lg:h-20 lg:mb-6 md:pt-6 lg:pt-10`
             }
           >
             <p className="px-3 py-2 rounded leading-snug text-sm lg:text-base">{label}</p>
@@ -58,7 +58,7 @@ const Navbar = ({ numCartItems }) => {
 
 
       {/* Right Section */}
-      <div className="flex items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8">
+      <div className="flex items-center gap-6 sm:gap-4 md:gap-6 lg:gap-8">
         {/* Auth Info */}
         {isAuthenticated ? (
           <div className="hidden md:flex items-center gap-3 text-[#9C0300] font-medium">
@@ -78,7 +78,7 @@ const Navbar = ({ numCartItems }) => {
         ) : (
           <button
             onClick={() => navigate("/login")}
-            className="hidden md:inline-block bg-[#9C0300] text-white px-6 py-1.5  text-sm sm:text-base"
+            className="hidden md:inline-block bg-[#9C0300] text-white md:px-4 md:py-1 lg:px-6 py-1.5 text-sm sm:text-base"
           >
             Login
           </button>
@@ -90,14 +90,14 @@ const Navbar = ({ numCartItems }) => {
             <img
               src={profile}
               alt="profile"
-              className="w-5 h-5 sm:w-6 sm:h-6 md:w-6 md:h-6 lg:w-10 lg:h-10"
+              className="w-8 h-8 md:w-12 md:h-12 lg:w-10 lg:h-10"
             />
           </Link>
           <Link to="/cart" className="relative">
             <img
               src={cart}
               alt="cart"
-              className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
+              className="w-8 h-8 md:w-12 md:h-12 lg:w-10 lg:h-10"
             />
             {numCartItems > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] sm:text-xs rounded-full px-1.5 py-0.5">

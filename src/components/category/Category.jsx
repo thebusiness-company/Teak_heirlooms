@@ -15,10 +15,6 @@ const formatCategoryName = (category) => {
 const Category = () => {
     const { category } = useParams(); // Gets "Sofas" from the URL
 
-    // useEffect(() => {
-    //     window.scrollTo({top:document.body.scrollHeight, behavior:"smooth"});
-    // },[]);
-    
     // Fetch subcategories based on the category name from your API
     const { subcategories, isLoading, error } = useSubCategories(category);
     const formattedCategory = formatCategoryName(category);

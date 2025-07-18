@@ -91,8 +91,8 @@ export default function TestimonialCarousel() {
         {testimonials.length>0 ?(
         <Slider key={testimonials.length} {...settings}>
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="p-4">
-              <div className="bg-[#EDEAE5] p-6 flex flex-col md:flex-row items-center">
+            <div key={testimonial.id} className="p-4 flex justify-center">
+              <div className="bg-[#EDEAE5] p-6 flex flex-col md:flex-row items-center mx-auto max-w-md md:max-w-lg w-full">
                 <img
                   src={`${testimonial.image}`}
                   loading="lazy"
@@ -102,7 +102,7 @@ export default function TestimonialCarousel() {
 
                 <div className="w-full md:w-2/3 text-left">
                   <h3 className="font-semibold text-lg mb-2 text-[#000000]">{testimonial.title}</h3>
-                  <p className="text-[#000000]">{testimonial.text}</p>
+                  <p className="text-[#000000] text-sm">{testimonial.text}</p>
                   <p className="font-medium text-[#000000] mt-12">{testimonial.name}</p>
                   <p className="text-[#A78262] text-lg">{"★".repeat(testimonial.rating)}</p>
                 </div>

@@ -254,7 +254,7 @@ const Profile = () => {
         </div>
 
         {/* Info Fields */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-4 mt-6">
           {inputFields.map(([name, label]) => (
             <div key={name} className={["email", "address"].includes(name) ? "col-span-2" : ""}>
               <label className="block font-medium leading-tight mb-1">{label}</label>
@@ -264,7 +264,7 @@ const Profile = () => {
                   name={name}
                   value={formData[name]}
                   onChange={handleChange}
-                  className={`w-full border rounded-full p-2 ${errors[name] ? "border-red-500" : "border-[#3B493F]"}`}
+                  className={`w-full border rounded-full px-2 py-1 ${errors[name] ? "border-red-500" : "border-[#3B493F]"}`}
                 />
               ) : (
                 <input
@@ -273,7 +273,7 @@ const Profile = () => {
                   value={formData[name]}
                   onChange={handleChange}
                   placeholder={label}
-                  className={`w-full border rounded-full p-2 ${errors[name] ? "border-red-500" : "border-[#3B493F]"}`}
+                  className={`w-full border rounded-full px-4 py-1 ${errors[name] ? "border-red-500" : "border-[#3B493F]"}`}
                 />
               )}
               {errors[name] && (
@@ -284,9 +284,9 @@ const Profile = () => {
         </div>
 
         {/* Save & Discard Buttons */}
-        <div className="flex mt-6 space-x-4 items-center">
+        <div className="flex flex-col md:flex-row mt-6 gap-4 items-center">
           <button
-            className="border border-[#3B493F] text-black px-6 py-2 rounded-full"
+            className="bg-[#EDEAE5] w-full border border-[#3B493F] text-[#3B493F] px-6 py-2 rounded-full hover:bg-[#FFF1DF] transition-colors"
             onClick={() => {
               setFormData(defaultData);
               setErrors({});
@@ -297,7 +297,7 @@ const Profile = () => {
           </button>
           <button
             onClick={handleProfileUpdate}
-            className="bg-[#3B493F] border border-[#3B493F] text-white px-6 py-2 rounded-full flex items-center gap-2 hover:bg-green-800"
+            className="w-full bg-[#3B493F] border border-[#3B493F] text-white px-6 py-2 rounded-full gap-2 hover:bg-green-800 transition-colors"
             disabled={updating}
           >
             {updating && <Spinner />} {updating ? "Saving..." : "Save Changes"}

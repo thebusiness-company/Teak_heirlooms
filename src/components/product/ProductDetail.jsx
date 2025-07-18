@@ -8,6 +8,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import RelatedProduct from "./RelatedProduct";
 import api from "../../api";
 import { toast } from "react-toastify";
+import {FaStar,FaStarHalfAlt,FaRegStar} from "react-icons/fa"
 
 // Custom Left Arrow for Color Slider
 const PrevArrow = ({ onClick }) => (
@@ -39,10 +40,6 @@ const ProductDetail = ({setNumCartItems}) => {
   const [inCart, setInCart] = useState(false);
   const cart_code = localStorage.getItem('cart_code');
   console.log(cart_code);
-
-  // useEffect(() => {
-  //   window.scrollTo({top:0, behavior:"smooth"});
-  // },[]);
   
   // Fetch product data
   useEffect(() => {
@@ -103,6 +100,8 @@ useEffect(() => {
   if (error) return <p className="text-center text-lg text-red-500">{error}</p>;
   if (!product) return null;
 
+  const ratingValue = product?.ratings || 0;
+
   const colors = product.finishes || [];
   const images = product.images?.map((img) => img.image) || [];
 
@@ -124,11 +123,28 @@ useEffect(() => {
     <>
       <div className="p-4 md:p-8 max-w-7xl mx-auto font-sans grid grid-cols-1 md:grid-cols-3 gap-6 overflow-x-hidden">
         {/* Column 1 */}
-        <div className="space-y-6 mr-6">
+        <div className="space-y-6 md:mr-6">
           <h1 className="text-3xl font-bold">{product.name}</h1>
           <div className="flex items-center">
-            <span className="text-yellow-400 text-lg">⭐⭐⭐⭐☆</span>
-            <span className="text-sm ml-2">{product.ratings || "No Ratings"}</span>
+            <div className="pr-2"><p>Ratings </p></div>
+             {[1, 2, 3, 4, 5].map((value) => {
+              // Full star
+              if (value <= Math.floor(ratingValue)) {
+                return <FaStar key={value} className="text-yellow-400 text-lg" />;
+              }
+              // Half Star
+              else if (value - 0.5 <= ratingValue) {
+                return <FaStarHalfAlt key={value} className="text-yellow-400 text-lg" />;
+              }
+              // Empty Star
+              else {
+              return <FaRegStar key={value} className="text-gray-300 text-lg" />;
+              }
+              })
+              }
+              {product.ratings > 0 && (
+              <span className="text-sm text-gray-700 ml-2">({product.ratings})</span>
+               )}
           </div>
           <p>{product.category}</p>
           {product.customizable && <p className="text-[#9C0300] font-semibold">CUSTOMIZE</p>}
@@ -178,8 +194,8 @@ useEffect(() => {
           <button 
           onClick={add_item}
           disabled={inCart}
-          className="bg-[#9C0300] w-full text-white px-6 py-3 cursor-pointer rounded-md mt-4">
-            {inCart ? 'Added to Cart' : 'ADD TO CART'}
+          className="bg-[#9C0300] w-full text-white px-6 py-3 cursor-pointer font-semibold mt-4 hover:bg-red-700">
+            {inCart ? 'ADDED TO CART' : 'ADD TO CART'}
           </button>
         </div>
 
@@ -204,14 +220,14 @@ useEffect(() => {
 
         {/* Column 3: Thumbnails & Dimensions */}
         <div className="space-y-2 mx-6">
-          <div className="grid grid-cols-3 gap-2 relative">
+          <div className="grid grid-cols-3 place-items-center gap-4 md:gap-4 relative w-fit mx-auto">
             {images.slice(0, 8).map((img, index) => (
               <img
                 key={index}
                 src={img}
                 alt={`Thumbnail ${index}`}
                 className={`w-16 h-16 cursor-pointer ${
-                  currentImage === index ? "border-2" : "border"
+                  currentImage === index ? "border-2" : "border-0"
                 }`}
                 onClick={() => setCurrentImage(index)}
               />
@@ -226,18 +242,20 @@ useEffect(() => {
             )}
           </div>
           <div className="flex flex-col items-center">
-            <p className="text-[#9C0300] font-semibold mt-5 text-center mb-4">Dimensions</p>
-            <div className="text-start flex flex-row md:flex-col items-start md:items-center justify-center lg:flex-col gap-8 md:gap-2 bg-[#fff1df] max-w-full md:max-w-14 p-6 md:px-16 md:py-2">
-              <p className="mt-4">
-              <span className="text-[#9C0300]">Length:</span> <br /> <strong>{product.dimensions?.length || "N/A"} cm</strong>
-              </p>
-              <p className="mt-4 md:mt-5">
-                <span className="text-[#9C0300]">Breadth:</span> <br /> <strong>{product.dimensions?.breadth || "N/A"} cm</strong>
-              </p>
-              <p className="mt-4 md:mt-5">
-              <span className="text-[#9C0300]">Height:</span>  <br />
-                <strong>{product.dimensions?.height || "N/A"} cm</strong>
-              </p>
+            <p className="text-[#9C0300] font-semibold mt-5 text-center mb-4 text-xl">Dimensions</p>
+            <div className="text-left flex flex-row md:flex-col items-start md:items-center justify-center lg:flex-col gap-8 md:gap-2 bg-[#fff1df] max-w-full md:max-w-24 lg:max-w-36 p-6 md:px-16 lg:px-20 md:py-2">
+              <div className="mt-4 max-w-16 md:w-24 lg:w-36">
+                <p className="text-[#9C0300]">Length:</p>
+                <p><strong>{product.dimensions?.length || "N/A"} cm</strong></p>
+              </div>
+              <div className="mt-4 max-w-16 md:mt-5 md:w-24 lg:w-36">
+                <p className="text-[#9C0300]">Breadth:</p> 
+                <p><strong>{product.dimensions?.breadth || "N/A"} cm</strong></p>
+              </div>
+              <div className="mt-4 max-w-16 md:mt-5 md:w-24 lg:w-36">
+                <p className="text-[#9C0300]">Height:</p> 
+                <p><strong>{product.dimensions?.height || "N/A"} cm</strong></p>
+              </div>
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@ const Footer = () => {
     return (
         <footer className="bg-[#FFF] py-8 border-b-24 border-[#9C0300]">
             <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row md:justify-between">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-sm text-black py-6 w-full">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 text-sm text-black py-6 w-full">
                     <div className="mb-4">
                         <button onClick={()=>handleScroll("storeRef")} className='block w-full text-left'><h3 className="font-bold cursor-pointer mb-2 tracking-wide">FIND A STORE</h3></button>
                         

@@ -204,11 +204,12 @@ const Cart = () => {
   // ✅ Early return if cart is empty
   if (cartItems.length === 0) {
     return (
-      <div className="text-center py-20">
-        <p className="text-lg">Your cart is empty</p>
-        <a href="/" className="text-blue-500 mt-4 inline-block">
+      <div className="text-center py-20 max-h-screen">
+        <p className="text-2xl text-[#3B493F] font-semibold">Your cart is empty</p>
+        {/* <a href="/" className="text-blue-500 mt-4 inline-block">
           Continue Shopping
-        </a>
+        </a> */}
+        <div className="mt-10"> <button onClick={() => navigate("/")} className="bg-[#9C0300] py-2 px-6 text-white rounded-full hover:bg-red-700 transition-colors" >Continue Shopping</button></div>
       </div>
     );
   }
