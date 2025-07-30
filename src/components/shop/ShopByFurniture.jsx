@@ -13,7 +13,7 @@ const CustomPrevArrow = ({ onClick }) => (
   <button
     onClick={onClick}
     aria-label="Previous Slide"
-    className="absolute left-1 md:left-1 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
+    className="absolute left-1 md:left-[-4px] top-[120px] transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
   >
     <img src={PrevArrowImg} alt="Previous" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
   </button>
@@ -24,7 +24,7 @@ const CustomNextArrow = ({ onClick }) => (
   <button
     onClick={onClick}
     aria-label="Next Slide"
-    className="absolute right-2 md:right-1 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
+    className="absolute right-1 md:right-[-4px] top-[120px] transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
   >
     <img src={NextArrowImg} alt="Next" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
   </button>

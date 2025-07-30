@@ -5,26 +5,21 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import api from '../../api';
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const Blog = () => {
     const [blogs, setBlogs] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         api.get('blogs/')
             .then(res => {
-                console.log(res.data);
-                setBlogs(res.data.map(blog => ({ ...blog, expanded: false }))); // Add expanded state
+                setBlogs(res.data);
             })
             .catch(err => {
                 console.log(err);
             })
     }, []);
-
-    const toggleExpand = (id) => {
-        setBlogs(blogs.map(blog => 
-            blog.id === id ? { ...blog, expanded: !blog.expanded } : blog
-        ));
-    };
 
     const truncateText = (text, wordLimit) => {
         const words = text.split(' ');
@@ -59,15 +54,13 @@ const Blog = () => {
                                 <div className="p-4 text-left">
                                     <h3 className="text-lg font-semibold text-[#3B493F]">{blog.title}</h3>
                                     <p className="text-[#000] mt-2">
-                                        {blog.expanded ? blog.content : truncateText(blog.content, 15)}
+                                        {
+                                        truncateText(blog.content, 15)}
                                     </p>
                                     {blog.content.split(' ').length > 15 && (
                                         <button 
-                                            onClick={() => toggleExpand(blog.id)} 
-                                            className="text-blue-600 mt-2"
-                                        >
-                                            {blog.expanded ? "Show Less" : "Read More"}
-                                        </button>
+                                        onClick={() => navigate(`blogs/${blog.id}`)} 
+                                        className="text-blue-600 mt-2">Read More</button>
                                     )}
                                 </div>
                             </div>

@@ -14,7 +14,7 @@ const CustomPrevArrow = (props) => {
     return (
       <button
         onClick={onClick}
-        className="absolute left-[-15px] top-1/2 transform -translate-y-1/2 z-1 cursor-pointer bg-[#FFFFFF]"
+        className="absolute left-[-8px] top-1/2 transform -translate-y-1/2 z-1 cursor-pointer bg-[#FFFFFF]"
       >
         <img src={PrevArrow} alt="Previous" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
       </button>
@@ -30,7 +30,7 @@ const CustomNextArrow = (props) => {
     return (
       <button
         onClick={onClick}
-        className="absolute right-[-15px]  top-1/2 transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
+        className="absolute right-[-8px]  top-1/2 transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
       >
         <img src={NextArrow} alt="Next" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
       </button>

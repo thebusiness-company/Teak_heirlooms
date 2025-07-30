@@ -13,7 +13,7 @@ const CustomPrevArrow = ({ onClick }) => (
   <button
     onClick={onClick}
     aria-label="Previous Slide"
-    className="absolute left-1 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 shadow-md"
+    className="absolute left-[-4px] top-[120px] transform -translate-y-1/2 z-10 bg-white p-2 shadow-md"
   >
     <img src={LeftArrow} alt="Previous" className="w-5 h-5 md:w-6 md:h-6" />
   </button>
@@ -23,7 +23,7 @@ const CustomNextArrow = ({ onClick }) => (
   <button
     onClick={onClick}
     aria-label="Next Slide"
-    className="absolute right-1 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 shadow-md"
+    className="absolute right-[-4px] top-[120px] transform -translate-y-1/2 z-10 bg-white p-2 shadow-md"
   >
     <img src={RightArrow} alt="Next" className="w-5 h-5 md:w-6 md:h-6" />
   </button>
@@ -53,7 +53,9 @@ const BestSeller = () => {
     nextArrow: showArrows ? <CustomNextArrow /> : null,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: Math.min(NewInProducts.length, 2) } },
-      { breakpoint: 768, settings: { slidesToShow: 2, arrows: false } },
+      { breakpoint: 768, settings: { 
+        slidesToShow: 2,
+      } },
     ],
   };
 

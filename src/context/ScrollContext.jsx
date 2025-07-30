@@ -12,7 +12,6 @@ const ScrollProvider = ({ children }) => {
   const newsRef = useRef(null);
   const contactRef = useRef(null);
 
-  // ✅ Now the return is inside the function — CORRECT
   return (
     <ScrollContext.Provider
       value={{

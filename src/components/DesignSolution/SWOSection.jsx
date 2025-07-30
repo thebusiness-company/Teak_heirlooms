@@ -16,7 +16,7 @@ const CustomPrevArrow = (props) => {
     <button
       onClick={onClick}
       aria-label="Previous Slide"
-      className="absolute left-1 md:left-1 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
+      className="absolute left-3 md:left-1 top-[186px] transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
     >
       <img src={LeftArrow} alt="Previous" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
     </button>
@@ -33,7 +33,7 @@ const CustomNextArrow = (props) => {
     <button
       onClick={onClick}
       aria-label="Next Slide"
-      className="absolute right-2 md:right-1 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
+      className="absolute right-3 md:right-1 top-[186px] transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
     >
       <img src={RightArrow} alt="Next" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
     </button>
@@ -60,7 +60,7 @@ const SWOSection = () => {
     nextArrow: <CustomNextArrow />,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 1, arrows: false } },
+      { breakpoint: 768, settings: { slidesToShow: 1 } },
     ],
   };
 
@@ -75,7 +75,7 @@ const SWOSection = () => {
         <Slider {...settings}>
           {services.map((service) => (
             <div key={service.id} className="px-4">
-              <div className="bg-white p-4 text-left">
+              <div className="bg-white p-4 text-left">               
                 <img src={service.image} alt={service.title} className="w-full h-auto mb-4" />
                 <h3 className="text-lg font-semibold text-[#3b493f]">{service.title}</h3>
                 <p className="text-[#3b493f]">{service.desc}</p>

@@ -9,7 +9,7 @@ import DesignSolution from "./components/DesignSolution/DesignSolution";
 import BeSpokePage from "./components/Bespoke/BeSpokePage";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import Page from "./pages/Page"; // ✅ Matches file name exactly
+import Page from "./pages/Page"; 
 import ProductDetail from "./components/product/ProductDetail";
 import Category from "./components/category/Category";
 import SubCategoryProducts from "./components/category/SubCategoryProducts";
@@ -26,6 +26,7 @@ import CollectionPage from "./components/shop/CollectionPage";
 import ShopCollection from "./components/shop/ShopCollection";
 import ContactForm from "./pages/ContactForm";
 import ScrollProvider from "./context/ScrollContext";
+import BlogView from "./components/home/BlogView";
 
 function App() {
   const[numCartItems, setNumCartItems] = useState(0);
@@ -76,7 +77,7 @@ function App() {
             <Route path="/collect" element={<CollectionPage />} />
             <Route path="/collections" element={<ShopCollection />} />
             <Route path="/contact" element={<ContactForm />} />
-            
+            <Route path="/blogs/:id" element={<BlogView />} />
             
           </Route>
         </Routes>

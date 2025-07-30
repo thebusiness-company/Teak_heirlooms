@@ -76,9 +76,7 @@ const Page = () => {
        <div ref={newsRef} id="news">
          <NewsSection />
        </div>
-       {/* <div ref={contactRef} id="contact">
-         <Contact />
-       </div> */}
+       
      </>
   );
 };

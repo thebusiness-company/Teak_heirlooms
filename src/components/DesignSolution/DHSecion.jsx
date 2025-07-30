@@ -17,10 +17,11 @@ export default function DHSection() {
             </li>
           ))}
         </ul>
-
-        <button className="mt-10 md:ml-15 sm:mx-10 md:mx-0 px-6 py-2 bg-[#9C0300] text-white font-semibold rounded-full hover:bg-red-700 transition shadow-md cursor-pointer">
+          <div className="flex justify-center items-center md:mt-4">
+        <button className=" mt-10  sm:mx-10 md:mx-0 px-6 py-2 bg-[#9C0300] text-white font-semibold rounded-full hover:bg-red-700 transition shadow-md cursor-pointer">
           BOOK A CONSULTATION
         </button>
+          </div>
       </div>
 
       {/* Right Section */}

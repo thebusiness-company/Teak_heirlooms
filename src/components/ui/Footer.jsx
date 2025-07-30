@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import Logo from '../../assets/images/logo.png';
 import { FaSquareFacebook } from "react-icons/fa6";
 import { FaInstagramSquare } from "react-icons/fa";
-import { useScroll } from '../../context/ScrollContext';
 import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
@@ -55,8 +54,9 @@ const Footer = () => {
         </div>
         <div className="flex flex-col items-center md:items-end w-full md:w-auto text-center md:text-right">
           <div className="flex gap-2 mb-4">
-            <a href="http://instagram.com/" className="text-2xl"><FaInstagramSquare/></a>
-            <a href="http://facebook.com/" className="text-2xl"><FaSquareFacebook /></a>
+            {/* <a href="http://instagram.com/" target='_blank' rel='noopener noreferrer' className="text-2xl"><FaInstagramSquare/></a> */}
+            <a href="https://www.instagram.com/teak.heirlooms?igsh=cnNudmhmM3p4ZHo=" target='_blank' rel='noopener noreferrer' className="text-2xl"><FaInstagramSquare/></a>
+            <a href="https://www.facebook.com/share/1MJuQhxWym/?mibextid=wwXIfr" target='_blank' rel='noopener noreferrer' className="text-2xl"><FaSquareFacebook /></a>
           </div>
           <Link to='/' className="flex items-center gap-6 mb-4  px-2  lg:mt-8">
             <img src={Logo} alt="Teak Heirlooms" className="h-6 lg:h-10" />

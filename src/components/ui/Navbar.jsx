@@ -118,8 +118,13 @@ const Navbar = ({ numCartItems }) => {
       </div>
 
       {/* Mobile Menu */}
-      <div
+      {/* <div
         className={`fixed top-0 right-0 w-[70vw] max-w-sm h-full bg-[#C68585] text-white z-40 transition-transform duration-300 ease-in-out ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      > */}
+      <div
+        className={`fixed top-0 right-0 w-[70vw] max-w-sm h-full bg-[#EDEAE5] text-[#9C0300] z-40 transition-transform duration-300 ease-in-out ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -131,7 +136,7 @@ const Navbar = ({ numCartItems }) => {
               onClick={closeMenu}
               className={({ isActive }) =>
                 `w-full text-center px-4 py-2 rounded transition ${
-                  isActive ? "bg-[#9C0300] text-white" : "hover:bg-[#9C0300]"
+                  isActive ? "bg-[#9C0300] text-white" : "hover:bg-[#9C0300] hover:text-white"
                 }`
               }
             >
