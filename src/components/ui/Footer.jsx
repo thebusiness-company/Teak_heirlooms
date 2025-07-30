@@ -29,7 +29,7 @@ const Footer = () => {
           <div className="mb-4 tracking-wide">
             <h3 className="font-bold mb-2">HELP</h3>
             <p className='mb-2'>Get Help</p>
-            <p  className='mb-2'>Order Status</p>
+            <button onClick={()=>navigate("/orderstatus")} className='mb-2 cursor-pointer'>Order Status</button>
             <p  className='mb-2'>Delivery</p>
             <p  className='mb-2'>Returns</p>
           </div>

@@ -27,6 +27,7 @@ import ShopCollection from "./components/shop/ShopCollection";
 import ContactForm from "./pages/ContactForm";
 import ScrollProvider from "./context/ScrollContext";
 import BlogView from "./components/home/BlogView";
+import OrderStatus from "./pages/OrderStatus";
 
 function App() {
   const[numCartItems, setNumCartItems] = useState(0);
@@ -78,6 +79,7 @@ function App() {
             <Route path="/collections" element={<ShopCollection />} />
             <Route path="/contact" element={<ContactForm />} />
             <Route path="/blogs/:id" element={<BlogView />} />
+            <Route path="/orderstatus" element={<OrderStatus/>} />
             
           </Route>
         </Routes>
