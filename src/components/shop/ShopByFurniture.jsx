@@ -52,7 +52,34 @@ const ShopByFurniture = () => {
     ],
   };
 
-  if (isLoading) return <p className="text-center">Loading...</p>;
+  if (isLoading) {
+    return (
+      <>
+        <div className="max-w-7xl mx-auto text-center py-10">
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-[#3b493f] mb-6 font-infant">
+            Shop by Furniture
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4 lg:gap-10 animate-pulse">
+            {[...Array(3)].map((_, index) => (
+              <div 
+              key={index}
+              className={`w-[45%] lg:w-1/4 px-2
+              ${index === 2 ? "hidden lg:block" : ""}
+              `}
+              >
+                <div className="bg-white p-4">
+                  <div className="w-full h-48 bg-gray-300 rounded-md"/>
+                </div>
+
+              </div>
+            ))}
+
+          </div>
+        </div>
+      </>
+    );
+  }
+  
   if (error) return <p className="text-center text-red-500">Error loading categories.</p>;
 
   return (

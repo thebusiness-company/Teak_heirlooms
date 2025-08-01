@@ -9,16 +9,21 @@ import { useNavigate } from 'react-router-dom';
 
 const Blog = () => {
     const [blogs, setBlogs] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
         api.get('blogs/')
             .then(res => {
                 setBlogs(res.data);
+                setLoading(false);
             })
             .catch(err => {
                 console.log(err);
-            })
+                setError(true);
+                setLoading(false);
+            });
     }, []);
 
     const truncateText = (text, wordLimit) => {
@@ -28,6 +33,10 @@ const Blog = () => {
         }
         return text;
     };
+
+    if (loading || error || blogs.length === 0) {
+        return null;
+    }
 
     return (
         <section className="py-12 px-4 text-center relative">

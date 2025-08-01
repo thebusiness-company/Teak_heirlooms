@@ -44,13 +44,21 @@ CustomNextArrow.propTypes = {
 
 export default function TestimonialCarousel() {
       const [testimonials, setTestimonials] = useState([]);
+      const [loading, setLoading] = useState(true);
+      const [error, setError] = useState(false);
   useEffect(() => {
     fetchTestimonials();
   }
   , []);
   const fetchTestimonials = async () => {
-    const data = await getTestimonials();
-    setTestimonials(data);
+    try{
+      const data = await getTestimonials();
+      setTestimonials(data);
+    }catch (error){
+      setError(true);
+    }finally {
+      setLoading(false);
+    }
   };
 
 
@@ -82,13 +90,15 @@ export default function TestimonialCarousel() {
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
   };
+  if (loading || error || testimonials.length === 0) {
+    return null;
+  }
 
   return (
     <div className="py-12 flex flex-col items-center text-center w-full bg-[#EDEAE5]">
       <h2 className="text-3xl lg:text-5xl text-[#3B493F] font-upright">Their Words Our Pride</h2>
       <p className="text-[#000000] mb-6">Happy Words of Our Happy Customers</p>
       <div className="w-full max-w-6xl px-4 sm:px-6 md:px-8 relative">
-        {testimonials.length>0 ?(
         <Slider key={testimonials.length} {...settings}>
           {testimonials.map((testimonial) => (
             <div key={testimonial.id} className="p-4 flex justify-center">
@@ -110,9 +120,6 @@ export default function TestimonialCarousel() {
             </div>
           ))}
         </Slider>
-        ):(
-          <p>Loading...</p>
-        )}
       </div>
     </div>
   );

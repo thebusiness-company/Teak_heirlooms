@@ -37,7 +37,7 @@ const OrderStatus = () => {
           <div className='w-full max-w-4xl mx-auto '>
             <p className="my-6">Recently Shipped</p>
           </div>
-          <div className="bg-white p-4 rounded-md shadow-md mb-6 w-full max-w-4xl mx-auto">
+          <div className="bg-white p-4 rounded-md shadow-md mb-6 w-full max-w-5xl mx-auto">
             <div className="flex items-center justify-between mt-4">
               <div className="flex flex-row items-center gap-2">
                 <img src={packageLogo} alt="Logo" className="w-8 h-8 md:w-10 md:h-10" />
@@ -57,7 +57,7 @@ const OrderStatus = () => {
                 <p className="text-sm mt-1">30.05.2024</p>
               </div>
             </div>
-            <div className="mt-4 max-w-[904px] px-2 md:px-6 lg:px-12 ">
+            <div className="mt-4 max-w-[904px] px-2 md:px-6 lg:px-10 mx-auto">
               {" "}
               {/*replace with actual tracking info */}
               <img
@@ -66,7 +66,7 @@ const OrderStatus = () => {
                 className="w-full h-auto rounded-md"
               />
             </div>
-            <div className="mt-6 mb-6 flex items-center justify-between gap-4 mx-2 md:mx-4 lg:mx-10">
+            <div className="mt-10 mb-6 flex items-start justify-between gap-4 mx-2 md:mx-4 lg:mx-10">
               <div className="w-1/3">
                 <div className="flex flex-col gap-6">
                   <div className="relative flex items-center gap-4">
@@ -115,9 +115,9 @@ const OrderStatus = () => {
                 </div>
               </div>
               <div className="w-2/3">
-                <p className="text-base text-[#9C0300]">Delivery Terms</p>
+                <p className="text-base text-[#9C0300] text-center">Delivery Terms</p>
                 <div className="flex items-center justify-between gap-4 mt-4">
-                  <img src={os1} alt="" className="w-32 h-20 object-cover" />
+                  <img src={os1} alt="Shipping Image" className="w-32 h-20 object-cover" />
                   <p className="text-xs">
                     Enter the necessary details below to view, track, and manage
                     your order as a guest or as an account holder.Lorem ipsum
@@ -126,7 +126,7 @@ const OrderStatus = () => {
                   </p>
                 </div>
                 <div className="flex items-center justify-between gap-4 mt-4">
-                  <img src={os2} alt="" className="w-32 h-20 object-cover" />
+                  <img src={os2} alt="Delivery Image" className="w-32 h-20 object-cover" />
                   <p className="text-xs">
                     Enter the necessary details below to view, track, and manage
                     your order as a guest or as an account holder.Lorem ipsum
@@ -135,7 +135,7 @@ const OrderStatus = () => {
                   </p>
                 </div>
                 <div className="flex items-center justify-between gap-4 mt-4">
-                  <img src={os3} alt="" className="w-32 h-20 object-cover" />
+                  <img src={os3} alt="Unboxing Image" className="w-32 h-20 object-cover" />
                   <p className="text-xs">
                     Enter the necessary details below to view, track, and manage
                     your order as a guest or as an account holder.Lorem ipsum

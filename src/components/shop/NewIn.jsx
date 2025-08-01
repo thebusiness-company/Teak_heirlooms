@@ -60,7 +60,30 @@ const BestSeller = () => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+     return (
+       <>
+         <div className="max-w-7xl mx-auto text-center py-10 relative">
+           <h2 className="text-3xl md:text-4xl font-semibold text-[#3b493f] mb-6 font-infant">
+             New In
+           </h2>
+           <div className="flex flex-wrap justify-center gap-4 lg:gap-0 animate-pulse">
+             {[...Array(4)].map((_, index) => (
+               <div
+                 key={index}
+                 className={`w-[45%] lg:w-1/4 
+              ${index === 2 ? "hidden lg:block" : ""} 
+              ${index === 3 ? "hidden lg:block" : ""}
+              `}
+               >
+                 <div className="bg-white p-4">
+                   <div className="w-full h-48 bg-gray-300 mb-4 rounded-md" />
+                 </div>
+               </div>
+             ))}
+           </div>
+         </div>
+       </>
+     );
   }
 
   if (error) {

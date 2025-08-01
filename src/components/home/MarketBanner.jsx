@@ -29,7 +29,7 @@ const MarketBanner = () => {
           />
           <Link
             to="/shop"
-            className="absolute left-40 bottom-2 sm:bottom-14 md:bottom-5 lg:bottom-15 xl:bottom-15 text-white text-sm sm:text-lg font-semibold bg-[#9C0300] px-4 sm:px-5 py-0.5 rounded-sm shadow-lg"
+            className="absolute left-40 bottom-2 sm:bottom-14 md:bottom-5 lg:bottom-15 xl:bottom-15 text-white text-sm sm:text-lg font-semibold bg-[#9C0300] hover:bg-red-700 transition-colors px-4 sm:px-5 py-0.5 rounded-sm shadow-lg"
           >
             SHOP NOW
           </Link>

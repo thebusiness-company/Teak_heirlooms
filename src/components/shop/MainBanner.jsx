@@ -9,7 +9,28 @@ const MainBanner = () => {
     queryFn: fetchLatestBanner,
   });
 
-  if (isLoading) return <p className="text-center text-gray-600">Loading banner...</p>;
+   if (isLoading) {
+     return (
+       <div className="flex flex-row flex-nowrap items-center justify-between w-full bg-white mt-8 overflow-hidden animate-pulse">
+         {/* Left skeleton image */}
+         <div className="w-1/3 flex justify-center p-2">
+           <div className="bg-gray-300 w-full md:max-w-[75%] lg:max-w-[60%] h-32 sm:h-40 md:h-52 lg:h-64 rounded" />
+         </div>
+
+         <div className="w-1/3 text-center py-4 space-y-4">
+           <div className="h-6 md:h-10 lg:h-12 bg-gray-300 w-3/4 mx-auto rounded"></div>
+           <div className="h-3 md:h-5 bg-gray-300 w-2/3 mx-auto rounded"></div>
+           <div className="h-4 md:h-10 bg-gray-300 w-20 md:w-32 lg:w-40 mx-auto rounded-2xl mt-4"></div>
+         </div>
+
+         {/* Right skeleton image */}
+         <div className="w-1/3 flex justify-center p-2">
+           <div className="bg-gray-300 w-full md:max-w-[75%] lg:max-w-[60%] h-32 sm:h-40 md:h-52 lg:h-64 rounded" />
+         </div>
+       </div>
+     );
+   }
+   
   if (error || !banner) return <p className="text-center text-gray-600">No banner available</p>;
 
   return (

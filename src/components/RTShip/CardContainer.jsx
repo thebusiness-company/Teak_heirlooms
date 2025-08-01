@@ -6,7 +6,48 @@ const ProductGrid = () => {
   const [page, setPage] = useState(1);
   const { data, isLoading, error } = useRTShip(page); // Fetch paginated data
 
-  if (isLoading) return <p className="text-center">Loading...</p>;
+    if (isLoading) {
+      return (
+        <div className="max-w-6xl mx-auto p-4">
+          <h2 className="text-center text-3xl lg:text-5xl lg:mt-4 font-infant font-bold mb-6 text-[#3B493F]">
+            Ready to Ship
+          </h2>
+
+          {/* Most Sold Skeleton */}
+          <div>
+            <h3 className="text-2xl lg:text-3xl font-semibold mb-4 text-[#3B493F] font-infant">
+              Most Sold Products
+            </h3>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 animate-pulse">
+              {[...Array(4)].map((_, index) => (
+                <div
+                  key={index}
+                  className={`h-52 bg-gray-300 rounded shadow
+                ${index === 3 ? "block md:hidden lg:block" : ""}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* New Arrival Skeleton */}
+          <div className="mt-10">
+            <h3 className="text-2xl lg:text-3xl font-semibold mb-4 text-[#3B493F] font-infant">
+              New Arrivals
+            </h3>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 animate-pulse">
+              {[...Array(4)].map((_, index) => (
+                <div
+                  key={index}
+                  className={`h-52 bg-gray-300 rounded shadow
+                ${index === 3 ? "block md:hidden lg:block" : ""}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    }
+    
   if (error) return <p className="text-center text-red-500">Error loading products</p>;
 
   const products = data?.results || []; // Ensure products exist
