@@ -11,19 +11,25 @@ const BlogCard = ({ blog }) => {
 
   return (
     <>
-    <div className='bg-[#FFF] overflow-hidden mx-auto w-11/12 sm:w-3/4 md:w-3/5 lg:w-2/3 shadow-lg p-4'>
-        <img src={blog.image} alt={blog.title} className='w-full h-48 object-cover'/>
-        <div className='p-4 text-left'>
-            <h1 className='text-lg font-semibold text-[#3B493F]'>{blog.title}</h1>
-            <p className='mt-2'>{truncateText(blog.content, 15)}</p>
-            {blog.content.split(' ').length > 15 && (
-                 <button 
-                 onClick={() => navigate(`/blogs/${blog.id}`)}
-                 className='text-blue-600 mt-2'>Read More</button>
-            )}
-           
+      <div className="bg-[#FFF] overflow-hidden mx-auto w-11/12 sm:w-3/4 md:w-3/5 lg:w-2/3 shadow-lg p-4">
+        <img
+          src={blog.image}
+          alt={blog.title}
+          className="w-full h-48 object-cover"
+        />
+        <div className="p-4 text-left">
+          <h1 className="text-lg font-semibold text-[#3B493F]">{blog.title}</h1>
+          <p className="mt-2">{truncateText(blog.content, 15)}</p>
+          {blog.content.split(" ").length > 15 && (
+            <button
+              onClick={() => navigate(`/blogs/${blog.id}`)}
+              className="text-[#9C0300] mt-2 cursor-pointer"
+            >
+              Read More
+            </button>
+          )}
         </div>
-    </div>
+      </div>
     </>
   );
 };

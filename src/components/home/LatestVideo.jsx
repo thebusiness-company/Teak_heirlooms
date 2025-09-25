@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { API_URL } from "../../api";
 
 const fetchLatestVideo = async () => {
-  const { data } = await axios.get("http://localhost:8000/api/latest-video/");
+  const { data } = await axios.get(`${API_URL}/api/latest-video/`);
   return data;
 };
 
@@ -11,6 +12,7 @@ const LatestVideo = () => {
     queryKey: ["latestVideo"],
     queryFn: fetchLatestVideo,
   });
+  console.log(data,"dataaa")
 
   if (isLoading) return null; // Don't show anything while loading
   if (error || !data?.youtube_url) return null; // Hide everything if no video
@@ -21,17 +23,17 @@ const LatestVideo = () => {
   const embedUrl = `https://www.youtube.com/embed/${videoId}`;
 
   return (
-    <div className="flex justify-center items-center my-10">
-      <iframe
-        width="100%"
-        height="500"
-        src={embedUrl}
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      />
-      
+    <div className="flex justify-center items-center mt-8 mb-4 md:my-10">
+      <div className="w-full max-w-[96%] h-full">
+        <iframe
+          className="w-full h-[300px] md:h-[500px]"
+          src={embedUrl}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
     </div>
   );
 };
