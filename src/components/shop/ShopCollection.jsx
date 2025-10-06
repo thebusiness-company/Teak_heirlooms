@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import Img from "../../assets/images/shop/image.jpg";
-import c1 from "../../assets/images/shopcol-1.png";
-import c2 from "../../assets/images/shopcol-2.png";
-import c3 from "../../assets/images/shopcol-3.png";
-import c4 from "../../assets/images/shopcol-4.png";
+import c1 from "../../assets/images/shop/shopcol-1.png";
+import c2 from "../../assets/images/shop/shopcol-2.png";
+import c3 from "../../assets/images/shop/shopcol-3.png";
+import c4 from "../../assets/images/shop/shopcol-4.png";
 
 const collections = [
   {

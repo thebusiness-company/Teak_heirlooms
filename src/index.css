@@ -5,6 +5,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,6 +25,9 @@
 
 .font-alata{
   font-family: 'Alata',sans-serif;
+}
+.font-corinthia{
+  font-family: 'Corinthia',sans-serif;
 }
 
 .custom-text-shadow {

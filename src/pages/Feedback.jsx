@@ -1,6 +1,6 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
-import img from "../assets/images/signup.png";
+import img from "../assets/images/feedback.png";
 
 const FeedbackForm = () => {
   const [email, setEmail] = useState("");
@@ -40,7 +40,7 @@ const FeedbackForm = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-[#FAEDE5] p-6 md:p-20 overflow-x-hidden">
+    <div className="flex flex-col md:flex-row items-center justify-center bg-[#FAEDE5] p-10 lg:p-20 overflow-x-hidden">
       {/* Left Side */}
       <div className="w-full md:w-1/2 max-w-xl space-y-6">
         <div className="flex flex-col sm:flex-row items-center sm:space-x-3">

@@ -60,12 +60,12 @@ const SWOSection = () => {
     nextArrow: <CustomNextArrow />,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 1 } },
+      { breakpoint: 767, settings: { slidesToShow: 1 } },
     ],
   };
 
   return (
-    <div className="max-w-7xl mx-auto text-center md:py-10">
+    <div className="max-w-7xl mx-auto text-center md:py-10 ">
       <h2 className="text-3xl md:text-4xl font-bold text-[#3b493f] font-infant">
         Services We Offer
       </h2>

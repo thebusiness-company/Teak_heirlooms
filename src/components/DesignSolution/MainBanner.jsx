@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
-import img from "../../assets/images/design/MainBanner.png";
+import img from "../../assets/images/design/design-2.png";
 
 const Counter = ({ value, duration = 2000 }) => {
   const [count, setCount] = useState(0);

@@ -10,7 +10,8 @@ export default {
         aileron: ['Aileron', 'sans-serif'],
         upright: ['"Cormorant Upright"', 'serif'],
         infant: ['"Cormorant Infant"', 'serif'],
-        alata: ['Alata','sans-serif']
+        alata: ['Alata','sans-serif'],
+        corinthia: ['Corinthia','sans-serif'],
       },
     },
   },

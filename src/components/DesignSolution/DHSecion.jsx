@@ -1,10 +1,10 @@
-import DH from "../../assets/images/design/DH.png";
+import DH from "../../assets/images/design/dhsection.png";
 
 export default function DHSection() {
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between px-6 py-12 max-w-6xl mx-auto">
+    <div className="flex flex-col md:flex-row md:gap-4 items-center justify-between px-6 py-12 max-w-6xl mx-auto">
       {/* Left Section */}
-      <div className="lg:w-1/2 text-left">
+      <div className="md:w-1/2 text-left">
         <h2 className="text-3xl md:text-4xl font-infant font-bold text-[#3B493F] md:ml-12 mb-15 text-center leading-tight">
           5 Steps to Your <br className="hidden md:block" /> Dream Home
         </h2>
@@ -36,11 +36,11 @@ export default function DHSection() {
       </div>
 
       {/* Right Section */}
-      <div className="lg:w-1/2 mt-8 lg:ml-12 lg:mt-0">
+      <div className="md:w-1/2 mt-8 lg:ml-12 lg:mt-0 ">
         <img
           src={DH}
           alt="Dream Home"
-          className="w-full shadow-lg object-cover"
+          className="w-full h-[350px] md:h-[500px] lg:h-[550px] shadow-lg object-cover"
         />
       </div>
     </div>

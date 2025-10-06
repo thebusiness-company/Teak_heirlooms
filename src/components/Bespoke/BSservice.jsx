@@ -4,10 +4,10 @@ import "slick-carousel/slick/slick-theme.css";
 import PrevArrow from "../../assets/images/Left.png"; // Custom left arrow
 import NextArrow from "../../assets/images/Right.png"; // Custom right arrow
 import PropTypes from 'prop-types';
-import S1 from "../../assets/images/Bespoke/S1.png";
-import S2 from "../../assets/images/Bespoke/S2.png";
-import S3 from "../../assets/images/Bespoke/S3.png";
-import S4 from "../../assets/images/Bespoke/S4.png";
+import S1 from "../../assets/images/Bespoke/floral.png";
+import S2 from "../../assets/images/Bespoke/sp.png";
+import S3 from "../../assets/images/Bespoke/seaters.png";
+import S4 from "../../assets/images/Bespoke/luxury.png";
 
 const products = [
   { id: 1, image: S1 , title: "Floral" },
@@ -77,7 +77,7 @@ const BSservice = () => {
           {products.map((product) => (
             <div key={product.id} className="px-2">
               <div className="relative">
-                <img src={product.image} alt={product.title} className="w-full h-55  object-cover " />
+                <img src={product.image} alt={product.title} className="w-full h-55  object-cover object-bottom " />
                 <div className="absolute bottom-0 w-full bg-gradient-to-t from-[#3B493F] to-transparent p-4 text-white text-center font-semibold text-xl md:text-3xl font-infant">{product.title}</div>
               </div>
             </div>
