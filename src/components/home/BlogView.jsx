@@ -44,7 +44,7 @@ const BlogView = () => {
             <img 
             src={blog.image} 
             alt={blog.title} 
-            className='h-full max-h-[344px] w-full object-cover'/>
+            className='h-full max-h-[344px] md:max-h-[450px] w-full object-fill'/>
         </div>
         <div className='text-xl md:text-2xl text-[#9C0300] mb-6'><h1>{blog.title}</h1></div>
         <div className=''><span>{blog.content}</span></div>

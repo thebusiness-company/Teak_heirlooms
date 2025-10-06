@@ -46,7 +46,7 @@ const MainBanner = () => {
       </div>
 
       {/* Center Text */}
-      <div className="w-1/3 text-center py-4">
+      <div className="w-1/3 text-center py-4 px-4">
         <h2 className="text-lg sm:text-xl md:text-3xl lg:text-6xl text-[#3B493F] font-infant">
           {banner.title}
         </h2>

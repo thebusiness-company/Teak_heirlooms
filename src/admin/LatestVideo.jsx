@@ -1,9 +1,10 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 import { useState } from 'react';
+import api from '../api';
 
 const fetchLatestVideo = async () => {
-    const { data } = await axios.get('http://localhost:8000/api/latest-video/');
+    const { data } = await axios.get(`${api}latest-video/`);
     return data;
 };
 
@@ -18,7 +19,7 @@ const VideoBannerAdmin = () => {
 
     const uploadMutation = useMutation({
         mutationFn: async (newVideo) => {
-            await axios.post('http://localhost:8000/api/latest-video/', newVideo);
+            await axios.post(`${api}latest-video/`, newVideo);
         },
         onSuccess: () => {
             queryClient.invalidateQueries(['latestVideo']);
@@ -28,7 +29,7 @@ const VideoBannerAdmin = () => {
 
     const deleteMutation = useMutation({
         mutationFn: async () => {
-            await axios.delete('http://localhost:8000/api/latest-video/');
+            await axios.delete(`${api}latest-video/`);
         },
         onSuccess: () => {
             queryClient.invalidateQueries(['latestVideo']);

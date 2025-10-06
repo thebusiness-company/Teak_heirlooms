@@ -1,35 +1,43 @@
 import { Link } from 'react-router-dom';
 import Img from "../../assets/images/shop/image.jpg";
+import c1 from "../../assets/images/shopcol-1.png";
+import c2 from "../../assets/images/shopcol-2.png";
+import c3 from "../../assets/images/shopcol-3.png";
+import c4 from "../../assets/images/shopcol-4.png";
 
 const collections = [
   {
-    id: 'collection1',
-    title: 'Significant Essence',
-    subtitle: 'Wall Mirrors',
-    price: '3899.00',
-    trending: true
+    id: "collection1",
+    title: "Significant Essence",
+    subtitle: "Wall Mirrors",
+    price: "3899.00",
+    trending: true,
+    image: c1,
   },
   {
-    id: 'collection2',
-    title: 'Elegant Reflections',
-    subtitle: 'Floor Mirrors',
-    price: '4599.00',
-    trending: true
+    id: "collection2",
+    title: "Elegant Reflections",
+    subtitle: "Table Accents",
+    price: "4599.00",
+    trending: true,
+    image: c2,
   },
   {
-    id: 'collection3',
-    title: 'Modern Minimalist',
-    subtitle: 'Decorative Mirrors',
-    price: '3299.00',
-    trending: true
+    id: "collection3",
+    title: "Modern Minimalist",
+    subtitle: "topic ",
+    price: "3299.00",
+    trending: true,
+    image: c3,
   },
   {
-    id: 'collection4',
-    title: 'Vintage Charm',
-    subtitle: 'Antique Mirrors',
-    price: '4999.00',
-    trending: true
-  }
+    id: "collection4",
+    title: "Vintage Charm",
+    subtitle: "topic",
+    price: "4999.00",
+    trending: true,
+    image: c4,
+  },
 ];
 
 const ShopCollection = () => {
@@ -44,18 +52,22 @@ const ShopCollection = () => {
         {/* Collections */}
         {collections.map((collection, index) => (
           <div key={collection.id} className="max-w-5xl mx-auto px-4 py-8">
-            <div className={`border-14 border-[#EDEAE5] rounded-md flex flex-col md:flex-row items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+            <div
+              className={`border-14 border-[#EDEAE5] rounded-md flex flex-col md:flex-row items-center ${
+                index % 2 === 1 ? "md:flex-row-reverse" : ""
+              }`}
+            >
               {/* Image Section */}
-              <div className="w-full md:w-1/2">
+              <div className="w-full md:w-[55%]">
                 <img
-                  src={Img}
+                  src={collection.image}
                   alt={collection.title}
                   className="w-full h-auto object-cover"
                 />
               </div>
 
               {/* Text Section */}
-              <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:pl-15 bg-white">
+              <div className="w-full md:w-[45%] flex flex-col justify-center items-center md:px-10 bg-white">
                 {collection.trending && (
                   <p className="text-[#9C0300] text-xl md:text-3xl font-medium text-center mt-2 md:mt-4 mb-5  ">
                     Now Trending
@@ -71,7 +83,7 @@ const ShopCollection = () => {
                   Starts at ₹ {collection.price}.
                 </p>
                 <div className="flex justify-center items-center md:justify-start">
-                  <Link 
+                  <Link
                     to={`/collect?collection=${collection.id}`}
                     className="mt-2 mb-4 px-4 py-0 md:px-6 md:py-2 bg-[#9C0300] text-white rounded-full hover:bg-red-700 transition"
                   >

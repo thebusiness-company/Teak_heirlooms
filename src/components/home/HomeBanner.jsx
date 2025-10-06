@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Bannerimg1 from "../../assets/images/bannerimg1.jpg";
+import Bannerimg1 from "../../assets/images/hpbanner-1.jpg";
 import Bannerimg2 from "../../assets/images/bannerimg2.png";
 import Bannerimg3 from "../../assets/images/bannerimg3.png";
 

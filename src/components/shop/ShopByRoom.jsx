@@ -2,6 +2,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import M1 from "../../assets/images/shop/M1.png";
+import rooms1 from "../../assets/images/shop/tvunit.png";
+import rooms2 from "../../assets/images/shop/kitchen.png";
+import rooms3 from "../../assets/images/shop/bedroom.png";
 import PrevArrow from "../../assets/images/Left.png"; // Custom left arrow
 import NextArrow from "../../assets/images/Right.png"; // Custom right arrow
 
@@ -43,10 +46,10 @@ CustomNextArrow.propTypes = {
 
 const ShopByRoom = () => {
   const products = [
-    { id: 1, image: M1, title: "bedRoom" },
-    { id: 2, image: M1, title: "kic"},
-    { id: 3, image: M1, title: "Lorem ipsum" },
-    { id: 4, image: M1, title: "Lorem ipsum"},
+    { id: 1, image: rooms1, title: "TV Unit" },
+    { id: 2, image: rooms2, title: "Kitchen" },
+    { id: 3, image: rooms3, title: "Bed Room" },
+    { id: 4, image: M1, title: "Lorem ipsum" },
   ];
 
   const settings = {
@@ -75,7 +78,7 @@ const ShopByRoom = () => {
 
   return (
     <div className="max-w-7xl mx-auto text-center py-8 px-3 relative">
-      <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-[#3b493f] mb-6 font-infant">Shop by Room</h2>
+      <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-[#3b493f] mb-6 md:mb-10 font-infant">Shop by Room</h2>
 
       <div className="relative">
         <Slider {...settings}>
@@ -85,7 +88,7 @@ const ShopByRoom = () => {
                 <Link to='/room'>
                 <img src={product.image} alt={product.title} className="w-full" />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#38493f] to-transparent p-4">
-                  <p className="text-white text-xl lg:text-3xl text-center font-semibold font-infant custom-text-shadow tracking-wide">{product.title}</p>
+                  <p className="text-white text-xl lg:text-4xl text-center font-semibold font-infant custom-text-shadow tracking-wide">{product.title}</p>
                 </div>
                 <p className="text-red-600 font-semibold mt-2">{product.price}</p>
                 </Link>

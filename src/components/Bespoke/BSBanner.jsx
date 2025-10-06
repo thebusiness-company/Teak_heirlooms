@@ -1,5 +1,8 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import img from "../../assets/images/Bespoke/banner.png";
 const BSBanner = () => {
+    const navigate = useNavigate();
 return (
     <div
         className="bg-[#FFF1DF] relative w-full h-[500px] sm:h-[600px] md:h-[700px] bg-cover bg-center flex items-center "
@@ -11,7 +14,7 @@ return (
             <p className="mt-10 text-sm md:text-lg text-gray-600">
                 GIVE YOUR IDEAL HOUSE A PERSONAL TOUCH.
             </p>
-            <button className="mt-5 px-8 py-1 bg-[#9C0300] text-white font-semibold rounded-full shadow-lg hover:bg-red-700 transition cursor-pointer">
+            <button className="mt-5 px-8 py-1 bg-[#9C0300] text-white font-semibold rounded-full shadow-lg hover:bg-red-700 transition cursor-pointer" onClick={() => navigate("/shop")}>
                 Shop Now
             </button>
         </div>

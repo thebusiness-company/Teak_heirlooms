@@ -1,9 +1,9 @@
-import DBASection from './DBASection'
-import DesignBanner from './DesignBanner'
-import DHSection from './DHSecion'
-import MainBanner from './MainBanner'
-import SESection from './SESection'
-import SWOSection from './SWOSection'
+import DBASection from './DBASection';
+import DesignBanner from './DesignBanner';
+import DHSection from './DHSecion';
+import MainBanner from './MainBanner';
+import SESection from './SESection';
+import SWOSection from './SWOSection';
 
 const DesignSolution = () => {
   return (
@@ -18,4 +18,4 @@ const DesignSolution = () => {
   )
 }
 
-export default DesignSolution
+export default DesignSolution;

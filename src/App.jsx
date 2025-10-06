@@ -28,6 +28,9 @@ import ContactForm from "./pages/ContactForm";
 import ScrollProvider from "./context/ScrollContext";
 import BlogView from "./components/home/BlogView";
 import OrderStatus from "./pages/OrderStatus";
+import OrderDetails from "./components/order/OrderDetails";
+import ShippingandDelivery from "./pages/ShippingandDelivery";
+import TermsAndConditions from "./pages/TermsAndConditions";
 
 function App() {
   const[numCartItems, setNumCartItems] = useState(0);
@@ -80,6 +83,9 @@ function App() {
             <Route path="/contact" element={<ContactForm />} />
             <Route path="/blogs/:id" element={<BlogView />} />
             <Route path="/orderstatus" element={<OrderStatus/>} />
+            <Route path="/orderdetails" element={< OrderDetails/>} />
+            <Route path="/shipping-delivery" element={< ShippingandDelivery/>} />
+            <Route path="/terms" element={< TermsAndConditions/>} />
             
           </Route>
         </Routes>

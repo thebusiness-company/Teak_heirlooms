@@ -15,7 +15,7 @@ const OrderStatus = () => {
     <>
       <div className="min-h-screen bg-[#FFF1DF] overflow-x-hidden">
         <div className="mx-4">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl uppercase font-semibold text-center mt-12">
+          <h1 className="text-2xl md:text-3xl uppercase font-semibold text-center mt-12">
             Order Status
           </h1>
           <p className="mt-4 text-center">

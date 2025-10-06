@@ -221,7 +221,7 @@ const Profile = () => {
         <Link to="/cart" className="hover:text-[#9C0300] px-4 rounded-full w-full text-center">
           My Cart
         </Link>
-        <Link to="/orders" className="hover:text-[#9C0300] px-4 rounded-full w-full text-center">
+        <Link to="/orderdetails" className="hover:text-[#9C0300] px-4 rounded-full w-full text-center">
           My Orders
         </Link>
         <button onClick={logout} className="bg-[#9C0300] text-white px-4 py-2 rounded-full w-full text-center">

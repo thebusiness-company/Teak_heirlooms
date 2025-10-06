@@ -64,9 +64,9 @@ const Page = () => {
        <div ref={feedbackRef} id="feedback">
          <Feedback />
        </div>
-       <div ref={termsRef} id="terms">
+       {/* <div ref={termsRef} id="terms">
          <TermsAndConditions />
-       </div>
+       </div> */}
        <div ref={sustainabilityRef} id="sustainability">
         <SustainabilitySection />
        </div>

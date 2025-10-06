@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import C1 from "../../assets/images/c1.png";
-import C2 from "../../assets/images/c2.png";
-import C3 from "../../assets/images/c3.png";
+import C1 from "../../assets/images/hc1-beds.png";
+import C2 from "../../assets/images/hc2-sofas.png";
+import C3 from "../../assets/images/hc3-dinning.png";
 
 const categories = [
   {
