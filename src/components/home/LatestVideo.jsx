@@ -26,7 +26,7 @@ const LatestVideo = () => {
     <div className="flex justify-center items-center mt-8 mb-4 md:my-10">
       <div className="w-full max-w-[96%] h-full">
         <iframe
-          className="w-full h-[300px] md:h-[500px]"
+          className="w-full h-[300px] md:h-[700px]"
           src={embedUrl}
           title="YouTube video player"
           frameBorder="0"

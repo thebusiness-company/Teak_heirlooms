@@ -1,7 +1,6 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import M1 from "../../assets/images/shop/M1.png";
 import rooms1 from "../../assets/images/shop/tvunit.png";
 import rooms2 from "../../assets/images/shop/kitchen.png";
 import rooms3 from "../../assets/images/shop/bedroom.png";
@@ -49,7 +48,7 @@ const ShopByRoom = () => {
     { id: 1, image: rooms1, title: "TV Unit" },
     { id: 2, image: rooms2, title: "Kitchen" },
     { id: 3, image: rooms3, title: "Bed Room" },
-    { id: 4, image: M1, title: "Lorem ipsum" },
+    
   ];
 
   const settings = {
