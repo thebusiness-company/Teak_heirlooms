@@ -32,13 +32,13 @@ const categories = [
 
 const HomeCategory = () => {
   return (
-    <div className="bg-white p-6">
+    <div className="bg-white p-6 w-full max-w-[94%] mx-auto">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center gap-4 lg:gap-8">
         {categories.map((category, index) => (
           <Link 
           key={index}
           to={`/category/${category.name.toLowerCase()}`}
-          className="relative w-full h-[400px] overflow-hidden group cursor-pointer">
+          className="relative w-full h-[400px] lg:h-[500px] overflow-hidden group cursor-pointer">
             <img
               src={category.image}
               alt={category.title}

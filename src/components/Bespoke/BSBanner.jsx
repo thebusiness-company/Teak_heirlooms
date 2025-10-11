@@ -13,12 +13,14 @@ return (
       <h1 className="text-5xl md:text-8xl font-bold text-[#3B493F] font-infant mb-">
         BESPOKE
       </h1>
-      <p className="mt-10 text-sm md:text-lg text-[#3B493F]">
-        GIVE YOUR IDEAL HOUSE A PERSONAL TOUCH.
-      </p>
+      <div className=" mt-5 bg-[rgba(255,241,223,0.8)] bg-opacity-90 p-4 shadow-lg">
+        <p className=" text-sm md:text-lg text-[#3B493F]">
+          GIVE YOUR IDEAL HOUSE A PERSONAL TOUCH
+        </p>
+      </div>
       <button
         className="mt-5 px-8 py-1 bg-[#9C0300] text-white font-semibold rounded-full shadow-lg hover:bg-red-700 transition cursor-pointer"
-        onClick={() => navigate("/shop")}
+        onClick={() => navigate("/contact")}
       >
         Shop Now
       </button>

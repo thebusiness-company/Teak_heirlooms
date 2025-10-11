@@ -6,13 +6,15 @@ const SESection = () => {
     navigate("/contact");
   };
   return (
-    <section className=" relative flex flex-col md:flex-row items-center justify-center w-full  my-32 sm:my-44 md:my-56 lg:my-64">
+    <section className=" relative flex flex-col md:flex-row items-center justify-center w-full my-32 sm:my-44 md:my-56 lg:my-64">
+
+      
       {/* Image Section */}
       <div className=" w-1/2 md:w-1/2 absolute inset-x-0 z-6 ">
         <img
           src={SE}
           alt="Interior Design"
-          className="sm:h-80 w-10/12 md:w-96 max-h-full md:h-96 lg:h-106 object-cover ml-4 md:ml-8"
+          className="sm:h-80 w-10/12 md:w-96 max-h-full md:h-96 lg:h-106 object-cover ml-4 md:ml-8 lg:ml-20"
         />
       </div>
 

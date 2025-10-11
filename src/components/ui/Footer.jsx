@@ -14,7 +14,7 @@ const Footer = () => {
 
     return (
       <footer className="bg-[#FFF] py-8 border-b-24 border-[#9C0300]">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row md:justify-between">
+        <div className="w-full lg:max-w-[85%] mx-auto px-4 flex flex-col md:flex-row md:justify-between">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 text-sm text-black py-6 w-full">
             <div className="mb-4">
               <button
@@ -110,7 +110,7 @@ const Footer = () => {
             </div>
             <Link
               to="/"
-              className="flex items-center gap-6 mb-4  px-2  lg:mt-8"
+              className="flex items-center gap-6 mb-4 px-2 md:ml-4 lg:ml-0 lg:mt-8"
             >
               <img src={Logo} alt="Teak Heirlooms" className="h-6 lg:h-10" />
             </Link>

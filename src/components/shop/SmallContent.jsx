@@ -1,7 +1,7 @@
 
 const SmallContent = () => {
   return (
-    <div className="max-w-7xl mx-auto p-4 text-gray-900 text-sm sm:text-base md:text-lg lg:text-xl">
+    <div className="w-full max-w-[90%] mx-auto p-4 text-gray-900 text-sm sm:text-base md:text-lg lg:text-xl">
       <h2 className="font-bold mb-2 text-base sm:text-md md:text-lg lg:text-xl">
         Create statement home decor to bring some flair to your house.
       </h2>
