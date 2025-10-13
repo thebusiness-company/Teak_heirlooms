@@ -13,7 +13,7 @@ const CustomPrevArrow = ({ onClick }) => (
   <button
     onClick={onClick}
     aria-label="Previous Slide"
-    className="absolute left-[-4px] top-[120px] transform -translate-y-1/2 z-10 bg-white p-2 shadow-md"
+    className="absolute left-[7px] top-[120px] transform -translate-y-1/2 z-10 bg-white p-2 shadow-md"
   >
     <img src={LeftArrow} alt="Previous" className="w-5 h-5 md:w-6 md:h-6" />
   </button>
@@ -23,7 +23,7 @@ const CustomNextArrow = ({ onClick }) => (
   <button
     onClick={onClick}
     aria-label="Next Slide"
-    className="absolute right-[-4px] top-[120px] transform -translate-y-1/2 z-10 bg-white p-2 shadow-md"
+    className="absolute right-[7px] top-[120px] transform -translate-y-1/2 z-10 bg-white p-2 shadow-md"
   >
     <img src={RightArrow} alt="Next" className="w-5 h-5 md:w-6 md:h-6" />
   </button>
@@ -62,7 +62,7 @@ const BestSeller = () => {
   if (isLoading) {
      return (
        <>
-         <div className="max-w-7xl mx-auto text-center py-10 relative">
+         <div className="w-full max-w-[90%] mx-auto text-center py-10 relative">
            <h2 className="text-3xl md:text-4xl font-semibold text-[#3b493f] mb-6 font-infant">
              New In
            </h2>
@@ -91,8 +91,10 @@ const BestSeller = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto text-center py-10 relative">
-      <h2 className="text-3xl md:text-4xl font-semibold text-[#3b493f] mb-6 font-infant">New In</h2>
+    <div className="w-full max-w-[90%] mx-auto text-center py-10 relative">
+      <h2 className="text-3xl md:text-4xl font-semibold text-[#3b493f] mb-6 font-infant">
+        New In
+      </h2>
 
       <div className="relative">
         {NewInProducts.length > 0 ? (
@@ -103,13 +105,20 @@ const BestSeller = () => {
                   <Link to={`/product/${product.slug}`}>
                     <div className="w-full h-[200px] flex items-center justify-center overflow-hidden">
                       <img
-                        src={product.images[0]?.image || "/path/to/fallback-image.jpg"}
+                        src={
+                          product.images[0]?.image ||
+                          "/path/to/fallback-image.jpg"
+                        }
                         alt={product.name}
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <h3 className="text-lg font-medium mt-4 text-[#9C0300]">{product.name}</h3>
-                    <p className="text-[#9C0300] font-semibold">₹ {product.price}</p>
+                    <h3 className="text-lg font-medium mt-4 text-[#9C0300]">
+                      {product.name}
+                    </h3>
+                    <p className="text-[#9C0300] font-semibold">
+                      ₹ {product.price}
+                    </p>
                   </Link>
                 </div>
               </div>

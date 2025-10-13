@@ -79,7 +79,7 @@ const Login = () => {
 
   return (
     <div className="h-screen w-full bg-[#FFF1DF] flex items-center justify-center">
-      <section className="relative flex flex-col bg-white md:flex-row items-center justify-between w-full max-w-7xl mx-auto rounded-lg my-1 px-4 md:px-8">
+      <section className="relative flex flex-col bg-white items-center justify-between w-full max-w-7xl mx-auto rounded-lg my-1 px-4 md:px-8">
         <div className="relative p-8 w-full md:w-1/2 z-10">
           <h2 className="text-2xl font-semibold text-center mb-4">Sign in to your account</h2>
 
@@ -144,9 +144,9 @@ const Login = () => {
           </p>
         </div>
 
-        <div className="absolute right-2 top-1/2 transform -translate-y-1/2 w-3/5 md:w-2/5 z-0 hidden lg:block">
+        {/* <div className="absolute right-2 top-1/2 transform -translate-y-1/2 w-3/5 md:w-2/5 z-0 hidden lg:block">
           <img src={img} alt="Design" className="w-72 h-auto object-cover" />
-        </div>
+        </div> */}
       </section>
     </div>
   );

@@ -63,7 +63,10 @@ const Blog = () => {
           >
             {blogs.map((blog) => (
               <SwiperSlide key={blog.id}>
-                <div className="bg-[#FFF] overflow-hidden mx-auto w-11/12 sm:w-3/4 md:w-3/5 lg:w-2/3">
+                <div
+                  className="bg-[#FFF] overflow-hidden mx-auto w-11/12 sm:w-3/4 md:w-3/5 lg:w-2/3 cursor-pointer"
+                  onClick={() => navigate(`blogs/${blog.id}`)}
+                >
                   <img
                     src={blog.image}
                     alt={blog.title}

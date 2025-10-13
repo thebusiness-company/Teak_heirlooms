@@ -69,7 +69,7 @@ const HomeCollection = () => {
       { id: 3, image: tables, title: "Tables", categoryChoice: "tables" },
       { id: 4, image: bookshelf, title: "Book Shelf", categoryChoice: "book-shelf" },
       { id: 5, image: cabinet, title: "Cabinet", categoryChoice: "cabinet" },
-      { id: 6, image: Dining, title: "Dining", categoryChoice: "dining" },
+      { id: 6, image: Dining, title: "Dinning", categoryChoice: "dinning" },
       { id: 7, image: bar, title: "Bar", categoryChoice: "bar" },
       { id: 8, image: poojaunit, title: "Pooja", categoryChoice: "pooja" },
       { id: 9, image: tvunit, title: "TV Units", categoryChoice: "tv-units" },
@@ -103,7 +103,7 @@ const HomeCollection = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto text-center py-10 px-10 relative">
+    <div className="w-full max-w-[90%] mx-auto text-center py-10 px-10 relative">
       <h2 className="text-3xl lg:text-5xl text-[#3b493f] mb-12 mt-6 font-upright">Our Products</h2>
 
       <div className="relative">

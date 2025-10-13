@@ -2,9 +2,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import M1 from "../../assets/images/shop/M1.png";
-import rooms1 from "../../assets/images/shop/tvunit.png";
+import rooms1 from "../../assets/images/shop/living.png";
 import rooms2 from "../../assets/images/shop/kitchen.png";
 import rooms3 from "../../assets/images/shop/bedroom.png";
+import rooms4 from "../../assets/images/shop/studyroom.png";
 import PrevArrow from "../../assets/images/Left.png"; // Custom left arrow
 import NextArrow from "../../assets/images/Right.png"; // Custom right arrow
 
@@ -49,7 +50,7 @@ const ShopByRoom = () => {
     { id: 1, image: rooms1, title: "TV Unit" },
     { id: 2, image: rooms2, title: "Kitchen" },
     { id: 3, image: rooms3, title: "Bed Room" },
-    { id: 4, image: M1, title: "Lorem ipsum" },
+    { id: 4, image: rooms4, title: "Study Table" },
   ];
 
   const settings = {
@@ -77,20 +78,30 @@ const ShopByRoom = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto text-center py-8 px-3 relative">
-      <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-[#3b493f] mb-6 md:mb-10 font-infant">Shop by Room</h2>
+    <div className="w-full max-w-[90%] mx-auto text-center py-8 px-3 relative">
+      <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-[#3b493f] mb-6 md:mb-10 font-infant">
+        Shop by Room
+      </h2>
 
       <div className="relative">
         <Slider {...settings}>
           {products.map((product) => (
-            <div key={product.id} className="px-4">
+            <div key={product.id} className="px-2 md:px-4">
               <div className="bg-white  relative">
-                <Link to='/room'>
-                <img src={product.image} alt={product.title} className="w-full" />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#38493f] to-transparent p-4">
-                  <p className="text-white text-xl lg:text-4xl text-center font-semibold font-infant custom-text-shadow tracking-wide">{product.title}</p>
-                </div>
-                <p className="text-red-600 font-semibold mt-2">{product.price}</p>
+                <Link to="/room">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-auto max-h-[280px] md:max-h-[400px] object-cover"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#38493f] to-transparent p-4">
+                    <p className="text-white text-xl lg:text-4xl text-center font-semibold font-infant custom-text-shadow tracking-wide">
+                      {product.title}
+                    </p>
+                  </div>
+                  <p className="text-red-600 font-semibold mt-2">
+                    {product.price}
+                  </p>
                 </Link>
               </div>
             </div>

@@ -1,5 +1,5 @@
-import BSBanner from "./BSBanner"
-import BSservice from "./BSservice"
+import BSBanner from "./BSBanner";
+import BSservice from "./BSservice";
 
 const BeSpokePage = () => {
   return (
@@ -7,7 +7,7 @@ const BeSpokePage = () => {
     <BSBanner />
     <BSservice />
     </>
-  )
+  );
 }
 
-export default BeSpokePage
+export default BeSpokePage;
