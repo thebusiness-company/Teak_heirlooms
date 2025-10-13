@@ -2,8 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchLatestBanner } from "../../services/shopBannerService";
 import M1 from "../../assets/images/shop/M1.png";
 import M2 from "../../assets/images/shop/M2.png";
+import { useNavigate } from "react-router-dom";
 
 const MainBanner = () => {
+  const navigate = useNavigate();
   const { data: banner, isLoading, error } = useQuery({
     queryKey: ["banner"],
     queryFn: fetchLatestBanner,
@@ -34,7 +36,7 @@ const MainBanner = () => {
   if (error || !banner) return <p className="text-center text-gray-600">No banner available</p>;
 
   return (
-    <div className="flex flex-row flex-nowrap items-center justify-center w-full bg-white mt-8 overflow-hidden">
+    <div className="w-full max-w-[96%] mx-auto flex flex-row flex-nowrap items-center justify-center bg-white mt-8 overflow-hidden">
       {/* Left Image */}
       <div className="w-1/3 flex justify-center p-2">
         <img
@@ -53,7 +55,10 @@ const MainBanner = () => {
         <p className="text-[#9C0300] text-xs sm:text-sm md:text-base mt-2">
           {banner.description} @RS.{banner.price_text}
         </p>
-        <button className="text-sm md:text-base mt-3 bg-[#9C0300] text-white px-4 py-0.5 md:px-6 md:py-2 md:mt-20 rounded-2xl hover:bg-red-800 transition duration-300">
+        <button
+          className="text-xs md:text-base mt-3 bg-[#9C0300] text-white px-4 py-0.5 md:px-6 md:py-2 md:mt-20 rounded-2xl hover:bg-red-800 transition duration-300 leading-snug whitespace-nowrap"
+          onClick={() => navigate("/Category/wall-panels")}
+        >
           Shop Now
         </button>
       </div>

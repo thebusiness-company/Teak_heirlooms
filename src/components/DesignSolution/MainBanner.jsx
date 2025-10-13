@@ -33,22 +33,22 @@ const MainBanner = () => {
   return (
     <div className="relative w-full">
       {/* Text Section */}
-      <div className="bg-white text-center py-10 px-4">
-        <h2 className="text-3xl md:text-4xl font-infant font-bold text-[#3B493F]">
+      <div className="bg-white text-center py-10 px-4 w-full max-w-[90%] mx-auto">
+        <h2 className="text-3xl md:text-4xl font-infant font-bold text-[#3B493F] mb-6 lg:mb-8">
           Why Choose us?
         </h2>
-        <p className="text-[#3B493F] mt-2 text-sm sm:text-base md:text-lg max-w-3xl mx-auto">
+        <p className="text-[#3B493F] mt-2 text-sm sm:text-base md:text-lg">
           At Teak Heirlooms, we believe that furniture should be personal,
           soulful, and built to last. Each piece we create begins with a
           conversation and ends in a masterpiece tailored just for you.
         </p>
-        <p className="text-[#3B493F] mt-2 text-sm sm:text-base md:text-lg max-w-3xl mx-auto">
+        <p className="text-[#3B493F] mt-2 text-sm sm:text-base md:text-lg">
           We're not here to mass produce. We're here to preserve the art of
           making. From selecting the finest teak to working with seasoned
           artisans, we obsess over every grain and groove—because details make
           the difference
         </p>
-        <p className="text-[#3B493F] mt-2 text-sm sm:text-base md:text-lg max-w-3xl mx-auto">
+        <p className="text-[#3B493F] mt-2 text-sm sm:text-base md:text-lg">
           While trends come and go, your story doesn't. We design furniture that
           fits your life now—and becomes part of your legacy later. When you
           choose us, you're choosing meaning over mass, depth over decor.
@@ -65,57 +65,57 @@ const MainBanner = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 0.95, scale: 0.9 }}
           transition={{ duration: 1 }}
-          className="absolute right-2 bottom-0 p-4 md:p-6 md:right-5 md:bottom-10  bg-white bg-opacity-80   shadow-lg  w-3/4 sm:w-[90%] md:w-[40%] lg:w-[35%]"
+          className="absolute right-2 bottom-0 p-4 md:p-6 md:right-5 md:bottom-10  bg-white bg-opacity-80   shadow-lg  w-3/4 sm:w-[90%] md:w-[50%] lg:w-[45%]"
         >
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-left md:text-center">
-            <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4">
-              <Counter value={12} />
+            <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4 lg:p-5 break-words">
+              <Counter value={4} />
               <p className="text-xs md:text-sm  text-[#3B493F] text-left md:text-center">
-                Cities
+                Catering to Cities
               </p>
             </div>
-            <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4">
-              <Counter value={8} />
+            <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4 lg:p-5 break-words">
+              <Counter value={20} />
               <p className="text-xs md:text-sm text-[#3B493F] text-left md:text-center">
-                Design Studios
+                Homes Furnished
               </p>
             </div>
-            <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4">
-              <Counter value={50} />
+            <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4 lg:p-5 break-words">
+              <Counter value={25} />
               <p className="text-xs md:text-sm  text-[#3B493F] text-left md:text-center">
-                Homes Designed
+                Years of Experience
               </p>
             </div>
-            <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4">
-              <Counter value={2673} />
+            <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4 lg:p-5 break-words">
+              <Counter value={1000} />
               <p className="text-xs md:text-sm  text-[#3B493F] text-left md:text-center">
                 Happy Customers
               </p>
             </div>
-            <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4">
+            <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4 lg:p-5 break-words">
               <p className="text-xs md:text-sm  text-[#3B493F] text-left md:text-center">
                 100% Transparent Pricing
               </p>
             </div>
-            <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4">
-              <p className="text-xs md:text-sm  text-[#3B493F] text-left md:text-center">
+            <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4 lg:p-5 break-words">
+              <p className="text-xs md:text-sm  text-[#3B493F] text-left md:text-center ">
                 End-to-End Project Management
               </p>
             </div>
-            <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4">
+            <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4 lg:p-5 break-words">
               <p className="text-xs md:text-sm  text-[#3B493F] text-left md:text-center">
                 100% Satisfaction
               </p>
             </div>
-            <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4">
-              <p className="text-xs md:text-sm  text-[#3B493F] text-center md:text-center">
+            <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4 lg:p-5 break-words">
+              <p className="text-xs md:text-sm  text-[#3B493F] text-left md:text-center">
                 Quality Assurance
               </p>
             </div>
-            <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4">
-              <Counter value={30} />
+            <div className="border-1 border-dashed border-[black] text-left md:text-center p-2 md:p-4 lg:p-5 break-words">
+              {/* <Counter value={20} /> */}
               <p className="text-xs md:text-sm  text-[#3B493F] text-left md:text-center">
-                In-house Designers
+                Strong Design Solutions
               </p>
             </div>
           </div>

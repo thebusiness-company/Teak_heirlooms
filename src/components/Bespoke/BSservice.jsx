@@ -8,6 +8,7 @@ import S1 from "../../assets/images/Bespoke/floral.png";
 import S2 from "../../assets/images/Bespoke/sp.png";
 import S3 from "../../assets/images/Bespoke/seaters.png";
 import S4 from "../../assets/images/Bespoke/luxury.png";
+import { useNavigate } from "react-router-dom";
 
 const products = [
   { id: 1, image: S1 , title: "Floral" },
@@ -51,6 +52,7 @@ CustomNextArrow.propTypes = {
 
 
 const BSservice = () => {
+  const navigate = useNavigate();
   const settings = {
     dots: false,
     infinite: true,
@@ -67,24 +69,46 @@ const BSservice = () => {
 
   return (
     <div className="w-full bg-[#FFF1DF]">
-    <div className="relative max-w-7xl mx-auto px-4 py-10">
-      <h2 className="text-3xl md:text-4xl font-semibold text-[#9C0300] text-center">TEAK HEIRLOOMS <span className="text-[#3B493F]">BESPOKE SERVICES</span></h2>
-      <h3 className="text-lg text-[#9C0300] mt-15">INTRODUCING BESPOKE FABRIC SERVICE</h3>
-      <p className="mt-2">With these specific products, you can now personalize a Teak Heirlooms design and truly make your home unique by selecting your own fabric.</p>
-      
-      <div className=" mt-6 max-w-7xl">
-        <Slider {...settings}>
-          {products.map((product) => (
-            <div key={product.id} className="px-2">
-              <div className="relative">
-                <img src={product.image} alt={product.title} className="w-full h-55  object-cover object-bottom " />
-                <div className="absolute bottom-0 w-full bg-gradient-to-t from-[#3B493F] to-transparent p-4 text-white text-center font-semibold text-xl md:text-3xl font-infant">{product.title}</div>
+      <div className="relative w-full mx-auto px-4 py-10">
+        <h2 className="text-3xl md:text-4xl font-semibold text-[#9C0300] text-center">
+          TEAK HEIRLOOMS{" "}
+          <span className="text-[#3B493F]">BESPOKE SERVICES</span>
+        </h2>
+        <h3 className="text-lg text-[#9C0300] mt-15 w-full max-w-[90%] mx-auto">
+          INTRODUCING BESPOKE FABRIC SERVICE
+        </h3>
+        <p className="mt-2 w-full max-w-[90%] mx-auto">
+          With these specific products, you can now personalize a Teak Heirlooms
+          design and truly make your home unique by selecting your own fabric.
+        </p>
+
+        <div className=" mt-6 w-full max-w-[90%] mx-auto">
+          <Slider {...settings}>
+            {products.map((product) => (
+              <div key={product.id} className="px-2">
+                <div className="relative">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-55  object-cover object-bottom "
+                  />
+                  <div className="absolute bottom-0 w-full bg-gradient-to-t from-[#3B493F] to-transparent p-4 text-white text-center font-semibold text-xl md:text-3xl font-infant">
+                    {product.title}
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={() => navigate("/contact")}
+              className="mt-4 lg:mt-10 bg-[#9C0300] text-white hover:bg-red-700 transition-colors p-1 px-4 md:py-1 lg:px-6 lg:py-1 rounded-full text-xs sm:text-xs md:text-base my-2 cursor-pointer"
+            >
+              SPEAK TO OUR EXPERT
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
     </div>
   );
 };

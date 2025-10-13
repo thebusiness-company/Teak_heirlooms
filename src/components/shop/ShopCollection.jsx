@@ -43,7 +43,7 @@ const collections = [
 const ShopCollection = () => {
   return (
     <>
-      <div className="max-w-5xl mx-auto px-4 py-8">
+      <div className="w-full max-w-5xl mx-auto px-4 xl:px-8 py-8">
         {/* Title */}
         <h2 className="text-center text-2xl md:text-3xl lg:text-5xl font-semibold font-infant text-[#3b493f] mb-6">
           Shop by Collection
@@ -76,9 +76,9 @@ const ShopCollection = () => {
                 <h3 className="text-3xl md:text-4xl font-serif font-bold text-[#000000] text-center mb-5 font-infant">
                   {collection.title}
                 </h3>
-                <p className="text-[#3B493F] text-xl md:text-3xl font-semibold text-center mb-5">
+                {/* <p className="text-[#3B493F] text-xl md:text-3xl font-semibold text-center mb-5">
                   {collection.subtitle}
-                </p>
+                </p> */}
                 <p className="text-[#9C0300] font-medium mt-2 text-xl md:text-2xl text-center mb-5">
                   Starts at ₹ {collection.price}.
                 </p>

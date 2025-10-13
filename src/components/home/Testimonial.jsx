@@ -115,7 +115,7 @@ export default function TestimonialCarousel() {
 
   return (
     <div className="py-12 flex flex-col items-center text-center w-full bg-[#EDEAE5]">
-      <h2 className="text-3xl lg:text-5xl text-[#3B493F] font-upright">
+      <h2 className="text-3xl lg:text-5xl text-[#3B493F] font-upright w-full max-w-[94%]">
         In Their Words, Our Legacy
       </h2>
       <p className="text-[#000000] mb-6">Happy Words of Our Happy Customers</p>

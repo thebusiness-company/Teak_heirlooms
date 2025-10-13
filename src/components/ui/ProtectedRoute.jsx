@@ -4,6 +4,7 @@ import api from '../../api';
 import { Navigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { AuthContext } from '../../context/AuthContext';
+import Spinner from './Spinner';
 
 const ProtectedRoute = ({ children, requireSuperuser = false, allowOnlySuperuser = false }) => {
     const [isAuthorized, setIsAuthorized] = useState(false);
@@ -55,7 +56,7 @@ const ProtectedRoute = ({ children, requireSuperuser = false, allowOnlySuperuser
         auth();
     }, []);
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return <Spinner />;
 
     // 🔒 If not authenticated
     if (!isAuthorized) {

@@ -13,9 +13,13 @@ const CustomPrevArrow = ({ onClick }) => (
   <button
     onClick={onClick}
     aria-label="Previous Slide"
-    className="absolute left-1 md:left-[-4px] top-[120px] transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
+    className="absolute -left-1 md:left-1 lg:left-0 top-[110px] md:top-[180px] transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
   >
-    <img src={PrevArrowImg} alt="Previous" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
+    <img
+      src={PrevArrowImg}
+      alt="Previous"
+      className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
+    />
   </button>
 );
 CustomPrevArrow.propTypes = { onClick: PropTypes.func.isRequired };
@@ -24,9 +28,13 @@ const CustomNextArrow = ({ onClick }) => (
   <button
     onClick={onClick}
     aria-label="Next Slide"
-    className="absolute right-1 md:right-[-4px] top-[120px] transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
+    className="absolute -right-1 md:right-1 lg:right-0 top-[110px] md:top-[180px] transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
   >
-    <img src={NextArrowImg} alt="Next" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
+    <img
+      src={NextArrowImg}
+      alt="Next"
+      className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
+    />
   </button>
 );
 CustomNextArrow.propTypes = { onClick: PropTypes.func.isRequired };
@@ -55,7 +63,7 @@ const ShopByFurniture = () => {
   if (isLoading) {
     return (
       <>
-        <div className="max-w-7xl mx-auto text-center py-10">
+        <div className="max-w-7xl mx-auto text-center py-10 overflow-x-hidden">
           <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-[#3b493f] mb-6 font-infant">
             Shop by Furniture
           </h2>
@@ -83,21 +91,25 @@ const ShopByFurniture = () => {
   if (error) return <p className="text-center text-red-500">Error loading categories.</p>;
 
   return (
-    <div className="max-w-7xl mx-auto text-center py-10 relative">
-      <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-[#3b493f] mb-6 font-infant">Shop by Furniture</h2>
+    <div className="w-full max-w-[90%] mx-auto text-center py-10 relative overflow-x-hidden">
+      <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-[#3b493f] mb-6 font-infant">
+        Shop by Furniture
+      </h2>
 
       <div className="relative">
         <Slider {...settings}>
           {categories?.map((category) => (
             <div key={category.id} className="px-2">
-              <div className="bg-white p-4">
+              <div className="bg-white p-2 md:p-4">
                 <Link to={`/Category/${category.slug}`}>
                   <img
                     src={category.image}
                     alt={category.name}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-48 md:h-[300px] lg:h-[380px] object-cover aspect-square"
                   />
-                  <h3 className="text-lg font-semibold mt-4 text-[#9C0300]">{category.name}</h3>
+                  <h3 className="text-lg font-semibold mt-4 text-[#9C0300]">
+                    {category.name}
+                  </h3>
                 </Link>
               </div>
             </div>

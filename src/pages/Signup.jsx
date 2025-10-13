@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, replace, useNavigate } from "react-router-dom";
-import img from "../assets/images/signup.png";
+import img from "../assets/images/signupnew.png";
 import google from "../assets/images/google.svg";
 import facebook from "../assets/images/facebook.svg";
 import axios from "axios";
