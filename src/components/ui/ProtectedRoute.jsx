@@ -69,8 +69,8 @@ const ProtectedRoute = ({ children, requireSuperuser = false, allowOnlySuperuser
     }
 
     // 🔒 If superusers should only access /admin
-    if (allowOnlySuperuser && user?.is_superuser && location.pathname !== '/admin') {
-        return <Navigate to="/admin" replace />;
+    if (allowOnlySuperuser && user?.is_superuser && location.pathname !== '/dashboard') {
+        return <Navigate to="/dashboard" replace />;
     }
 
     return children;

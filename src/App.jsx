@@ -58,7 +58,7 @@ function App() {
       <ScrollProvider>
       <Router>
         <Routes>
-        <Route path="/admin" element={<ProtectedRoute requireSuperuser={true}><Adminpage /></ProtectedRoute>
+        <Route path="/dashboard" element={<ProtectedRoute requireSuperuser={true}><Adminpage /></ProtectedRoute>
 }/>
           <Route path="/" element={<MainLayout numCartItems={numCartItems}/>} >
             <Route index element={<Homepage/>}/>

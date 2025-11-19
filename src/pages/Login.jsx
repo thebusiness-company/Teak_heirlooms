@@ -25,7 +25,7 @@ const Login = () => {
     if (from) {
       navigate(from, { replace: true });
     } else if (user?.is_superuser) {
-      navigate("/admin", { replace: true });
+      navigate("/dashboard", { replace: true });
     } else {
       navigate("/", { replace: true });
     }
