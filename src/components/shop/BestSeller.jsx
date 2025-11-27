@@ -13,7 +13,7 @@ const CustomPrevArrow = ({ onClick }) => (
   <button
     onClick={onClick}
     aria-label="Previous Slide"
-    className="absolute left-[7px] top-[120px] transform -translate-y-1/2 z-10 bg-white p-2 shadow-md"
+    className="absolute -left-[8px] md:left-[2px] top-[115px] transform -translate-y-1/2 z-10 bg-white p-2 shadow-md cursor-pointer"
   >
     <img src={LeftArrow} alt="Previous" className="w-5 h-5 md:w-6 md:h-6" />
   </button>
@@ -23,7 +23,7 @@ const CustomNextArrow = ({ onClick }) => (
   <button
     onClick={onClick}
     aria-label="Next Slide"
-    className="absolute right-[7px] top-[120px] transform -translate-y-1/2 z-10 bg-white p-2 shadow-md"
+    className="absolute -right-[8px] md:right-[2px] top-[115px] transform -translate-y-1/2 z-10 bg-white p-2 shadow-md cursor-pointer"
   >
     <img src={RightArrow} alt="Next" className="w-5 h-5 md:w-6 md:h-6" />
   </button>
@@ -63,7 +63,7 @@ const BestSeller = () => {
       return (
         <>
           <div className="w-full max-w-[90%] mx-auto text-center py-10 relative">
-            <h2 className="text-3xl md:text-4xl font-semibold text-[#3b493f] mb-6 font-infant">
+            <h2 className="text-3xl md:text-4xl 2xl:text-6xl font-semibold text-[#3b493f] mb-6 font-infant">
               Best Sellers
             </h2>
             <div className="flex flex-wrap justify-center gap-4 lg:gap-0 animate-pulse">
@@ -92,7 +92,7 @@ const BestSeller = () => {
 
   return (
     <div className="w-full max-w-[90%] mx-auto text-center py-10 relative">
-      <h2 className="text-3xl md:text-4xl font-semibold text-[#3b493f] mb-6 font-infant">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-semibold text-[#3b493f] mb-6 font-infant">
         Best Sellers
       </h2>
 
@@ -100,8 +100,8 @@ const BestSeller = () => {
         {topSellingProducts.length > 0 ? (
           <Slider {...settings}>
             {topSellingProducts.map((product) => (
-              <div key={product.slug} className="px-3">
-                <div className="bg-white p-4">
+              <div key={product.slug} className="md:px-3">
+                <div className="bg-white p-2 md:p-4">
                   <Link to={`/product/${product.slug}`}>
                     <div className="w-full h-[200px] flex items-center justify-center overflow-hidden">
                       <img

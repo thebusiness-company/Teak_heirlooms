@@ -20,7 +20,7 @@ return (
       </div>
       <button
         className="mt-5 px-8 py-1 bg-[#9C0300] text-white font-semibold rounded-full shadow-lg hover:bg-red-700 transition cursor-pointer"
-        onClick={() => navigate("/contact")}
+        onClick={() => navigate("/shop")}
       >
         Shop Now
       </button>

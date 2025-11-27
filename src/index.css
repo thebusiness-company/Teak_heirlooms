@@ -79,3 +79,156 @@ html, body {
       color: #9C0300 !important;
     }
   }
+
+  /* campaign banner gradient animation */
+@keyframes movingGradient {
+0% {
+    background-position: 100% 100%;
+  }
+
+  /* start bottom-right */
+  50% {
+    background-position: 0% 0%;
+  }
+
+  /* move to top-left */
+  100% {
+    background-position: 100% 100%;
+  }
+
+  /* back to bottom-right */
+}
+
+.gradient-animate {
+  background-size: 200% 200%;
+  animation: movingGradient 8s ease-in-out infinite;
+}
+.button-hover-gradient {
+  /* position: relative; */
+  overflow: hidden;
+  display: inline-block;
+}
+
+/* Base gradient */
+.button-hover-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to bottom right, #9C0300, #360100);
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+}
+
+/* Hover gradient (on top, but transparent initially) */
+.button-hover-gradient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to bottom right, #360100, #9C0300);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+}
+
+/* Fade between gradients */
+.button-hover-gradient:hover::after {
+  opacity: 1;
+}
+
+/* Text should be above gradients */
+.button-hover-gradient * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Smooth text scaling */
+.button-hover-scale {
+  display: inline-block;
+  transition: transform 1s ease-in-out;
+}
+
+.button-hover-gradient:hover .button-hover-scale {
+  transform: scale(1.1);
+}
+
+/* Container */
+.mobile-infinite-animate {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+/* Layer 1 (initial gradient) */
+.mobile-infinite-animate::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to bottom right, #9C0300, #360100);
+  z-index: 0;
+  opacity: 1;
+}
+
+/* Layer 2 (reversed gradient) */
+.mobile-infinite-animate::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to bottom right, #360100, #9C0300);
+  z-index: 0;
+  opacity: 0;
+  animation: mobileGradientSwap 3s ease-in-out infinite;
+}
+
+/* Text */
+.mobile-infinite-text {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  animation: mobileTextScale 3s ease-in-out infinite;
+}
+
+/* Gradient Animation */
+@keyframes mobileGradientSwap {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Text Scaling Animation */
+@keyframes mobileTextScale {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.12);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+
+  75% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

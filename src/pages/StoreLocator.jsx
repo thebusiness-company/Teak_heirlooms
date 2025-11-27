@@ -21,33 +21,58 @@ const StoreLocator = () => {
         {/* Store Info */}
         <div className="md:col-span-5 p-6 border shadow-sm">
           <h3 className="text-lg md:text-xl font-bold bg-[#FFF1DF] px-2 py-1 inline text-[#9C0300] mb-2">
-            Teak Heirlooms Chennai, ECR 
+            Teak Heirlooms Chennai, ECR
           </h3>
-          <p className="text-sm md:text-lg text-gray-600 mb-2">
-            Are you looking for the best Furniture Store near Neelankarai in Chennai?
-            Shop at <span className="text-[#9C0300]">THL</span> for customized furniture.
+          <p className="text-sm md:text-lg md:mt-2 mb-2">
+            Are you looking for the best Furniture Store near Neelankarai in
+            Chennai? Shop at <span className="text-[#9C0300]">THL</span> for
+            customized furniture.
           </p>
 
-          <div className="mb-2">
-            <span className="text-lg md:text-xl font-bold bg-[#FFF1DF] px-2 py-1 text-[#9C0300]">Address</span>
-            <p className="text-sm md:text-lg text-gray-700 mt-1">
-              Sri Kapaleeswarxx Naxx, Neelanxxx, Chennai, Tamil Nadu
+          <div className="mb-2 md:mt-4">
+            <span className="text-lg md:text-xl font-bold bg-[#FFF1DF] px-2 py-1 text-[#9C0300]">
+              Address
+            </span>
+            <p className="text-sm md:text-lg mt-1 md:mt-2">
+              24A, Spring Garden, 1st Street, SH 49, Akkarai, Chennai, Tamil
+              Nadu 600119
             </p>
           </div>
 
-          <div className="mb-2">
-            <span className="text-lg md:text-xl font-bold bg-[#FFF1DF] px-2 py-1 text-[#9C0300]">Call</span>
-            <p className="text-sm md:text-lg text-gray-700 mt-1">90xxx 25xxx</p>
+          <div className="mb-2 flex flex-col">
+            <span className="text-lg md:text-xl font-bold bg-[#FFF1DF] px-2 py-1 text-[#9C0300] w-fit mt-2">
+              Call
+            </span>
+            <a
+              href="tel:+91 7339574747"
+              className="text-sm md:text-lg mt-1 md:mt-2 inline-block underline lg:no-underline lg:hover:underline"
+              aria-label="Call to Teak Heirlooms Contact Number"
+            >
+              +91 7339574747
+            </a>
           </div>
 
-          <div className="mb-2">
-            <span className="text-lg md:text-xl font-bold bg-[#FFF1DF] px-2 py-1 text-[#9C0300]">E-mail</span>
-            <p className="text-sm md:text-lg text-blue-500 mt-1">
-              <a href="mailto:Teakheirlooms@gmail.com">Teakheirlooms@gmail.com</a>
-            </p>
+          <div className="mb-2 flex flex-col">
+            <span className="text-lg md:text-xl font-bold bg-[#FFF1DF] px-2 py-1 text-[#9C0300] w-fit">
+              E-mail
+            </span>
+            {/* <p className="text-sm md:text-lg text-blue-500 mt-1">
+              <a href="mailto:Teakheirlooms@gmail.com">
+                Teakheirlooms@gmail.com
+              </a>
+            </p> */}
+            <a
+              href="mailto:info@teakheirlooms.com"
+              aria-label="Send an email to Teak Heirlooms"
+              className="mt-2 text-sm md:text-lg underline lg:no-underline lg:hover:underline"
+            >
+              info@teakheirlooms.com
+            </a>
           </div>
 
-          <p className="text-sm md:text-lg text-gray-600 mt-2">Opens Everyday @ 9:30 to 21:00</p>
+          <p className="text-sm md:text-lg mt-2">
+            Opens Everyday @ 9:30 to 21:00
+          </p>
         </div>
 
         {/* Map Section */}

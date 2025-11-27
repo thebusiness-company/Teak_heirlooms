@@ -118,14 +118,13 @@ const RoomHotspotGallery = () => {
   return (
     <div className="px-4 py-8 max-w-screen-2xl mx-auto">
       <h2 className="text-3xl font-bold mb-3 px-2 font-infant">
-        Make space for dreams
+        Retreat in Refined Comfort
       </h2>
       <p className="mb-8 max-w-5xl px-2">
-        Your bedroom is more than just a place to sleep—it&apos;s your personal
-        retreat, a space for relaxation, and a canvas for your dreams. Discover
-        endless inspiration to create a bedroom that reflects your style and
-        meets your needs. It&apos;s time to turn your bedroom into the sanctuary
-        you’ve always imagined.
+        A bedroom is more than a place to sleep, it’s where the day begins and
+        ends. Our custom bedroom pieces bring warmth, intimacy, and beauty into
+        this sacred space. Designed with your comfort in mind, and built with
+        teak that ages like a fine wine, these bedrooms welcome you home.
       </p>
 
       {/* Mobile View */}
@@ -146,6 +145,15 @@ const RoomHotspotGallery = () => {
               navigate={navigate}
             />
           ))}
+          {/* Center ribbon overlay */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="absolute top-1/2 left-0 w-full h-[30%] -translate-y-1/2 bg-[linear-gradient(to_right,#FFFFFF00_0%,#FFFFFFB3_20%,#FFFFFFE6_50%,#FFFFFFB3_80%,#FFFFFF00_100%)]"></div>
+
+            {/* Text */}
+            <span className="absolute  font-infant text-base md:text-xl font-semibold tracking-wide uppercase">
+              Coming Soon
+            </span>
+          </div>
         </div>
       </div>
       <div className="md:hidden grid grid-cols-2 grid-rows-2 gap-4">
@@ -166,6 +174,15 @@ const RoomHotspotGallery = () => {
                 navigate={navigate}
               />
             ))}
+            {/* Center ribbon overlay */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute top-1/2 left-0 w-full h-[30%] -translate-y-1/2 bg-[linear-gradient(to_right,#FFFFFF00_0%,#FFFFFFB3_20%,#FFFFFFE6_50%,#FFFFFFB3_80%,#FFFFFF00_100%)]"></div>
+
+              {/* Text */}
+              <span className="absolute font-infant text-sm md:text-xl font-semibold tracking-wide uppercase">
+                Coming Soon
+              </span>
+            </div>
           </div>
         ))}
       </div>
@@ -189,6 +206,15 @@ const RoomHotspotGallery = () => {
               navigate={navigate}
             />
           ))}
+          {/* Center ribbon overlay */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="absolute top-1/2 left-0 w-full h-[30%] -translate-y-1/2 bg-[linear-gradient(to_right,#FFFFFF00_0%,#FFFFFFB3_20%,#FFFFFFE6_50%,#FFFFFFB3_80%,#FFFFFF00_100%)]"></div>
+
+            {/* Text */}
+            <span className="absolute  font-infant text-lg md:text-xl font-semibold tracking-wide uppercase">
+              Coming Soon
+            </span>
+          </div>
         </div>
 
         {/* Right Column with 2columns */}
@@ -212,6 +238,15 @@ const RoomHotspotGallery = () => {
                   navigate={navigate}
                 />
               ))}
+              {/* Center ribbon overlay */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute top-1/2 left-0 w-full h-[30%] -translate-y-1/2 bg-[linear-gradient(to_right,#FFFFFF00_0%,#FFFFFFB3_20%,#FFFFFFE6_50%,#FFFFFFB3_80%,#FFFFFF00_100%)]"></div>
+
+                {/* Text */}
+                <span className="absolute  font-infant text-lg md:text-xl font-semibold tracking-wide uppercase">
+                  Coming Soon
+                </span>
+              </div>
             </div>
             {/* Room 4 */}
             <div className="relative h-[40%] w-full lg:pb-4">
@@ -230,6 +265,15 @@ const RoomHotspotGallery = () => {
                   navigate={navigate}
                 />
               ))}
+              {/* Center ribbon overlay */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute top-1/2 left-0 w-full h-[30%] -translate-y-1/2 bg-[linear-gradient(to_right,#FFFFFF00_0%,#FFFFFFB3_20%,#FFFFFFE6_50%,#FFFFFFB3_80%,#FFFFFF00_100%)]"></div>
+
+                {/* Text */}
+                <span className="absolute  font-infant text-lg md:text-xl font-semibold tracking-wide uppercase">
+                  Coming Soon
+                </span>
+              </div>
             </div>
           </div>
 
@@ -252,6 +296,15 @@ const RoomHotspotGallery = () => {
                   navigate={navigate}
                 />
               ))}
+              {/* Center ribbon overlay */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute top-1/2 left-0 w-full h-[30%] -translate-y-1/2 bg-[linear-gradient(to_right,#FFFFFF00_0%,#FFFFFFB3_20%,#FFFFFFE6_50%,#FFFFFFB3_80%,#FFFFFF00_100%)]"></div>
+
+                {/* Text */}
+                <span className="absolute  font-infant text-lg md:text-xl font-semibold tracking-wide uppercase">
+                  Coming Soon
+                </span>
+              </div>
             </div>
             {/* Room 5 */}
             <div className="relative h-[60%] w-full">
@@ -270,6 +323,15 @@ const RoomHotspotGallery = () => {
                   navigate={navigate}
                 />
               ))}
+              {/* Center ribbon overlay */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute top-1/2 left-0 w-full h-[30%] -translate-y-1/2 bg-[linear-gradient(to_right,#FFFFFF00_0%,#FFFFFFB3_20%,#FFFFFFE6_50%,#FFFFFFB3_80%,#FFFFFF00_100%)]"></div>
+
+                {/* Text */}
+                <span className="absolute  font-infant text-lg md:text-xl font-semibold tracking-wide uppercase">
+                  Coming Soon
+                </span>
+              </div>
             </div>
           </div>
         </div>

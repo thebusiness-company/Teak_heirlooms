@@ -8,7 +8,7 @@ export default function DHSection() {
     <div className="flex flex-col md:flex-row md:gap-4 items-center justify-between px-6 py-12 w-full max-w-[90%] mx-auto">
       {/* Left Section */}
       <div className="md:w-1/2 text-left">
-        <h2 className="text-3xl md:text-4xl font-infant font-bold text-[#3B493F] md:ml-12 mb-15 text-center leading-tight">
+        <h2 className="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-infant font-bold text-[#3B493F] md:ml-12 mb-15 text-center leading-tight">
           5 Steps to Your <br className="hidden md:block" /> Dream Home
         </h2>
 
@@ -32,7 +32,10 @@ export default function DHSection() {
           ))}
         </ul>
         <div className="flex justify-center items-center md:mt-4">
-          <button className=" mt-10  sm:mx-10 md:mx-0 px-6 py-2 bg-[#9C0300] text-white font-semibold rounded-full hover:bg-red-700 transition shadow-md cursor-pointer" onClick={() => navigate("/contact")}>
+          <button
+            className=" mt-10  sm:mx-10 md:mx-0 px-6 py-2 bg-[#9C0300] text-white font-semibold rounded-full hover:bg-red-700 transition shadow-md cursor-pointer"
+            onClick={() => navigate("/contact")}
+          >
             BOOK A CONSULTATION
           </button>
         </div>

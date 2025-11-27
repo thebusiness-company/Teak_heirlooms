@@ -36,9 +36,9 @@ const MainBanner = () => {
   if (error || !banner) return <p className="text-center text-gray-600">No banner available</p>;
 
   return (
-    <div className="w-full max-w-[96%] mx-auto flex flex-row flex-nowrap items-center justify-center bg-white mt-8 overflow-hidden">
+    <div className="w-full mx-auto flex flex-row flex-nowrap items-center justify-center bg-white mt-8 overflow-hidden">
       {/* Left Image */}
-      <div className="w-1/3 flex justify-center p-2">
+      <div className="w-1/3 flex">
         <img
           src={banner.image_left || M1}
           // src={M2}
@@ -49,14 +49,14 @@ const MainBanner = () => {
 
       {/* Center Text */}
       <div className="w-1/3 text-center py-4 px-4">
-        <h2 className="text-lg sm:text-xl md:text-3xl lg:text-6xl text-[#3B493F] font-infant">
+        <h2 className="text-lg sm:text-xl md:text-3xl lg:text-6xl text-[#3B493F] font-infant leading-tight">
           {banner.title}
         </h2>
         <p className="text-[#9C0300] text-xs sm:text-sm md:text-base mt-2">
           {banner.description} @RS.{banner.price_text}
         </p>
         <button
-          className="text-xs md:text-base mt-3 bg-[#9C0300] text-white px-4 py-0.5 md:px-6 md:py-2 md:mt-20 rounded-2xl hover:bg-red-800 transition duration-300 leading-snug whitespace-nowrap"
+          className="text-xs md:text-base mt-3 bg-[#9C0300] text-white px-4 py-0.5 md:px-6 md:py-2 md:mt-20 rounded-2xl hover:bg-red-800 transition duration-300 leading-snug whitespace-nowrap cursor-pointer"
           onClick={() => navigate("/Category/wall-panels")}
         >
           Shop Now
@@ -64,7 +64,7 @@ const MainBanner = () => {
       </div>
 
       {/* Right Image */}
-      <div className="w-1/3 flex justify-center p-2">
+      <div className="w-1/3 flex justify-end">
         <img
           src={banner.image_right || M2}
           // src={M1}
