@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../../api";
 
-const API_URL = "http://localhost:8000/api/products/";
+// const API_URL = "http://localhost:8000/api/products/";
+
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
@@ -18,7 +20,7 @@ const SearchBar = () => {
         return;
       }
       try {
-        const res = await axios.get(`${API_URL}?search=${query}`);
+        const res = await axios.get(`${API_URL}/api/products/?search=${query}`);
         setSuggestions(res.data.slice(0, 5)); // show top 5
       } catch (error) {
         console.error("Search failed:", error);

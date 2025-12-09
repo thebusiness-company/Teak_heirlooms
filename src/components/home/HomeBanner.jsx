@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
-import Bannerimg1 from "../../assets/images/hp-1.png";
-import Bannerimg2 from "../../assets/images/hp-2.png";
-import Bannerimg3 from "../../assets/images/hp-3.png";
-import Bannerimg4 from "../../assets/images/hp-4.png";
+// import Bannerimg1 from "../../assets/images/hp-1.webp";
+// import Bannerimg2 from "../../assets/images/hp-2.webp";
+// import Bannerimg3 from "../../assets/images/hp-3.webp";
+// import Bannerimg4 from "../../assets/images/hp-4.webp";
 
-const images = [Bannerimg1, Bannerimg2, Bannerimg3, Bannerimg4];
+const images = [
+  "/images/banners/hp-1.webp",
+  "/images/banners/hp-2.webp",
+  "/images/banners/hp-3.webp",
+  "/images/banners/hp-4.webp",
+];
 
 const HomeBanner = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,16 +26,21 @@ const HomeBanner = () => {
         {/* Image Slider */}
         <img
           src={images[currentIndex]}
+          width='1920'
+          height='800'
           alt="Banner"
           className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
-        />
-        {images[currentIndex] && images[currentIndex] === Bannerimg1 && (
-          <div className="absolute  top-8 md:top-30 right-0 mt-5 bg-[#38493f]/60 p-2 md:p-4 shadow-lg w-fit md:w-[50%] text-left px-4 md:px-0 md:pl-8 lg:pl-14">
-            <h1 className="font-corinthia font-semibold text-base md:text-3xl lg:text-4xl tracking-wider bottom-[5%] text-white right-1/2 md:left-auto md:translate-x-0 md:top-[35%] md:right-[15%]">
-              Crafted. Curated. Bespoke
-            </h1>
-          </div>
-        )}
+          loading={currentIndex === 0 ? "eager" : "lazy"}
+          fetchPriority={currentIndex === 0 ? "high" : "low"}        
+          />
+        {images[currentIndex] &&
+          images[currentIndex] === "/images/banners/hp-1.webp" && (
+            <div className="absolute top-8 md:top-30 right-0 mt-5 bg-[#38493f]/60 p-2 md:p-4 shadow-lg w-fit md:w-[50%] text-left px-4 md:px-0 md:pl-8 lg:pl-14">
+              <h2 className="font-corinthia font-semibold text-base md:text-3xl lg:text-4xl tracking-wider bottom-[5%] text-white right-1/2 md:left-auto md:translate-x-0 md:top-[35%] md:right-[15%]">
+                Crafted. Curated. Bespoke
+              </h2>
+            </div>
+          )}
 
         {/* Slide Indicators */}
         <div className="absolute bottom-4 flex space-x-2">
