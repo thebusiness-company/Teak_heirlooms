@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,7 +8,9 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import RelatedProduct from "./RelatedProduct";
 import api from "../../api";
 import { toast } from "react-toastify";
-import {FaStar,FaStarHalfAlt,FaRegStar} from "react-icons/fa"
+import {FaStar,FaStarHalfAlt,FaRegStar} from "react-icons/fa";
+import WhatsApp from "../../assets/images/WhatsApp.png";
+
 
 // Custom Left Arrow for Color Slider
 const PrevArrow = ({ onClick }) => (
@@ -130,6 +132,8 @@ useEffect(() => {
     ],
   };
   
+  console.log("product: ", product);
+  
 
   return (
     <>
@@ -248,6 +252,25 @@ useEffect(() => {
               ? "ADDED TO CART"
               : "ADD TO CART"}
           </button>
+          {!product.in_stock && (
+            <div className="text-center mt-2">
+              <a
+                href="https://wa.me/7339574747"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block cursor-pointer text-sm md:text-base xl:text-lg"
+              >
+                <span className="underline lg:no-underline lg:hover:underline">
+                  Obsessed with this? WhatsApp us!
+                </span>
+                <img
+                  src={WhatsApp}
+                  alt="WhatsApp"
+                  className="w-auto h-6 md:h-7 lg:h-7 inline-block align-middle pl-1"
+                />
+              </a>
+            </div>
+          )}
         </div>
 
         {/* Column 2: Main Image */}
