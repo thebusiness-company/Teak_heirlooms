@@ -21,7 +21,7 @@ const SearchBar = ({ onSearch }) => {
           placeholder="Search for your product"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyPress}
           className="bg-transparent outline-none w-full text-sm md:text-base text-gray-700 placeholder-gray-500"
         />
         <Search className="h-5 w-5 text-red-600 cursor-pointer" onClick={handleSearch} />
