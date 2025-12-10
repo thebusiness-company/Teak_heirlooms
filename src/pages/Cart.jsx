@@ -10,7 +10,6 @@ const Cart = () => {
   const cart_code = localStorage.getItem("cart_code");
   const [cartItems, setCartItems] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
-  const [shippingCost, setShippingCost] = useState(500); // Updated
   const [showAddressForm, setShowAddressForm] = useState(false);
   const [userAddresses, setUserAddresses] = useState([]);
   const [selectedAddress, setSelectedAddress] = useState(null);
@@ -18,6 +17,7 @@ const Cart = () => {
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
   const navigate = useNavigate();
+  const shippingCost = 500;
 
   const total = useMemo(() => subtotal + shippingCost, [subtotal, shippingCost]);
 
@@ -33,6 +33,8 @@ const Cart = () => {
     try {
       const response = await api.get(`/get_cart?cart_code=${cart_code}`);
       setCartItems(response.data.items);
+      console.log("response.data.items", response.data.items);
+      
       calculateSubtotal(response.data.items);
     } catch (error) {
       console.error("Error fetching cart:", error);
@@ -219,12 +221,17 @@ const Cart = () => {
       {/* Left: Cart Items */}
       <div className="flex-1 bg-[#EDEAE5] p-4 rounded-2xl md:rounded-r-none md:rounded-l-2xl lg:pb-12">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl md:text-3xl text-[#3B493F] lg:pt-6 lg:pl-8">Shopping Cart</h2>
+          <h2 className="text-xl md:text-3xl text-[#3B493F] lg:pt-6 lg:pl-8">
+            Shopping Cart
+          </h2>
           <span className="lg:pt-8">{cartItems.length} Items</span>
         </div>
         <hr />
         {cartItems.map((item) => (
-          <div key={item.id} className="flex items-center border-b py-4 px-2 md:px-4 lg:pl-8">
+          <div
+            key={item.id}
+            className="flex items-center border-b py-4 px-2"
+          >
             <img
               src={
                 item.product.images[0]?.image
@@ -237,23 +244,28 @@ const Cart = () => {
             <div className="flex items-center ml-2 md:ml-8">
               <button
                 onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                className="px-2 py-1 text-[#9C0300] text-2xl"
+                className="px-2 py-1 text-[#9C0300] text-2xl cursor-pointer"
               >
                 -
               </button>
               <span className="px-2 md:px-4 border">{item.quantity}</span>
               <button
                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                className="px-2 py-1 text-[#9C0300] text-2xl"
+                className="px-2 py-1 text-[#9C0300] text-2xl cursor-pointer"
               >
                 +
               </button>
             </div>
             <div className="flex-1 ml-2 md:ml-8">
-              <p className="font-medium text-sm md:text-base ">{item.product.name}</p>
+              <p className="font-medium text-sm md:text-base ">
+                {item.product.name}
+              </p>
               <p className="text-gray-500">Rs.{item.product.price}</p>
             </div>
-            <button onClick={() => deleteItem(item.id)} className="text-[#9C0300] px-2 md:px-4 lg:px-6">
+            <button
+              onClick={() => deleteItem(item.id)}
+              className="text-[#9C0300] px-2 md:px-4 lg:px-6 cursor-pointer"
+            >
               ✖
             </button>
           </div>
@@ -262,27 +274,31 @@ const Cart = () => {
 
       {/* Right: Summary */}
       <div className="w-full md:w-1/3 bg-[#F5F5F5] p-4 mt-6 md:mt-0 rounded-2xl md:rounded-l-none md:rounded-r-2xl lg:pb-12">
-        <h3 className="text-lg text-[#3B493F] font-semibold mb-4 lg:mt-8">Summary</h3>
+        <h3 className="text-lg text-[#3B493F] font-semibold mb-4 lg:mt-8">
+          Summary
+        </h3>
         <hr />
-        <div className="flex justify-between mt-2">
+        <div className="flex justify-between mt-4">
           <span>ITEMS: {cartItems.length}</span>
           <span>Rs.{subtotal}</span>
         </div>
-        <div className="mt-6">
+        <div className="mt-6 flex justify-between mb-4">
           <span>SHIPPING</span>
-          <select
+          {/* <select
             className="w-full p-2 border rounded mt-2 mb-16 bg-[#3B493F] text-white"
             value={shippingCost}
             onChange={(e) => setShippingCost(Number(e.target.value))}
           >
             <option value={500}>Standard Delivery - Rs.500</option>
             <option value={1000}>Express Delivery - Rs.1000</option>
-          </select>
+          </select> */}
+          <span className="">Rs.{shippingCost}</span>
         </div>
         <hr />
         <div className="flex justify-between mt-10">
           <div>
-            <span>TOTAL PRICE</span><br />
+            <span>TOTAL PRICE</span>
+            <br />
             <span className="text-xs text-[#9C0300]">Incl of gst</span>
           </div>
           <span>Rs.{total}</span>

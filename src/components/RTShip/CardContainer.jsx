@@ -76,19 +76,23 @@ const ProductGrid = () => {
 
   return (
     <div className="max-w-6xl mx-auto p-4">
-      <h2 className="text-center text-3xl lg:text-5xl lg:mt-4 font-infant font-bold mb-6 text-[#3B493F]">
+      <h2 className="text-center text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl lg:mt-4 font-infant font-bold mb-6 text-[#3B493F]">
         Ready to Ship
       </h2>
 
       {/* Most Sold Products Section */}
       <div>
-        <h3 className="text-2xl lg:text-3xl font-semibold mb-4 text-[#3B493F] font-infant">Most Sold Products</h3>
+        <h3 className="text-2xl lg:text-3xl font-semibold mb-4 text-[#3B493F] font-infant">
+          Most Sold Products
+        </h3>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4">
           {mostSoldProducts.length > 0 ? (
             mostSoldProducts.map((item) => (
               <ProductCard
                 key={item.product?.slug}
-                image={item.product?.images?.[0]?.image || "/fallback-image.jpg"}
+                image={
+                  item.product?.images?.[0]?.image || "/fallback-image.jpg"
+                }
                 title={item.product?.name || "No Title"}
                 price={item.product?.price || "N/A"}
                 slug={item.product?.slug}
@@ -96,20 +100,26 @@ const ProductGrid = () => {
               />
             ))
           ) : (
-            <p className="col-span-full text-center text-gray-500">No Most Sold Products Found</p>
+            <p className="col-span-full text-center text-gray-500">
+              No Most Sold Products Found
+            </p>
           )}
         </div>
       </div>
 
       {/* New Arrival Section */}
       <div className="mt-10">
-        <h3 className="text-2xl lg:text-3xl font-semibold mb-4 text-[#3B493F] font-infant">New Arrivals</h3>
+        <h3 className="text-2xl lg:text-3xl font-semibold mb-4 text-[#3B493F] font-infant">
+          New Arrivals
+        </h3>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4">
           {newArrivals.length > 0 ? (
             newArrivals.map((item) => (
               <ProductCard
                 key={item.product?.slug}
-                image={item.product?.images?.[0]?.image || "/fallback-image.jpg"}
+                image={
+                  item.product?.images?.[0]?.image || "/fallback-image.jpg"
+                }
                 title={item.product?.name || "No Title"}
                 price={item.product?.price || "N/A"}
                 slug={item.product?.slug}
@@ -117,7 +127,9 @@ const ProductGrid = () => {
               />
             ))
           ) : (
-            <p className="col-span-full text-center text-gray-500">No New Arrivals Found</p>
+            <p className="col-span-full text-center text-gray-500">
+              No New Arrivals Found
+            </p>
           )}
         </div>
       </div>

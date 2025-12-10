@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-// Import your central BASEURL if available, otherwise keep the hardcoded one for testing
 import { BASEURL } from "../../api"; 
 
 const API_URL =  `${BASEURL}/api/products/`

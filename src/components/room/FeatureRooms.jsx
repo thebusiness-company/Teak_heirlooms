@@ -62,25 +62,35 @@ const FeaturedBedrooms = () => {
 
   return (
     <div className="px-4 md:px-16 py-8 relative max-w-8xl mx-auto">
-      <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-6 font-infant">Featured Bedrooms</h2>
+      <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-6 font-infant">
+        Featured Bedrooms
+      </h2>
       <div className="relative">
         <Slider ref={sliderRef} {...settings}>
-        {bedroomData.map((item) => (
-          
-          <div key={item.id} className="px-2">
-            <Link to='/room' className="relative overflow-hidden text-center">
-              <img
-                src={item.image}
-                alt="bedroom"
-                className="w-full h-[420px] object-cover"
-              />
-              <div className="absolute bottom-4 bg-[#9C0300] bg-opacity-90 text-white flex justify-center items-center w-3/4 py-2 text-sm md:text-base font-medium left-1/2 transform -translate-x-1/2">
+          {bedroomData.map((item) => (
+            <div key={item.id} className="px-2">
+              <Link to="/room" className="relative overflow-hidden text-center">
+                <img
+                  src={item.image}
+                  alt="bedroom"
+                  className="w-full h-[420px] object-cover"
+                />
+                {/* <div className="absolute bottom-4 bg-[#9C0300] bg-opacity-90 text-white flex justify-center items-center w-3/4 py-2 text-sm md:text-base font-medium left-1/2 transform -translate-x-1/2">
                 {item.text}
-              </div>
-            </Link>
+              </div> */}
 
-          </div>
-        ))}
+                {/* Center ribbon overlay */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="absolute top-1/2 left-0 w-full h-[30%] -translate-y-1/2 bg-[linear-gradient(to_right,#FFFFFF00_0%,#FFFFFFB3_20%,#FFFFFFE6_50%,#FFFFFFB3_80%,#FFFFFF00_100%)]"></div>
+
+                  {/* Text */}
+                  <span className="absolute  font-infant text-base md:text-xl font-semibold tracking-wide uppercase">
+                    Coming Soon
+                  </span>
+                </div>
+              </Link>
+            </div>
+          ))}
         </Slider>
       </div>
     </div>

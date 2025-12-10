@@ -66,13 +66,13 @@ const DBASection = () => {
   };
 
   return (
-    <div className="w-full max-w-[90%] mx-auto text-center py-10">
-      <h2 className="mx-4 text-3xl md:text-4xl font-bold text-[#3b493f] font-infant tracking-wide">
+    <div className="w-full max-w-[90%] mx-auto text-center py-10 mt-4 md:mt-0">
+      <h2 className="mx-4 text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-[#3b493f] font-infant tracking-wide">
         The Design & Build Advantage
       </h2>
       <p className="text-gray-600 mt-4 mx-4">
-        Where your vision meets masterful craftsmanship to create timeless,
-        bespoke pieces that define luxury living
+        Your vision, our craftsmanship – thoughtful design meets timeless,
+        bespoke living experiences
       </p>
 
       {/* mobile view slider format  */}
@@ -98,21 +98,21 @@ const DBASection = () => {
 
       {/* desktop view grid format  */}
       <div className="hidden md:grid grid-cols-3 mt-8">
-          {items.map((item) => (
-            <div key={item.id} className="px-2 lg:px-4">
-              <div className="bg-white p-4 text-left">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className=" w-full h-auto mb-8"
-                />
-                <h3 className="text-lg font-semibold text-[#3B493F] mb-4">
-                  {item.title}
-                </h3>
-                <p className=" text-[#3B493F]">{item.desc}</p>
-              </div>
+        {items.map((item) => (
+          <div key={item.id} className="px-2 lg:px-4">
+            <div className="bg-white p-4 text-left">
+              <img
+                src={item.image}
+                alt={item.title}
+                className=" w-full h-auto mb-8"
+              />
+              <h3 className="text-lg font-semibold text-[#3B493F] mb-4">
+                {item.title}
+              </h3>
+              <p className=" text-[#3B493F]">{item.desc}</p>
             </div>
-          ))}
+          </div>
+        ))}
       </div>
     </div>
   );

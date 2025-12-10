@@ -69,7 +69,7 @@ const HomeCollection = () => {
       { id: 3, image: tables, title: "Tables", categoryChoice: "tables" },
       { id: 4, image: bookshelf, title: "Book Shelf", categoryChoice: "book-shelf" },
       { id: 5, image: cabinet, title: "Cabinet", categoryChoice: "cabinet" },
-      { id: 6, image: Dining, title: "Dinning", categoryChoice: "dinning" },
+      { id: 6, image: Dining, title: "Dining", categoryChoice: "dining" },
       { id: 7, image: bar, title: "Bar", categoryChoice: "bar" },
       { id: 8, image: poojaunit, title: "Pooja", categoryChoice: "pooja" },
       { id: 9, image: tvunit, title: "TV Units", categoryChoice: "tv-units" },

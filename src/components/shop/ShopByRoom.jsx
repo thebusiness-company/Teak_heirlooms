@@ -78,7 +78,7 @@ const ShopByRoom = () => {
 
   return (
     <div className="w-full max-w-[90%] mx-auto text-center py-8 px-3 relative">
-      <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-[#3b493f] mb-6 md:mb-10 font-infant">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-semibold text-[#3b493f] mb-6 md:mb-10 font-infant">
         Shop by Room
       </h2>
 
@@ -94,7 +94,7 @@ const ShopByRoom = () => {
                     className="w-full h-auto max-h-[280px] md:max-h-[400px] object-cover"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#38493f] to-transparent p-4">
-                    <p className="text-white text-xl lg:text-4xl text-center font-semibold font-infant custom-text-shadow tracking-wide">
+                    <p className="text-white text-xl lg:text-4xl text-center font-semibold font-infant custom-text-shadow tracking-wide leading-tight">
                       {product.title}
                     </p>
                   </div>

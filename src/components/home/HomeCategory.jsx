@@ -21,8 +21,8 @@ const categories = [
     name:"Sofas",
   },
   {
-    title: "DINNING",
-    subtitle: "THE ART OF DINNING",
+    title: "DINING",
+    subtitle: "THE ART OF DINING",
     description: "Dining Table sets start from",
     price: "Rs. 49,999",
     image: C3,

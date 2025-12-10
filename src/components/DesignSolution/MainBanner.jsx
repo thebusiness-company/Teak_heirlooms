@@ -34,7 +34,7 @@ const MainBanner = () => {
     <div className="relative w-full">
       {/* Text Section */}
       <div className="bg-white text-center py-10 px-4 w-full max-w-[90%] mx-auto">
-        <h2 className="text-3xl md:text-4xl font-infant font-bold text-[#3B493F] mb-6 lg:mb-8">
+        <h2 className="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-infant font-bold text-[#3B493F] mb-6 lg:mb-8">
           Why Choose us?
         </h2>
         <p className="text-[#3B493F] mt-2 text-sm sm:text-base md:text-lg">

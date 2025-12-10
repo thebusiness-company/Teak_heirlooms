@@ -31,6 +31,7 @@ import OrderStatus from "./pages/OrderStatus";
 import OrderDetails from "./components/order/OrderDetails";
 import ShippingandDelivery from "./pages/ShippingandDelivery";
 import TermsAndConditions from "./pages/TermsAndConditions";
+import Campaign from "./pages/campaign/Campaign";
 
 function App() {
   const[numCartItems, setNumCartItems] = useState(0);
@@ -86,6 +87,7 @@ function App() {
             <Route path="/orderdetails" element={< OrderDetails/>} />
             <Route path="/shipping-delivery" element={< ShippingandDelivery/>} />
             <Route path="/terms" element={< TermsAndConditions/>} />
+            <Route path="/campaign" element={< Campaign />} />
             
           </Route>
         </Routes>

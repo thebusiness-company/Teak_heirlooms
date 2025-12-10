@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,12 +8,15 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import RelatedProduct from "./RelatedProduct";
 import api from "../../api";
 import { toast } from "react-toastify";
-import {FaStar,FaStarHalfAlt,FaRegStar} from "react-icons/fa"
+import {FaStar,FaStarHalfAlt,FaRegStar} from "react-icons/fa";
+import WhatsApp from "../../assets/images/WhatsApp.png";
+
 
 // Custom Left Arrow for Color Slider
 const PrevArrow = ({ onClick }) => (
   <button
     className="absolute left-0 top-1/2 transform -translate-y-1/2 p-2 rounded-full z-10 cursor-pointer"
+    aria-label="Previous color"
     onClick={onClick}
   >
     <ChevronLeftIcon className="w-5 h-5" />
@@ -23,6 +26,7 @@ const PrevArrow = ({ onClick }) => (
 const NextArrow = ({ onClick }) => (
   <button
     className="absolute right-0 top-1/2 transform -translate-y-1/2 p-2 rounded-full z-10 cursor-pointer"
+    aria-label="Next color"
     onClick={onClick}
   >
     <ChevronRightIcon className="w-5 h-5" />
@@ -57,12 +61,21 @@ const ProductDetail = ({setNumCartItems}) => {
     });
 }, [slug]);
 
+useEffect(() => {
+  window.scrollTo({top:0, behavior: "smooth"})
+},[slug])
+
 const Newitem = {
     cart_code: cart_code,
     product_id: product?.id,
 };
 
 function add_item() {
+
+   if (!product.in_stock) {
+     toast.error("This product is out of stock!");
+     return;
+   }
     api.post('add_item/', Newitem)
     .then((response) => {
         console.log(response.data);
@@ -118,42 +131,71 @@ useEffect(() => {
       { breakpoint: 768, settings: { slidesToShow: 3 } },
     ],
   };
+  
+  console.log("product: ", product);
+  
 
   return (
     <>
       <div className="p-4 md:p-8 max-w-7xl mx-auto font-sans grid grid-cols-1 md:grid-cols-3 gap-6 overflow-x-hidden">
         {/* Column 1 */}
         <div className="space-y-6 md:mr-6">
-          <h1 className="text-3xl font-bold">{product.name}</h1>
+          <div className="flex flex-col md:flex-row md:items-end gap-6">
+            <h1 className="text-3xl font-bold">{product.name}</h1>
+            {!product.in_stock && (
+              <span className="bg-[#9C0300] text-white text-xs px-2 py-1 rounded w-fit">
+                Out of Stock
+              </span>
+            )}
+          </div>
           <div className="flex items-center">
-            <div className="pr-2"><p>Ratings </p></div>
-             {[1, 2, 3, 4, 5].map((value) => {
+            <div className="pr-2">
+              <p>Ratings </p>
+            </div>
+            {[1, 2, 3, 4, 5].map((value) => {
               // Full star
               if (value <= Math.floor(ratingValue)) {
-                return <FaStar key={value} className="text-yellow-400 text-lg" />;
+                return (
+                  <FaStar key={value} className="text-yellow-400 text-lg" />
+                );
               }
               // Half Star
               else if (value - 0.5 <= ratingValue) {
-                return <FaStarHalfAlt key={value} className="text-yellow-400 text-lg" />;
+                return (
+                  <FaStarHalfAlt
+                    key={value}
+                    className="text-yellow-400 text-lg"
+                  />
+                );
               }
               // Empty Star
               else {
-              return <FaRegStar key={value} className="text-gray-300 text-lg" />;
+                return (
+                  <FaRegStar key={value} className="text-gray-300 text-lg" />
+                );
               }
-              })
-              }
-              {product.ratings > 0 && (
-              <span className="text-sm text-gray-700 ml-2">({product.ratings})</span>
-               )}
+            })}
+            {product.ratings > 0 && (
+              <span className="text-sm text-gray-700 ml-2">
+                ({product.ratings})
+              </span>
+            )}
           </div>
           <p>{product.category}</p>
-          {product.customizable && <p className="text-[#9C0300] font-semibold">CUSTOMIZE</p>}
-          <p>Available in {colors.length} Wood Finishes</p>
+          {product.customizable && (
+            <p className="text-[#9C0300] font-semibold">CUSTOMIZE</p>
+          )}
+          {colors.length > 0 && (
+            <p>Available in {colors.length} Wood Finishes</p>
+          )}
 
           {/* Color Slider */}
           {colors.length > 0 && (
             <div className="relative">
-              <Slider {...colorSliderSettings} className="border pl-12 rounded-2xl">
+              <Slider
+                {...colorSliderSettings}
+                className="border pl-12 rounded-2xl"
+              >
                 {colors.map((color, index) => (
                   <div
                     key={index}
@@ -188,29 +230,71 @@ useEffect(() => {
           </div>
           <div className="flex gap-32 md:gap-12 lg:gap-32 mx-4">
             <p>Price</p>
-            <p className="text-2xl font-semibold">₹ {product.price?.toFixed(2) || "N/A"}</p>
+            <p className="text-2xl font-semibold">
+              ₹ {product.price?.toFixed(2) || "N/A"}
+            </p>
           </div>
 
-          <button 
-          onClick={add_item}
-          disabled={inCart}
-          className="bg-[#9C0300] w-full text-white px-6 py-3 cursor-pointer font-semibold mt-4 hover:bg-red-700">
-            {inCart ? 'ADDED TO CART' : 'ADD TO CART'}
+          <button
+            onClick={add_item}
+            disabled={inCart || !product.in_stock}
+            className={`bg-[#9C0300] w-full text-white px-6 py-3  font-semibold mt-4 ${
+              !product.in_stock
+                ? "bg-gray-400 hover:cursor-not-allowed"
+                : inCart
+                ? "cursor-default"
+                : "cursor-pointer hover:bg-red-700 transition-colors duration-300"
+            }`}
+          >
+            {!product.in_stock
+              ? "Out of Stock"
+              : inCart
+              ? "ADDED TO CART"
+              : "ADD TO CART"}
           </button>
+          {!product.in_stock && (
+            <div className="text-center mt-2">
+              <a
+                href="https://wa.me/7339574747"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block cursor-pointer text-sm md:text-base xl:text-lg"
+              >
+                <span className="underline lg:no-underline lg:hover:underline">
+                  Obsessed with this? WhatsApp us!
+                </span>
+                <img
+                  src={WhatsApp}
+                  alt="WhatsApp"
+                  className="w-auto h-6 md:h-7 lg:h-7 inline-block align-middle pl-1"
+                />
+              </a>
+            </div>
+          )}
         </div>
 
         {/* Column 2: Main Image */}
         {images.length > 0 && (
           <div className="relative flex items-center justify-center mx-6 md:mx-2">
             <button
-              onClick={() => setCurrentImage((currentImage - 1 + images.length) % images.length)}
+              onClick={() =>
+                setCurrentImage(
+                  (currentImage - 1 + images.length) % images.length
+                )
+              }
               className="absolute left-[-40px] top-1/2 transform -translate-y-1/2 p-2 rounded-full"
             >
               <ChevronLeftIcon className="w-5 h-5" />
             </button>
-            <img src={images[currentImage]} alt="Product" className="max-w-full h-120 mx-20" />
+            <img
+              src={images[currentImage]}
+              alt="Product"
+              className="max-w-full h-120 mx-20"
+            />
             <button
-              onClick={() => setCurrentImage((currentImage + 1) % images.length)}
+              onClick={() =>
+                setCurrentImage((currentImage + 1) % images.length)
+              }
               className="absolute right-[-40px] top-1/2 transform -translate-y-1/2 p-2 rounded-full"
             >
               <ChevronRightIcon className="w-5 h-5" />
@@ -241,23 +325,44 @@ useEffect(() => {
               </div>
             )}
           </div>
-          <div className="flex flex-col items-center">
-            <p className="text-[#9C0300] font-semibold mt-5 text-center mb-4 text-xl">Dimensions</p>
-            <div className="text-left flex flex-row md:flex-col items-start md:items-center justify-center lg:flex-col gap-8 md:gap-2 bg-[#fff1df] max-w-full md:max-w-24 lg:max-w-36 p-6 md:px-16 lg:px-20 md:py-2">
-              <div className="mt-4 max-w-16 md:w-24 lg:w-36">
-                <p className="text-[#9C0300]">Length:</p>
-                <p><strong>{product.dimensions?.length || "N/A"} cm</strong></p>
-              </div>
-              <div className="mt-4 max-w-16 md:mt-5 md:w-24 lg:w-36">
-                <p className="text-[#9C0300]">Breadth:</p> 
-                <p><strong>{product.dimensions?.breadth || "N/A"} cm</strong></p>
-              </div>
-              <div className="mt-4 max-w-16 md:mt-5 md:w-24 lg:w-36">
-                <p className="text-[#9C0300]">Height:</p> 
-                <p><strong>{product.dimensions?.height || "N/A"} cm</strong></p>
+          {product.dimensions && Object.keys(product.dimensions).length > 0 && (
+            <div className="flex flex-col items-center">
+              <p className="text-[#9C0300] font-semibold mt-5 text-center mb-4 text-xl">
+                Dimensions
+              </p>
+              {/* <div className="text-left flex flex-row md:flex-col items-start md:items-center justify-center lg:flex-col gap-8 md:gap-2 bg-[#fff1df] max-w-full md:max-w-24 lg:max-w-36 p-6 md:px-16 lg:px-20 md:py-2">
+                  <div className="mt-4 max-w-16 md:w-24 lg:w-36">
+                    <p className="text-[#9C0300]">Length:</p>
+                    <p>
+                      <strong>{product.dimensions?.length || "-"}</strong>
+                    </p>
+                  </div>
+                  <div className="mt-4 max-w-16 md:mt-5 md:w-24 lg:w-36">
+                    <p className="text-[#9C0300]">Breadth:</p>
+                    <p>
+                      <strong>{product.dimensions?.breadth || "-"}</strong>
+                    </p>
+                  </div>
+                  <div className="mt-4 max-w-16 md:mt-5 md:w-24 lg:w-36">
+                    <p className="text-[#9C0300]">Height:</p>
+                    <p>
+                      <strong>{product.dimensions?.height || "-"}</strong>
+                    </p>
+                  </div>
+                </div> */}
+              <div className="text-left flex flex-row md:flex-col items-start md:items-center justify-center lg:flex-col gap-8 md:gap-2 bg-[#fff1df] max-w-full md:max-w-24 lg:max-w-36 p-6 md:px-16 lg:px-20 md:py-2">
+                {Object.entries(product.dimensions).map(([key, value]) => (
+                  <div
+                    key={key}
+                    className="mt-4 max-w-16 md:mt-5 md:w-24 lg:w-36"
+                  >
+                    <span className="text-[#9C0300] block">{key}</span>{" "}
+                    <span className="font-semibold">{value}</span>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
+          )}
         </div>
 
         {/* Product Description */}
