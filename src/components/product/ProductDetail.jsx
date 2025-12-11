@@ -48,7 +48,7 @@ const ProductDetail = ({setNumCartItems}) => {
   // Fetch product data
   useEffect(() => {
     setLoading(true);
-    api.get(`products/${slug}`)
+    api.get(`products/${slug}/`)
     .then((response) => {
         console.log(response.data);
         setProduct(response.data);
@@ -68,6 +68,9 @@ useEffect(() => {
 const Newitem = {
     cart_code: cart_code,
     product_id: product?.id,
+    finishes: selectedColor,
+    quantity: quantity,
+
 };
 
 function add_item() {
@@ -90,7 +93,7 @@ function add_item() {
 
 useEffect(() => {
     if (product?.id) {
-        api.get(`product_in_cart?cart_code=${cart_code}&product_id=${product.id}`)
+        api.get(`product_in_cart/?cart_code=${cart_code}&product_id=${product.id}`)
         .then((response) => {
             console.log(response.data);
             setInCart(response.data.product_in_cart);

@@ -10,7 +10,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 ReactDOM.createRoot(document.getElementById("root")).render(
   <QueryClientProvider client={queryClient}>
     <ToastProvider>
-    <GoogleOAuthProvider clientId="496767715933-e1408l6j5a7dfn2qvtlvqs538d48emdb.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId="760079219750-4qfne3m532ocnulu0651s1aqgmm1boug.apps.googleusercontent.com">
     <App />
     </GoogleOAuthProvider>
     </ToastProvider>

@@ -40,7 +40,7 @@ function App() {
   useEffect(() => {
     console.log(cart_code,'cart_codeqqqqqqqqqqqqq');
     if (cart_code) {
-      api.get(`get_cart_status?cart_code=${cart_code}`)
+      api.get(`get_cart_status/?cart_code=${cart_code}`)
         .then((response) => {
           console.log(response.data);
           console.log(response.data.number_of_items,'num_cart_items');
