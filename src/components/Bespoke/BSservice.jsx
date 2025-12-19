@@ -4,10 +4,10 @@ import "slick-carousel/slick/slick-theme.css";
 import PrevArrow from "../../assets/images/Left.png"; // Custom left arrow
 import NextArrow from "../../assets/images/Right.png"; // Custom right arrow
 import PropTypes from 'prop-types';
-import S1 from "../../assets/images/Bespoke/floral.png";
-import S2 from "../../assets/images/Bespoke/sp.png";
-import S3 from "../../assets/images/Bespoke/seaters.png";
-import S4 from "../../assets/images/Bespoke/luxury.png";
+import S1 from "../../assets/images/Bespoke/floral.webp";
+import S2 from "../../assets/images/Bespoke/sp.webp";
+import S3 from "../../assets/images/Bespoke/seaters.webp";
+import S4 from "../../assets/images/Bespoke/luxury.webp";
 import { useNavigate } from "react-router-dom";
 
 const products = [

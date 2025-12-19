@@ -1,4 +1,4 @@
-import SE from "../../assets/images/design/speaktoexpert.png";
+import SE from "../../assets/images/design/speaktoexpert.webp";
 import { useNavigate } from "react-router-dom";
 const SESection = () => {
   const navigate = useNavigate();
@@ -6,14 +6,15 @@ const SESection = () => {
     navigate("/contact");
   };
   return (
-    <section className="relative w-full mt-22 mb-10 md:mb-16 lg:mb-22 xl:mb-25 2xl:mb-30 sm:mt-44 md:mt-50 lg:mt-64 2xl:mt-116">
+    <section className="relative w-full mt-21 mb-10 md:mb-16 lg:mb-22 xl:mb-25 2xl:mb-30 sm:mt-40 md:mt-42 lg:mt-62 2xl:mt-112">
       <div className="relative bg-[#2D3A2D] p-15 sm:p-16 md:p-28 xl:p-32 2xl:p-36 text-white flex flex-col justify-end items-end ">
         {/* Image Section */}
         <div className="absolute inset-x-0 -top-[48%] sm:-top-[120%] md:-top-[60%] lg:-top-[100%] xl:-top-[90%] 2xl:-top-[130%] w-1/2 z-6 ">
           <img
             src={SE}
-            alt="Interior Design"
-            className="h-[221px] sm:h-80 w-10/12 md:w-[80%] lg:w-[75%] 2xl:w-[75%]  max-h-full md:h-106 lg:h-134 xl:h-144 2xl:h-194 object-cover ml-4 md:ml-8 lg:ml-14 2xl:ml-18"
+            alt="Expert guiding interior design and furniture choices"
+            loading="lazy"
+            className="h-[221px] sm:h-80 w-10/12 md:w-[80%] lg:w-[75%] 2xl:w-[75%]  max-h-full md:h-106 lg:h-130 xl:h-144 2xl:h-194 object-cover ml-6 md:ml-10 lg:ml-14 2xl:ml-26"
           />
         </div>
         <h2 className="absolute top-2 md:top-6 right-4 md:right-8 sm:right-1 lg:right-40 text-base sm:text-xs md:text-3xl lg:text-4xl xl:text-[42px] 2xl:text-5xl px-2 font-infant text-left font-semibold my-2 sm:mx-2 ">

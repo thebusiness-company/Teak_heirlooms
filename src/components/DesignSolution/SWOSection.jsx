@@ -5,9 +5,9 @@ import PropTypes from "prop-types";
 
 import LeftArrow from "../../assets/images/Left.png";  // Update path if needed
 import RightArrow from "../../assets/images/Right.png";
-import img1 from "../../assets/images/design/S1.png";
-import img2 from "../../assets/images/design/S2.png";
-import img3 from "../../assets/images/design/S3.png";
+import img1 from "../../assets/images/design/S1.webp";
+import img2 from "../../assets/images/design/S2.webp";
+import img3 from "../../assets/images/design/S3.webp";
 
 // Custom Arrow Components
 const CustomPrevArrow = (props) => {
@@ -16,9 +16,13 @@ const CustomPrevArrow = (props) => {
     <button
       onClick={onClick}
       aria-label="Previous Slide"
-      className="absolute left-3 md:left-1 top-[186px] transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
+      className="absolute left-3 md:left-1 top-[186px] md:top-[160px] lg:top-[140px] xl:top-[165px] transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
     >
-      <img src={LeftArrow} alt="Previous" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
+      <img
+        src={LeftArrow}
+        alt="Previous"
+        className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
+      />
     </button>
   );
 };
@@ -33,9 +37,13 @@ const CustomNextArrow = (props) => {
     <button
       onClick={onClick}
       aria-label="Next Slide"
-      className="absolute right-3 md:right-1 top-[186px] transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
+      className="absolute right-3 md:right-1 top-[186px] md:top-[160px] lg:top-[140px] xl:top-[165px] 2xl:top-[186px] transform -translate-y-1/2 z-10 cursor-pointer bg-[#FFFFFF]"
     >
-      <img src={RightArrow} alt="Next" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
+      <img
+        src={RightArrow}
+        alt="Next"
+        className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
+      />
     </button>
   );
 };
@@ -65,7 +73,7 @@ const SWOSection = () => {
   };
 
   return (
-    <div className="w-full max-w-[90%] mx-auto text-center md:py-10 lg:py-8 ">
+    <div className="w-full max-w-[90%] mx-auto text-center md:pt-6 pb-2 md:pb-4 lg:py-8 ">
       <h2 className="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-[#3b493f] font-infant">
         Services We Offer
       </h2>
@@ -87,7 +95,8 @@ const SWOSection = () => {
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-auto mb-4"
+                  loading="lazy"
+                  className="w-full h-auto mb-1 md:mb-4"
                 />
                 {/* <h3 className="text-lg font-semibold text-[#3b493f]">{service.title}</h3>
                 <p className="text-[#3b493f]">{service.desc}</p> */}

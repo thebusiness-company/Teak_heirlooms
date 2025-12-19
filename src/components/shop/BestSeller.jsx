@@ -87,7 +87,7 @@ const BestSeller = () => {
     }
 
   if (error) {
-    return <div>Error loading products</div>;
+    return null;
   }
 
   return (
@@ -107,6 +107,8 @@ const BestSeller = () => {
                       <img
                         src={product.images[0]?.image}
                         alt={product.name}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover"
                       />
                     </div>

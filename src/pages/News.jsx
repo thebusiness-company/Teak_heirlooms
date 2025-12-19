@@ -1,7 +1,7 @@
-import N1 from '../assets/images/news-1.png'
-import N2 from '../assets/images/news-2.png'
-import N3 from '../assets/images/news-3.png'
-import NB from '../assets/images/news-4.png'
+import N1 from '../assets/images/news-1.webp';
+import N2 from '../assets/images/news-2.webp';
+import N3 from '../assets/images/news-3.webp';
+import NB from '../assets/images/news-4.webp';
 
 const NewsSection = () => {
   return (
@@ -31,7 +31,8 @@ const NewsSection = () => {
           <div className="my-6 md:mb-0">
             <img
               src={N1}
-              alt="Article"
+              loading="lazy"
+              alt="Yuyu Double teak seating with two U-shaped pieces"
               className="w-full h-48 md:h-52 object-cover rounded"
             />
           </div>
@@ -56,7 +57,8 @@ const NewsSection = () => {
           <div className="mb-6 md:mb-0">
             <img
               src={N2}
-              alt="Article"
+              loading="lazy"
+              alt="Root Bench outdoor teak seating"
               className="w-full h-48 xl:h-52 aspect-square object-cover object-bottom rounded"
             />
           </div>
@@ -79,7 +81,8 @@ const NewsSection = () => {
           <div className="flex justify-end mt-6 md:mt-0">
             <img
               src={N3}
-              alt="Article"
+              loading="lazy"
+              alt="Leafy ancient-style teak wall panel"
               className="w-full h-48 xl:h-52 object-cover object-bottom rounded"
             />
           </div>
@@ -112,7 +115,8 @@ const NewsSection = () => {
 
             <img
               src={NB}
-              alt="Article"
+              loading="lazy"
+              alt="Reclining god statue"
               className="w-full h-full max-h-36 lg:max-h-48 lg:h-48 object-cover object-bottom rounded"
             />
           </div>

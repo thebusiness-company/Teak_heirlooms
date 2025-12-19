@@ -13,7 +13,7 @@ const SubCategoryProducts = () => {
   });
 
   if (isLoading) return <div className="text-center py-8">Loading products...</div>;
-  if (error) return <div className="text-red-500 text-center py-8">Error: {error.message}</div>;
+  if (error) return null;
 
   return (
     <div className="container mx-auto px-4 py-8">

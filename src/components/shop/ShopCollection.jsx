@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
-import Img from "../../assets/images/shop/image.jpg";
-import c1 from "../../assets/images/shop/shopcol-1.png";
-import c2 from "../../assets/images/shop/shopcol-2.png";
-import c3 from "../../assets/images/shop/shopcol-3.png";
-import c4 from "../../assets/images/shop/shopcol-4.png";
+import c1 from "../../assets/images/shop/shopcol-1.webp";
+import c2 from "../../assets/images/shop/shopcol-2.webp";
+import c3 from "../../assets/images/shop/shopcol-3.webp";
+import c4 from "../../assets/images/shop/shopcol-4.webp";
 
 const collections = [
   {
@@ -62,6 +61,8 @@ const ShopCollection = () => {
                 <img
                   src={collection.image}
                   alt={collection.title}
+                  loading='lazy'
+                  decoding='async'
                   className="w-full h-auto object-cover"
                 />
               </div>

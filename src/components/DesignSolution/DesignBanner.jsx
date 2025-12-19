@@ -1,4 +1,4 @@
-import Img from '../../assets/images/design/DesignBanner.png';
+import Img from '../../assets/images/design/DesignBanner.webp';
 import logo from '../../assets/images/logo.png';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,19 +7,27 @@ const DesignBanner = () => {
   return (
     <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px]">
       {/* Background Image */}
-      <img src={Img} alt="Banner" className="w-full h-full object-cover" />
+      <img
+        src={Img}
+        alt="Teak furniture design and build banner"
+        className="w-full h-full object-cover"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
 
       {/* Consultation Button */}
-      <button 
-      className="absolute bottom-10 left-5 md:left-10 bg-[#9C0300] text-white px-4 py-2 md:px-6 rounded-full font-semibold shadow-md hover:bg-red-700 text-sm md:text-base cursor-pointer"
-      onClick={() => navigate("/contact")}>
+      <button
+        className="absolute bottom-10 left-5 md:left-10 bg-[#9C0300] text-white px-4 py-2 md:px-6 rounded-full font-semibold shadow-md hover:bg-red-700 text-sm md:text-base cursor-pointer"
+        onClick={() => navigate("/contact")}
+      >
         BOOK A CONSULTATION
       </button>
 
       {/* Text Box */}
       <div className="absolute top-1/3 right-10 md:right-20 lg:right-28 bg-[rgba(255,241,223,0.8)] bg-opacity-90 p-4 md:p-8 shadow-lg w-[150px] md:w-[200px] lg:w-[290px]">
         {/* Logo */}
-        <img src={logo} alt="Teak Heirlooms"  />
+        <img src={logo} alt="Teak Heirlooms" />
 
         {/* Heading */}
         <h3 className="text-[#3B493F] font-semibold text-xl md:text-3xl mt-4 md:mt-6 text-center font-infant">

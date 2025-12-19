@@ -1,32 +1,32 @@
 import { Link } from "react-router-dom";
-import C1 from "../../assets/images/hc1-beds.png";
-import C2 from "../../assets/images/hc2-sofas.png";
-import C3 from "../../assets/images/hc3-dinning.png";
+import C1 from "../../assets/images/hc1-beds.webp";
+import C2 from "../../assets/images/hc2-sofas.webp";
+import C3 from "../../assets/images/hc3-dinning.webp";
 
 const categories = [
   {
     title: "BEDS",
     subtitle: "THE MODERN LIFE",
     description: "Bed sets start from",
-    price: "Rs. 49,999",
+    price: "Rs. 54,880",
     image: C1,
-    name:"Beds",
+    name: "Beds",
   },
   {
     title: "TRANSFORMING SPACES",
     subtitle: "FOR MODERN LIFE",
     description: "Single Chair Sofa starts from",
-    price: "Rs. 8,999",
+    price: "Rs. 26,544",
     image: C2,
-    name:"Sofas",
+    name: "Sofas",
   },
   {
     title: "DINING",
     subtitle: "THE ART OF DINING",
     description: "Dining Table sets start from",
-    price: "Rs. 49,999",
+    price: "Rs. 1,20,000",
     image: C3,
-    name:"Dinning",
+    name: "Dining",
   },
 ];
 
@@ -43,6 +43,8 @@ const HomeCategory = () => {
               src={category.image}
               alt={category.title}
               className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500 ease-in-out"
+              loading="lazy"
+              decoding='async'
             />
             <div className="absolute inset-0 opacity-100 bg-gradient-to-t from-white/20 via-transparent to-black/50 z-10"></div>
             <div className="absolute inset-0 flex flex-col justify-start items-center text-white text-center p-4 lg:mt-10 z-20">

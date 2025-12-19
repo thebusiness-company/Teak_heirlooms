@@ -110,7 +110,7 @@ useEffect(() => {
   }, [product, selectedColor]);
 
   if (loading) return <p className="text-center text-lg">Loading product...</p>;
-  if (error) return <p className="text-center text-lg text-red-500">{error}</p>;
+  if (error) return null;
   if (!product) return null;
 
   const ratingValue = product?.ratings || 0;
@@ -283,12 +283,13 @@ useEffect(() => {
                 )
               }
               className="absolute left-[-40px] top-1/2 transform -translate-y-1/2 p-2 rounded-full"
+              aria-label="Previous product image"
             >
               <ChevronLeftIcon className="w-5 h-5" />
             </button>
             <img
               src={images[currentImage]}
-              alt="Product"
+              alt={`${product.name}`}
               className="max-w-full h-120 mx-20"
             />
             <button
@@ -296,6 +297,7 @@ useEffect(() => {
                 setCurrentImage((currentImage + 1) % images.length)
               }
               className="absolute right-[-40px] top-1/2 transform -translate-y-1/2 p-2 rounded-full"
+              aria-label="Next product image"
             >
               <ChevronRightIcon className="w-5 h-5" />
             </button>
@@ -309,7 +311,8 @@ useEffect(() => {
               <img
                 key={index}
                 src={img}
-                alt={`Thumbnail ${index}`}
+                alt={`${product.name} Thumbnail ${index + 1}`}
+                loading="lazy"
                 className={`w-16 h-16 cursor-pointer ${
                   currentImage === index ? "border-2" : "border-0"
                 }`}
@@ -318,6 +321,7 @@ useEffect(() => {
             ))}
             {images.length > 8 && (
               <div
+                aria-hidden="true"
                 className="w-16 h-16 flex items-center justify-center bg-cover bg-center text-white bg-amber-300 cursor-pointer"
                 style={{ backgroundImage: `url(${images[8]})` }}
               >

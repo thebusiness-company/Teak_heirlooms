@@ -5,7 +5,7 @@ const Banner = () => {
       {/* Background Image */}
       <img
         src={img} // Replace with the correct path
-        alt="Banner"
+        alt="Teak furniture collection banner for every room"
         className="w-full h-full object-cover"
       />
 

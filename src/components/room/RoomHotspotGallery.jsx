@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import HotspotDot from "../room/HotspotDot";
 
-import Room1 from "../../assets/images/Rooms/R3.png";
-import Room2 from "../../assets/images/Rooms/R2.png";
-import Room3 from "../../assets/images/Rooms/R3.png";
-import Room4 from "../../assets/images/Rooms/R4.png";
-import Room5 from "../../assets/images/Rooms/R1.png";
+import Room1 from "../../assets/images/Rooms/R3.webp";
+import Room2 from "../../assets/images/Rooms/R2.webp";
+import Room3 from "../../assets/images/Rooms/R3.webp";
+import Room4 from "../../assets/images/Rooms/R4.webp";
+import Room5 from "../../assets/images/Rooms/R1.webp";
 
 const images = [
   {

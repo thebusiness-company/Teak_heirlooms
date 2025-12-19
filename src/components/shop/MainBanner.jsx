@@ -33,7 +33,7 @@ const MainBanner = () => {
      );
    }
    
-  if (error || !banner) return <p className="text-center text-gray-600">No banner available</p>;
+  if (error || !banner) return null;
 
   return (
     <div className="w-full mx-auto flex flex-row flex-nowrap items-center justify-center bg-white mt-8 overflow-hidden">
@@ -42,7 +42,7 @@ const MainBanner = () => {
         <img
           src={banner.image_left || M1}
           // src={M2}
-          alt="Wall Panel 1"
+          alt="Teak furniture featured in shop banner"
           className="w-full max-w-[90%] sm:max-w-[90%] md:max-w-[75%] lg:w-auto h-auto"
         />
       </div>
@@ -68,7 +68,7 @@ const MainBanner = () => {
         <img
           src={banner.image_right || M2}
           // src={M1}
-          alt="Wall Panel 2"
+          alt="Teak furniture featured in shop banner"
           className="w-full max-w-[90%] sm:max-w-[90%] md:max-w-[75%] lg:w-auto h-auto"
         />
       </div>

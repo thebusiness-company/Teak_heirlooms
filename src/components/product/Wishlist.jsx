@@ -48,7 +48,7 @@ const Wishlist = () => {
     });
 
     if (isLoading) return <p className="text-center text-lg">Loading wishlist...</p>;
-    if (error) return <p className="text-center text-lg text-red-500">Error loading wishlist.</p>;
+    if (error) return null;
 
     return (
         <div className="p-4 md:p-8 max-w-7xl mx-auto">

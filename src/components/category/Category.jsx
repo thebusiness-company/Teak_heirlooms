@@ -19,7 +19,7 @@ const Category = () => {
     const { subcategories, isLoading, error } = useSubCategories(category);
     const formattedCategory = formatCategoryName(category);
     if (isLoading) return <div className="text-center py-8">Loading subcategories...</div>;
-    if (error) return <div className="text-red-500 text-center py-8">Error loading subcategories: {error.message}</div>;
+    if (error) return null;
     
     return (
         <>

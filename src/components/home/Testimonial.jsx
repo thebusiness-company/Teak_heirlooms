@@ -7,7 +7,6 @@ import "slick-carousel/slick/slick-theme.css";
 import { getTestimonials } from "../../services/testimonialService";
 import LeftArrow from "../../assets/images/collections/Prev.png"; // Custom left arrow
 import RightArrow from "../../assets/images/collections/Next.png"; // Custom right arrow
-import { data } from "react-router-dom";
 
 
 const CustomPrevArrow = (props) => {
@@ -127,6 +126,7 @@ export default function TestimonialCarousel() {
                 <img
                   src={`${testimonial.image}`}
                   loading="lazy"
+                  decoding="async"
                   alt="Testimonial"
                   className="w-full md:w-1/3 h-56 object-cover rounded mb-4 md:mb-0 md:mr-6"
                 />

@@ -87,7 +87,7 @@ const BestSeller = () => {
   }
 
   if (error) {
-    return <div>Error loading products</div>;
+    return null;
   }
 
   return (
@@ -111,6 +111,8 @@ const BestSeller = () => {
                         }
                         alt={product.name}
                         className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                     <h3 className="text-lg font-medium mt-4 text-[#9C0300]">
