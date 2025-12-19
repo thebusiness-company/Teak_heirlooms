@@ -3,7 +3,6 @@ import ShopPage from "./components/shop/ShopPage";
 import MainLayout from "./Layout/MainLayout"
 import { useState,useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Adminpage from "./admin/Adminpage";
 import RTShipPage from "./components/RTShip/RTShipPage";
 import DesignSolution from "./components/DesignSolution/DesignSolution";
 import BeSpokePage from "./components/Bespoke/BeSpokePage";
@@ -59,8 +58,6 @@ function App() {
       <ScrollProvider>
       <Router>
         <Routes>
-        <Route path="/admin" element={<ProtectedRoute requireSuperuser={true}><Adminpage /></ProtectedRoute>
-}/>
           <Route path="/" element={<MainLayout numCartItems={numCartItems}/>} >
             <Route index element={<Homepage/>}/>
             <Route path="*" element={<NotFoundPage/>} />

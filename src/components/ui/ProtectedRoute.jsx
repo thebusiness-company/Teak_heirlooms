@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { AuthContext } from '../../context/AuthContext';
 import Spinner from './Spinner';
 
-const ProtectedRoute = ({ children, requireSuperuser = false, allowOnlySuperuser = false }) => {
+const ProtectedRoute = ({ children }) => {
     const [isAuthorized, setIsAuthorized] = useState(false);
     const [loading, setLoading] = useState(true);
     const location = useLocation();
@@ -63,23 +63,11 @@ const ProtectedRoute = ({ children, requireSuperuser = false, allowOnlySuperuser
         return <Navigate to="/login" state={{ from: location }} replace />;
     }
 
-    // 🔒 If only superusers are allowed but the user isn't one
-    if (requireSuperuser && !user?.is_superuser) {
-        return <Navigate to="/" replace />;
-    }
-
-    // 🔒 If superusers should only access /admin
-    if (allowOnlySuperuser && user?.is_superuser && location.pathname !== '/admin') {
-        return <Navigate to="/admin" replace />;
-    }
-
     return children;
 };
 
 ProtectedRoute.propTypes = {
     children: PropTypes.node.isRequired,
-    requireSuperuser: PropTypes.bool,
-    allowOnlySuperuser: PropTypes.bool,
 };
 
 export default ProtectedRoute;

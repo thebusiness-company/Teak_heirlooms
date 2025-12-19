@@ -63,17 +63,6 @@ const Navbar = ({ numCartItems }) => {
         {isAuthenticated ? (
           <div className="hidden md:flex items-center gap-3 text-[#9C0300] font-medium">
             <span className="text-sm sm:text-base">Hi {user.username}</span>
-            {user?.is_superuser && (
-              <button
-                onClick={() => {
-                  closeMenu();
-                  navigate("/admin");
-                }}
-                className="bg-[#9C0300] text-white px-4 py-1.5 sm:px-6 sm:py-2 rounded-full text-sm sm:text-base"
-              >
-                Admin Panel
-              </button>
-            )}
           </div>
         ) : (
           <button
@@ -147,17 +136,6 @@ const Navbar = ({ numCartItems }) => {
           {isAuthenticated ? (
             <>
               <span className="text-lg">Hi {user.username}</span>
-              {user?.is_superuser && (
-                <button
-                  onClick={() => {
-                    closeMenu();
-                    navigate("/admin");
-                  }}
-                  className="bg-[#9C0300] text-white px-6 py-2 rounded-full"
-                >
-                  Admin Panel
-                </button>
-              )}
             </>
           ) : (
             <button
