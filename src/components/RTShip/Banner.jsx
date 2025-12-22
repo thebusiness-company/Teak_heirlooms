@@ -1,7 +1,9 @@
-import image from "../../assets/images/RTShip/rtship-banner.jpg";
+import image from "../../assets/images/RTShip/rtship-banner.webp";
 export default function Banner() {
     return (
       <div
+        role="img"
+        aria-label="Teak furniture craftsmanship showcased in banner"
         className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: `url(${image})` }} // Update the path to your image
       >

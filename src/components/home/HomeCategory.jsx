@@ -45,6 +45,7 @@ const HomeCategory = () => {
               alt={category.title || "Category"}
               loading="lazy"
               className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500 ease-in-out"
+              decoding='async'
             />
 
             <div className="absolute inset-0 opacity-100 bg-gradient-to-t from-white/20 via-transparent to-black/50 z-10"></div>

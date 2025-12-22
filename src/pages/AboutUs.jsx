@@ -1,7 +1,7 @@
-import a1 from '../assets/images/aboutus/a1.png';
-import a2 from '../assets/images/aboutus/ourstory-1.png';
-import a3 from "../assets/images/aboutus/ourstory-2.png";
-import a4 from "../assets/images/aboutus/ourstory-3.png";
+import a1 from '../assets/images/aboutus/a1.webp';
+import a2 from '../assets/images/aboutus/ourstory-1.webp';
+import a3 from "../assets/images/aboutus/ourstory-2.webp";
+import a4 from "../assets/images/aboutus/ourstory-3.webp";
 const AboutUs = () => {
   return (
     <div className="w-full">
@@ -9,6 +9,8 @@ const AboutUs = () => {
       <div
         className="relative w-full h-[400px] md:h-[500px] flex items-center px-20 justify-end bg-cover bg-center overflow-x-hidden"
         style={{ backgroundImage: `url(${a1})` }}
+        role="img"
+        aria-label="Teak Heirlooms premium teak furniture showcase"
       >
         <div className="absolute inset-0 bg-opacity-30 text-white text-2xl md:text-4xl px-10 py-10 font-alata">
           TEAK HEIRLOOMS
@@ -49,9 +51,24 @@ const AboutUs = () => {
           OUR STORY
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 lg:gap-14 w-full lg:max-w-[90%] mx-auto mt-6 mb-10">
-          <img src={a2} alt="Story 1" className="w-full h-56 object-cover " />
-          <img src={a3} alt="Story 2" className="w-full h-56 object-cover " />
-          <img src={a4} alt="Story 3" className="w-full h-56 object-cover " />
+          <img
+            src={a2}
+            alt="Teak furniture craftsmanship"
+            loading="lazy"
+            className="w-full h-56 object-cover "
+          />
+          <img
+            src={a3}
+            alt="Handcrafted teak furniture story"
+            loading="lazy"
+            className="w-full h-56 object-cover "
+          />
+          <img
+            src={a4}
+            alt="Traditional teak furniture design"
+            loading="lazy"
+            className="w-full h-56 object-cover "
+          />
         </div>
 
         <div className=" mt-6">

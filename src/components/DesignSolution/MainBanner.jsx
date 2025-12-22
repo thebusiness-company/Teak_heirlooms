@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
-import img from "../../assets/images/design/design-2.png";
+import img from "../../assets/images/design/design-2.webp";
 
 const Counter = ({ value, duration = 2000 }) => {
   const [count, setCount] = useState(0);
@@ -59,6 +59,8 @@ const MainBanner = () => {
       <div
         className="relative bg-cover bg-center py-10 sm:py-16 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[600px] xl:h-[700px]"
         style={{ backgroundImage: `url(${img})` }}
+        role="img"
+        aria-label="Teak furniture design showcase"
       >
         {/* Stats Box Positioned at Bottom Right */}
         <motion.div

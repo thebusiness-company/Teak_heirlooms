@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from "react";
-import img from '../assets/images/terms.png'
+import img from '../assets/images/terms.webp';
 
 const TermsAndConditions = () => {
 

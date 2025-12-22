@@ -1,16 +1,14 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState} from 'react';
 import { jwtDecode } from 'jwt-decode';
 import api from '../../api';
 import { Navigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { AuthContext } from '../../context/AuthContext';
 import Spinner from './Spinner';
 
-const ProtectedRoute = ({ children, requireSuperuser = false, allowOnlySuperuser = false }) => {
+const ProtectedRoute = ({ children }) => {
     const [isAuthorized, setIsAuthorized] = useState(false);
     const [loading, setLoading] = useState(true);
     const location = useLocation();
-    const { user } = useContext(AuthContext);
 
     useEffect(() => {
         const refreshToken = async () => {
@@ -63,23 +61,11 @@ const ProtectedRoute = ({ children, requireSuperuser = false, allowOnlySuperuser
         return <Navigate to="/login" state={{ from: location }} replace />;
     }
 
-    // 🔒 If only superusers are allowed but the user isn't one
-    if (requireSuperuser && !user?.is_superuser) {
-        return <Navigate to="/" replace />;
-    }
-
-    // 🔒 If superusers should only access /admin
-    if (allowOnlySuperuser && user?.is_superuser && location.pathname !== '/dashboard') {
-        return <Navigate to="/dashboard" replace />;
-    }
-
     return children;
 };
 
 ProtectedRoute.propTypes = {
     children: PropTypes.node.isRequired,
-    requireSuperuser: PropTypes.bool,
-    allowOnlySuperuser: PropTypes.bool,
 };
 
 export default ProtectedRoute;

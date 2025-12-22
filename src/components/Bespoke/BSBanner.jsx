@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import img from "../../assets/images/Bespoke/bespoke-banner.png";
+import img from "../../assets/images/Bespoke/bespoke-banner.webp";
 const BSBanner = () => {
     const navigate = useNavigate();
 return (

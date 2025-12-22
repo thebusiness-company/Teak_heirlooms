@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import roombanner from '../../assets/images/roomsbanner.png';
+import roombanner from '../../assets/images/roomsbanner.webp';
 
 const HotspotRoom = () => {
   const navigate = useNavigate();

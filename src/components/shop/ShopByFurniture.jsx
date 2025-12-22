@@ -86,7 +86,7 @@ const ShopByFurniture = () => {
     );
   }
   
-  if (error) return <p className="text-center text-red-500">Error loading categories.</p>;
+  if (error) return null;
 
   return (
     <div className="w-full max-w-[90%] mx-auto text-center py-10 relative overflow-x-hidden">

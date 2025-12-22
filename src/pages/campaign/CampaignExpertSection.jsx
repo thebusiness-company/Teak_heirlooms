@@ -1,4 +1,4 @@
-import SE from "../../assets/images/design/speaktoexpert.png";
+import SE from "../../assets/images/design/speaktoexpert.webp";
 import { useNavigate } from "react-router-dom";
 
 const CampaignExpertSection = () => {
@@ -41,7 +41,7 @@ const CampaignExpertSection = () => {
             <div className="absolute inset-x-0 -top-[60%] sm:-top-[120%] md:-top-[60%] lg:-top-[120%] xl:-top-[96%] 2xl:-top-[130%] w-1/2 z-6 ">
               <img
                 src={SE}
-                alt="Interior Design"
+                alt="Expert guiding interior design and furniture choices"
                 className="h-[187px] sm:h-80 w-10/12 lg:w-[75%] xl:w-[80%] 2xl:w-[75%] md:w-96 max-h-full md:h-106 lg:h-144 xl:h-144 2xl:h-194 object-cover ml-4 md:ml-8 lg:ml-14 2xl:ml-18"
               />
             </div>

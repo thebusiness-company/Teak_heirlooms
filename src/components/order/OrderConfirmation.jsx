@@ -134,12 +134,12 @@ const OrderConfirmation = () => {
         </Link>
         </div>
         <div className="mt-6 md:mt-0 flex flex-col sm:flex-row justify-end gap-4 md:mr-6">
-        <Link
+        {/* <Link
           to="/"
           className="text-center px-6 py-3 bg-[#9C0300] hover:bg-red-700 text-white rounded-md"
         >
           Track order
-        </Link>
+        </Link> */}
         </div>
     </div>
   );

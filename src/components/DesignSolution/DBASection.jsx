@@ -4,9 +4,9 @@ import "slick-carousel/slick/slick-theme.css";
 import PropTypes from "prop-types";
 import LeftArrow from "../../assets/images/Left.png";  // Update path if needed
 import RightArrow from "../../assets/images/Right.png";
-import img1 from "../../assets/images/design/D1.png";
-import img2 from "../../assets/images/design/D2.png";
-import img3 from "../../assets/images/design/D3.png";
+import img1 from "../../assets/images/design/D1.webp";
+import img2 from "../../assets/images/design/D2.webp";
+import img3 from "../../assets/images/design/D3.webp";
 
 // Custom Arrow Components
 const CustomPrevArrow = (props) => {
@@ -44,9 +44,27 @@ CustomNextArrow.propTypes = { onClick: PropTypes.func };
 
 const DBASection = () => {
   const items = [
-    { id: 1, image: img1, title: "Personal Design Expert", desc: "From your very first call to final delivery, a dedicated design consultant helps bring your dream to life - making the process seamless, exciting, and deeply personal." },
-    { id: 2, image: img2, title: "Complete Customisation", desc: "Every single element - from the texture of the fabric to the silhouette of the piece - is yours to choose. Nothing is pre-fixed. Everything is tailored." },
-    { id: 3, image: img3, title: "Seamless Execution", desc: "Once your design is locked in, we take care of the rest. Our team handles the build, transport, and installation - so all you have to do is enjoy the results." },
+    {
+      id: 1,
+      image: img1,
+      title: "Personal Design Expert",
+      desc: "From your very first call to final delivery, a dedicated design consultant helps bring your dream to life - making the process seamless, exciting, and deeply personal.",
+      alt: "Design consultant assisting client with furniture plans",
+    },
+    {
+      id: 2,
+      image: img2,
+      title: "Complete Customisation",
+      desc: "Every single element - from the texture of the fabric to the silhouette of the piece - is yours to choose. Nothing is pre-fixed. Everything is tailored.",
+      alt: "Custom teak furniture design showcasing personalization options",
+    },
+    {
+      id: 3,
+      image: img3,
+      title: "Seamless Execution",
+      desc: "Once your design is locked in, we take care of the rest. Our team handles the build, transport, and installation - so all you have to do is enjoy the results.",
+      alt: "Furniture installation and delivery by professional team",
+    },
   ];
 
   const settings = {
@@ -83,7 +101,8 @@ const DBASection = () => {
               <div className="bg-white p-4 text-left">
                 <img
                   src={item.image}
-                  alt={item.title}
+                  alt={item.alt}
+                  loading="lazy"
                   className=" w-full h-auto mb-6"
                 />
                 <h3 className="text-lg font-semibold text-[#3B493F] mb-3">

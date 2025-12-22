@@ -19,29 +19,34 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const redirectBasedOnRole = (user) => {
-    const from = location.state?.from?.pathname;
-    if (from) {
-      navigate(from, { replace: true });
-    } else if (user?.is_superuser) {
-      navigate("/dashboard", { replace: true });
-    } else {
-      navigate("/", { replace: true });
-    }
-  };
+  // const redirectBasedOnRole = (user) => {
+  //   const from = location.state?.from?.pathname;
+  //   if (from) {
+  //     navigate(from, { replace: true });
+  //   }
+  //   else if (user?.is_superuser) {
+  //     navigate("/admin", { replace: true });
+  //   }
+  //   else {
+  //     navigate("/", { replace: true });
+  //   }
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const res = await api.post('token/', formData);
+      const res = await api.post("token/", formData);
       localStorage.setItem("access", res.data.access);
       localStorage.setItem("refresh", res.data.refresh);
       setIsAuthenticated(true);
-      const userData = await getuser();
+      await getuser();
       setFormData({ email: "", password: "" });
       setError("");
-      redirectBasedOnRole(userData);
+
+      const from = location.state?.from?.pathname || "/";
+      navigate(from, { replace: true });
+
     } catch (err) {
       console.log(err);
       setError("Invalid email or password");
@@ -51,8 +56,8 @@ const Login = () => {
   };
 
   const googleLogin = useGoogleLogin({
-  onSuccess: async (tokenResponse) => {
-        console.log("googleAccessToken",tokenResponse.access_token);
+    onSuccess: async (tokenResponse) => {
+      console.log("googleAccessToken", tokenResponse.access_token);
 
     try {
       const res = await axios.post(`${API_URL}/api/rest-auth/google/`, {
@@ -62,25 +67,27 @@ const Login = () => {
       localStorage.setItem("access", res.data.access);
       localStorage.setItem("refresh",res.data.refresh);
 
-      setIsAuthenticated(true);
-      getuser();
-      setError("");
+        setIsAuthenticated(true);
+        getuser();
+        setError("");
 
-      const from = location.state?.from?.pathname || "/";
-      navigate(from, { replace: true });
-    } catch (err) {
-      console.error("Google login error:", err);
-      setError("Google login failed");
-    }
-  },
-  onError: () => setError("Google login was cancelled or failed"),
-});
+        const from = location.state?.from?.pathname || "/";
+        navigate(from, { replace: true });
+      } catch (err) {
+        console.error("Google login error:", err);
+        setError("Google login failed");
+      }
+    },
+    onError: () => setError("Google login was cancelled or failed"),
+  });
 
   return (
     <div className="h-screen w-full bg-[#FFF1DF] flex items-center justify-center">
       <section className="relative flex flex-col bg-white items-center justify-between w-full max-w-7xl mx-auto rounded-lg my-1 px-4 md:px-8">
         <div className="relative p-8 w-full md:w-1/2 z-10">
-          <h2 className="text-2xl font-semibold text-center mb-4">Sign in to your account</h2>
+          <h2 className="text-2xl font-semibold text-center mb-4">
+            Sign in to your account
+          </h2>
 
           <div className="flex justify-center mb-4">
             <button
@@ -89,7 +96,7 @@ const Login = () => {
               onClick={() => googleLogin()}
             >
               <span className="text-sm">Login with Google</span>
-              <img src={google} alt="Google" className="w-5 h-5"/>
+              <img src={google} alt="Google" className="w-5 h-5" />
             </button>
           </div>
 
@@ -105,7 +112,10 @@ const Login = () => {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className={isLoading ? "opacity-50 pointer-events-none" : ""}>
+          <form
+            onSubmit={handleSubmit}
+            className={isLoading ? "opacity-50 pointer-events-none" : ""}
+          >
             <p className="text-[#9C0300]">Email</p>
             <input
               type="email"
@@ -135,11 +145,11 @@ const Login = () => {
             </button>
           </form>
 
-
-
           <p className="text-center text-sm mt-4">
             Don&apos;t have an account?{" "}
-            <Link to="/signup" className="text-[#9C0300] underline">Sign up</Link>
+            <Link to="/signup" className="text-[#9C0300] underline">
+              Sign up
+            </Link>
           </p>
         </div>
 

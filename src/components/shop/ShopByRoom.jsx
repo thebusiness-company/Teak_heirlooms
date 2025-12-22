@@ -1,10 +1,10 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import rooms1 from "../../assets/images/shop/living.png";
-import rooms2 from "../../assets/images/shop/kitchen.png";
-import rooms3 from "../../assets/images/shop/bedroom.png";
-import rooms4 from "../../assets/images/shop/studyroom.png";
+import rooms1 from "../../assets/images/shop/living.webp";
+import rooms2 from "../../assets/images/shop/kitchen.webp";
+import rooms3 from "../../assets/images/shop/bedroom.webp";
+import rooms4 from "../../assets/images/shop/studyroom.webp";
 import PrevArrow from "../../assets/images/Left.png"; // Custom left arrow
 import NextArrow from "../../assets/images/Right.png"; // Custom right arrow
 

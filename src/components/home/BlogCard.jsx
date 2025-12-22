@@ -11,13 +11,15 @@ const BlogCard = ({ blog }) => {
 
   return (
     <>
-      <div 
-      className="bg-[#FFF] overflow-hidden mx-auto w-11/12 sm:w-3/4 md:w-3/5 lg:w-3/4 shadow-lg p-4 mb-8 cursor-pointer"
-      onClick={() => navigate(`/blogs/${blog.id}`)}
+      <div
+        className="bg-[#FFF] overflow-hidden mx-auto w-11/12 sm:w-3/4 md:w-3/5 lg:w-3/4 shadow-lg p-4 mb-8 cursor-pointer"
+        onClick={() => navigate(`/blogs/${blog.id}`)}
       >
         <img
           src={blog.image}
           alt={blog.title}
+          loading="lazy"
+          decoding="async"
           className="w-full h-48 object-cover"
         />
         <div className="p-4 text-left">

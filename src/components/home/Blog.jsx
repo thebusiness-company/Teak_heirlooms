@@ -71,6 +71,8 @@ const Blog = () => {
                     src={blog.image}
                     alt={blog.title}
                     className="w-full h-48 object-cover"
+                    loading='lazy'
+                    decoding='async'
                   />
                   <div className="p-4 text-left">
                     <h3 className="text-lg font-semibold text-[#3B493F]">

@@ -1,5 +1,5 @@
-import Sustainability1 from "../assets/images/sustainability-1.png";
-import Sustainability2 from "../assets/images/sustainability-2.png";
+import Sustainability1 from "../assets/images/sustainability-1.webp";
+import Sustainability2 from "../assets/images/sustainability-2.webp";
 
 const SustainabilitySection = () => {
   return (
@@ -34,7 +34,8 @@ const SustainabilitySection = () => {
         <div className="w-full md:w-[40%] flex justify-center md:absolute md:left-0 md:top-1/2 md:-translate-y-1/2 opacity-90">
           <img
             src={Sustainability1}
-            alt="Sustainability"
+            alt="Ethically sourced teak furniture"
+            loading="lazy"
             className="w-3/5 md:w-5/6 max-w-[300px] md:max-w-none object-cover max-h-[600px]"
           />
         </div>
@@ -68,7 +69,8 @@ const SustainabilitySection = () => {
         <div className="w-full md:w-[40%] flex justify-center md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2 opacity-90">
           <img
             src={Sustainability2}
-            alt="Sustainability"
+            alt="Traditional teak furniture craftsmanship"
+            loading="lazy"
             className="w-3/5 md:w-5/6 max-w-[300px] md:max-w-none object-cover max-h-[600px]"
           />
         </div>

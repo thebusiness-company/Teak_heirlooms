@@ -6,7 +6,7 @@ const RelatedProduct = ({ category, slug }) => {
   const { products, isLoading, error } = useProducts();
 
   if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error loading products</p>;
+  if (error) return null;
 
   console.log("Selected Category:", category);
   console.log("Selected slug:", slug);

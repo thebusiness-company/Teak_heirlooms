@@ -42,6 +42,8 @@ const ShopCollection = () => {
                 <img
                   src={collection.image}
                   alt={collection.title}
+                  loading='lazy'
+                  decoding='async'
                   className="w-full h-auto object-cover"
                 />
               </div>

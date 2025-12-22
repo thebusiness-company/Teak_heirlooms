@@ -1,6 +1,6 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
-import img from "../assets/images/feedback.png";
+import img from "../assets/images/feedback.webp";
 
 const FeedbackForm = () => {
   const [email, setEmail] = useState("");
@@ -44,7 +44,9 @@ const FeedbackForm = () => {
       {/* Left Side */}
       <div className="w-full md:w-1/2 max-w-xl space-y-6">
         <div className="flex flex-col sm:flex-row items-center sm:space-x-3">
-          <label className="text-lg md:text-2xl lg:text-3xl font-semibold">Email:</label>
+          <label className="text-lg md:text-2xl lg:text-3xl font-semibold">
+            Email:
+          </label>
           <div className="relative bg-white shadow-md rounded-lg w-full max-w-md">
             <input
               type="email"
@@ -82,7 +84,8 @@ const FeedbackForm = () => {
         <div className="relative w-full max-w-md">
           <img
             src={img}
-            alt="Decorative"
+            alt="Customer feedback and support illustration"
+            loading="lazy"
             className="w-full object-cover"
           />
         </div>

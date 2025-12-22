@@ -1,5 +1,5 @@
 import React from "react";
-import DH from "../../assets/images/design/dhsection.png";
+import DH from "../../assets/images/design/dhsection.webp";
 import { useNavigate } from "react-router-dom";
 
 export default function DHSection() {
@@ -45,8 +45,9 @@ export default function DHSection() {
       <div className="md:w-1/2 mt-8 lg:ml-12 lg:mt-0 ">
         <img
           src={DH}
-          alt="Dream Home"
+          alt="Lotus-painted teak cabinet symbolizing a dream home interior"
           className="w-full h-[350px] md:h-[500px] lg:h-[550px] shadow-lg object-cover"
+          loading="lazy"
         />
       </div>
     </div>

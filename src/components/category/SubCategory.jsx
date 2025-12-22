@@ -18,6 +18,7 @@ const SubCategory = ({ title, items }) => {
               <img
                 src={item.image}
                 alt={item.name}
+                loading="lazy"
                 className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#38493f] to-transparent p-4">
