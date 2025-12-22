@@ -63,7 +63,7 @@ const Signup = () => {
       onSuccess: async (tokenResponse) =>{
         console.log("googleAccessToken", tokenResponse.access_token);
         try{
-          const res = await axios.post(`${API_URL}/rest-auth/google/`,{
+          const res = await axios.post(`${API_URL}/api/rest-auth/google/`,{
             access_token: tokenResponse.access_token,
           });
           console.log("Google signup response",res.data);

@@ -1,7 +1,6 @@
 // src/pages/Login.jsx
 import { useContext, useState } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
-import img from "../assets/images/signup.png";
 import api, { API_URL } from "../api";
 import { AuthContext } from "../context/AuthContext";
 import { useGoogleLogin } from "@react-oauth/google";
@@ -56,7 +55,7 @@ const Login = () => {
         console.log("googleAccessToken",tokenResponse.access_token);
 
     try {
-      const res = await axios.post(`${API_URL}/rest-auth/google/`, {
+      const res = await axios.post(`${API_URL}/api/rest-auth/google/`, {
         access_token: tokenResponse.access_token,
       });
       console.log("google Login response:",res.data);
