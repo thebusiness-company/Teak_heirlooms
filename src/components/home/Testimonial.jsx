@@ -13,7 +13,7 @@ const CustomPrevArrow = (props) => {
   const { onClick } = props;
   return (
     <button
-      className="absolute left-0 z-1 top-1/2 transform -translate-y-1/2 p-2 text-white rounded-full transition-colors duration-200 cursor-pointer"
+      className="absolute -left-4 z-1 top-1/2 transform -translate-y-1/2 p-2 text-white rounded-full transition-colors duration-200 cursor-pointer"
       onClick={onClick}
     >
       {/* <ChevronLeft size={24} />  */}
@@ -29,7 +29,7 @@ const CustomNextArrow = (props) => {
   const { onClick } = props;
   return (
     <button
-      className="absolute right-0 z-1 top-1/2 transform -translate-y-1/2 p-2 text-white rounded-full transition-colors duration-200 cursor-pointer"
+      className="absolute -right-4 z-1 top-1/2 transform -translate-y-1/2 p-2 text-white rounded-full transition-colors duration-200 cursor-pointer"
       onClick={onClick}
     >
       {/* <ChevronRight size={24} /> */}
@@ -80,7 +80,7 @@ export default function TestimonialCarousel() {
         },
       },
       {
-        breakpoint: 768,
+        breakpoint: 1023, //(for ipad air)
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -117,28 +117,28 @@ export default function TestimonialCarousel() {
       <h2 className="text-3xl lg:text-5xl text-[#3B493F] font-upright w-full max-w-[94%]">
         In Their Words, Our Legacy
       </h2>
-      <p className="text-[#000000] mb-6">Happy Words of Our Happy Customers</p>
+      <p className="text-[#000000] mb-3 md:mb-6">Happy Words of Our Happy Customers</p>
       <div className="w-full max-w-[94%] px-4 sm:px-6 md:px-8 relative">
         <Slider key={testimonials.length} {...settings}>
           {testimonials.map((testimonial) => (
             <div key={testimonial.id} className="p-4 flex justify-center">
-              <div className="bg-[#EDEAE5] p-6 flex flex-col md:flex-row items-center mx-auto max-w-md md:max-w-lg w-full">
+              <div className="bg-[#EDEAE5] p-6 flex flex-col md:flex-row items-center mx-auto max-w-md md:max-w-lg xl:max-w-xl w-full">
                 <img
                   src={`${testimonial.image}`}
                   loading="lazy"
                   decoding="async"
                   alt="Testimonial"
-                  className="w-full md:w-1/3 h-56 object-cover rounded mb-4 md:mb-0 md:mr-6"
+                  className="w-full md:w-[40%] 2xl:w-[50%] h-62  xl:h-70 object-cover rounded mb-4 md:mb-0 md:mr-6"
                 />
 
                 <div className="w-full md:w-2/3 text-left">
-                  <h3 className="font-semibold text-lg mb-2 text-[#000000]">
+                  <h3 className="font-semibold text-base xl:text-lg mb-2 text-[#000000]">
                     {testimonial.title}
                   </h3>
                   <p className="text-[#000000] text-sm">
                     {expanded[testimonial.id]
                       ? testimonial.text
-                      : truncateText(testimonial.text, 40)}
+                      : truncateText(testimonial.text, 35)}
                   </p>
                   <button
                     onClick={() => toggleExpand(testimonial.id)}

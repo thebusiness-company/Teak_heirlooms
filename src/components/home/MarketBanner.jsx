@@ -19,7 +19,7 @@ const MarketBanner = () => {
   }, []);
 
   return (
-    <div className="relative w-full mb-6 md:mb-10 aspect-[1920/405]">
+    <div className="relative w-full mb-6 md:mb-10 xl:mb-12 2xl:mb-16 aspect-[1920/405]">
       {img && img.image ? (
         <>
           <img

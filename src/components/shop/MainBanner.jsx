@@ -52,7 +52,7 @@ const MainBanner = () => {
         <h2 className="text-lg sm:text-xl md:text-3xl lg:text-6xl text-[#3B493F] font-infant leading-tight">
           {banner.title}
         </h2>
-        <p className="text-[#9C0300] text-xs sm:text-sm md:text-base mt-2">
+        <p className="text-[#9C0300] text-xs md:text-base mt-2">
           {banner.description} @RS.{banner.price_text}
         </p>
         <a
