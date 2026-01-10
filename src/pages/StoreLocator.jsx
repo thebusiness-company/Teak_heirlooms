@@ -1,8 +1,8 @@
 
 const StoreLocator = () => {
   return (
-    <div className="max-w-6xl mx-auto p-4">
-      <h2 className="text-center text-xl md:text-2xl font-bold mb-4">
+    <div className="w-full max-w-[94%] xl:max-w-[80%] mx-auto p-4 mb-4 xl:mb-6 2xl:mb-8">
+      <h2 className="text-center text-xl lg:text-2xl 2xl:text-3xl font-bold mb-4 mt-2 2xl:mt-4 2xl:mb-6">
         STORE LOCATOR
       </h2>
 

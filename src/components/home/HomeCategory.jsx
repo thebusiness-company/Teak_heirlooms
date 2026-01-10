@@ -31,33 +31,39 @@ const HomeCategory = () => {
 
   return (
     <div className="bg-white p-6 w-full max-w-[94%] mx-auto">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center gap-4 lg:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center gap-4 lg:gap-6 xl:gap-8 2xl:gap-12">
         {categories.map((category) => (
           <a
             key={category.id}
-            href={category.url}       
-            target="_self"             
+            href={category.url}
+            target="_self"
             rel="noopener noreferrer"
-            className="relative w-full h-[400px] lg:h-[500px] overflow-hidden group cursor-pointer"
+            className="relative w-full h-100 lg:h-125 xl:h-135 2xl:h-155 overflow-hidden group cursor-pointer"
           >
             <img
               src={`${API_URL}${category.image}` || "/placeholder.jpg"}
               alt={category.title || "Category"}
               loading="lazy"
               className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500 ease-in-out"
-              decoding='async'
+              decoding="async"
             />
 
             <div className="absolute inset-0 opacity-100 bg-gradient-to-t from-white/20 via-transparent to-black/50 z-10"></div>
 
             <div className="absolute inset-0 flex flex-col justify-start items-center text-white text-center p-4 lg:mt-10 z-20">
-              <h3 className="text-lg md:text-xl white-text-shadow">{category.title}</h3>
-              <p className="text-sm md:text-base white-text-shadow">{category.subtitle}</p>
-              <p className="mt-2 text-sm md:text-base white-text-shadow">{category.description}</p>
-              <span className="text-[#9C0300] font-semibold text-lg md:text-xl">
+              <h3 className="text-lg md:text-xl white-text-shadow tracking-widest mb-2 leading-snug mt-2">
+                {category.title}
+              </h3>
+              <p className="text-sm md:text-base xl:text-xl white-text-shadow tracking-widest mb-2 leading-snug">
+                {category.subtitle}
+              </p>
+              <p className="mt-2 text-sm md:text-base xl:text-lg white-text-shadow mb-2 leading-snug">
+                {category.description}
+              </p>
+              <span className="text-[#9C0300] font-semibold text-lg xl:text-xl">
                 {category.price}
               </span>
-              <span className="absolute bottom-6 left-6 lg:left-14">
+              <span className="absolute bottom-6 left-6 lg:left-14 white-text-shadow md:text-lg xl:text-xl ">
                 {category.name}
               </span>
             </div>

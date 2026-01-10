@@ -40,7 +40,7 @@ const Blog = () => {
 
     return (
       <section className="py-12 px-4 text-center relative">
-        <h2 className="text-3xl lg:text-5xl text-[#3B493F] mb-8 font-upright">
+        <h2 className="text-3xl lg:text-5xl text-[#3B493F] mb-8 2xl:mb-14 font-upright">
           Latest Blog
         </h2>
         <div className="swiper-container">
@@ -70,9 +70,9 @@ const Blog = () => {
                   <img
                     src={blog.image}
                     alt={blog.title}
-                    className="w-full h-48 object-cover"
-                    loading='lazy'
-                    decoding='async'
+                    className="w-full h-48 xl:h-54 2xl:h-64 object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="p-4 text-left">
                     <h3 className="text-lg font-semibold text-[#3B493F]">

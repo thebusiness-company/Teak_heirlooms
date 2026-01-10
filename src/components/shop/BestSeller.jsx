@@ -13,7 +13,7 @@ const CustomPrevArrow = ({ onClick }) => (
   <button
     onClick={onClick}
     aria-label="Previous Slide"
-    className="absolute -left-[8px] md:left-[2px] top-[115px] transform -translate-y-1/2 z-10 bg-white p-2 shadow-md cursor-pointer"
+    className="absolute -left-[11px] md:left-[2px] top-[85px] md:top-[145px] lg:top-[105px] xl:top-[125px] 2xl:top-[185px] transform -translate-y-1/2 z-10 bg-white p-2 shadow-md cursor-pointer"
   >
     <img src={LeftArrow} alt="Previous" className="w-5 h-5 md:w-6 md:h-6" />
   </button>
@@ -23,7 +23,7 @@ const CustomNextArrow = ({ onClick }) => (
   <button
     onClick={onClick}
     aria-label="Next Slide"
-    className="absolute -right-[8px] md:right-[2px] top-[115px] transform -translate-y-1/2 z-10 bg-white p-2 shadow-md cursor-pointer"
+    className="absolute -right-[11px] md:right-[2px] top-[85px] md:top-[145px] lg:top-[105px] xl:top-[125px] 2xl:top-[185px] transform -translate-y-1/2 z-10 bg-white p-2 shadow-md cursor-pointer"
   >
     <img src={RightArrow} alt="Next" className="w-5 h-5 md:w-6 md:h-6" />
   </button>
@@ -39,25 +39,43 @@ const BestSeller = () => {
 
   // Hide arrows if there are fewer than 4 products
   const showArrows = topSellingProducts.length >= 4;
+  const productCount = topSellingProducts.length;
 
-  const settings = {
-    dots: false,
-    lazyLoad: "ondemand",
-    infinite: topSellingProducts.length > 1, // Disable infinite loop if only one product
-    speed: 500,
-    slidesToShow: Math.min(topSellingProducts.length, 4), // Ensure it doesn't exceed product count
-    touchMove: true,
-    swipe: true,
-    slidesToScroll: 1,
-    prevArrow: showArrows ? <CustomPrevArrow /> : null,
-    nextArrow: showArrows ? <CustomNextArrow /> : null,
-    responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: Math.min(topSellingProducts.length, 2) } },
-      { breakpoint: 768, settings: { 
-        slidesToShow: 2, 
-      } },
-    ],
-  };
+const settings = {
+  dots: false,
+  lazyLoad: "ondemand",
+  speed: 500,
+
+  // FIXED layout
+  slidesToShow: 4,
+
+  // BEHAVIOR changes based on count
+  infinite: productCount > 4,
+  arrows: productCount > 4,
+  swipe: productCount > 1,
+
+  slidesToScroll: 1,
+
+  prevArrow: productCount > 4 ? <CustomPrevArrow /> : null,
+  nextArrow: productCount > 4 ? <CustomNextArrow /> : null,
+
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        infinite: productCount > 2,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+        infinite: productCount > 2,
+      },
+    },
+  ],
+};
 
     if (isLoading) {
       return (
@@ -103,7 +121,7 @@ const BestSeller = () => {
               <div key={product.slug} className="md:px-3">
                 <div className="bg-white p-2 md:p-4">
                   <Link to={`/product/${product.slug}`}>
-                    <div className="w-full h-[200px] flex items-center justify-center overflow-hidden">
+                    <div className="w-full aspect-square flex items-center justify-center overflow-hidden">
                       <img
                         src={product.images[0]?.image}
                         alt={product.name}
