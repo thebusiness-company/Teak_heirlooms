@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios'; // Ensure axios is installed
+import { API_URL } from '../../api';
 
 const ShopCollection = () => {
   const [collections, setCollections] = useState([]);
@@ -10,7 +11,7 @@ const ShopCollection = () => {
     const fetchCollections = async () => {
       try {
         // Replace with your actual API URL
-        const response = await axios.get('http://127.0.0.1:8000/api/shop-collections/');
+        const response = await axios.get(`${API_URL}/api/shop-collections/`);
         setCollections(response.data);
       } catch (error) {
         console.error("Error fetching collections:", error);

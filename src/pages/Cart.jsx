@@ -132,6 +132,7 @@ const Cart = () => {
       const orderResponse = await api.post("create_order/", {
         cart_code,
         amount: totalAmount,
+        address: addressData,
       });
 
       const options = {
@@ -148,7 +149,7 @@ const Cart = () => {
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_order_id: response.razorpay_order_id,
               razorpay_signature: response.razorpay_signature,
-              address: addressData,
+        
             });
 
             localStorage.removeItem("cart_code");
